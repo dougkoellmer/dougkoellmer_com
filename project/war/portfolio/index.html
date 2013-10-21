@@ -1,5 +1,10 @@
 <html>
 	<head>
+		
+		<title>The Portfolio</title>
+		
+		<link rel="shortcut icon" href="/favicon.ico?v=3" />
+		
 		<style type="text/css">
 		    .pln { color: #000; }		/* plain text */
 			.str { color: #007200; }	/* string content */
@@ -96,13 +101,14 @@
 				left:-10px;
 			}
 			
+			.b33
+			{
+				top:534px; left:790px;
+			}
+			
 		</style>
 		
 		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
-		
-		<!--
-		<img src="me.jpg" class="tile nocode"/>
-		-->
 		
 	</head>
 	
@@ -110,20 +116,19 @@
 		<div class="page">
 			<div class="tile_wrapper">
 				<img src="me.jpg" class="tile" style="top:107px; left:790px; border-radius:75px;" />
-				<img src="b33.png" class="tile" style="top:534px; left:790px; width:150px" />
-				<img src="quick_phyx_orig.png" class="tile" style="opacity:.8; top:730px; left:815px; width:100px;" />
-				<img src="book_of_heroes.png" class="tile" style="top:966px; left:802px; width:130px;" />
-				<img src="ei_logo_orig.png" class="tile" style="top:1108px; left:754px; width:230px;" />
-				<img src="teacher_orig.png" class="tile" style="top:1287px; left:816px; width:110px;" />
-				<img src="touch_tone_hero_orig.png" class="tile" style="top:1498px; left:814px; width:120px; border-radius:20px;" />
-				
-				
+				<img src="b33_0.png?v=3" id="b33_0" class="tile b33" />
+				<img src="b33_1.png?v=3" id="b33_1" class="tile b33" style="visibility:hidden;" />
+				<img src="quick_phyx.png" class="tile" style="opacity:.8; top:730px; left:815px;" />
+				<img src="book_of_heroes.png" class="tile" style="top:966px; left:802px;" />
+				<img src="ei_logo.png" class="tile" style="top:1108px; left:754px;" />
+				<img src="teacher.png" class="tile" style="top:1287px; left:816px;" />
+				<img src="touch_tone_hero.png" class="tile" style="top:1498px; left:814px; border-radius:20px;" />
 			</div>
 			
 			<pre class="prettyprint lang-llvm">
 public class ToMyPotentialNewEmployerOrClient extends Introduction
 {
-    public void writeIntro(Document out)
+    public void override writeIntro(Document out)
     {
         out.write("Hi, I'm Doug! I have...\n");
 
@@ -255,11 +260,31 @@ public class ForKicks extends SoftwareIHaveWritten
             "A few other small experiments can be found here."
         );
     }
-}
-
-//DISCLAIMER: Hopefully you don't think I actually design classes like this!</pre>
+}</pre>
 		</div>
 		
-		<script>prettyPrint();</script>
+		<script>
+			prettyPrint();
+			
+			var b33_0 = document.getElementById("b33_0");
+			var b33_1 = document.getElementById("b33_1");
+			var b33Index = 0;
+			setInterval(function()
+			{
+				if( b33Index == 0 )
+				{
+					b33_0.style.visibility = "hidden";
+					b33_1.style.visibility = "visible";
+					b33Index = 1;
+				}
+				else
+				{
+					b33_0.style.visibility = "visible";
+					b33_1.style.visibility = "hidden";
+					b33Index = 0;
+				}
+			}, 33);
+			
+		</script>
 	</body>
 </html>
