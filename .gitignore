@@ -1,0 +1,16 @@
+project/gwt-unitCache/
+/build
+/classes
+*.jar
+*.class
+*~
+*/war/gwt
+project/war/WEB-INF/classes
+target
+/caja
+/caja-release
+/app_engine_sdk
+*/war/r.app
+project/.metadata
+
+project/lib/swarm
