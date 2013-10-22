@@ -46,7 +46,7 @@ public class ForMoney extends SoftwareIHaveWritten
             "keypad with real dial tones to play popular melodies with accuracy-based "    +
             "scoring. I was co-designer and lone programmer. It was available on the App " +
             "Store until we were forced to remove it because all the downloads were "      +
-            "stressing iTunes' servers to the limits."
+            "crashing iTunes' servers."
         );
     }
 }

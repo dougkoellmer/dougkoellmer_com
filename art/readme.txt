@@ -1,0 +1,1 @@
+favicon is Staccato222 BT 15 pt

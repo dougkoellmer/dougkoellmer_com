@@ -3,7 +3,7 @@
 		
 		<title>The Portfolio</title>
 		
-		<link rel="shortcut icon" href="/favicon.ico?v=3" />
+		<link rel="shortcut icon" href="/favicon.ico?v=4" />
 		
 		<style type="text/css">
 		    .pln { color: #000; }		/* plain text */
@@ -19,11 +19,6 @@
 			.dec { color: #606; }  		/* a declaration */
 			.var { color: #606; }		/* a variable name  */
 			.fun { color: red;  }		/* a function name */
-			
-            .prettyprint
-			{
-				margin-left:5px;
-			}
 			
 			/* Specify class=linenums on a pre to get line numbering */
 			ol.linenums
@@ -44,7 +39,7 @@
 				margin-left:6px;
 			}
 			
-            li.L0, li.L2, li.L4, li.L6, li.L8
+			li.L0, li.L2, li.L4, li.L6, li.L8
 			{
 				background: white;
 			}
@@ -62,14 +57,14 @@
 			
 			.page
 			{
+				text-align:center;
 				width:1000px;
 				min-height:100%;
 				margin-left:auto;
 				margin-right:auto;
 				background:white;
 				
-				padding:10px;
-				padding-top:2px;
+				padding-top:6px;
 				
 				box-sizing:border-box;
 				-moz-box-sizing:border-box;
@@ -88,22 +83,40 @@
 				color:blue;
 			}
 			
-            .tile
-            {
+			.tile, .animation_container
+			{
 				display:block;
 				position:absolute;
-            }
+			}
+			
+			.animation_frame
+			{
+				position:absolute;
+			}
 			
 			.tile_wrapper
 			{
 				position:absolute;
-				top:-72px;
+				top:-67px;
 				left:-10px;
 			}
 			
-			.b33
+			.code_block
 			{
-				top:534px; left:790px;
+				display:inline-block;
+				text-align:left;
+				margin-left:auto;
+				margin-right:auto;
+				font-size:13px;
+				line-height:16px;
+				font-family:"Courier";
+				font-weight:100;
+			}
+			
+			.teacher
+			{
+				border:1px dashed #CCCCCC;
+				border-radius:10px;
 			}
 			
 		</style>
@@ -115,17 +128,17 @@
 	<body>
 		<div class="page">
 			<div class="tile_wrapper">
-				<img src="me.jpg" class="tile" style="top:107px; left:790px; border-radius:75px;" />
-				<img src="b33_0.png?v=3" id="b33_0" class="tile b33" />
-				<img src="b33_1.png?v=3" id="b33_1" class="tile b33" style="visibility:hidden;" />
+				<img src="me.jpg" class="tile" style="top:128px; left:790px; border-radius:75px;" />
+				<div class="animation_container" id="b33_container" style="top:538px; left:790px;"></div>
 				<img src="quick_phyx.png" class="tile" style="opacity:.8; top:730px; left:815px;" />
-				<img src="book_of_heroes.png" class="tile" style="top:966px; left:802px;" />
-				<img src="ei_logo.png" class="tile" style="top:1108px; left:754px;" />
-				<img src="teacher.png" class="tile" style="top:1287px; left:816px;" />
+				<img src="book_of_heroes.png" class="tile" style="top:969px; left:802px;" />
+				<img src="ei_logo.png" class="tile" style="top:1105px; left:754px;" />
+				<div id="b33_container" style="top:534px; left:790px;"></div>
+				<div class="animation_container" id="teacher_container" style="top:1287px; left:816px;"></div>
 				<img src="touch_tone_hero.png" class="tile" style="top:1498px; left:814px; border-radius:20px;" />
 			</div>
 			
-			<pre class="prettyprint lang-llvm">
+			<pre class="code_block prettyprint lang-llvm">
 public class ToMyPotentialNewEmployerOrClient extends Introduction
 {
     public void override writeIntro(Document out)
@@ -139,10 +152,10 @@ public class ToMyPotentialNewEmployerOrClient extends Introduction
     private String[] m_achievements =
     {
         " - twelve years of professional software development experience.",
-        " - two open source projects with over 100,000 lines of code combined (not counting comments!).",
+        " - two open source projects with over 100,000 lines of code combined.",
         " - bootstrapped an EdTech startup, and almost broke even.",
         " - worked on all aspects of a successful mobile social MMORPG.",
-        " - developed grant-funded training simulations for just about every 'Department' the U.S. government has.",
+        " - developed training simulations for almost every 'Department' the U.S. government has.",
         " - written algorithms for rendering symbolicated, 2D-projected, hidden-line-removed schematics from 3D " +
         "     parametric surface geometry in architectural CAD projects.",
         " - never been able to explain to others what the above point means.",
@@ -164,7 +177,7 @@ public class OpenSource extends SoftwareIHaveWritten
             "with each other. The core of this project is <a class='nocode' href='https://github.com/dougkoellmer/swarm' target='_blank'>swarm</a>, a next of class content " +
             "browser for the web."
         );
-  //----------------------------------------------------------------------------------------------------------------\\
+  //----------------------------------------------------------------------------------------------------------------\\  
 
         writeLink("quickb2",                         "<a class='nocode' href='http://quickb2.dougkoellmer.com/bin/qb2DemoReel.swf' target='_blank'>http://quickb2.dougkoellmer.com/bin</a>");
         writeDetails
@@ -172,7 +185,7 @@ public class OpenSource extends SoftwareIHaveWritten
             "Originally started as a convenience wrapper around Box2D, this has turned "   +
             "into an advanced physics engine with an event-driven DOM-style API, "         +
             "CSS-like property system, and so many other cool features that you'd get "    +
-            "bored with me listing them. Source code is <a class='nocode' href='https://code.google.com/p/quickb2/' target='_blank'>here</a>."
+            "bored with me listing them. Source code is <a class='nocode' href='https://code.google.com/p/quickb2/' target='_blank'>here</a>, but slowly moving <a class='nocode' href='https://github.com/dougkoellmer/quickphyx' target='_blank'>here</a>."
         );
     }
 }
@@ -221,7 +234,7 @@ public class ForMoney extends SoftwareIHaveWritten
             "keypad with real dial tones to play popular melodies with accuracy-based "    +
             "scoring. I was co-designer and lone programmer. It was available on the App " +
             "Store until we were forced to remove it because all the downloads were "      +
-            "stressing iTunes' servers to the limits."
+            "crashing iTunes' servers."
         );
     }
 }
@@ -264,26 +277,66 @@ public class ForKicks extends SoftwareIHaveWritten
 		</div>
 		
 		<script>
+		
 			prettyPrint();
 			
-			var b33_0 = document.getElementById("b33_0");
-			var b33_1 = document.getElementById("b33_1");
-			var b33Index = 0;
+			function Animation(baseName, frameCount, frameRate)
+			{
+				this.m_baseName = baseName;
+				this.m_frameCount = frameCount;
+				this.m_currentFrame = 0;
+				this.m_frameRate = frameRate;
+				this.m_timeTracker = 0;
+				this.m_frames = [];
+				
+				var container = document.getElementById(baseName + "_container");
+				
+				for( var i = 0; i < this.m_frameCount; i++ )
+				{
+					var frame = document.createElement("img");
+					frame.src = this.m_baseName + "_" + i + ".png";
+					frame.className = "animation_frame " + baseName;
+					frame.style.visibility = i == 0 ? "visible" : "hidden";
+					container.appendChild(frame);
+					this.m_frames.push(frame);
+				}
+			}
+			
+			Animation.prototype.update = function(timeStep)
+			{
+				this.m_timeTracker += timeStep;
+				
+				if( this.m_timeTracker >= this.m_frameRate )
+				{
+					this.m_frames[this.m_currentFrame].style.visibility = "hidden";
+					this.m_timeTracker = 0;
+					this.m_currentFrame++;
+					this.m_currentFrame %= this.m_frameCount;
+					this.m_frames[this.m_currentFrame].style.visibility = "visible";
+				}
+			}
+			
+			function getTime()
+			{
+				return (new Date()).getTime();
+			}
+			
+			var frameRate = 20;
+			var b33 = new Animation("b33", 2, frameRate);
+			var teacher = new Animation("teacher", 10, 500);
+			var lastTime = getTime();
+			
 			setInterval(function()
 			{
-				if( b33Index == 0 )
-				{
-					b33_0.style.visibility = "hidden";
-					b33_1.style.visibility = "visible";
-					b33Index = 1;
-				}
-				else
-				{
-					b33_0.style.visibility = "visible";
-					b33_1.style.visibility = "hidden";
-					b33Index = 0;
-				}
-			}, 33);
+				var currentTime = getTime();
+				var timeStep = currentTime - lastTime;
+				
+				b33.update(frameRate-1); // using fixed timeStep to force wing beat every frame to reduce stutter
+				teacher.update(timeStep);
+				
+				lastTime = currentTime;
+				
+			}, frameRate);
 			
 		</script>
 	</body>
