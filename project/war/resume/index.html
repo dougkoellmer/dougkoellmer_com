@@ -1,0 +1,505 @@
+<html>
+	<head>
+		<title>The Resume</title>
+		
+		<link rel="shortcut icon" href="/favicon.ico?v=4" />
+		
+		<style>
+		
+			html,body
+			{
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:12px;
+				width:100%;
+			}
+			
+			body
+			{
+				margin:0px;
+				background:#F0F0F0;
+			}
+			
+			.page
+			{
+				width:8.5in;
+				height: 11in;
+				margin-left:auto;
+				margin-right:auto;
+				margin-top:10px;
+				padding-left:8px;
+				padding-right:8px;
+			}
+			
+			.header
+			{
+				width:100%;
+			}
+			
+			.contact
+			{
+				width:100%;
+			}
+			
+			.photo_wrapper
+			{
+				width:100%;
+				text-align:right;
+			}
+			
+			.photo
+			{
+				width:80px; height:80px; border-radius:50px;
+			}
+			
+			.column
+			{
+				width:50%;
+				display:block;
+				vertical-align:top;
+			}
+			
+			.column_left
+			{
+				padding-right:5px;
+			}
+			
+			.column_right
+			{
+				padding-left:5px;
+			}
+			
+			.column_wrapper
+			{
+				width:100%;
+			}
+			
+			.cell
+			{
+				border-radius:5px;
+				background:white;
+				margin-top:10px;
+				margin-bottom:10px;
+				padding:8px;
+				
+				border:1px solid rgb(126, 126, 126);
+				
+				box-sizing:border-box;
+				-moz-box-sizing:border-box;
+			}
+			
+			.column_top_cell
+			{
+				margin-top:0px;
+				margin-bottom:0px;
+			}
+			
+			.entry_wrapper
+			{
+				width:100%;
+			}
+			
+			.entry_img_wrapper
+			{
+				text-align:right;
+			}
+			
+			.entry_table
+			{
+				vertical-align:top;
+				width:100%;
+			}
+			
+			.entry_table td
+			{
+				vertical-align:top;
+			}
+			
+			table
+			{
+				border:0px;
+				border-collapse:collapse;
+				border-spacing:0px;
+			}
+			
+			.img_link:hover
+			{
+				opacity:.75;
+				cursor:pointer;
+			}
+			
+			.entry_title, .category_title, .my_name
+			{
+				font-weight:bold;
+				font-style:italic;
+			}
+			
+			.category_wrapper
+			{
+				width:100%;
+			}
+			
+			.job_desc
+			{
+				font-size:12px;
+			}
+			
+			.job_desc li
+			{
+				margin-top:4px;
+				margin-bottom:4px;
+			}
+			
+			.entry_desc
+			{
+				margin-top:10px;
+				font-size:12px;
+			}
+			
+			.category_desc, .project_link, .contact_info
+			{
+				font-size:12px;
+			}
+			
+			.category_desc
+			{
+				margin-top:4px;
+			}
+			
+			.entry_brief, .my_title
+			{
+				font-style:italic;
+				font-weight:bold;
+				color:#9C9C9C;
+			}
+			
+			a:visited
+			{
+				color:blue;
+			}
+			
+			.project_link_wrapper
+			{
+				position:relative;
+				top:-2px;
+				left:5px;
+			}
+			
+			.contact_info
+			{
+				margin-top:7px;
+			}
+			
+			.contact_info, .entry_desc, .category_desc
+			{
+				margin-left:3px;
+			}
+			
+			.job_desc
+			{
+				margin-left:-20px;
+			}
+			
+			.contact_cell
+			{
+				border: 2px solid rgba(77, 137, 99, 0.66);
+			}
+			
+			.open_source_cell
+			{
+				border: 2px solid #E1B378;
+			}
+			
+			.work_cell
+			{
+				border: 2px solid #EC799A;
+			}
+			
+			.category_icon_wrapper
+			{
+				margin-top:5px;
+			}
+			
+			.job_brief
+			{
+				font-style:italic;
+				font-weight:bold;
+				color:#9C9C9C;
+				
+				font-size:12px;
+			}
+			
+		</style>
+		
+	</head>
+	
+	<body>
+		
+		<div class="page">
+			<div class="contact_cell cell header">
+				<table style="width:100%;"><tr>
+					<td style="vertical-align:top;">
+						<div class="contact">
+							<span class="my_name">Doug Koellmer</span> - <span class="my_title">Programmer at Large</span><br/>
+							<div class="contact_info">
+								West Hartford, CT<br/>
+								203-722-7040<br/>
+								<a href="mailto:doug@dougkoellmer.com">doug@dougkoellmer.com</a>
+							</div>
+							
+						</div>
+					</td>
+					
+					<td>
+						<div class="photo_wrapper">
+							<img src="../img/me.jpg" class="photo" />
+						</div>
+					</td>
+				</tr></table>
+			</div>
+			
+			<div class="open_source_cell cell category_wrapper">
+				<table style="width:100%;"><tr>
+					<td style="vertical-align:middle;">
+						<div class="category_title">Open Source</div>
+						<div class="category_desc">
+						I maintain several projects related to math, physics, games, and application frameworks.<br/>
+						Check out my account profiles to the right and my most ambitous endeavours below.
+						</div>
+					</td>
+					
+					<td style="text-align:right;">
+						<div class="category_icon_wrapper">
+							<a target="_blank" href="https://code.google.com/u/107726889901266229624/"><img class="img_link" style="width:60px; height:47.5px;" src="../img/gd-logo.png" /></a>
+							<div style="display:inline-block; width:2px;"></div>
+							<a target="_blank" href="https://github.com/dougkoellmer"><img class="img_link" style="width:48px; height:48px;" src="../img/GitHub-Mark-64px.png" /></a>
+						</div>
+					</td>
+				</tr></table>
+			</div>
+			
+			<table class="column_wrapper"><tr>
+				<td class="column column_left">
+					
+					<div class="open_source_cell cell column_top_cell entry_wrapper">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										Swarm
+									</span>
+									
+									<span class="project_link_wrapper">
+										<a class="project_link" target="_blank" href="https://github.com/dougkoellmer/swarm">source</a>,
+										<a class="project_link" target="_blank" href="http://www.b33hive.net">demo</a>,
+										<a class="project_link" target="_blank" href="http://reader.eagreinteractive.com">demo</a><br/>
+									</span>
+									
+									<div class="entry_brief">A next-generation web-based CMS...</div>
+									
+									<div class="entry_desc">
+										...for surfing and organizing large amounts of content in a natural, seamless fashion. Has a meaty HTML5 front-end
+										and fast, scalable Java back-end.
+									</div>
+									
+									
+								</td>
+								<td class="entry_img_wrapper">
+									<a target="_blank" href="http://www.b33hive.net"><img width="90" height="90" class="img_link" src="../img/b33.png"/></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+				</td>
+				
+				<td class="column column_right">
+					<div class="open_source_cell cell column_top_cell entry_wrapper">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										QuickPhyx
+									</span>
+									
+									<span class="project_link_wrapper">
+										<a class="project_link" target="_blank" href="https://github.com/dougkoellmer/quickphyx">source</a>,
+										<a class="project_link" target="_blank" href="http://quickb2.dougkoellmer.com/bin/qb2DemoReel.swf">demo</a>,
+										<a class="project_link" target="_blank" href="http://quickb2.dougkoellmer.com/forum">forums</a><br/>
+									</span>
+									
+									<div class="entry_brief">A high-level game physics engine...</div>
+									
+									<div class="entry_desc">
+										...with an event-driven DOM-like API, 
+										CSS-like property system, multi-language support, and so many other cool features you'd get
+										bored with me listing them.
+									</div>
+									
+								</td>
+								<td class="entry_img_wrapper">
+									<a target="_blank" href="http://quickb2.dougkoellmer.com/bin/qb2DemoReel.swf"><img width="75" height="91.5" class="img_link" src="../img/quick_phyx.png"/></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+				
+			</tr></table>
+			
+			<div class="work_cell cell category_wrapper">
+				<table style="width:100%;"><tr>
+					<td style="vertical-align:middle;">
+						<div class="category_title">Professional Experience</div>
+						<div class="category_desc">
+						Most of my paid experience has been in game development, virtual reality, CAD, and<br/>
+						related fields. Check out a few select projects to the right and more details below.
+						</div>
+					</td>
+					
+					<td style="text-align:right;">
+						<div class="category_icon_wrapper">
+							<a target="_blank" href="https://itunes.apple.com/us/app/book-of-heroes/id455999097?mt=8"><img class="img_link" style="width:65px; height:62px;" src="../img/book_of_heroes.png" /></a>
+							<div style="display:inline-block; width:0px;"></div>
+							<a target="_blank" href="http://www.gametrailers.com/videos/lpbewe/touch-tone-hero"><img class="img_link" style="border-radius:10px; width:60px; height:60px; margin-bottom:2px;" src="../img/touch_tone_hero.png" /></a>
+							<div style="display:inline-block; width:2px;"></div>
+							<a target="_blank" href="http://cp.johnsonsimcenter.com/"><img class="img_link" style="border-radius:10px; width:60px; height:60px; border:1px dashed #CCCCCC" src="../img/teacher_icon.png" /></a>
+							<div style="display:inline-block; width:2px;"></div>
+							<a target="_blank" href="http://eagreinteractive.com/samples"><img class="img_link" style="border-radius:10px; width:60px; height:60px; border:1px dashed #CCCCCC" src="../img/ei_logo_icon.png" /></a>
+							<div style="display:inline-block; width:1px;"></div>
+						</div>
+					</td>
+				</tr></table>
+			</div>
+			
+			<table class="column_wrapper"><tr>
+				<td class="column column_left">
+					
+					<div class="work_cell cell column_top_cell entry_wrapper">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										Cofounder, CTO
+									</span>
+									
+									<div class="job_brief">
+										Eagre Interactive<br/>
+										EdTech Startup<br/>
+										Summer 2012 - Present
+									</div>
+								</td>
+								<td class="entry_img_wrapper">
+									<a target="_blank" href="http://www.b33hive.net"><img width="90" height="90" class="img_link" src="../img/b33.png"/></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="work_cell cell entry_wrapper">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										Programmer
+									</span>
+									
+									<div class="job_brief">
+										Venan Entertainent<br/>
+										Mobile Game Studio<br/>
+										Winter 2011 - Spring 2012
+									</div>									
+								</td>
+								<td class="entry_img_wrapper">
+									<a target="_blank" href="http://venan.com"><img width="134.82" height="43.2" class="img_link" src="../img/venan_orig.png"/></a>
+								</td>
+							</tr>
+							
+							<tr>
+								<td colspan="2">
+									<div class="job_desc">
+										<ul>
+											<li>Codeveloped the hit social MMORPG <a target="_blank" href="https://itunes.apple.com/us/app/book-of-heroes/id455999097?mt=8">Book of Heroes</a>.</li>
+											<li>Codeveloped a social gaming platform running on Amazon's AWS cloud service that serves millions of monthly users.</li>
+											<li>Designed and developed a data-heavy enterprise web application for Book of Heroes allowing three designers to work concurrently to create hundreds of items, monsters, NPCs, quests, locations, and more.</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+				</td>
+				
+				<td class="column column_right">
+					<div class="work_cell cell column_top_cell entry_wrapper">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										Lead Programmer
+									</span>
+									
+									<div class="job_brief">
+										Johnson Center for Simulation<br/>
+										Serious Game Studio<br/>
+										Spring 2008 - Winter 2011
+									</div>
+									
+								</td>
+								<td class="entry_img_wrapper">
+									<a target="_blank" href="http://quickb2.dougkoellmer.com/bin/qb2DemoReel.swf"><img width="75" height="91.5" class="img_link" src="../img/quick_phyx.png"/></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="work_cell cell entry_wrapper">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										Lead Programmer
+									</span>
+									
+									<div class="job_brief">
+										Fluid Desk<br/>
+										CAD Software Firm<br/>
+										Fall 2005 - Winter 2008
+									</div>
+									
+								</td>
+								<td class="entry_img_wrapper">
+									<a target="_blank" href="http://www.fluid-desk.pl/"><img width="211.5" height="43.2" style="border:1px solid blue;" class="img_link" src="../img/FLUIDDESK.jpg"/></a>
+								</td>
+							</tr>
+							
+							<tr>
+								<td colspan="2">
+									<div class="job_desc">
+										<ul>
+											<li>Led a team of three in developing a mesh-based primitives API, supporting variably-sided, highly-flexible surfaces such as ellipsoids, toroids, curve-bounded planes, splinar tubes, and irregular boxes, along with operations for creating various sections/intersections thereof.</li>
+											<li>Used the above API to programmatically construct approximately 150 distinct 3d piping and ventilation elements, configured dynamically by dimensions retrieved from a user interface in combination with manufacturer specifications.</li>
+											<li>Developed a Hidden Line Removal engine, which takes 3d scenes of elements from any view and renders a symbolic 2d line drawing of use to sanitary engineers.</li>
+											<li>HLR required a secondary implementation of the primitives API to create smooth, parametric surfaces, and employed optimization techniques such as hexagonal “silhouette” bounding blocks, dynamic space partitioning trees, and curve overlap detection to provide swift and accurate drawings from any viewpoint.</li>
+											<li>Wrote routines to check for parametric geometry overlap down to .01mm, allowing sanitary engineers to quickly spot problem areas in their layouts.</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+							
+						</table>
+					</div>
+				</td>
+				
+			</tr></table>
+			
+		</div>
+		
+	</body>
+</html>

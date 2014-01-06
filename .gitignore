@@ -1,7 +1,6 @@
 project/gwt-unitCache/
 /build
 /classes
-*.jar
 *.class
 *~
 */war/gwt
