@@ -1,188 +1,4 @@
-<html>
-	<head>
-		
-		<title>The Portfolio</title>
-		
-		<link rel="shortcut icon" href="/favicon.ico?v=4" />
-		
-		<script type="text/javascript">
-		
-			function Animation(baseName, frameCount, frameRate)
-			{
-				this.m_baseName = baseName;
-				this.m_frameCount = frameCount;
-				this.m_currentFrame = 0;
-				this.m_frameRate = frameRate;
-				this.m_timeTracker = 0;
-				this.m_frames = [];
-				
-				var container = document.getElementById(baseName + "_container");
-				
-				for( var i = 0; i < this.m_frameCount; i++ )
-				{
-					var frame = document.createElement("img");
-					frame.src = "../img/" + this.m_baseName + "_" + i + ".png";
-					frame.className = "animation_frame " + baseName;
-					frame.style.visibility = i == 0 ? "visible" : "hidden";
-					container.appendChild(frame);
-					this.m_frames.push(frame);
-				}
-			}
-			
-			Animation.prototype.update = function(timeStep)
-			{
-				this.m_timeTracker += timeStep;
-				
-				if( this.m_timeTracker >= this.m_frameRate )
-				{
-					this.m_frames[this.m_currentFrame].style.visibility = "hidden";
-					this.m_timeTracker = 0;
-					this.m_currentFrame++;
-					this.m_currentFrame %= this.m_frameCount;
-					this.m_frames[this.m_currentFrame].style.visibility = "visible";
-				}
-			}
-			
-			function getTime()
-			{
-				return (new Date()).getTime();
-			}
-		</script>
-		
-		<style type="text/css">
-		    .pln { color: #000; }		/* plain text */
-			.str { color: #007200; }	/* string content */
-			.kwd { color: #008; }		/* a keyword */
-			.com { color: #800; }		/* a comment */
-			.typ { color: #606; }		/* a type name */
-			.lit { color: #066; } 		/* a literal value */
-			.pun { color: #660; }		/* punctuation*/
-			.tag { color: #008; } 		/* a markup tag name */
-			.atn { color: #606; }		/* a markup attribute name */
-			.atv { color: #080; }		/* a markup attribute value */
-			.dec { color: #606; }  		/* a declaration */
-			.var { color: #606; }		/* a variable name  */
-			.fun { color: red;  }		/* a function name */
-			
-			li
-			{
-				margin-left:6px;
-			}
-			
-			li.L0, li.L2, li.L4, li.L6, li.L8
-			{
-				background: rgba(0,0,0,0);
-			}
-			
-			li.L1, li.L3, li.L5, li.L7, li.L9
-			{
-				background: rgba(0,0,0,0);
-			}
-			
-			body
-			{
-				margin:0px;
-				background:#EEEEEE;
-			}
-			
-			.page
-			{
-				display:table;
-				padding-left:16px;
-				padding-right:16px;
-				text-align:center;
-				min-height:100%;
-				margin-left:auto;
-				margin-right:auto;
-				background:white;
-				
-				box-sizing:border-box;
-				-moz-box-sizing:border-box;
-				
-				position:relative;
-				
-				-moz-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.75);
-				-webkit-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.75);
-				box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.75);
-				-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=40, Direction=90, Color='#000000')";
-				filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=40, Direction=90, Color='#000000');";
-				
-				
-			}
-			
-			a:visited
-			{
-				color:blue;
-			}
-			
-			.tile, .animation_container
-			{
-				display:inline;
-				position:relative;
-			}
-			
-			.animation_frame
-			{
-				position:absolute;
-			}
-			
-			.tile_wrapper
-			{
-				position:absolute;
-				z-index:5;
-				top:-5px;
-				left:16px;
-			}
-			
-			.tile_wrapper, .code_block
-			{
-				display:inline-block;
-				text-align:left;
-				font-size:13px;
-				line-height:16px;
-				font-family:"Courier";
-				font-weight:100;
-			}
-			
-			.code_block
-			{
-				position:relative;
-				z-index:10;
-				margin-left:auto;
-				margin-right:auto;
-				margin-top:-5px;
-				margin-bottom:10px;				
-			}
-			
-			.teacher
-			{
-				border:1px dashed #CCCCCC;
-				border-radius:10px;
-			}
-			
-			body
-			{
-				-webkit-text-size-adjust: none;
-			}
-			
-			@media only screen and (max-device-width : 1024px)
-			{
-				.page
-				{
-					width:100%;
-				}
-			}
-			
-		</style>
-		
-		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
-		
-	</head>
-	
-	<body>
-		<div class="page">
-			
-			<pre class="code_block prettyprint lang-llvm">
+<html><head><title>The Portfolio</title><link rel="shortcut icon" href="/favicon.ico?v=4"/><script type="text/javascript">function Animation(e,b,c){this.m_baseName=e;this.m_frameCount=b;this.m_currentFrame=0;this.m_frameRate=c;this.m_timeTracker=0;this.m_frames=[];var a=document.getElementById(e+"_container");for(var d=0;d<this.m_frameCount;d++){var f=document.createElement("img");f.src="../img/"+this.m_baseName+"_"+d+".png";f.className="animation_frame "+e;f.style.visibility=d==0?"visible":"hidden";a.appendChild(f);this.m_frames.push(f)}}Animation.prototype.update=function(a){this.m_timeTracker+=a;if(this.m_timeTracker>=this.m_frameRate){this.m_frames[this.m_currentFrame].style.visibility="hidden";this.m_timeTracker=0;this.m_currentFrame++;this.m_currentFrame%=this.m_frameCount;this.m_frames[this.m_currentFrame].style.visibility="visible"}};function getTime(){return(new Date()).getTime()};</script><style type="text/css">.pln{color:#000}.str{color:#007200}.kwd{color:#008}.com{color:#800}.typ{color:#606}.lit{color:#066}.pun{color:#660}.tag{color:#008}.atn{color:#606}.atv{color:#080}.dec{color:#606}.var{color:#606}.fun{color:red}li{margin-left:6px}li.L0,li.L2,li.L4,li.L6,li.L8{background:rgba(0,0,0,0)}li.L1,li.L3,li.L5,li.L7,li.L9{background:rgba(0,0,0,0)}body{margin:0;background:#eee}.page{display:table;padding-left:16px;padding-right:16px;text-align:center;min-height:100%;margin-left:auto;margin-right:auto;background:white;box-sizing:border-box;-moz-box-sizing:border-box;position:relative;-moz-box-shadow:0 0 40px rgba(0,0,0,0.75);-webkit-box-shadow:0 0 40px rgba(0,0,0,0.75);box-shadow:0 0 40px rgba(0,0,0,0.75);-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=40, Direction=90, Color='#000000')";filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=40, Direction=90, Color='#000000');"}a:visited{color:blue}.tile,.animation_container{display:inline;position:relative}.animation_frame{position:absolute}.tile_wrapper{position:absolute;z-index:5;top:-5px;left:16px}.tile_wrapper,.code_block{display:inline-block;text-align:left;font-size:13px;line-height:16px;font-family:"Courier";font-weight:100}.code_block{position:relative;z-index:10;margin-left:auto;margin-right:auto;margin-top:-5px;margin-bottom:10px}.teacher{border:1px dashed #ccc;border-radius:10px}body{-webkit-text-size-adjust:none}@media only screen and (max-device-width :1024px){.page{width:100%}}</style><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script></head><body><script>(function(d,e,j,h,f,c,b){d.GoogleAnalyticsObject=f;d[f]=d[f]||function(){(d[f].q=d[f].q||[]).push(arguments)},d[f].l=1*new Date();c=e.createElement(j),b=e.getElementsByTagName(j)[0];c.async=1;c.src=h;b.parentNode.insertBefore(c,b)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-8687362-1","dougkoellmer.com");ga("send","pageview");</script><div class="page"><pre class="code_block prettyprint lang-llvm">
 
 public class ToMyPotentialNewEmployerOrClient extends Introduction
 {
@@ -198,7 +14,7 @@ public class ToMyPotentialNewEmployerOrClient extends Introduction
     {
         " - twelve years of professional software development experience.",
         " - two open source projects with over 100,000 lines of code combined.",
-        " - been bootstrapping an EdTech startup since Spring 2013.",
+        " - have bootstrapped an EdTech startup for 1.5 years.",
         " - worked on all aspects of a successful mobile social MMORPG.",
         " - developed training simulations for almost every 'Department' the U.S. government has.",
         " - written algorithms for rendering symbolicated, 2D-projected, hidden-line-removed schematics from 3D " +
@@ -206,7 +22,7 @@ public class ToMyPotentialNewEmployerOrClient extends Introduction
         " - never been able to explain to others what the above point means.",
         " - never figured out how to write clean PHP, but am always that guy that is forced to anyway.",
         " - used every language, design pattern, tool, and library that a business guy has ever heard of.",
-        " - also used a few that would get me fired from most jobs."
+        " - also used a few that nobody's heard of."
     };
 }
 
@@ -318,45 +134,4 @@ public class ForKicks extends SoftwareIHaveWritten
             "A few other small experiments can be found here."
         );
     }
-}</pre>
-
-<div class="tile_wrapper">
-<br/><br/><br/><!-- Can't figure out how to position tiles *reliably* with pure CSS...fail!...even this method probably breaks under certain zoom/scale situations, and certainly if user changes font properties. -->
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/me.jpg" class="tile" style="width:150px; height:150px; border-radius:75px;" />
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="width:150px; height:137px; " class="animation_container" id="b33_container"></div>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/quick_phyx.png" class="tile" style="width:100px; height:122px; top:5px; opacity:.8;" />
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book_of_heroes.png" style="width:130px; height:124px; top:-4px;" class="tile" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/ei_logo.png" style="width:230px; height:178px; top:3px; left:7px;" class="tile" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="animation_container" style="width:110px; height:157px; top:2px; left:4px;" id="teacher_container" ></div>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/touch_tone_hero.png" class="tile" style="width:120px; height:120px; top:6px; left:0px; border-radius:20px;" />
-</div>
-		</div>
-		
-		<script type="text/javascript">
-		
-			prettyPrint();
-			
-			var frameRate = 20;
-			var b33 = new Animation("b33", 2, frameRate);
-			var teacher = new Animation("teacher", 10, 500);
-			var lastTime = getTime();
-			
-			setInterval(function()
-			{
-				var currentTime = getTime();
-				var timeStep = currentTime - lastTime;
-				
-				b33.update(frameRate-1); // using fixed timeStep to force wing beat every frame to reduce stutter
-				teacher.update(timeStep);
-				
-				lastTime = currentTime;
-				
-			}, frameRate);
-			
-		</script>
-	</body>
-</html>
+}</pre><div class="tile_wrapper"><br/><br/><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/me.jpg" class="tile" style="width:150px; height:150px; border-radius:75px;"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="width:150px; height:137px; " class="animation_container" id="b33_container"></div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/quick_phyx.png" class="tile" style="width:100px; height:122px; top:5px; opacity:.8;"/><br/><br/><br/><br/><br/><br/><br/><br/><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book_of_heroes.png" style="width:130px; height:124px; top:-4px;" class="tile"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/ei_logo.png" style="width:230px; height:178px; top:3px; left:7px;" class="tile"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="animation_container" style="width:110px; height:157px; top:2px; left:4px;" id="teacher_container"></div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/touch_tone_hero.png" class="tile" style="width:120px; height:120px; top:6px; left:0px; border-radius:20px;"/></div></div><script type="text/javascript">prettyPrint();var frameRate=20;var b33=new Animation("b33",2,frameRate);var teacher=new Animation("teacher",10,500);var lastTime=getTime();setInterval(function(){var a=getTime();var b=a-lastTime;b33.update(frameRate-1);teacher.update(b);lastTime=a},frameRate);</script></body></html>

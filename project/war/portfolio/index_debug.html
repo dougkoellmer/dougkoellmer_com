@@ -1,0 +1,374 @@
+<html>
+	<head>
+		
+		<title>The Portfolio</title>
+		
+		<link rel="shortcut icon" href="/favicon.ico?v=4" />
+		
+		<script type="text/javascript">
+		
+			function Animation(baseName, frameCount, frameRate)
+			{
+				this.m_baseName = baseName;
+				this.m_frameCount = frameCount;
+				this.m_currentFrame = 0;
+				this.m_frameRate = frameRate;
+				this.m_timeTracker = 0;
+				this.m_frames = [];
+				
+				var container = document.getElementById(baseName + "_container");
+				
+				for( var i = 0; i < this.m_frameCount; i++ )
+				{
+					var frame = document.createElement("img");
+					frame.src = "../img/" + this.m_baseName + "_" + i + ".png";
+					frame.className = "animation_frame " + baseName;
+					frame.style.visibility = i == 0 ? "visible" : "hidden";
+					container.appendChild(frame);
+					this.m_frames.push(frame);
+				}
+			}
+			
+			Animation.prototype.update = function(timeStep)
+			{
+				this.m_timeTracker += timeStep;
+				
+				if( this.m_timeTracker >= this.m_frameRate )
+				{
+					this.m_frames[this.m_currentFrame].style.visibility = "hidden";
+					this.m_timeTracker = 0;
+					this.m_currentFrame++;
+					this.m_currentFrame %= this.m_frameCount;
+					this.m_frames[this.m_currentFrame].style.visibility = "visible";
+				}
+			}
+			
+			function getTime()
+			{
+				return (new Date()).getTime();
+			}
+		</script>
+		
+		<style type="text/css">
+		    .pln { color: #000; }		/* plain text */
+			.str { color: #007200; }	/* string content */
+			.kwd { color: #008; }		/* a keyword */
+			.com { color: #800; }		/* a comment */
+			.typ { color: #606; }		/* a type name */
+			.lit { color: #066; } 		/* a literal value */
+			.pun { color: #660; }		/* punctuation*/
+			.tag { color: #008; } 		/* a markup tag name */
+			.atn { color: #606; }		/* a markup attribute name */
+			.atv { color: #080; }		/* a markup attribute value */
+			.dec { color: #606; }  		/* a declaration */
+			.var { color: #606; }		/* a variable name  */
+			.fun { color: red;  }		/* a function name */
+			
+			li
+			{
+				margin-left:6px;
+			}
+			
+			li.L0, li.L2, li.L4, li.L6, li.L8
+			{
+				background: rgba(0,0,0,0);
+			}
+			
+			li.L1, li.L3, li.L5, li.L7, li.L9
+			{
+				background: rgba(0,0,0,0);
+			}
+			
+			body
+			{
+				margin:0px;
+				background:#EEEEEE;
+			}
+			
+			.page
+			{
+				display:table;
+				padding-left:16px;
+				padding-right:16px;
+				text-align:center;
+				min-height:100%;
+				margin-left:auto;
+				margin-right:auto;
+				background:white;
+				
+				box-sizing:border-box;
+				-moz-box-sizing:border-box;
+				
+				position:relative;
+				
+				-moz-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.75);
+				-webkit-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.75);
+				box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.75);
+				-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=40, Direction=90, Color='#000000')";
+				filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=40, Direction=90, Color='#000000');";
+				
+				
+			}
+			
+			a:visited
+			{
+				color:blue;
+			}
+			
+			.tile, .animation_container
+			{
+				display:inline;
+				position:relative;
+			}
+			
+			.animation_frame
+			{
+				position:absolute;
+			}
+			
+			.tile_wrapper
+			{
+				position:absolute;
+				z-index:5;
+				top:-5px;
+				left:16px;
+			}
+			
+			.tile_wrapper, .code_block
+			{
+				display:inline-block;
+				text-align:left;
+				font-size:13px;
+				line-height:16px;
+				font-family:"Courier";
+				font-weight:100;
+			}
+			
+			.code_block
+			{
+				position:relative;
+				z-index:10;
+				margin-left:auto;
+				margin-right:auto;
+				margin-top:-5px;
+				margin-bottom:10px;				
+			}
+			
+			.teacher
+			{
+				border:1px dashed #CCCCCC;
+				border-radius:10px;
+			}
+			
+			body
+			{
+				-webkit-text-size-adjust: none;
+			}
+			
+			@media only screen and (max-device-width : 1024px)
+			{
+				.page
+				{
+					width:100%;
+				}
+			}
+			
+		</style>
+		
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+		
+	</head>
+	
+	<body>
+		
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-8687362-1', 'dougkoellmer.com');
+		  ga('send', 'pageview');
+
+		</script>
+		
+		<div class="page">
+			
+			<pre class="code_block prettyprint lang-llvm">
+
+public class ToMyPotentialNewEmployerOrClient extends Introduction
+{
+    public void override writeIntro(Document out)
+    {
+        out.write("Hi, I'm Doug! I have...\n");
+
+        for( int i = 0; i < m_achievements.length; i++ )
+            out.write(m_achievements[i] + "\n");
+    }
+
+    private String[] m_achievements =
+    {
+        " - twelve years of professional software development experience.",
+        " - two open source projects with over 100,000 lines of code combined.",
+        " - have bootstrapped an EdTech startup for 1.5 years.",
+        " - worked on all aspects of a successful mobile social MMORPG.",
+        " - developed training simulations for almost every 'Department' the U.S. government has.",
+        " - written algorithms for rendering symbolicated, 2D-projected, hidden-line-removed schematics from 3D " +
+        "     parametric surface geometry in architectural CAD projects.",
+        " - never been able to explain to others what the above point means.",
+        " - never figured out how to write clean PHP, but am always that guy that is forced to anyway.",
+        " - used every language, design pattern, tool, and library that a business guy has ever heard of.",
+        " - also used a few that nobody's heard of."
+    };
+}
+
+public class OpenSource extends SoftwareIHaveWritten
+{
+    public void override writeProjects()
+    {
+        writeLink("b33hive",                                      "<a class='nocode' href='http://www.b33hive.net' target='_blank'>http://www.b33hive.net</a>");
+        writeDetails
+        (
+            "A massive, shared landscape of user-created, sandboxed HTML5 applications. "  +
+            "b33hive exposes an API to userland and allows applications to communicate "   +
+            "with each other. The core of this project is <a class='nocode' href='https://github.com/dougkoellmer/swarm' target='_blank'>swarm</a>, a next of class content " +
+            "browser for the web."
+        );
+  //----------------------------------------------------------------------------------------------------------------\\  
+
+        writeLink("quickb2",                         "<a class='nocode' href='http://quickb2.dougkoellmer.com/bin/qb2DemoReel.swf' target='_blank'>http://quickb2.dougkoellmer.com/bin</a>");
+        writeDetails
+        (
+            "Originally started as a convenience wrapper around Box2D, this has turned "   +
+            "into an advanced physics engine with an event-driven DOM-style API, "         +
+            "CSS-like property system, and so many other cool features that you'd get "    +
+            "bored with me listing them. Source code is <a class='nocode' href='https://code.google.com/p/quickb2/' target='_blank'>here</a>, but slowly moving <a class='nocode' href='https://github.com/dougkoellmer/quickphyx' target='_blank'>here</a>."
+        );
+    }
+}
+
+public class ForMoney extends SoftwareIHaveWritten
+{
+    public void override writeProjects()
+    {
+        writeLink("Book of Heroes",       "<a class='nocode' href='https://itunes.apple.com/us/app/book-of-heroes/id455999097?mt=8' target='_blank'>https://itunes.apple.com/us/app/book-of-heroes</a>");
+        writeDetails
+        (
+            "Also for Android <a class='nocode' href='https://play.google.com/store/apps/details?id=com.venan.boh&hl=en' target='_blank'>here</a>. This is about as intense as a mobile MMORPG gets. "       +
+            "I was on a three-person team that developed the cross-mobile C++ frontend "   +
+            "and cloud-hosted Java backend. The codebase started from nothing, went on "   +
+            "to serve millions of monthly active users in under a year, and birthed a "    +
+            "generic framework powering other titles as well."
+        );
+  //----------------------------------------------------------------------------------------------------------------\\
+		
+        writeLink("HTML5 Science Labs",              "<a class='nocode' href='http://eagreinteractive.com/samples' target='_blank'>http://eagreinteractive.com/samples</a>");
+        writeDetails
+        (
+            "A series of interactive simulations meant for embedding as widgets in "       +
+            "various eLearning and eReading platforms. These are samples of work I did "   +
+            "to take static images from existing print textbooks and bring them to life."
+        );
+  //----------------------------------------------------------------------------------------------------------------\\
+
+        writeLink("Inspect and Protect",                  "<a class='nocode' href='http://cp.johnsonsimcenter.com' target='_blank'>http://cp.johnsonsimcenter.com</a>");
+        writeDetails
+        (
+            "A game-based training module funded by a $1.5 million grant from the "        +
+            "Department of Defense to teach metal corrosion prevention strategies on "     +
+            "large structures. I was the lead programmer and co-designer, responsible "    +
+            "for (a) developing a framework into which non-programmers could plug art, "   +
+            "sound, and XML assets dynamically, and (b) digesting dry subject matter and " +
+            "turning it into fun interactive lessons. Also required learning the basics "  +
+            "of corrosion theory and working with subject matter experts in the field."
+        );
+  //----------------------------------------------------------------------------------------------------------------\\
+		
+        writeLink("Touch Tone Hero",           "<a class='nocode' href='http://www.gametrailers.com/videos/lpbewe/touch-tone-hero' target='_blank'>http://www.gametrailers.com/videos/lpbewe</a>");
+        writeDetails
+        (
+            "A fun twist on popular rhythm games where the player uses a touch-tone "      +
+            "keypad with real dial tones to play popular melodies with accuracy-based "    +
+            "scoring. I was co-designer and lone programmer. It was available on the App " +
+            "Store until we were forced to remove it because all the downloads were "      +
+            "crashing iTunes' servers."
+        );
+    }
+}
+
+public class ForKicks extends SoftwareIHaveWritten
+{
+    public void override writeProjects()
+    {
+        writeLink("Corrosion Cell",          "<a class='nocode' href='http://dougk16.deviantart.com/art/Corrosion-Cell-122967037' target='_blank'>http://dougk16.deviantart.com/art/Corrosion</a>");
+        writeDetails
+        (
+            "A stress test environment for the corrosion cell component in 'Inspect and "  +
+            "Protect' mentioned above...turned out to be a pretty fun little sandbox."
+        );
+  //----------------------------------------------------------------------------------------------------------------\\
+
+        writeLink("Whip the Ragdoll",      "<a class='nocode' href='http://dougk16.deviantart.com/art/Whip-the-Ragdoll-135288769' target='_blank'>http://dougk16.deviantart.com/art/Whip-the...</a>");
+        writeDetails
+        (
+            "A small, sadistic project to help me learn Box2D."
+        );
+  //----------------------------------------------------------------------------------------------------------------\\
+		
+        writeLink("Balancer Thing Game!",   "<a class='nocode' href='http://dougk16.deviantart.com/art/Physics-Balancing-Game-Demo-125721121' target='_blank'>http://dougk16.deviantart.com/art/Physics...</a>");
+        writeDetails
+        (
+            "A prototype for a potential mobile game, where you balance progressively "    +
+            "more challenging objects using the accelerometer, and score stunt points "    +
+            "for throws and catches."
+        );
+  //----------------------------------------------------------------------------------------------------------------\\
+
+        writeLink("Miscellaneous",        "<a class='nocode' href='http://dougk16.deviantart.com/gallery/10771419' target='_blank'>http://dougk16.deviantart.com/gallery/10771419</a>");
+        writeDetails
+        (
+            "A few other small experiments can be found here."
+        );
+    }
+}</pre>
+
+<div class="tile_wrapper">
+<br/><br/><br/><!-- Can't figure out how to position tiles *reliably* with pure CSS...fail!...even this method probably breaks under certain zoom/scale situations, and certainly if user changes font properties. -->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/me.jpg" class="tile" style="width:150px; height:150px; border-radius:75px;" />
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="width:150px; height:137px; " class="animation_container" id="b33_container"></div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/quick_phyx.png" class="tile" style="width:100px; height:122px; top:5px; opacity:.8;" />
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book_of_heroes.png" style="width:130px; height:124px; top:-4px;" class="tile" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/ei_logo.png" style="width:230px; height:178px; top:3px; left:7px;" class="tile" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="animation_container" style="width:110px; height:157px; top:2px; left:4px;" id="teacher_container" ></div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/touch_tone_hero.png" class="tile" style="width:120px; height:120px; top:6px; left:0px; border-radius:20px;" />
+</div>
+		</div>
+		
+		<script type="text/javascript">
+		
+			prettyPrint();
+			
+			var frameRate = 20;
+			var b33 = new Animation("b33", 2, frameRate);
+			var teacher = new Animation("teacher", 10, 500);
+			var lastTime = getTime();
+			
+			setInterval(function()
+			{
+				var currentTime = getTime();
+				var timeStep = currentTime - lastTime;
+				
+				b33.update(frameRate-1); // using fixed timeStep to force wing beat every frame to reduce stutter
+				teacher.update(timeStep);
+				
+				lastTime = currentTime;
+				
+			}, frameRate);
+			
+		</script>
+	</body>
+</html>

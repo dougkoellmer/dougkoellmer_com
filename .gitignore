@@ -13,3 +13,5 @@ target
 project/.metadata
 
 project/lib/swarm
+
+account.properties

@@ -1,1 +1,1 @@
-C:\code\appengine-java-sdk-1.8.0\bin/appcfg.cmd --email=dougk16@tlen.pl update ../../project/war
+C:\code\appengine-java-sdk-1.8.8\bin/appcfg.cmd --email=dougk16@tlen.pl update ../../project/war

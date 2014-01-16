@@ -1,0 +1,9 @@
+- take out unneeded JS/CSS from build step
+
+- remove side panel
+
+- fix magnifier on touch devices
+
+- make click tolerance a little more forgiving, IIRC
+
+- 
