@@ -6,6 +6,7 @@ import java.util.logging.*;
 
 import swarm.client.app.smA_ClientApp;
 import swarm.client.app.smClientAppConfig;
+import swarm.client.app.smE_Platform;
 import swarm.client.app.smE_StartUpStage;
 import swarm.client.input.smClickManager;
 import swarm.client.states.*;
@@ -21,11 +22,15 @@ import swarm.client.states.camera.State_ViewingCell;
 import swarm.client.states.code.StateMachine_EditingCode;
 import swarm.client.states.code.State_EditingCode;
 import swarm.client.states.code.State_EditingCodeBlocker;
+import swarm.client.view.smE_ZIndex;
+import swarm.client.view.smS_UI;
 import swarm.client.view.smViewConfig;
 import swarm.client.view.smViewController;
 import swarm.client.view.tabs.smI_Tab;
 import swarm.client.view.tabs.account.smAccountTab;
 import swarm.client.view.tabs.code.smCodeEditorTab;
+import swarm.client.view.tooltip.smE_ToolTipType;
+import swarm.client.view.tooltip.smToolTipManager;
 import swarm.shared.statemachine.smA_State;
 import swarm.shared.statemachine.smI_StateEventListener;
 
@@ -94,27 +99,36 @@ public class ClientApp extends smA_ClientApp implements EntryPoint
 	
 	@Override
 	protected void stage_startViewManagers()
-	{		
+	{
+		m_viewContext.clickMngr = new smClickManager();
+		
+		m_viewContext.toolTipMngr = new smToolTipManager(m_appContext.platformInfo.getPlatform() != smE_Platform.IOS, smS_UI.TOOL_TIP_DELAY);
+		
+		//--- DRK > Set defaults for tool tips.
+		for( int i = smE_ZIndex.TOOL_TIP_1.ordinal(), j = 0; i <= smE_ZIndex.TOOL_TIP_5.ordinal(); i++, j++ )
+		{
+			m_viewContext.toolTipMngr.setDefaultZIndex(smE_ToolTipType.values()[j], i);
+		}
+		m_viewContext.toolTipMngr.setDefaultPadding(smS_UI.TOOl_TIP_PADDING);
+		
 		//TODO(DRK) Ugh, real hacky here.
 		smI_Tab[] tabs = {new smCodeEditorTab(m_viewContext)};
 		m_viewConfig.tabs = tabs;
-		
-		m_viewContext.clickMngr = new smClickManager();
 	}
 	
 	@Override
-	protected void stage_registerStateMachine(smI_StateEventListener stateEventListener_null)
+	protected void stage_registerStateMachine(smI_StateEventListener stateEventListener_null, Class<? extends smA_State> consoleState_T_null)
 	{
 		ViewController viewController = new ViewController(m_viewContext, m_viewConfig, m_appConfig);
 		
-		super.stage_registerStateMachine(viewController);
+		super.stage_registerStateMachine(viewController, StateMachine_Tabs.class);
 	
-		/*registerAccountStates();
+		registerAccountStates();
 		registerCodeEditingStates();
 		List<Class<? extends smA_State>> tabStates = new ArrayList<Class<? extends smA_State>>();
 		tabStates.add(StateMachine_Account.class);
 		tabStates.add(StateMachine_EditingCode.class);
-		m_stateContext.registerState(new StateMachine_Tabs(tabStates));*/
+		m_stateContext.registerState(new StateMachine_Tabs(tabStates));
 	}
 	
 	@Override

@@ -18,7 +18,9 @@ public class ViewController extends smViewController
 
 	@Override
 	protected void startUpCoreUI()
-	{		
+	{
+		m_viewContext.stateContext.performAction(Action_Base_HideSupplementState.class);
+		
 		super.startUpCoreUI();
 		
 		smVisualCellContainer cellContainer = m_viewContext.splitPanel.getCellContainer();
@@ -26,5 +28,7 @@ public class ViewController extends smViewController
 		this.addStateListener(cellHud);
 		
 		cellContainer.add(cellHud);
+		
+		cellContainer.getCellContainerInner().getElement().getStyle().setBackgroundColor("#9DA1CA");
 	}
 }
