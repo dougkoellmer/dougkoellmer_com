@@ -66,8 +66,8 @@
   </target>
   
    <target name="build_js" description="Takes GWT output, cats together minified support JS, updates min.js version in HTML to circumvent caching">
-	  <exec executable="sh" newenvironment="false" dir="./">
-		  <arg value="../project/lib/swarm/scripts/client/build_js_default.sh" />
+	  <exec executable="sh" newenvironment="false" dir="../scripts/client">
+		  <arg value="./build_js.sh" />
 	</exec>
   </target>
   
