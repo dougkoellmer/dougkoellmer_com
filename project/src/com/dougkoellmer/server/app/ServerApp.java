@@ -50,6 +50,8 @@ import swarm.shared.transaction.smE_TelemetryRequestPath;
 import swarm.shared.transaction.smI_RequestPath;
 import swarm.shared.transaction.smRequestPathManager;
 
+import com.dougkoellmer.server.entities.ServerGrid;
+import com.dougkoellmer.server.homecells.E_HomeCell;
 import com.dougkoellmer.server.homecells.HomeCellCreator;
 import com.dougkoellmer.shared.app.S_App;
 import com.google.appengine.api.rdbms.AppEngineDriver;
@@ -71,6 +73,7 @@ public final class ServerApp extends smA_ServerApp
 		config.T_homeCellCreator = HomeCellCreator.class;
 		config.gridExpansionDelta = 8;
 		config.startingZ = 128;
+		config.startingCoord = E_HomeCell.HOME.getCoordinate();
 		
 		config.mainPage = "http://www.dougkoellmer.com";
 		
@@ -95,8 +98,8 @@ public final class ServerApp extends smA_ServerApp
 		
 		smServerTransactionManager txnManager = this.m_context.txnMngr;
 		
-		setNormalHandler(new getUserData(true, config.gridExpansionDelta),	smE_RequestPath.getUserData);		
-		
+		setNormalHandler(new getUserData(false, config.gridExpansionDelta),	smE_RequestPath.getUserData);		
+		setAdminHandler(new createGrid(ServerGrid.class), swarm.server.transaction.smE_AdminRequestPath.createGrid);
 		
 		//setAdminHandler(new refreshGrid(),	smE_AdminRequestPath.refreshGrid);
 	}

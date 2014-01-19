@@ -65,6 +65,15 @@ public class ClientApp extends smA_ClientApp implements EntryPoint
 	{
 		smClientAppConfig appConfig = new smClientAppConfig();
 		
+		int cacheSize = 256;
+		double cacheExpiration = Double.MAX_VALUE;
+		
+		appConfig.minSnapTime	 = .5;
+		appConfig.snapTimeRange = 1;
+		appConfig.addressCacheSize = cacheSize;
+		appConfig.addressCacheExpiration_seconds = cacheExpiration;
+		appConfig.codeCacheSize = cacheSize;
+		appConfig.codeCacheExpiration_seconds = cacheExpiration;
 		appConfig.cellHudHeight = S_ClientApp.CELL_HUD_HEIGHT;
 		appConfig.backOffDistance = S_ClientApp.VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET;	
 		appConfig.publicRecaptchaKey = "";
@@ -126,7 +135,7 @@ public class ClientApp extends smA_ClientApp implements EntryPoint
 		registerAccountStates();
 		registerCodeEditingStates();
 		List<Class<? extends smA_State>> tabStates = new ArrayList<Class<? extends smA_State>>();
-		tabStates.add(StateMachine_Account.class);
+		//tabStates.add(StateMachine_Account.class);
 		tabStates.add(StateMachine_EditingCode.class);
 		m_stateContext.registerState(new StateMachine_Tabs(tabStates));
 	}
