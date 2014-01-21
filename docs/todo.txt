@@ -1,9 +1,13 @@
 - fix magnifier on touch devices
 
-- make click tolerance a little more forgiving, IIRC
+- make touch-click tolerance a little more forgiving, IIRC
 
 - do pinch-zoom
 
-- investigate background image of space
+- investigate background image of space or something
 
 - should be able to scroll over cell hud
+
+- fix bug that causes snap to top-left corner when navigating to a url
+
+- perhaps preallocate all the cells that I'll need for full zoomed-out view.

@@ -2,12 +2,14 @@ package com.dougkoellmer.server.homecells;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletContext;
 
 import org.apache.commons.io.IOUtils;
+
 
 
 import swarm.shared.entities.smE_CharacterQuota;
@@ -60,7 +62,7 @@ public class HomeCellCreator implements smI_HomeCellCreator
 	
 	//--- DRK > For some reason it's a compiler error to have these as static members of E_HomeCell itself.
 	static E_HomeCell s_previousCell;
-	static E_HomeCell s_currentRootCell;
+	static ArrayList<E_HomeCell> s_cellStack = new ArrayList<>();
 	
 	
 	public HomeCellCreator()
@@ -93,9 +95,23 @@ public class HomeCellCreator implements smI_HomeCellCreator
 			E_HomeCell eCell = E_HomeCell.values()[i];
 			smGridCoordinate coordinate = eCell.getCoordinate();
 			smServerCellAddressMapping mapping = new smServerCellAddressMapping(smE_GridType.ACTIVE, coordinate);
-			smServerCellAddress address = new smServerCellAddress(eCell.getAddress());
 			
-			smServerCellAddress[] addressArray = {address};
+			smServerCellAddress primaryAddress = new smServerCellAddress(eCell.getPrimaryAddress());
+			smServerCellAddress secondaryAddress = eCell.getSecondaryAddress() != null ? new smServerCellAddress(eCell.getSecondaryAddress()) : null;
+			
+			smServerCellAddress[] addressArray;
+			
+			if( secondaryAddress != null)
+			{
+				addressArray = new smServerCellAddress[2];
+				addressArray[0] = primaryAddress;
+				addressArray[1] = secondaryAddress;
+			}
+			else
+			{
+				addressArray = new smServerCellAddress[1];
+				addressArray[0] = primaryAddress;
+			}
 
 			//--- DRK > First take ownership of the cell if necessary.
 			if( !user.isCellOwner(coordinate) )
