@@ -31,7 +31,7 @@ public enum E_HomeCell
 		
 	CODE				(HOME,	1,	1,				new FileBasedHomeCellContent("code")),
 		SOFTWARE		(CODE,	1,	0,				new ThumbnailHomeCellContent()),
-			PRESSURE				(1,		0, 		new ImageHomeCellContent()),
+			PRESSURE				(1,		-1, 		new ImageHomeCellContent()),
 			PRESSURE_AND_HEAT		(1,		-1, 	new ImageHomeCellContent()),
 			RADIOACTIVE_DECAY		(1,		0, 		new ImageHomeCellContent()),
 			CORROSION_CELL			(1,		0, 		new ImageHomeCellContent()),
@@ -48,11 +48,11 @@ public enum E_HomeCell
 			GRAVITATION				(0,		1, 		new ImageHomeCellContent()),
 			
 		WETWARE			(CODE, 1, 1,				new ThumbnailHomeCellContent()),
-			POLISH_FOREST_ADVENTURE		(1,		1, 	new ImageHomeCellContent()),
+			POLISH_FOREST_ADVENTURE		(1,		0, 	new ImageHomeCellContent()),
 			SPANISH_OPERA_ADVENTURE		(1,		0, 	new ImageHomeCellContent()),
-			OLD_FRIEND					(1,		0, 	new ImageHomeCellContent()),
+			OLD_FRIEND					(1,		1, 	new ImageHomeCellContent()),
 			MUSINGS						(1,		1, 	new ImageHomeCellContent()),
-			WHAT_IS_CORROSION			(1,		1, 	new ImageHomeCellContent()),
+			WHAT_IS_CORROSION			(0,		1, 	new ImageHomeCellContent()),
 	
 	HARDWARE		(HOME,	-1,	1,			new FileBasedHomeCellContent("hardware")),
 		USEFUL			(HARDWARE, -1,		0, 		new FileBasedHomeCellContent("useful")),

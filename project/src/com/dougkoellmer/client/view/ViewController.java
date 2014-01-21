@@ -29,6 +29,6 @@ public class ViewController extends smViewController
 		
 		cellContainer.add(cellHud);
 		
-		cellContainer.getCellContainerInner().getElement().getStyle().setBackgroundColor("#9DA1CA");
+		cellContainer.getCellContainerInner().getElement().getStyle().setBackgroundColor("#000000");
 	}
 }

@@ -8,6 +8,8 @@
 
 - should be able to scroll over cell hud
 
-- fix bug that causes snap to top-left corner when navigating to a url
-
 - perhaps preallocate all the cells that I'll need for full zoomed-out view.
+
+- make sure holding a dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
+
+- rename "recreateHomeCells" to delete something
