@@ -74,9 +74,13 @@
   <target name="build_css" description="Takes a bunch of CSS files, cats them, minifies them, updates resource version in HTML">
 	  <exec executable="sh" newenvironment="false" dir="../project/lib/swarm/scripts/client/">
 		  <arg value="minify_css.sh" />
-	</exec>
+		</exec>
 	
 	<copy file="./lib/swarm/bin/min.css" todir="./war/r.app/" />
+	
+	 <exec executable="sh" newenvironment="false" dir="../scripts/client/">
+		  <arg value="minify_css.sh" />
+		</exec>
 	
 	<exec executable="sh" newenvironment="false" dir="">
 		  <arg value="../project/lib/swarm/scripts/client/update_resource_version.sh" />

@@ -57,7 +57,8 @@ public class HomeCellCreator implements smI_HomeCellCreator
 	
 	public static final String BASE_RESOURCE_PATH = "/WEB-INF/home_cells";
 	
-	private static final String HTML_START = "<!doctype><html><head><link type='text/css' rel='stylesheet' href='/r.css/default_cell.css'/></head><body>";
+	//<link type='text/css' rel='stylesheet' href='/r.css/default_cell.css'/>
+	private static final String HTML_START = "<!doctype><html><head></head><body>";
 	private static final String HTML_END = "</body></html>";
 	
 	//--- DRK > For some reason it's a compiler error to have these as static members of E_HomeCell itself.

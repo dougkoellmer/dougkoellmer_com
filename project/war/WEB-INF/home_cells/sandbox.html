@@ -9,18 +9,27 @@ function onSandboxLoad()
 {
 		var sandbox = document.getElementById("sandbox");
 		
+		var randomVersion = Math.round(Math.random() * 10000000);
+		
 		var cssLink = document.createElement("link") 
-		cssLink.href = '../../r.css/default_cell.css';
+		cssLink.href = '../../../src/com/dougkoellmer/shared/css/cell_content.css?v=' + randomVersion;
 		cssLink .rel = "stylesheet"; 
 		cssLink .type = "text/css"; 
-		console.log(sandbox.contentWindow.document.body);
+		//console.log(sandbox.contentWindow.document.body);
 		sandbox.contentWindow.document.head.appendChild(cssLink);
+		
+		var $imgs = $(sandbox.contentWindow.document.body).find("img");
+		$imgs.each(function(index, element)
+		{
+			var split = element.src.split("C:/");
+			element.src = "../../" + split[1];
+		});
 }
 
 </script>
 
 <table style="width:100%; height:100%;"><tr><td style="text-align:center;">
-<iframe id="sandbox" style="background:white; width:512px; height:512px; border:1px solid black;"></iframe>
+<iframe id="sandbox" style="background:white; width:512px; height:512px; border:none;"></iframe>
 </td></tr></table>
 
 <script>

@@ -8,7 +8,7 @@ public enum E_HomeCell
 {
 	HOME			(18, 14, new FileBasedHomeCellContent("home")),
 	
-	MY_PRECIOUSES		(HOME, -1,	-1,	new ThumbnailHomeCellContent()),
+	PRECIOUSES			(HOME, -1,	-1,	new ThumbnailHomeCellContent()),
 		SWORD			(-1,	-1, 	new ImageHomeCellContent()),
 		WOODEN_CUP		(-1,	-1, 	new ImageHomeCellContent()),
 		HATCHET			(0,		-1, 	new ImageHomeCellContent()),
@@ -17,7 +17,7 @@ public enum E_HomeCell
 		VACUUM_SEALER	(1,		0, 		new ImageHomeCellContent()),
 		LIGHTER			(1,		0, 		new ImageHomeCellContent()),
 		
-	SKILLS				(HOME, 	1,	-1,			new ThumbnailHomeCellContent()),
+	ABILITIES				(HOME, 	1,	-1,			new ThumbnailHomeCellContent()),
 		FOOT_JUGGLING			(0,		-1, 	new ImageHomeCellContent()),
 		JUGGLING				(0,		-1, 	new ImageHomeCellContent()),
 		FAST_SHUFFLE			(1,		0, 		new ImageHomeCellContent()),
@@ -29,9 +29,9 @@ public enum E_HomeCell
 		ONE_HAND_MATCH_LIGHT	(1,		0, 		new ImageHomeCellContent()),
 		FAST_SHIRT_SWAP			(1,		1, 		new ImageHomeCellContent()),
 		
-	CODE				(HOME,	1,	1,				new FileBasedHomeCellContent("code")),
-		SOFTWARE		(CODE,	1,	0,				new ThumbnailHomeCellContent()),
-			PRESSURE				(1,		-1, 		new ImageHomeCellContent()),
+	SOFTWARE				(HOME,	1,	1,				new FileBasedHomeCellContent("code")),
+		FOR_COMPUTERS		(SOFTWARE,	1,	0,				new ThumbnailHomeCellContent()),
+			PRESSURE				(1,		0, 		new ImageHomeCellContent()),
 			PRESSURE_AND_HEAT		(1,		-1, 	new ImageHomeCellContent()),
 			RADIOACTIVE_DECAY		(1,		0, 		new ImageHomeCellContent()),
 			CORROSION_CELL			(1,		0, 		new ImageHomeCellContent()),
@@ -47,15 +47,15 @@ public enum E_HomeCell
 			FIREWORKS				(0,		1, 		new ImageHomeCellContent()),
 			GRAVITATION				(0,		1, 		new ImageHomeCellContent()),
 			
-		WETWARE			(CODE, 1, 1,				new ThumbnailHomeCellContent()),
+		FOR_BIOTICS			(SOFTWARE, 1, 1,		new ThumbnailHomeCellContent()),
 			POLISH_FOREST_ADVENTURE		(1,		0, 	new ImageHomeCellContent()),
 			SPANISH_OPERA_ADVENTURE		(1,		0, 	new ImageHomeCellContent()),
 			OLD_FRIEND					(1,		1, 	new ImageHomeCellContent()),
 			MUSINGS						(1,		1, 	new ImageHomeCellContent()),
 			WHAT_IS_CORROSION			(0,		1, 	new ImageHomeCellContent()),
 	
-	HARDWARE		(HOME,	-1,	1,			new FileBasedHomeCellContent("hardware")),
-		USEFUL			(HARDWARE, -1,		0, 		new FileBasedHomeCellContent("useful")),
+	CREATIONS		(HOME,	-1,	1,			new FileBasedHomeCellContent("hardware")),
+		USEFUL			(CREATIONS, -1,		0, 		new FileBasedHomeCellContent("useful")),
 			INVENTIONS	(USEFUL, -1, -1,		new ThumbnailHomeCellContent()),
 				BIKE_CARD_THING			(-1,	-1, 	new ImageHomeCellContent()),
 				DOWEL_HOLDER			(-1,	0, 		new ImageHomeCellContent()),
@@ -73,7 +73,8 @@ public enum E_HomeCell
 				TORSION_KNOT			(1,		0,		new ImageHomeCellContent()),
 			
 			MISC	(USEFUL, -1, 0, new ThumbnailHomeCellContent()),
-				CANVAS_BAG			(-1,	0, 		new ImageHomeCellContent()),
+				TERMINATOR_GLASSES	(-1,	0,		new ImageHomeCellContent()),
+				CANVAS_BAG			(-1,	1, 		new ImageHomeCellContent()),
 				CANVAS_WRAP			(-1,	0, 		new ImageHomeCellContent()),
 				SANTOKU_SHEATH		(-1,	0, 		new ImageHomeCellContent()),
 				F1_SHEATH_MOD		(-1,	0, 		new ImageHomeCellContent()),
@@ -107,7 +108,7 @@ public enum E_HomeCell
 				RED_OAK_SPOON			(-1,	-1, 	new ImageHomeCellContent()),
 				PLYWOOD_PUNISHER		(0,		-1, 	new ImageHomeCellContent()),
 				
-		ART		(HARDWARE, 0, 1,		new ThumbnailHomeCellContent()),
+		ART		(CREATIONS, 0, 1,		new ThumbnailHomeCellContent()),
 			DRAGON						(0,		1, 		new ImageHomeCellContent()),
 			ROSE						(1,		1, 		new ImageHomeCellContent()),
 			SOLAR_SYSTEM				(1,		0, 		new ImageHomeCellContent()),
