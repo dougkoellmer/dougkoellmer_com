@@ -13,7 +13,7 @@ public class ImageHomeCellContent implements I_HomeCellContent
 		m_content = "IMAGE";
 	}
 	
-	public void init(ServletContext servletContext)
+	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
 		
 	}

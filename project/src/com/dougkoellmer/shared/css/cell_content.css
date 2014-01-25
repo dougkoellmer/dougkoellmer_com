@@ -3,6 +3,39 @@ body, caja-v-body
 	margin:0px;
 }
 
+.dk_cell_content_border_box
+{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+
+.dk_thumb_cell
+{
+	border:5px solid rgb(100,100,100);
+}
+
+.dk_thumb_cell_empty
+{
+	background:rgb(50, 50, 50);
+}
+
+.dk_thumb_cell_img
+{
+	width:64px;
+	height:64px;
+	background:grey;
+	border:none;
+}
+
+.dk_thumb_cell_empty, .dk_thumb_cell
+{
+	display:inline-block;
+	width:241px;
+	height:80px;
+	box-sizing:border-box;
+	font-size:12px;
+}
+
 .waypoint_no_table_fluff
 {
 	border:0px;
@@ -10,13 +43,21 @@ body, caja-v-body
 	border-collapse:collapse;
 }
 
-.waypoint_cell_link_text
+.dk_cell_content_text, .waypoint_cell_link_text, .dk_thumb_desc
 {
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-	font-size:32px;
 	color:rgb(100,100,100);
 }
 
+.dk_cell_content_text
+{
+	font-size:16px;
+}
+
+.waypoint_cell_link_text
+{
+	font-size:32px;
+}
 
 .waypoint_cell_with_right_border
 {
@@ -25,7 +66,7 @@ body, caja-v-body
 
 .waypoint_cell_with_left_border
 {
-	border-left:5px solid rgb(100,100,100); 
+	border-left:10px solid rgb(100,100,100); 
 }
 
 .waypoint_cell_with_bottom_border
@@ -35,7 +76,7 @@ body, caja-v-body
 
 .waypoint_cell_with_top_border
 {
-	border-top:5px solid rgb(100,100,100);
+	border-top:10px solid rgb(100,100,100);
 }
 
 .waypoint_cell_with_border
@@ -47,6 +88,15 @@ body, caja-v-body
 {
 	padding:12px;
 	opacity:.75;
+}
+
+.waypoint_cell_inner_table
+{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
 }
 
 .waypoint_cell
@@ -62,6 +112,14 @@ body, caja-v-body
 	cursor:pointer;
 }
 
+.waypoint_cell_link_text_e
+{
+	-webkit-transform: rotate(-90deg) ;
+	-moz-transform: rotate(-90deg) ;
+	-ms-transform: rotate(-90deg) ;
+	-o-transform: rotate(-90deg) ;
+}
+
 .waypoint_cell_link:link {text-decoration:none;}
 .waypoint_cell_link:visited {text-decoration:none;}
 .waypoint_cell_link:hover {text-decoration:none;}
@@ -72,7 +130,12 @@ body, caja-v-body
 	background:rgb(145, 167, 223);
 }
 
-.waypoint_nav_arrow_ne
+.nav_arrow_img
+{
+	border:none;
+}
+
+.waypoint_nav_arrow_ne, .waypoint_nav_arrow_e
 {
 	-moz-transform: scaleX(-1);
 	-o-transform: scaleX(-1);

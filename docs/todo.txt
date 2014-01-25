@@ -2,12 +2,17 @@
 
 - make touch-click tolerance a little more forgiving, IIRC
 
+- make sure of fast-click for snap links on mobile
+
 - do pinch-zoom
+
+
+- have initial zoom in for first page view
 
 - investigate background image of space or something
 
-- should be able to scroll over cell hud
+- make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
 
-- make sure holding a dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
+- run home cell source through a formatter
 
-- make sure of fast-click for snap links on mobile
+- increase area outside cell which can be used to scroll...for touch devives i think this is needed.

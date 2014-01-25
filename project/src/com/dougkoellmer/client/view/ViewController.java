@@ -27,8 +27,8 @@ public class ViewController extends smViewController
 		smVisualCellHud cellHud = new smVisualCellHud(m_viewContext, m_appConfig);
 		this.addStateListener(cellHud);
 		
-		cellContainer.add(cellHud);
+		cellContainer.getScrollContainer().add(cellHud);
 		
-		cellContainer.getCellContainerInner().getElement().getStyle().setBackgroundColor("#000000");
+		//cellContainer.getCellContainerInner().getElement().getStyle().setBackgroundColor("#000000");
 	}
 }

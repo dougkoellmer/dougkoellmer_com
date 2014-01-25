@@ -8,5 +8,5 @@ public class S_ClientApp
 	
 	public static final double SET_HISTORY_STATE_MIN_FREQUENCY = .75;
 	
-	public static final double VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET = 100;
+	public static final double VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET = 700;
 }

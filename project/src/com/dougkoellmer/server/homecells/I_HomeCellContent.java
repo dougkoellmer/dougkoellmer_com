@@ -6,5 +6,5 @@ public interface I_HomeCellContent
 {
 	String getContent();
 	
-	void init(ServletContext servletContext);
+	void init(ServletContext servletContext, E_HomeCell homeCell);
 }

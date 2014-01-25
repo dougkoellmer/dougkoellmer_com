@@ -78,10 +78,10 @@ public class HomeCellCreator implements smI_HomeCellCreator
 	
 	private String makeCellCode(E_HomeCell cell)
 	{
-		I_HomeCellContent content = cell.getContent();
-		content.init(m_servletContext);
-		
-
+		HomeCellMetaData metaData = cell.getMetaData();
+		I_HomeCellContent content = metaData.getContent();
+		content.init(m_servletContext, cell);
+	
 		return HTML_START + content.getContent() + HTML_END;
 	}
 	
@@ -162,6 +162,8 @@ public class HomeCellCreator implements smI_HomeCellCreator
 			smServerCell persistedCell = smU_CellCode.getCellForCompile(blobManager, mapping, response);
 			
 			if( persistedCell == null )  return;
+			
+			persistedCell.getCodePrivileges().setCharacterQuota(smE_CharacterQuota.UNLIMITED);
 			
 			smCompilerResult result = smU_CellCode.compileCell(m_serverContext.codeCompiler, persistedCell, sourceCode, mapping, m_serverContext.config.appId);
 			

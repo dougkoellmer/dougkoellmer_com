@@ -14,7 +14,7 @@ public class FileBasedHomeCellContent implements I_HomeCellContent
 		m_fileName = fileName;
 	}
 	
-	public void init(ServletContext servletContext)
+	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
 		m_content = smU_Servlet.getResource(servletContext, HomeCellCreator.BASE_RESOURCE_PATH + "/" + m_fileName + ".html");
 	}
