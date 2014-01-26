@@ -72,7 +72,7 @@ public final class ServerApp extends smA_ServerApp
 		config.telemetryDatabase = null;
 		config.T_homeCellCreator = HomeCellCreator.class;
 		config.gridExpansionDelta = 8;
-		config.startingZ = 128;
+		config.startingZ = 430;
 		config.startingCoord = E_HomeCell.HOME.getCoordinate();
 		
 		config.mainPage = "http://www.dougkoellmer.com";

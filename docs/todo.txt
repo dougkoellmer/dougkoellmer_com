@@ -6,8 +6,9 @@
 
 - do pinch-zoom
 
+- fix highlight behavior for touch devices
 
-- have initial zoom in for first page view
+
 
 - investigate background image of space or something
 
@@ -15,4 +16,4 @@
 
 - run home cell source through a formatter
 
-- increase area outside cell which can be used to scroll...for touch devives i think this is needed.
+- increase area outside cell which can be used to scroll...for touch devices i think this is needed.
