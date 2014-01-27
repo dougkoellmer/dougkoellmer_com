@@ -11,28 +11,42 @@ body, caja-v-body
 
 .dk_thumb_cell
 {
-	border:5px solid rgb(100,100,100);
+	border:2px solid rgb(100,100,100);
+	padding:0px;
+}
+
+.dk_thumb_table
+{
+	width:100%;
+	border-collapse:seperate;
+	border-spacing:10px;
+	border:0px;
 }
 
 .dk_thumb_cell_empty
 {
-	background:rgb(50, 50, 50);
+	border:2px solid rgb(192, 190, 190);
 }
 
 .dk_thumb_cell_img
 {
+	display:block;
 	width:64px;
 	height:64px;
 	background:grey;
 	border:none;
+	margin-left:5px;
+}
+
+.dk_thumb_desc
+{
+	margin-right:5px;
 }
 
 .dk_thumb_cell_empty, .dk_thumb_cell
 {
-	display:inline-block;
-	width:241px;
+	width:50%;
 	height:80px;
-	box-sizing:border-box;
 	font-size:12px;
 }
 

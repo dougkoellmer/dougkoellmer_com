@@ -154,12 +154,6 @@ public enum E_HomeCell
 		else
 		{
 			ArrayList<E_HomeCell> stack = HomeCellCreator.s_cellStack;
-			E_HomeCell parent = stack.size() > 0 ? stack.get(stack.size()-1) : null;
-			
-			if( parent != null )
-			{
-				parent.m_children.add(this);
-			}
 			
 			if( relativeCell_nullable == null )
 			{
@@ -181,6 +175,13 @@ public enum E_HomeCell
 						top = stack.size() > 0 ? stack.get(stack.size()-1) : null;
 					}
 				}
+			}
+			
+			E_HomeCell parent = stack.size() > 0 ? stack.get(stack.size()-1) : null;
+			
+			if( parent != null )
+			{
+				parent.m_children.add(this);
 			}
 
 			m_primaryAddress = getBaseAddress() + cellName;			

@@ -1,12 +1,16 @@
-- fix magnifier on touch devices
-
 - make touch-click tolerance a little more forgiving, IIRC
+
+
+
+- check side scrolling work correctly..like above HUD...seemed to zoom me out with brief testing...oh, but that was with an earlier live release on b33hive...check it anyway that it works well
 
 - make sure of fast-click for snap links on mobile
 
-- do pinch-zoom
+- do pinch-zoom for touch devices
 
 - fix highlight behavior for touch devices
+
+- see about scroll wheel event and/or pinch zoom event for macbook
 
 
 
@@ -16,4 +20,7 @@
 
 - run home cell source through a formatter
 
-- increase area outside cell which can be used to scroll...for touch devices i think this is needed.
+
+
+
+- support larger focused cell sizes

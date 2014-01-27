@@ -4,7 +4,7 @@ public class S_ClientApp
 {	
 	public static final int MAGIC_UI_SPACING = 4;
 	
-	public static final int CELL_HUD_HEIGHT = 46;
+	public static final int CELL_HUD_HEIGHT = 47;
 	
 	public static final double SET_HISTORY_STATE_MIN_FREQUENCY = .75;
 	
