@@ -31,12 +31,11 @@
 
 
 
-
-- browser navigator does not set title of page if you go directly to URL
-
 - go through and format thumbnail descriptions
 
 - move "useful" text up a bit to line up with arrow...possible add at end "including things that make other things".
+
+- get rid of sm prefix
 
 
 
