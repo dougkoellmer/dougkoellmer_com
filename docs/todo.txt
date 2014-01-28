@@ -1,9 +1,9 @@
 
 
-
 - support larger focused cell sizes
 
 - improve cell hud
+
 
 
 - make touch-click tolerance a little more forgiving, IIRC
@@ -18,9 +18,6 @@
 
 - see about scroll wheel event and/or pinch zoom event for macbook
 
-- fix click manager...do what google says
-
-
 
 
 
@@ -29,9 +26,6 @@
 - make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
 
 
-
-
-- go through and format thumbnail descriptions
 
 - move "useful" text up a bit to line up with arrow...possible add at end "including things that make other things".
 
