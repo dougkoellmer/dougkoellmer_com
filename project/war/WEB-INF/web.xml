@@ -68,6 +68,20 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 			<url-pattern>/games/feed_the_bear</url-pattern>
 		</servlet-mapping>
 		
+		<servlet-mapping>
+			<servlet-name>redirector</servlet-name>
+			<url-pattern>/games/pressure</url-pattern>
+		</servlet-mapping>
 		
+		<servlet-mapping>
+			<servlet-name>redirector</servlet-name>
+			<url-pattern>/games/pressure_and_heat</url-pattern>
+		</servlet-mapping>
+		
+		<servlet-mapping>
+			<servlet-name>redirector</servlet-name>
+			<url-pattern>/games/radioactive_decay</url-pattern>
+		</servlet-mapping>
+
 		
 </web-app>

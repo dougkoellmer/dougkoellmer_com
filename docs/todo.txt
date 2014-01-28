@@ -24,3 +24,18 @@
 
 
 - support larger focused cell sizes
+
+
+
+
+- go through and format thumbnail descriptions
+
+- allocate space for resume, portofolio, and other misc writings
+
+- fix click manager...do what google says
+
+
+
+- figure out swarm licensing
+
+- make basic swarm readme

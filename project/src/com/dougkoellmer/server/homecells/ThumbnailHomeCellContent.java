@@ -49,7 +49,9 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				m_content += "</td>";
 			}
 			
-			if( i % 2 != 0 && i != 0 )  m_content += "</tr><tr>";
+			boolean lastCell = !children.hasNext() && i >= minCount-1;
+			
+			if( i % 2 != 0 && i != 0 && !lastCell)  m_content += "</tr><tr>";
 			
 			i++;
 		}

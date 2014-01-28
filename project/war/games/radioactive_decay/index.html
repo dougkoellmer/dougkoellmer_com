@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html>
+  <head>
+	  
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <title>Radioactive Decay</title>
+    
+    <script type="text/javascript" language="javascript" src="js_loader.js?v=4"></script>
+	
+	<script type="text/javascript" language="javascript">
+		loadCss("util.css");
+		loadCss("jquery-ui-1.10.0.custom.min.css");
+		loadJs("jquery-1.9.1.js");
+		loadJs("jquery-ui-1.10.0.custom.min.js");
+		loadJs("jquery-touch-punch.js");
+		loadJs("jquery_utils.js");
+		loadJs("js_util.js");
+		loadJs("point.js");
+		loadCss("radioactive_decay.css");
+    	loadJs("radioactive_decay_config.js");
+		loadJs("radioactive_decay_lib.js");
+		loadJs("radioactive_decay_resize.js");
+    	loadJs("radioactive_decay.js");
+	</script>
+    
+  </head>
+  
+  <body class="has_down_gradient leverages_gpu">
+	
+	  <!--<div class="fps_viewer"></div> -->
+	  
+	  <div id="instructions_wrapper">
+		  <table><tr>
+			  <td id="instructions">
+				  Uranium-238 has a half-life of about 4 billion years.<br/>
+				  Drag the circle below to observe how this group of uranium atoms undergoes alpha decay over time.
+			  </td>
+			
+		 </tr></table>
+	</div>
+	  
+	  <div id="screen_wrapper">
+		  <div id="screen_wrapper_inner">
+				<div id="atom_container_wrapper">
+					<div id="atom_container_cell">
+						<div id="atom_container">
+						</div>
+					</div>
+				</div>
+				<div id="toolbar_wrapper" class="">
+					<div id="toolbar">
+						<div id="time_tracker" class="toolbar_entry">
+							Blah
+						</div>
+						<div id="toolbar_splitter_wrapper"><div id="toolbar_splitter"></div></div>
+						<div id="atom_tracker" class="toolbar_entry">
+							Blah
+						</div>
+					</div>
+				</div>
+			 </div>
+	  </div>
+	  
+	  <div id="slider_wrapper">
+		  <div id="slider_wrapper_inner" >
+			  
+			  <div id="slider">
+				  <div id="slider_handle" class="ui-slider-handle">
+					<img id="slider_handle_image" />
+				</div>
+			  </div>
+			 
+			  <img id="slider_bg"/>
+		</div>
+	</div>
+	  
+  </body>
+</html>

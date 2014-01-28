@@ -1,0 +1,5 @@
+var DEBUG_DRAW = false;
+var FRAME_RATE = 17; // in milliseconds
+
+var MOUSE_JOINT_CONSTANT = 4000;
+var MOUSE_JOINT_PLUNGER_CONSTANT = 200;

@@ -1,0 +1,6 @@
+.blank_button{cursor:pointer;border:none;background:none;margin:0px;padding:0px;}
+.dimming_button{}
+.dimming_button:active,.touch_active{opacity:.5;}
+.leverages_gpu{-moz-transform:scale3d(1,1,1);-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1);-ms-transform:scale3d(1,1,1);}
+.has_no_table_fluff{border-spacing:0px;border:0;}
+.fps_viewer{position:absolute;top:0px;left:0px;}
