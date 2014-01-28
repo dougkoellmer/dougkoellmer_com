@@ -12,30 +12,30 @@ public class U_HomeCellMeta
 			case HOME:							return "";
 			
 			case PRECIOUSES:					return "";
-			case SWORD:							return 	"Ceremonial sword from Papua New Guinea";
-			case WOODEN_CUP:					return 	"Cup machined from a white oak sapling";
-			case HATCHET:						return 	"Multipurpose hatchet handcrafted in Sweden";
-			case MITER_SAW:						return 	"Precision hand miter saw made in Sweden";
-			case CARVING_TOOLS:					return 	"Wood carving tools made in Japan";
-			case VACUUM_SEALER:					return 	"Convenient mason jar vacuum sealer";
-			case LIGHTER:						return 	"Waterproof wick-based survival lighter";
+			case SWORD:							return 	"Ceremonial sword from<br>Papua New Guinea";
+			case WOODEN_CUP:					return 	"Cup machined from<br>white oak sapling";
+			case HATCHET:						return 	"Multipurpose hatchet<br>handcrafted in Sweden";
+			case MITER_SAW:						return 	"Precision hand miter<br>saw made in Sweden";
+			case CARVING_TOOLS:					return 	"Wood carving tools<br>made in Japan";
+			case VACUUM_SEALER:					return 	"Vacuum sealer<br>for mason jars";
+			case LIGHTER:						return 	"Waterproof wick-style<br>survival lighter";
 				
 			case ABILITIES:						return "";
-			case FOOT_JUGGLING:					return 	"Juggling a tennis ball with only feet";
-			case JUGGLING:						return 	"Juggling three tennis balls, various tricks";
-			case FAST_SHUFFLE:					return 	"Shuffling cards as fast as possible";
-			case CARD_DECK_SPLIT:				return 	"Splitting deck of cards with one hand";
-			case CARD_THROW:					return 	"Throwing playing cards into and through things";
-			case PEN_TWIRL:						return 	"Twirling pen continuously through four fingers";
-			case BOTTLE_OPENING:				return 	"Opening beer bottles with everyday items";
-			case FAST_SHOE_TIE:					return 	"Tying shoelaces as fast as possible";
-			case ONE_HAND_MATCH_LIGHT:			return 	"Lighting match from matchbook with one hand";
-			case FAST_SHIRT_SWAP:				return 	"T-shirt on and off as fast as possible";
+			case FOOT_JUGGLING:					return 	"Juggling tennis<br>ball with only feet";
+			case JUGGLING:						return 	"Juggling three tennis<br>balls, various tricks";
+			case FAST_SHUFFLE:					return 	"Shuffling cards as<br>fast as possible";
+			case CARD_DECK_SPLIT:				return 	"Splitting deck of<br>cards with one hand";
+			case CARD_THROW:					return 	"Throwing playing cards<br>into and through things";
+			case PEN_TWIRL:						return 	"Twirling pen<br>through four fingers";
+			case BOTTLE_OPENING:				return 	"Opening beer bottles<br>with everyday items";
+			case FAST_SHOE_TIE:					return 	"Tying shoelaces as<br>fast as possible";
+			case ONE_HAND_MATCH_LIGHT:			return 	"Lighting match from<br>matchbook one-handed";
+			case FAST_SHIRT_SWAP:				return 	"T-shirt on/off as<br>fast as possible";
 				
 			case SOFTWARE:						return "";
 			case FOR_COMPUTERS:					return "";
-			case PRESSURE:						return "Simulation teaching principles of air pressure";
-			case PRESSURE_AND_HEAT:				return "Simulation teaching principles of air pressure and heat";
+			case PRESSURE:						return "Simulation teaching<br>principles of pressure";
+			case PRESSURE_AND_HEAT:				return "Simulation teaching principles of pressure & heat";
 			case RADIOACTIVE_DECAY:				return "Simulation teaching radioactive decay and half-life";
 			case CORROSION_CELL:				return "Simulation teaching principles of metal corrosion";
 			case FEED_THE_BEAR:					return "Simulation showing novel way that polar bears hunt seals";
@@ -51,11 +51,14 @@ public class U_HomeCellMeta
 			case GRAVITATION:					return "Simple physics simulation of planetary gravity";
 					
 			case FOR_BIOTICS:					return "";
+			case RESUME:						return "Experimenting with new kind of resume format";
+			case PORTFOLIO:						return "Programmer-friendly work portfolio";
 			case POLISH_FOREST_ADVENTURE:		return "Disturbing walk in cold misty forest in Poland";
-			case SPANISH_OPERA_ADVENTURE:		return "Fantastical experience travelling in Seville, Spain";
+			case SPANISH_OPERA_ADVENTURE:		return "Fantastical experience travelling in Spain";
 			case OLD_FRIEND:					return "Poem about fleetingly meeting old friend from childhood";
 			case MUSINGS:						return "Random musings on life and nature of reality";
 			case WHAT_IS_CORROSION:				return "Essay for the layman on how corrosion works";
+			case PERFECT_COFFEE:				return "How to make the perfect cup of coffee";
 			
 			case CREATIONS:						return "";
 			case USEFUL:						return "";
@@ -128,9 +131,9 @@ public class U_HomeCellMeta
 			case MOTHER_AND_CHILD:				return "Tiny abstract wooden sculpture of mother and child";
 			case WOOD_CHAIN:					return "Wooden chain carved from solid length of rock maple";
 			case GLASSES_HOLDER:				return "Decorative wooden desktop holder for reading glasses";
-			
-			default:							return null;
 		}
+		
+		return null;
 	}
 	
 	public static I_HomeCellContent getContent(E_HomeCell homeCell)
@@ -177,13 +180,16 @@ public class U_HomeCellMeta
 			case BALANCE_THING_GAME:			return new CellComingSoonContent();
 			case FIREWORKS:						return new CellComingSoonContent();
 			case GRAVITATION:					return new CellComingSoonContent();
-					
+	
 			case FOR_BIOTICS:					return new ThumbnailHomeCellContent();
+			case RESUME:						return new CellComingSoonContent();
+			case PORTFOLIO:						return new CellComingSoonContent();
 			case POLISH_FOREST_ADVENTURE:		return new CellComingSoonContent();
 			case SPANISH_OPERA_ADVENTURE:		return new CellComingSoonContent();
 			case OLD_FRIEND:					return new CellComingSoonContent();
 			case MUSINGS:						return new CellComingSoonContent();
 			case WHAT_IS_CORROSION:				return new CellComingSoonContent();
+			case PERFECT_COFFEE:				return new CellComingSoonContent();
 			
 			case CREATIONS:						return new FileBasedHomeCellContent("creations");
 			case USEFUL:						return new FileBasedHomeCellContent("useful");

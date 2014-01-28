@@ -26,7 +26,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		int i = 0, minCount = 12;
 		Iterator<E_HomeCell> children = homeCell.getChildren();
 		
-		while( i < minCount || children.hasNext() )
+		while( i < minCount || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
 		{				
 			if( children.hasNext() )
 			{

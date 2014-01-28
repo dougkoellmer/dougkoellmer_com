@@ -1,5 +1,6 @@
 package com.dougkoellmer.server.homecells;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ import javax.servlet.ServletContext;
 import org.apache.commons.io.IOUtils;
 
 
+
+import org.apache.commons.io.output.ByteArrayOutputStream;
+import org.w3c.tidy.Tidy;
 
 import swarm.shared.entities.smE_CharacterQuota;
 import swarm.server.account.smUserSession;
@@ -152,7 +156,7 @@ public class HomeCellCreator implements smI_HomeCellCreator
 				}
 			}
 		
-			//--- DRK > Get the source code for the cell.
+			//--- DRK > Get the source code for the cell
 			String code = this.makeCellCode(eCell);
 			smServerCode sourceCode = new smServerCode(code, smE_CodeType.SOURCE);
 			
@@ -175,6 +179,19 @@ public class HomeCellCreator implements smI_HomeCellCreator
 				
 				return;
 			}
+			
+			Tidy tidy = new Tidy();
+			tidy.setTabsize(4);
+			tidy.setSpaces(3);
+			tidy.setIndentContent(true);
+			tidy.setTidyMark(false);
+			tidy.setWraplen(Integer.MAX_VALUE);
+			InputStream inputStream = new ByteArrayInputStream(code.getBytes());
+			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+			tidy.parse(inputStream, outputStream);
+			code = new String(outputStream.toByteArray());
+			sourceCode = new smServerCode(code, smE_CodeType.SOURCE);
+			persistedCell.setCode(smE_CodeType.SOURCE, sourceCode);
 
 			if( !smU_CellCode.saveBackCompiledCell(blobManager, cachedBlobMngr, mapping, persistedCell, response) )
 			{

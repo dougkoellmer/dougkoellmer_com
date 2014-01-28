@@ -49,11 +49,14 @@ public enum E_HomeCell
 			GRAVITATION				(0,		1),
 			
 		FOR_BIOTICS			(SOFTWARE, 1, 1),
+			RESUME						(1,		0),
+			PORTFOLIO					(1,		0),
 			POLISH_FOREST_ADVENTURE		(1,		0),
-			SPANISH_OPERA_ADVENTURE		(1,		0),
+			SPANISH_OPERA_ADVENTURE		(1,		1),
 			OLD_FRIEND					(1,		1),
-			MUSINGS						(1,		1),
+			MUSINGS						(0,		1),
 			WHAT_IS_CORROSION			(0,		1),
+			PERFECT_COFFEE				(0,		1),
 	
 	CREATIONS		(HOME,	-1,	1),
 		USEFUL			(CREATIONS, -1,		0),

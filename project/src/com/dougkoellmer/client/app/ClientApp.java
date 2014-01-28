@@ -96,7 +96,7 @@ public class ClientApp extends smA_ClientApp implements EntryPoint
 		
 		viewConfig.magFadeInTime_seconds = .5;
 		viewConfig.magnifierTickCount = 7;
-		viewConfig.defaultPageTitle = "Doug";
+		viewConfig.defaultPageTitle = "Doug Koellmer";
 		viewConfig.cellHighlightColor = "rgb(145, 167, 223)";
 		viewConfig.initialBumpDistance = 190;
 		
