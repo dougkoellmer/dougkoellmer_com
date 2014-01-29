@@ -1,5 +1,4 @@
 
-
 - support larger focused cell sizes
 
 - improve cell hud
@@ -17,6 +16,14 @@
 - fix highlight behavior for touch devices
 
 - see about scroll wheel event and/or pinch zoom event for macbook
+
+
+
+- do js animations, test on iPad, see if it's faster
+
+- fix fast click
+
+- test out scaled3d on iPad, chrome...try workaround where you still do it for low zooms on chrome?
 
 
 
