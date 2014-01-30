@@ -29,6 +29,7 @@ import swarm.client.view.smViewController;
 import swarm.client.view.cell.smGifSpinner;
 import swarm.client.view.cell.smI_CellSpinner;
 import swarm.client.view.cell.smI_CellSpinnerFactory;
+import swarm.client.view.cell.smSpritePlateSpinner;
 import swarm.client.view.tabs.smI_Tab;
 import swarm.client.view.tabs.account.smAccountTab;
 import swarm.client.view.tabs.code.smCodeEditorTab;
@@ -134,7 +135,7 @@ public class ClientApp extends smA_ClientApp implements EntryPoint
 			@Override
 			public smI_CellSpinner newSpinner()
 			{
-				return new smGifSpinner("<table style='width:100%; height:100%;'><tr><td style='text-align:center; vertical-align:middle;'><img src='/r.img/spinner.gif' /></td></tr></table>");
+				return new smSpritePlateSpinner("dk_spinner", 15, 1/30.0);
 			}
 		};
 	}

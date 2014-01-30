@@ -5,6 +5,9 @@
 
 
 
+
+-ipad doesn't handle device orientation changes
+
 - make touch-click tolerance a little more forgiving, IIRC
 
 - check side scrolling work correctly..like above HUD...seemed to zoom me out with brief testing...oh, but that was with an earlier live release on b33hive...check it anyway that it works well
@@ -17,10 +20,6 @@
 
 - see about scroll wheel event and/or pinch zoom event for macbook
 
-
-
-- do js animations, test on iPad, see if it's faster
-
 - fix fast click
 
 - test out scaled3d on iPad, chrome...try workaround where you still do it for low zooms on chrome?
@@ -32,9 +31,6 @@
 
 - make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
 
-
-
-- move "useful" text up a bit to line up with arrow...possible add at end "including things that make other things".
 
 - get rid of sm prefix
 

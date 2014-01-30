@@ -111,7 +111,7 @@ public class U_HomeCellMeta
 			case OAR:							return "Oar carved from<br>solid log of hickory";
 			case BOOMERANG:						return "Boomerang made from<br>strips of various woods";
 			case COASTER_HOLDER:				return "Decorative holder for<br>circular drink coasters";
-			case RED_OAK_SPOON:					return "Big head-thumper spoon<br>made from red oak";
+			case RED_OAK_SPOON:					return "Head-thumping spoon<br>made from red oak";
 			case PLYWOOD_PUNISHER:				return "3-person sled made<br>of steam-bent plywood";
 						
 			case ART:							return "";
@@ -121,7 +121,7 @@ public class U_HomeCellMeta
 			case BANANA:						return "Realistic banana<br>drawn with pencil";
 			case PEACEFUL_MAN:					return "Peaceful man & flowers<br>sculpted with clay";
 			case LADY:							return "Mysterious lady painted<br>with limited colors";
-			case BLACKHOLE:						return "Linoleum print block<br>of a black hole";
+			case BLACKHOLE:						return "Linoleum print block<br>of singularity";
 			case INFINITE_TOLERANCE:			return "Sketch supporting<br>diversity & tolerance";
 			case SAVE_ANIMALS:					return "Sketch supporting <br>all the animals";
 			case DINOSAURS:						return "Sketch supporting<br>dinosaurs taking over";
