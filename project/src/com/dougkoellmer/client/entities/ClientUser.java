@@ -1,11 +1,11 @@
 package com.dougkoellmer.client.entities;
 
-import swarm.client.entities.smA_ClientUser;
-import swarm.client.entities.smUserCell;
+import swarm.client.entities.A_ClientUser;
+import swarm.client.entities.UserCell;
 
-import swarm.shared.structs.smGridCoordinate;
+import swarm.shared.structs.GridCoordinate;
 
-public class ClientUser extends smA_ClientUser
+public class ClientUser extends A_ClientUser
 {	
 	public ClientUser()
 	{

@@ -2,7 +2,7 @@ package com.dougkoellmer.server.homecells;
 
 import javax.servlet.ServletContext;
 
-import swarm.server.thirdparty.servlet.smU_Servlet;
+import swarm.server.thirdparty.servlet.U_Servlet;
 
 public class FileBasedHomeCellContent implements I_HomeCellContent
 {
@@ -16,7 +16,7 @@ public class FileBasedHomeCellContent implements I_HomeCellContent
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
-		m_content = smU_Servlet.getResource(servletContext, HomeCellCreator.BASE_RESOURCE_PATH + "/" + m_fileName + ".html");
+		m_content = U_Servlet.getResource(servletContext, HomeCellCreator.BASE_RESOURCE_PATH + "/" + m_fileName + ".html");
 	}
 	
 	public String getContent()

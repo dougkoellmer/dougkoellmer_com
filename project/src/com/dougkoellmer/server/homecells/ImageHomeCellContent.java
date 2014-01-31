@@ -2,7 +2,7 @@ package com.dougkoellmer.server.homecells;
 
 import javax.servlet.ServletContext;
 
-import swarm.server.thirdparty.servlet.smU_Servlet;
+import swarm.server.thirdparty.servlet.U_Servlet;
 
 public class ImageHomeCellContent implements I_HomeCellContent
 {

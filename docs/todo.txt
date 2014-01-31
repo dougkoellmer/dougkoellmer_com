@@ -1,9 +1,8 @@
 
 - support larger focused cell sizes
 
-- improve cell hud
 
-
+- fix hud when scrolled all the way to the right and you exit a cell
 
 
 -ipad doesn't handle device orientation changes
@@ -22,8 +21,7 @@
 
 - fix fast click
 
-- test out scaled3d on iPad, chrome...try workaround where you still do it for low zooms on chrome?
-
+- hud lags behind touch scrolling
 
 
 
@@ -31,11 +29,3 @@
 
 - make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
 
-
-- get rid of sm prefix
-
-
-
-- figure out swarm licensing
-
-- make basic swarm readme

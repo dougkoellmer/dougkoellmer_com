@@ -3,7 +3,7 @@ package com.dougkoellmer.server.homecells;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import swarm.shared.structs.smGridCoordinate;
+import swarm.shared.structs.GridCoordinate;
 
 public enum E_HomeCell
 {
@@ -131,7 +131,7 @@ public enum E_HomeCell
 			GLASSES_HOLDER				(-1,	0);
 	
 	
-	private final smGridCoordinate m_coordinate;
+	private final GridCoordinate m_coordinate;
 	private final String m_primaryAddress;
 	private final String m_secondaryAddress;
 	private final ArrayList<E_HomeCell> m_children = new ArrayList<E_HomeCell>();
@@ -150,7 +150,7 @@ public enum E_HomeCell
 		
 		if( this.ordinal() == 0 )
 		{
-			m_coordinate = new smGridCoordinate(offsetM, offsetN);
+			m_coordinate = new GridCoordinate(offsetM, offsetN);
 			m_primaryAddress = cellName;
 			m_secondaryAddress = null;
 		}
@@ -188,7 +188,7 @@ public enum E_HomeCell
 			}
 
 			m_primaryAddress = getBaseAddress() + cellName;			
-			m_coordinate = new smGridCoordinate(relativeCell_nullable.m() + offsetM, relativeCell_nullable.n() + offsetN);
+			m_coordinate = new GridCoordinate(relativeCell_nullable.m() + offsetM, relativeCell_nullable.n() + offsetN);
 		}
 		
 		HomeCellCreator.s_previousCell = this;
@@ -221,7 +221,7 @@ public enum E_HomeCell
 		return address;
 	}
 	
-	public smGridCoordinate getCoordinate()
+	public GridCoordinate getCoordinate()
 	{
 		return m_coordinate;
 	}

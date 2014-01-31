@@ -9,6 +9,7 @@ cd $SWARM_SCRIPTS
 sh ./minify_codemirror.sh
 sh ./minify_history.sh
 sh ./minify_fastclick_js.sh
+sh ./minify_utils_js.sh
 cd -
 
 # cat support libraries together into one dependency.
@@ -17,8 +18,9 @@ CM_DIR="$SWARM_JS_DIR/codemirror"
 HISTORY_DIR="$SWARM_JS_DIR/history"
 MODERNIZR_DIR="$SWARM_JS_DIR/modernizr"
 FASTCLICK_DIR="$SWARM_JS_DIR/fastclick"
+UTILS_DIR="$SWARM_JS_DIR/utils"
 TEMP_OUT_DIR="./temp"
-cat $HISTORY_DIR/native.history_min.js $MODERNIZR_DIR/modernizr.custom.90450.js $CM_DIR/cm_min.js $FASTCLICK_DIR/fastclick.min.js > $TEMP_OUT_DIR/dependencies.min.js
+cat $UTILS_DIR/utils.min.js $HISTORY_DIR/native.history_min.js $MODERNIZR_DIR/modernizr.custom.90450.js $CM_DIR/cm_min.js $FASTCLICK_DIR/fastclick.min.js > $TEMP_OUT_DIR/dependencies.min.js
 
 # cat minified support and main app js bootstrapper into one file.
 APP_JS=$(realpath ../../project/war/r.app/r.app.nocache.js)

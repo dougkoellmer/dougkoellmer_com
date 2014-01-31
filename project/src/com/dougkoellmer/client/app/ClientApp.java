@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.*;
 
-import swarm.client.app.smA_ClientApp;
-import swarm.client.app.smClientAppConfig;
-import swarm.client.app.smE_Platform;
-import swarm.client.app.smE_StartUpStage;
-import swarm.client.input.smClickManager;
+import swarm.client.app.A_ClientApp;
+import swarm.client.app.ClientAppConfig;
+import swarm.client.app.E_Platform;
+import swarm.client.app.E_StartUpStage;
+import swarm.client.input.ClickManager;
 import swarm.client.states.*;
 import swarm.client.states.account.StateMachine_Account;
 import swarm.client.states.account.State_AccountStatusPending;
@@ -22,25 +22,25 @@ import swarm.client.states.camera.State_ViewingCell;
 import swarm.client.states.code.StateMachine_EditingCode;
 import swarm.client.states.code.State_EditingCode;
 import swarm.client.states.code.State_EditingCodeBlocker;
-import swarm.client.view.smE_ZIndex;
-import swarm.client.view.smS_UI;
-import swarm.client.view.smViewConfig;
-import swarm.client.view.smViewController;
-import swarm.client.view.cell.smGifSpinner;
-import swarm.client.view.cell.smI_CellSpinner;
-import swarm.client.view.cell.smI_CellSpinnerFactory;
-import swarm.client.view.cell.smSpritePlateSpinner;
-import swarm.client.view.tabs.smI_Tab;
-import swarm.client.view.tabs.account.smAccountTab;
-import swarm.client.view.tabs.code.smCodeEditorTab;
-import swarm.client.view.tooltip.smE_ToolTipType;
-import swarm.client.view.tooltip.smToolTipManager;
-import swarm.shared.statemachine.smA_State;
-import swarm.shared.statemachine.smI_StateEventListener;
+import swarm.client.view.E_ZIndex;
+import swarm.client.view.S_UI;
+import swarm.client.view.ViewConfig;
+import swarm.client.view.ViewController;
+import swarm.client.view.cell.GifSpinner;
+import swarm.client.view.cell.I_CellSpinner;
+import swarm.client.view.cell.I_CellSpinnerFactory;
+import swarm.client.view.cell.SpritePlateSpinner;
+import swarm.client.view.tabs.I_Tab;
+import swarm.client.view.tabs.account.AccountTab;
+import swarm.client.view.tabs.code.CodeEditorTab;
+import swarm.client.view.tooltip.E_ToolTipType;
+import swarm.client.view.tooltip.ToolTipManager;
+import swarm.shared.statemachine.A_State;
+import swarm.shared.statemachine.I_StateEventListener;
 
 import com.dougkoellmer.client.entities.ClientGrid;
 import com.dougkoellmer.client.entities.ClientUser;
-import com.dougkoellmer.client.view.ViewController;
+import com.dougkoellmer.client.view.DkViewController;
 import com.dougkoellmer.shared.app.S_App;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -56,7 +56,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class ClientApp extends smA_ClientApp implements EntryPoint
+public class ClientApp extends A_ClientApp implements EntryPoint
 {
 	private static final Logger s_logger = Logger.getLogger(ClientApp.class.getName());	
 	
@@ -65,9 +65,9 @@ public class ClientApp extends smA_ClientApp implements EntryPoint
 		super(makeAppConfig(), makeViewConfig());
 	}
 	
-	private static smClientAppConfig makeAppConfig()
+	private static ClientAppConfig makeAppConfig()
 	{
-		smClientAppConfig appConfig = new smClientAppConfig();
+		ClientAppConfig appConfig = new ClientAppConfig();
 		
 		int cacheSize = 256;
 		double cacheExpiration = Double.MAX_VALUE;
@@ -91,15 +91,15 @@ public class ClientApp extends smA_ClientApp implements EntryPoint
 		return appConfig;
 	}
 	
-	private static smViewConfig makeViewConfig()
+	private static ViewConfig makeViewConfig()
 	{
-		smViewConfig viewConfig = new smViewConfig();
+		ViewConfig viewConfig = new ViewConfig();
 		
 		viewConfig.magFadeInTime_seconds = .5;
 		viewConfig.magnifierTickCount = 7;
 		viewConfig.defaultPageTitle = "Doug Koellmer";
 		viewConfig.cellHighlightColor = "rgb(145, 167, 223)";
-		viewConfig.initialBumpDistance = 190;
+		viewConfig.initialBumpDistance = 230;
 		
 		return viewConfig;
 	}
@@ -109,47 +109,47 @@ public class ClientApp extends smA_ClientApp implements EntryPoint
 	 */
 	public void onModuleLoad()
 	{
-		super.startUp(smE_StartUpStage.values()[0]);
+		super.startUp(E_StartUpStage.values()[0]);
 	}
 	
 	@Override
 	protected void stage_startViewManagers()
 	{
-		m_viewContext.clickMngr = new smClickManager();
+		m_viewContext.clickMngr = new ClickManager();
 		
-		m_viewContext.toolTipMngr = new smToolTipManager(m_appContext.platformInfo.getPlatform() != smE_Platform.IOS, smS_UI.TOOL_TIP_DELAY);
+		m_viewContext.toolTipMngr = new ToolTipManager(m_appContext.platformInfo.getPlatform() != E_Platform.IOS, S_UI.TOOL_TIP_DELAY);
 		
 		//--- DRK > Set defaults for tool tips.
-		for( int i = smE_ZIndex.TOOL_TIP_1.ordinal(), j = 0; i <= smE_ZIndex.TOOL_TIP_5.ordinal(); i++, j++ )
+		for( int i = E_ZIndex.TOOL_TIP_1.ordinal(), j = 0; i <= E_ZIndex.TOOL_TIP_5.ordinal(); i++, j++ )
 		{
-			m_viewContext.toolTipMngr.setDefaultZIndex(smE_ToolTipType.values()[j], i);
+			m_viewContext.toolTipMngr.setDefaultZIndex(E_ToolTipType.values()[j], i);
 		}
-		m_viewContext.toolTipMngr.setDefaultPadding(smS_UI.TOOl_TIP_PADDING);
+		m_viewContext.toolTipMngr.setDefaultPadding(S_UI.TOOl_TIP_PADDING);
 		
 		//TODO(DRK) Ugh, real hacky here.
-		smI_Tab[] tabs = {new smCodeEditorTab(m_viewContext)};
+		I_Tab[] tabs = {new CodeEditorTab(m_viewContext)};
 		m_viewConfig.tabs = tabs;
 		
-		m_viewContext.spinnerFactory = new smI_CellSpinnerFactory()
+		m_viewContext.spinnerFactory = new I_CellSpinnerFactory()
 		{
 			@Override
-			public smI_CellSpinner newSpinner()
+			public I_CellSpinner newSpinner()
 			{
-				return new smSpritePlateSpinner("dk_spinner", 15, 1/30.0);
+				return new SpritePlateSpinner("dk_spinner", 15, 1/30.0);
 			}
 		};
 	}
 	
 	@Override
-	protected void stage_registerStateMachine(smI_StateEventListener stateEventListener_null, Class<? extends smA_State> consoleState_T_null)
+	protected void stage_registerStateMachine(I_StateEventListener stateEventListener_null, Class<? extends A_State> consoleState_T_null)
 	{
-		ViewController viewController = new ViewController(m_viewContext, m_viewConfig, m_appConfig);
+		DkViewController viewController = new DkViewController(m_viewContext, m_viewConfig, m_appConfig);
 		
 		super.stage_registerStateMachine(viewController, StateMachine_Tabs.class);
 	
 		registerAccountStates();
 		registerCodeEditingStates();
-		List<Class<? extends smA_State>> tabStates = new ArrayList<Class<? extends smA_State>>();
+		List<Class<? extends A_State>> tabStates = new ArrayList<Class<? extends A_State>>();
 		//tabStates.add(StateMachine_Account.class);
 		tabStates.add(StateMachine_EditingCode.class);
 		m_stateContext.registerState(new StateMachine_Tabs(tabStates));

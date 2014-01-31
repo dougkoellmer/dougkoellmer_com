@@ -2,10 +2,10 @@ package com.dougkoellmer.server.entities;
 
 import java.util.logging.Logger;
 
-import swarm.server.entities.smServerGrid;
+import swarm.server.entities.BaseServerGrid;
 
 
-public class ServerGrid extends smServerGrid
+public class ServerGrid extends BaseServerGrid
 {
 	private static final Logger s_logger = Logger.getLogger(ServerGrid.class.getName());
 	

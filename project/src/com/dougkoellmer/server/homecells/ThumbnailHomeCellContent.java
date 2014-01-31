@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import javax.servlet.ServletContext;
 
-import swarm.server.thirdparty.servlet.smU_Servlet;
+import swarm.server.thirdparty.servlet.U_Servlet;
 
 public class ThumbnailHomeCellContent implements I_HomeCellContent
 {
