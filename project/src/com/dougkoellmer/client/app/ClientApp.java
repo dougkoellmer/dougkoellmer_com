@@ -95,7 +95,8 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	{
 		ViewConfig viewConfig = new ViewConfig();
 		
-		viewConfig.magFadeInTime_seconds = .5;
+		viewConfig.magFadeInTime_seconds = .4;
+		viewConfig.hudFadeOutTime_seconds = .25;
 		viewConfig.magnifierTickCount = 7;
 		viewConfig.defaultPageTitle = "Doug Koellmer";
 		viewConfig.cellHighlightColor = "rgb(145, 167, 223)";

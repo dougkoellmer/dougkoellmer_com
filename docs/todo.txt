@@ -2,14 +2,13 @@
 - support larger focused cell sizes
 
 
-- fix hud when scrolled all the way to the right and you exit a cell
 
 
--ipad doesn't handle device orientation changes
+-ipad doesn't handle device orientation changes...either crashes or shows scaled-up view
 
 - make touch-click tolerance a little more forgiving, IIRC
 
-- check side scrolling work correctly..like above HUD...seemed to zoom me out with brief testing...oh, but that was with an earlier live release on b33hive...check it anyway that it works well
+- check side scrolling work correctly..scroll padding isn't respected
 
 - make sure of fast-click for snap links on mobile
 
@@ -21,11 +20,12 @@
 
 - fix fast click
 
-- hud lags behind touch scrolling
+- hud lags behind when touch scrolling
+
+- for the "creations" cell, the link highlights itself briefly upon clicking, over the description box...might be fixed by fast click
 
 
 
-- investigate background image of space or something
 
 - make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
 
