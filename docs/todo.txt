@@ -4,7 +4,9 @@
 
 
 
--ipad doesn't handle device orientation changes...either crashes or shows scaled-up view
+
+
+- ipad doesn't handle device orientation changes...either crashes or shows scaled-up view
 
 - make touch-click tolerance a little more forgiving, IIRC
 
@@ -23,6 +25,8 @@
 - hud lags behind when touch scrolling
 
 - for the "creations" cell, the link highlights itself briefly upon clicking, over the description box...might be fixed by fast click
+
+
 
 
 
