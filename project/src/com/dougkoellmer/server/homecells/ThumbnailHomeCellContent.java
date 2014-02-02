@@ -4,6 +4,8 @@ import java.util.Iterator;
 
 import javax.servlet.ServletContext;
 
+import com.dougkoellmer.shared.homecells.E_HomeCell;
+
 import swarm.server.thirdparty.servlet.U_Servlet;
 
 public class ThumbnailHomeCellContent implements I_HomeCellContent
@@ -31,8 +33,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 			if( children.hasNext() )
 			{
 				E_HomeCell child = children.next();
-				HomeCellMetaData metaData = child.getMetaData();
-				String description = metaData.getDescription();
+				String description = U_HomeCellMeta.getDescription(child);
 				String address = child.getPrimaryAddress();
 				
 				m_content += "<td class='dk_thumb_cell' style=''>";

@@ -2,6 +2,8 @@ package com.dougkoellmer.server.homecells;
 
 import javax.servlet.ServletContext;
 
+import com.dougkoellmer.shared.homecells.E_HomeCell;
+
 import swarm.server.thirdparty.servlet.U_Servlet;
 
 public class FileBasedHomeCellContent implements I_HomeCellContent

@@ -1,7 +1,8 @@
-package com.dougkoellmer.server.homecells;
+package com.dougkoellmer.shared.homecells;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
 
 import swarm.shared.structs.GridCoordinate;
 
@@ -136,8 +137,6 @@ public enum E_HomeCell
 	private final String m_secondaryAddress;
 	private final ArrayList<E_HomeCell> m_children = new ArrayList<E_HomeCell>();
 	
-	private HomeCellMetaData m_metaData;
-	
 	private E_HomeCell(int offsetM, int offsetN)
 	{
 		this(null, offsetM, offsetN);
@@ -156,11 +155,11 @@ public enum E_HomeCell
 		}
 		else
 		{
-			ArrayList<E_HomeCell> stack = HomeCellCreator.s_cellStack;
+			ArrayList<E_HomeCell> stack = S_HomeCellHelper.s_cellStack;
 			
 			if( relativeCell_nullable == null )
 			{
-				relativeCell_nullable = HomeCellCreator.s_previousCell;
+				relativeCell_nullable = S_HomeCellHelper.s_previousCell;
 				m_secondaryAddress = cellName;
 			}
 			else
@@ -191,11 +190,11 @@ public enum E_HomeCell
 			m_coordinate = new GridCoordinate(relativeCell_nullable.m() + offsetM, relativeCell_nullable.n() + offsetN);
 		}
 		
-		HomeCellCreator.s_previousCell = this;
+		S_HomeCellHelper.s_previousCell = this;
 		
 		if( isRootCell )
 		{
-			HomeCellCreator.s_cellStack.add(this);
+			S_HomeCellHelper.s_cellStack.add(this);
 		}
 	}
 	
@@ -204,7 +203,7 @@ public enum E_HomeCell
 		return m_children.iterator();
 	}
 	
-	private String getCellName()
+	public String getCellName()
 	{
 		return this.name().toLowerCase();
 	}
@@ -213,9 +212,9 @@ public enum E_HomeCell
 	{
 		String address = "";
 		
-		for( int i = 0; i < HomeCellCreator.s_cellStack.size(); i++ )
+		for( int i = 0; i < S_HomeCellHelper.s_cellStack.size(); i++ )
 		{
-			address += HomeCellCreator.s_cellStack.get(i).getCellName() + "/";
+			address += S_HomeCellHelper.s_cellStack.get(i).getCellName() + "/";
 		}
 		
 		return address;
@@ -224,24 +223,6 @@ public enum E_HomeCell
 	public GridCoordinate getCoordinate()
 	{
 		return m_coordinate;
-	}
-	
-	public HomeCellMetaData getMetaData()
-	{
-		if( m_metaData == null )
-		{
-			String description = U_HomeCellMeta.getDescription(this);
-			I_HomeCellContent content = U_HomeCellMeta.getContent(this);
-			
-			if( description == null || content == null )
-			{
-				throw new Error("Null piece of cell meta data for " + this.getCellName());
-			}
-			
-			m_metaData = new HomeCellMetaData(description, content);
-		}
-		
-		return m_metaData;
 	}
 	
 	public String getPrimaryAddress()

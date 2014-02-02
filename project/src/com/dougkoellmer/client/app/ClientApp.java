@@ -22,6 +22,7 @@ import swarm.client.states.camera.State_ViewingCell;
 import swarm.client.states.code.StateMachine_EditingCode;
 import swarm.client.states.code.State_EditingCode;
 import swarm.client.states.code.State_EditingCodeBlocker;
+import swarm.client.transaction.E_TransactionAction;
 import swarm.client.view.E_ZIndex;
 import swarm.client.view.S_UI;
 import swarm.client.view.ViewConfig;
@@ -42,6 +43,7 @@ import com.dougkoellmer.client.entities.ClientGrid;
 import com.dougkoellmer.client.entities.ClientUser;
 import com.dougkoellmer.client.view.DkViewController;
 import com.dougkoellmer.shared.app.S_App;
+import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Document;
@@ -111,6 +113,27 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	public void onModuleLoad()
 	{
 		super.startUp(E_StartUpStage.values()[0]);
+	}
+	
+	@Override
+	protected void stage_startAppManagers()
+	{
+		super.stage_startAppManagers();
+		
+		//--- DRK > address -> mapping relationships are embedded into the page as inline transactions,
+		//---		so here we're invoking those transactions as an implicit prefilling side effect
+		//---		to cache mapping -> address relationships as well without having to hit server.
+		for( int i = 0; i < E_HomeCell.values().length; i++ )
+		{
+			E_HomeCell cell = E_HomeCell.values()[i];
+			
+			//--- DRK > We could send each request individually, but we're queueing as a failsafe in case
+			//-			for some reason the transactions aren't inlined in the future...wouldn't
+			//-			want 100+ individual transactions to go out.
+			m_appContext.addressMngr.getCellAddress(cell.getCoordinate(), E_TransactionAction.QUEUE_REQUEST);
+		}
+		
+		m_appContext.txnMngr.flushRequestQueue();
 	}
 	
 	@Override

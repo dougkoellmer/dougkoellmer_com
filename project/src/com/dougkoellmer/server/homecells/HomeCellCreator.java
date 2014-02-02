@@ -16,6 +16,8 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.w3c.tidy.Tidy;
 
+import com.dougkoellmer.shared.homecells.E_HomeCell;
+
 import swarm.shared.entities.E_CharacterQuota;
 import swarm.server.account.UserSession;
 import swarm.server.app.ServerContext;
@@ -65,10 +67,6 @@ public class HomeCellCreator implements I_HomeCellCreator
 	private static final String HTML_START = "<!doctype><html><head></head><body>";
 	private static final String HTML_END = "</body></html>";
 	
-	//--- DRK > For some reason it's a compiler error to have these as static members of E_HomeCell itself.
-	static E_HomeCell s_previousCell;
-	static ArrayList<E_HomeCell> s_cellStack = new ArrayList<>();
-	
 	
 	public HomeCellCreator()
 	{
@@ -80,9 +78,22 @@ public class HomeCellCreator implements I_HomeCellCreator
 		m_serverContext = serverContext;
 	}
 	
+	private HomeCellMetaData getMetaData(E_HomeCell cell)
+	{
+		String description = U_HomeCellMeta.getDescription(cell);
+		I_HomeCellContent content = U_HomeCellMeta.getContent(cell);
+		
+		if( description == null || content == null )
+		{
+			throw new Error("Null piece of cell meta data for " + cell.getCellName());
+		}
+		
+		return new HomeCellMetaData(description, content);
+	}
+	
 	private String makeCellCode(E_HomeCell cell)
 	{
-		HomeCellMetaData metaData = cell.getMetaData();
+		HomeCellMetaData metaData = getMetaData(cell);
 		I_HomeCellContent content = metaData.getContent();
 		content.init(m_servletContext, cell);
 	

@@ -2,6 +2,8 @@ package com.dougkoellmer.server.homecells;
 
 import javax.servlet.ServletContext;
 
+import com.dougkoellmer.shared.homecells.E_HomeCell;
+
 public class CellComingSoonContent implements I_HomeCellContent
 {
 	private String m_content;

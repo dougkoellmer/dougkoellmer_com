@@ -51,9 +51,9 @@ import swarm.shared.transaction.I_RequestPath;
 import swarm.shared.transaction.RequestPathManager;
 
 import com.dougkoellmer.server.entities.ServerGrid;
-import com.dougkoellmer.server.homecells.E_HomeCell;
 import com.dougkoellmer.server.homecells.HomeCellCreator;
 import com.dougkoellmer.shared.app.S_App;
+import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.google.appengine.api.rdbms.AppEngineDriver;
 import com.google.gwt.user.client.Window;
 

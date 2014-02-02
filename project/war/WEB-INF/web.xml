@@ -87,6 +87,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 			<servlet-name>redirector</servlet-name>
 			<url-pattern>/games/radioactive_decay</url-pattern>
 		</servlet-mapping>
+		
+		<servlet-mapping>
+			<servlet-name>redirector</servlet-name>
+			<url-pattern>/games/coriolis</url-pattern>
+		</servlet-mapping>
+		
+		<servlet-mapping>
+			<servlet-name>redirector</servlet-name>
+			<url-pattern>/games/atmospheric_layers</url-pattern>
+		</servlet-mapping>
 
 		
 </web-app>

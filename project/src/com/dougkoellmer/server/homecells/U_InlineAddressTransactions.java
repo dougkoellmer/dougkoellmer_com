@@ -9,6 +9,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dougkoellmer.shared.homecells.E_HomeCell;
+
 import swarm.server.account.UserSession;
 import swarm.server.app.A_ServerApp;
 import swarm.server.app.ServerAppConfig;

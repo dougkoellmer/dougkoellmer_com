@@ -1,5 +1,7 @@
 package com.dougkoellmer.server.homecells;
 
+import com.dougkoellmer.shared.homecells.E_HomeCell;
+
 //--- DRK > Doing this rather inefficiently with giant switch cases (assuming java doesn't
 //---		optimize them and they're just if/else chains under the hood) in the interest
 //---		of keeping everything readable and easily adjustable relative to other home cell data.
