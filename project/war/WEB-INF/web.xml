@@ -65,6 +65,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		
 		<servlet-mapping>
 			<servlet-name>redirector</servlet-name>
+			<url-pattern>/games</url-pattern>
+		</servlet-mapping>
+		
+		<servlet-mapping>
+			<servlet-name>redirector</servlet-name>
 			<url-pattern>/games/feed_the_bear</url-pattern>
 		</servlet-mapping>
 		

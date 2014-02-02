@@ -79,7 +79,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.codeCacheSize = cacheSize;
 		appConfig.codeCacheExpiration_seconds = cacheExpiration;
 		appConfig.cellHudHeight = S_ClientApp.CELL_HUD_HEIGHT;
-		appConfig.backOffDistance = S_ClientApp.VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET;	
+		appConfig.backOffDistance = 0;//S_ClientApp.VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET;	
 		appConfig.publicRecaptchaKey = "";
 		appConfig.useVirtualSandbox = false;
 		

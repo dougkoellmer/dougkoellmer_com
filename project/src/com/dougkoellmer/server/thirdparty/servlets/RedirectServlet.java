@@ -21,7 +21,8 @@ public class RedirectServlet extends HttpServlet
 		"/games/feed_the_bear",
 		"/games/pressure",
 		"/games/pressure_and_heat",
-		"/games/radioactive_decay"
+		"/games/radioactive_decay",
+		"/games"
 	};
 
 	@Override

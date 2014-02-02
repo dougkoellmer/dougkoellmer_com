@@ -1,8 +1,12 @@
 
-- support larger focused cell sizes
+- support larger focused cell sizes ( be sure to include size for initial cell as sync transaction if there's an address in the browser bar).
 
 
 
+
+- embed cell addresses into page
+
+- fix when backoffdistance==0 bug
 
 
 
@@ -10,7 +14,7 @@
 
 - make touch-click tolerance a little more forgiving, IIRC
 
-- check side scrolling work correctly..scroll padding isn't respected
+- check side scrolling works correctly..scroll padding isn't respected
 
 - make sure of fast-click for snap links on mobile
 
