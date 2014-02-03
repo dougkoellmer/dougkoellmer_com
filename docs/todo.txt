@@ -4,12 +4,6 @@
 
 
 
-- embed cell addresses into page
-
-- fix when backoffdistance==0 bug
-
-
-
 - ipad doesn't handle device orientation changes...either crashes or shows scaled-up view
 
 - make touch-click tolerance a little more forgiving, IIRC

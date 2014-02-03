@@ -81,7 +81,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.codeCacheSize = cacheSize;
 		appConfig.codeCacheExpiration_seconds = cacheExpiration;
 		appConfig.cellHudHeight = S_ClientApp.CELL_HUD_HEIGHT;
-		appConfig.backOffDistance = 0;//S_ClientApp.VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET;	
+		appConfig.backOffDistance = S_ClientApp.VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET;	
 		appConfig.publicRecaptchaKey = "";
 		appConfig.useVirtualSandbox = false;
 		
@@ -102,7 +102,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		viewConfig.magnifierTickCount = 7;
 		viewConfig.defaultPageTitle = "Doug Koellmer";
 		viewConfig.cellHighlightColor = "rgb(145, 167, 223)";
-		viewConfig.initialBumpDistance = 230;
+		viewConfig.initialBumpDistance = 250;
 		
 		return viewConfig;
 	}
