@@ -38,7 +38,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				
 				m_content += "<td class='dk_thumb_cell' style=''>";
 				m_content += 	"<a href='"+address+"' class='waypoint_cell_link'>";
-				m_content += 		"<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' /></td><td style='text-align:right;'><div class='dk_thumb_desc'>";
+				m_content += 		"<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src=/img/coming_soon.thumb.png/></td><td style='text-align:right;'><div class='dk_thumb_desc'>";
 				m_content += 		description;
 				m_content += 		"</div></td></tr></table>";
 				m_content += 	"</a>";

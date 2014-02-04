@@ -2,6 +2,11 @@
 - support larger focused cell sizes ( be sure to include size for initial cell as sync transaction if there's an address in the browser bar).
 
 
+- fix double snap...time shouldn't reset with each click
+
+- double snap messes up url for history state
+
+
 
 
 - ipad doesn't handle device orientation changes...either crashes or shows scaled-up view
