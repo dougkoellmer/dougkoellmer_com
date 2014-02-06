@@ -20,10 +20,9 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
-		int spacing = 10;
-		m_content = "<div style='width:100%; height:100%; font-size:0px; overflow-y:scroll;'>";
-		m_content += "<table style='' class='dk_thumb_table'>";
-		m_content += "<tr>";
+		StringBuilder builder = new StringBuilder();
+		builder.append("<div style='width:100%; height:100%; font-size:0px; overflow-y:scroll;'>");
+		builder.append("<table style='' class='dk_thumb_table'><tr>");
 		
 		int i = 0, minCount = 12;
 		Iterator<E_HomeCell> children = homeCell.getChildren();
@@ -36,28 +35,30 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				String description = U_HomeCellMeta.getDescription(child);
 				String address = child.getPrimaryAddress();
 				
-				m_content += "<td class='dk_thumb_cell' style=''>";
-				m_content += 	"<a href='"+address+"' class='waypoint_cell_link'>";
-				m_content += 		"<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src=/img/coming_soon.thumb.png/></td><td style='text-align:right;'><div class='dk_thumb_desc'>";
-				m_content += 		description;
-				m_content += 		"</div></td></tr></table>";
-				m_content += 	"</a>";
-				m_content += "</td>";
+				builder.append("<td class='dk_thumb_cell' style=''>");
+				builder.append("<a href='"+address+"' class='waypoint_cell_link'>");
+				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src=/img/coming_soon.thumb.png/></td><td style='text-align:right;'><div class='dk_thumb_desc'>");
+				builder.append(description);
+				builder.append("</div></td></tr></table>");
+				builder.append("</a>");
+				builder.append("</td>");
 			}
 			else
 			{
-				m_content += "<td class='dk_thumb_cell_empty dk_cell_content_border_box'>";
-				m_content += "</td>";
+				builder.append("<td class='dk_thumb_cell_empty dk_cell_content_border_box'>");
+				builder.append("</td>");
 			}
 			
 			boolean lastCell = !children.hasNext() && i >= minCount-1;
 			
-			if( i % 2 != 0 && i != 0 && !lastCell)  m_content += "</tr><tr>";
+			if( i % 2 != 0 && i != 0 && !lastCell)  builder.append("</tr><tr>");
 			
 			i++;
 		}
 		
-		m_content += "</tr></table></div>";
+		builder.append("</tr></table></div>");
+		
+		m_content = builder.toString();
 	}
 	
 	public String getContent()

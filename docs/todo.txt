@@ -6,6 +6,7 @@
 
 - double snap messes up url for history state
 
+- use string builder for home cell creation where possible.
 
 
 
