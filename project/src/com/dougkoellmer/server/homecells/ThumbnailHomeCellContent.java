@@ -20,22 +20,26 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
+		String trClass = "class='dk_thumb_row'";
 		StringBuilder builder = new StringBuilder();
-		builder.append("<div style='width:100%; height:100%; font-size:0px; overflow-y:scroll;'>");
-		builder.append("<table style='' class='dk_thumb_table'><tr>");
+		builder.append("<div style='width:100%; height:100%; font-size:0px; overflow:hidden;'>");
+		builder.append("<table style='' class='dk_thumb_table'><tr "+trClass+">");
 		
 		int i = 0, minCount = 12;
 		Iterator<E_HomeCell> children = homeCell.getChildren();
 		
 		while( i < minCount || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
-		{				
+		{
+			boolean isLeft = i%2==0;
+			String tdClass = "class='dk_thumb_cell "+(isLeft?"dk_thumb_cell_left":"")+"'";
+			
 			if( children.hasNext() )
 			{
 				E_HomeCell child = children.next();
 				String description = U_HomeCellMeta.getDescription(child);
 				String address = child.getPrimaryAddress();
 				
-				builder.append("<td class='dk_thumb_cell' style=''>");
+				builder.append("<td "+tdClass+">");
 				builder.append("<a href='"+address+"' class='waypoint_cell_link'>");
 				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src=/img/coming_soon.thumb.png/></td><td style='text-align:right;'><div class='dk_thumb_desc'>");
 				builder.append(description);
@@ -45,13 +49,16 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 			}
 			else
 			{
-				builder.append("<td class='dk_thumb_cell_empty dk_cell_content_border_box'>");
+				builder.append("<td "+tdClass+">");
 				builder.append("</td>");
 			}
 			
 			boolean lastCell = !children.hasNext() && i >= minCount-1;
 			
-			if( i % 2 != 0 && i != 0 && !lastCell)  builder.append("</tr><tr>");
+			if( i % 2 != 0 && i != 0 && !lastCell)
+			{
+				builder.append("</tr><tr "+trClass+">");
+			}
 			
 			i++;
 		}

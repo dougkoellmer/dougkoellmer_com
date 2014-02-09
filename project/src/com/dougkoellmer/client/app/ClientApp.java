@@ -80,6 +80,8 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.addressCacheExpiration_seconds = cacheExpiration;
 		appConfig.codeCacheSize = cacheSize;
 		appConfig.codeCacheExpiration_seconds = cacheExpiration;
+		appConfig.cellSizeCacheSize = cacheSize;
+		appConfig.cellSizeCacheExpiration_seconds = cacheExpiration;
 		appConfig.cellHudHeight = S_ClientApp.CELL_HUD_HEIGHT;
 		appConfig.backOffDistance = S_ClientApp.VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET;	
 		appConfig.publicRecaptchaKey = "";
@@ -133,7 +135,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 			m_appContext.addressMngr.getCellAddress(cell.getCoordinate(), E_TransactionAction.QUEUE_REQUEST);
 		}
 		
-		m_appContext.txnMngr.flushRequestQueue();
+		m_appContext.txnMngr.flushAsyncRequestQueue();
 	}
 	
 	@Override
