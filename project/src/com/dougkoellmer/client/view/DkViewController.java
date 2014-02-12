@@ -28,6 +28,6 @@ public class DkViewController extends ViewController
 		this.addStateListener(cellHud);
 		cellContainer.getScrollContainer().add(cellHud);
 		
-		//cellContainer.getCellContainerInner().getElement().getStyle().setBackgroundColor("#000000");
+		cellContainer.getCellContainerInner().getElement().getStyle().setBackgroundColor("rgb(100,100,100)");
 	}
 }

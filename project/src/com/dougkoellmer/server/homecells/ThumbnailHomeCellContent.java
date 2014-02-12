@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 
 import swarm.server.thirdparty.servlet.U_Servlet;
+import swarm.shared.structs.CellSize;
 
 public class ThumbnailHomeCellContent implements I_HomeCellContent
 {
@@ -66,6 +67,14 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		builder.append("</tr></table></div>");
 		
 		m_content = builder.toString();
+	}
+	
+	public CellSize getCellSize()
+	{
+		CellSize cellSize = new CellSize();
+		cellSize.setIfDefault(800, 600);
+		
+		return cellSize;
 	}
 	
 	public String getContent()

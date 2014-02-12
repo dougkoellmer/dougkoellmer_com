@@ -1,8 +1,19 @@
-- make background darker or even matching cell content borders
-
-- redo thumbnail cells
-
 - support larger focused cell sizes ( be sure to include size for initial cell as sync transaction if there's an address in the browser bar).
+
+- make sure to have force override for keeping viewed cell in buffer
+
+- make bump more noticeable
+
+- make cell hud expand with cell
+
+- have scroll navigator account for cell expansion
+
+- constrain snap in mouse navigator
+
+- make sure retration time lines up with fade out time...any greater and cell might get lower z-index under surrounding cells as it's still retracting
+
+- probably make focuser darker
+
 
 
 

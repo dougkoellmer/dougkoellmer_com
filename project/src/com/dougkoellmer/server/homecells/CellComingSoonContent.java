@@ -2,6 +2,8 @@ package com.dougkoellmer.server.homecells;
 
 import javax.servlet.ServletContext;
 
+import swarm.shared.structs.CellSize;
+
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 
 public class CellComingSoonContent implements I_HomeCellContent
@@ -23,5 +25,13 @@ public class CellComingSoonContent implements I_HomeCellContent
 	public String getContent()
 	{
 		return m_content;
+	}
+	
+	public CellSize getCellSize()
+	{
+		CellSize cellSize = new CellSize();
+		cellSize.setToDefaults();
+		
+		return cellSize;
 	}
 }

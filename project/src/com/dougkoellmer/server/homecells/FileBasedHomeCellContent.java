@@ -5,6 +5,7 @@ import javax.servlet.ServletContext;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 
 import swarm.server.thirdparty.servlet.U_Servlet;
+import swarm.shared.structs.CellSize;
 
 public class FileBasedHomeCellContent implements I_HomeCellContent
 {
@@ -24,5 +25,13 @@ public class FileBasedHomeCellContent implements I_HomeCellContent
 	public String getContent()
 	{
 		return m_content;
+	}
+	
+	public CellSize getCellSize()
+	{
+		CellSize cellSize = new CellSize();
+		cellSize.setToDefaults();
+		
+		return cellSize;
 	}
 }

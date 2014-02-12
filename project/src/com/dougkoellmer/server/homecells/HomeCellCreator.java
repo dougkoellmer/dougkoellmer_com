@@ -91,15 +91,6 @@ public class HomeCellCreator implements I_HomeCellCreator
 		return new HomeCellMetaData(description, content);
 	}
 	
-	private String makeCellCode(E_HomeCell cell)
-	{
-		HomeCellMetaData metaData = getMetaData(cell);
-		I_HomeCellContent content = metaData.getContent();
-		content.init(m_servletContext, cell);
-	
-		return HTML_START + content.getContent() + HTML_END;
-	}
-	
 	public void run(TransactionRequest request, TransactionResponse response, TransactionContext context, UserSession session, ServerUser user)
 	{
 		ServerCodePrivileges privileges = new ServerCodePrivileges();
@@ -167,8 +158,11 @@ public class HomeCellCreator implements I_HomeCellCreator
 				}
 			}
 		
-			//--- DRK > Get the source code for the cell
-			String code = this.makeCellCode(eCell);
+			//--- DRK > Get the source code for the cell.
+			HomeCellMetaData metaData = getMetaData(eCell);
+			I_HomeCellContent content = metaData.getContent();
+			content.init(m_servletContext, eCell);
+			String code = HTML_START + content.getContent() + HTML_END;
 			ServerCode sourceCode = new ServerCode(code, E_CodeType.SOURCE);
 			
 			//--- DRK > Get the cell itself.
@@ -178,6 +172,7 @@ public class HomeCellCreator implements I_HomeCellCreator
 			
 			if( persistedCell == null )  return;
 			
+			persistedCell.getFocusedCellSize().copy(metaData.getContent().getCellSize());
 			persistedCell.getCodePrivileges().setCharacterQuota(E_CharacterQuota.UNLIMITED);
 			
 			CompilerResult result = U_CellCode.compileCell(m_serverContext.codeCompiler, persistedCell, sourceCode, mapping, m_serverContext.config.appId);
