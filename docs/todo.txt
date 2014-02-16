@@ -1,15 +1,18 @@
-- support larger focused cell sizes ( be sure to include size for initial cell as sync transaction if there's an address in the browser bar).
-
-- make sure to have force override for keeping viewed cell in buffer
-
-- make cell hud expand with cell
-
-- have scroll navigator account for cell expansion
-
-- constrain snap in mouse navigator
+- include size for initial cell as sync transaction if there's an address in the browser bar.
 
 - make sure retration time lines up with fade out time...any greater and cell might get lower z-index under surrounding cells as it's still retracting
 
+- window resizes send layout haywire...think when it's less than default size
+
+- cell hud jumps when exiting a cell that has been scrolled to the right.
+
+- cell doesn't retract properly if there's a scroll value
+
+- figure out why calcTargetLayout is called so many times
+
+- put compile target back to "all browsers"
+
+- think cell retraction needs easing
 
 
 
@@ -19,8 +22,6 @@
 - make touch-click tolerance a little more forgiving, IIRC
 
 - check side scrolling works correctly..scroll padding isn't respected
-
-- make sure of fast-click for snap links on mobile
 
 - do pinch-zoom for touch devices
 
@@ -32,7 +33,11 @@
 
 - hud lags behind when touch scrolling
 
-- for the "creations" cell, the link highlights itself briefly upon clicking, over the description box...might be fixed by fast click
+- for the "creations" cell, the link highlights itself briefly upon clicking, over the description box...might be fixed by using click event
+
+- see if there's any meta tag for preventing the spring scroll-past of the whole page.
+
+- fix crashing when too many cells appear at once.
 
 
 

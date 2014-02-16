@@ -75,7 +75,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		int cacheSize = 256;
 		double cacheExpiration = Double.MAX_VALUE;
 		
-		appConfig.minSnapTime	 = 1.5;//.5;
+		appConfig.minSnapTime	 = DEBUG_TIME;//.5;
 		appConfig.snapTimeRange = 1;
 		appConfig.addressCacheSize = cacheSize;
 		appConfig.addressCacheExpiration_seconds = cacheExpiration;
@@ -101,7 +101,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		ViewConfig viewConfig = new ViewConfig();
 		
 		viewConfig.magFadeInTime_seconds = .4;
-		viewConfig.hudFadeOutTime_seconds = DEBUG_TIME+1;//.25;
+		viewConfig.hudFadeOutTime_seconds = DEBUG_TIME;//.25;
 		viewConfig.magnifierTickCount = 7;
 		viewConfig.defaultPageTitle = "Doug Koellmer";
 		viewConfig.cellHighlightColor = "rgb(145, 167, 223)";
