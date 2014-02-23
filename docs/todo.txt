@@ -1,18 +1,30 @@
-- include size for initial cell as sync transaction if there's an address in the browser bar.
-
-- make sure retration time lines up with fade out time...any greater and cell might get lower z-index under surrounding cells as it's still retracting
-
-- window resizes send layout haywire...think when it's less than default size
-
 - cell hud jumps when exiting a cell that has been scrolled to the right.
+
+- resizing window inwards with rightmost scroll...hud ghosts away
+
+- hud scroll doesn't work when it's larger than window size
+
+
 
 - cell doesn't retract properly if there's a scroll value
 
 - figure out why calcTargetLayout is called so many times
 
+- think cell retraction needs easing
+
+- cell doesn't line up well if window is less than 512 (probably) and cell is greater than 512.
+
+
+
+- figure out what loading will look like with focused cell size
+
+
+
 - put compile target back to "all browsers"
 
-- think cell retraction needs easing
+- make sure retration time lines up with fade out time...any greater and cell might get lower z-index under surrounding cells as it's still retracting
+
+- put split panel back to zero width
 
 
 

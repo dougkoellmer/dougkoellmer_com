@@ -1,0 +1,7 @@
+Hello Human,
+
+You have reached the personal website of me, Doug Koellmer. It hosts a bunch of projects I've done over the years and is itself a demonstration of my cherished source project https://github.com/dougkoellmer/swarm/. A critical part of doing anything creative is showing other people and getting honest feedback, so this is my attempt.
+
+Regards,
+
+Doug
