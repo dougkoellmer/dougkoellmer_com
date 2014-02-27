@@ -5,22 +5,15 @@
 - hud scroll doesn't work when it's larger than window size
 
 
-
-- cell doesn't retract properly if there's a scroll value
-
-- figure out why calcTargetLayout is called so many times
-
 - think cell retraction needs easing
 
-- cell doesn't line up well if window is less than 512 (probably) and cell is greater than 512.
+
 
 
 
 - figure out what loading will look like with focused cell size
 
 
-
-- put compile target back to "all browsers"
 
 - make sure retration time lines up with fade out time...any greater and cell might get lower z-index under surrounding cells as it's still retracting
 

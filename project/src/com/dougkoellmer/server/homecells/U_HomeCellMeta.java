@@ -184,7 +184,7 @@ public class U_HomeCellMeta
 			case GRAVITATION:					return new CellComingSoonContent();
 	
 			case FOR_BIOTICS:					return new ThumbnailHomeCellContent();
-			case RESUME:						return new CellComingSoonContent();
+			case RESUME:						return new ResumeContent();
 			case PORTFOLIO:						return new CellComingSoonContent();
 			case POLISH_FOREST_ADVENTURE:		return new CellComingSoonContent();
 			case SPANISH_OPERA_ADVENTURE:		return new CellComingSoonContent();

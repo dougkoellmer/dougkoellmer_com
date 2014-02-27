@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<project name="dougkoellmer_com" default="build" basedir=".">
+<project name="dougkoellmer_com" default="build_all" basedir=".">
   <!-- Arguments to gwtc and devmode targets -->
   <property name="gwt.args" value="" />
 
@@ -98,9 +98,20 @@
 	</exec>
   </target>
   
-  <target name="build" depends="gwtc,build_js,build_css,minify_html" description="Build this project" />
+  <target name="minify" depends="build_js,build_css,minify_html" description="Minifies main HTML file and external JS/CSS."></target>
   
-   <target name="minify" depends="build_js,build_css,minify_html" description="Minifies main HTML file and external JS/CSS."></target>
+  <target name="build_resume" description="Builds resume and portfolio.">
+	  <exec executable="sh" newenvironment="false" dir="../scripts/client">
+		  <arg value="./build_resume_portfolio.sh" />
+	</exec>
+  </target>
+  
+  <target name="build_imgs" description="General processing of images and thumbnails."></target>
+  
+  <target name="build_app" depends="gwtc,build_js,build_css,minify_html" description="Build this project" />
+  
+  
+   <target name="build_all" depends="build_resume, build_imgs, build_app" description="Build this project" />
 
   
 
