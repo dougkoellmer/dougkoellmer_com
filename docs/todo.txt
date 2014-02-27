@@ -8,10 +8,13 @@
 - think cell retraction needs easing
 
 
+- click on focuser background to exit, same as back-off button
+
 
 
 
 - figure out what loading will look like with focused cell size
+
 
 
 

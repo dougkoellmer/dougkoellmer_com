@@ -19,6 +19,7 @@ import org.w3c.tidy.Tidy;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 
 import swarm.shared.entities.E_CharacterQuota;
+import swarm.shared.entities.E_CodeSafetyLevel;
 import swarm.server.account.UserSession;
 import swarm.server.app.ServerContext;
 import swarm.server.blobxn.BlobTransaction_AddCellToUser;
@@ -157,13 +158,6 @@ public class HomeCellCreator implements I_HomeCellCreator
 					return;
 				}
 			}
-		
-			//--- DRK > Get the source code for the cell.
-			HomeCellMetaData metaData = getMetaData(eCell);
-			I_HomeCellContent content = metaData.getContent();
-			content.init(m_servletContext, eCell);
-			String code = HTML_START + content.getContent() + HTML_END;
-			ServerCode sourceCode = new ServerCode(code, E_CodeType.SOURCE);
 			
 			//--- DRK > Get the cell itself.
 			I_BlobManager blobManager = m_serverContext.blobMngrFactory.create(E_BlobCacheLevel.PERSISTENT);
@@ -172,32 +166,64 @@ public class HomeCellCreator implements I_HomeCellCreator
 			
 			if( persistedCell == null )  return;
 			
-			persistedCell.getFocusedCellSize().copy(metaData.getContent().getCellSize());
+			//--- DRK > Get and copy over meta data.
+			HomeCellMetaData metaData = getMetaData(eCell);
+			I_HomeCellContent content = metaData.getContent();
+			content.init(m_servletContext, eCell);
+			persistedCell.getFocusedCellSize().copy(metaData.getContent().getFocusedCellSize());
 			persistedCell.getCodePrivileges().setCharacterQuota(E_CharacterQuota.UNLIMITED);
+			E_CodeSafetyLevel splashSafety = content.getSafetyLevel(E_CodeType.SPLASH);
+			E_CodeSafetyLevel compiledSafety = content.getSafetyLevel(E_CodeType.COMPILED);
 			
-			CompilerResult result = U_CellCode.compileCell(m_serverContext.codeCompiler, persistedCell, sourceCode, mapping, m_serverContext.config.appId);
+			String sourceCodeRaw = "";
 			
-			if( result.getStatus() != E_CompilationStatus.NO_ERROR )
+			if( splashSafety.isVirtual() && compiledSafety.isVirtual() )
 			{
-				s_logger.severe("Couldn't compile source code: ");
+				//--- DRK > Get the source code for the cell.
+				sourceCodeRaw = HTML_START + content.getSourceCode(E_CodeType.SOURCE) + HTML_END;
+				ServerCode sourceCode = new ServerCode(sourceCodeRaw, E_CodeType.SOURCE);			
 				
-				response.setError(E_ResponseError.SERVICE_EXCEPTION);
+				CompilerResult result = U_CellCode.compileCell(m_serverContext.codeCompiler, persistedCell, sourceCode, mapping, m_serverContext.config.appId);
 				
-				return;
+				if( result.getStatus() != E_CompilationStatus.NO_ERROR )
+				{
+					s_logger.severe("Couldn't compile source code: ");
+					
+					response.setError(E_ResponseError.SERVICE_EXCEPTION);
+					
+					return;
+				}
+			}
+			else
+			{
+				String sourceCodeForSplash = content.getSourceCode(E_CodeType.SPLASH);
+				String sourceCodeForCompiled = content.getSourceCode(E_CodeType.COMPILED);
+				
+				if( sourceCodeForSplash != null && sourceCodeForCompiled == null )
+				{
+					sourceCodeRaw = sourceCodeForSplash;
+					
+					ServerCode splashCode = new ServerCode(sourceCodeForSplash, E_CodeType.SPLASH, E_CodeType.COMPILED);
+					splashCode.setSafetyLevel(splashSafety);
+					persistedCell.setCode(E_CodeType.SPLASH, splashCode);
+				}
+				else  //-DRK> assuming splash and compiled are both not null.
+				{
+					sourceCodeRaw = "<splash>"+sourceCodeForSplash+"</splash>"+sourceCodeForCompiled;
+					
+					ServerCode splashCode = new ServerCode(sourceCodeForSplash, E_CodeType.SPLASH);
+					splashCode.setSafetyLevel(splashSafety);
+					persistedCell.setCode(E_CodeType.SPLASH, splashCode);
+					
+					ServerCode compileCode = new ServerCode(sourceCodeForCompiled, E_CodeType.COMPILED);
+					compileCode.setSafetyLevel(compiledSafety);
+					persistedCell.setCode(E_CodeType.COMPILED, compileCode);
+				}
+				
+				 //TODO: Might need to append HTML_START/END for tidy
 			}
 			
-			Tidy tidy = new Tidy();
-			tidy.setTabsize(4);
-			tidy.setSpaces(3);
-			tidy.setIndentContent(true);
-			tidy.setTidyMark(false);
-			tidy.setWraplen(Integer.MAX_VALUE);
-			InputStream inputStream = new ByteArrayInputStream(code.getBytes());
-			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-			tidy.parse(inputStream, outputStream);
-			code = new String(outputStream.toByteArray());
-			sourceCode = new ServerCode(code, E_CodeType.SOURCE);
-			persistedCell.setCode(E_CodeType.SOURCE, sourceCode);
+			persistedCell.setCode(E_CodeType.SOURCE, tidy(sourceCodeRaw));
 
 			if( !U_CellCode.saveBackCompiledCell(blobManager, cachedBlobMngr, mapping, persistedCell, response) )
 			{
@@ -206,5 +232,20 @@ public class HomeCellCreator implements I_HomeCellCreator
 				return;
 			}
 		}
+	}
+	
+	private ServerCode tidy(String sourceCode)
+	{
+		Tidy tidy = new Tidy();
+		tidy.setTabsize(4);
+		tidy.setSpaces(3);
+		tidy.setIndentContent(true);
+		tidy.setTidyMark(false);
+		tidy.setWraplen(Integer.MAX_VALUE);
+		InputStream inputStream = new ByteArrayInputStream(sourceCode.getBytes());
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		tidy.parse(inputStream, outputStream);
+		String tidiedCode = new String(outputStream.toByteArray());
+		return new ServerCode(tidiedCode, E_CodeType.SOURCE);
 	}
 }

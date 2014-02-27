@@ -7,13 +7,16 @@ import javax.servlet.ServletContext;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 
 import swarm.server.thirdparty.servlet.U_Servlet;
+import swarm.shared.entities.E_CodeSafetyLevel;
+import swarm.shared.entities.E_CodeType;
 import swarm.shared.structs.CellSize;
 
 public class ThumbnailHomeCellContent implements I_HomeCellContent
 {
 	//private static final String;
 	
-	private String m_content;
+	private String m_sourcCode;
+	private int m_height = 0;
 	
 	public ThumbnailHomeCellContent()
 	{
@@ -26,7 +29,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		builder.append("<div style='width:100%; height:100%; font-size:0px; overflow:hidden;'>");
 		builder.append("<table style='' class='dk_thumb_table'><tr "+trClass+">");
 		
-		int i = 0, minCount = 12;
+		int i = 0, minCount = 12, rowHeight = 0, borderHeight = 8;
 		Iterator<E_HomeCell> children = homeCell.getChildren();
 		
 		while( i < minCount || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
@@ -64,21 +67,29 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 			i++;
 		}
 		
+		int rowCount = i/2;
+		m_height = rowCount*rowHeight - borderHeight;
+		
 		builder.append("</tr></table></div>");
 		
-		m_content = builder.toString();
+		m_sourcCode = builder.toString();
 	}
 	
-	public CellSize getCellSize()
+	public CellSize getFocusedCellSize()
 	{
-		CellSize cellSize = new CellSize();
-		cellSize.setIfDefault(800, 600);
+		CellSize cellSize = new CellSize(CellSize.DEFAULT_DIMENSION, m_height);
 		
 		return cellSize;
 	}
 	
-	public String getContent()
+	public String getSourceCode(E_CodeType eCodeType)
 	{
-		return m_content;
+		return m_sourcCode;
+	}
+
+	@Override
+	public E_CodeSafetyLevel getSafetyLevel(E_CodeType eCodeType)
+	{
+		return E_CodeSafetyLevel.VIRTUAL_STATIC_SANDBOX;
 	}
 }
