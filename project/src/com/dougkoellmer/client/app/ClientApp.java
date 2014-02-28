@@ -75,7 +75,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		int cacheSize = 256;
 		double cacheExpiration = Double.MAX_VALUE;
 		
-		appConfig.minSnapTime	 = .5;
+		appConfig.minSnapTime	 = 1;//.5;
 		appConfig.snapTimeRange = 1;
 		appConfig.addressCacheSize = cacheSize;
 		appConfig.addressCacheExpiration_seconds = cacheExpiration;

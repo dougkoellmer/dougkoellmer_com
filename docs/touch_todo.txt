@@ -1,0 +1,21 @@
+- ipad doesn't handle device orientation changes...either crashes or shows scaled-up view
+
+- make touch-click tolerance a little more forgiving, IIRC
+
+- check side scrolling works correctly..scroll padding isn't respected
+
+- do pinch-zoom for touch devices
+
+- fix highlight behavior for touch devices
+
+- see about scroll wheel event and/or pinch zoom event for macbook
+
+- fix fast click
+
+- hud lags behind when touch scrolling
+
+- for the "creations" cell, the link highlights itself briefly upon clicking, over the description box...might be fixed by using click event
+
+- see if there's any meta tag for preventing the spring scroll-past of the whole page.
+
+- fix crashing when too many cells appear at once.

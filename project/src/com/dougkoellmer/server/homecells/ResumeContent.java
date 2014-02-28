@@ -31,7 +31,7 @@ public class ResumeContent implements I_HomeCellContent
 	@Override
 	public CellSize getFocusedCellSize()
 	{
-		return new CellSize(880, 1139);
+		return new CellSize(882, 1139);
 	}
 
 	@Override
