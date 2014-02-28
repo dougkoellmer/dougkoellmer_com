@@ -177,7 +177,14 @@ public class HomeCellCreator implements I_HomeCellCreator
 			
 			String sourceCodeRaw = "";
 			
-			if( splashSafety.isVirtual() && compiledSafety.isVirtual() )
+			//s_logger.severe(splashSafety + " " + compiledSafety + " " + eCell);
+			
+			if( eCell == E_HomeCell.CREATIONS )
+			{
+				s_logger.severe("");
+			}
+			
+			if( splashSafety.isVirtual() && (compiledSafety != null && compiledSafety.isVirtual() || compiledSafety == null) )
 			{
 				//--- DRK > Get the source code for the cell.
 				sourceCodeRaw = HTML_START + content.getSourceCode(E_CodeType.SOURCE) + HTML_END;

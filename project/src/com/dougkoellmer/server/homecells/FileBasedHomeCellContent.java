@@ -47,7 +47,7 @@ public class FileBasedHomeCellContent implements I_HomeCellContent
 	@Override
 	public E_CodeSafetyLevel getSafetyLevel(E_CodeType eCodeType)
 	{
-		if( eCodeType == E_CodeType.SOURCE )
+		if( eCodeType == E_CodeType.SPLASH )
 		{
 			return E_CodeSafetyLevel.VIRTUAL_STATIC_SANDBOX;
 		}

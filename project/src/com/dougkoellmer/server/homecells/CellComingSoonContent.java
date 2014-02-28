@@ -44,6 +44,11 @@ public class CellComingSoonContent implements I_HomeCellContent
 	@Override
 	public E_CodeSafetyLevel getSafetyLevel(E_CodeType eCodeType)
 	{
-		return E_CodeSafetyLevel.NO_SANDBOX_STATIC;
+		if( eCodeType == E_CodeType.SPLASH )
+		{
+			return E_CodeSafetyLevel.NO_SANDBOX_STATIC;
+		}
+		
+		return null;
 	}
 }

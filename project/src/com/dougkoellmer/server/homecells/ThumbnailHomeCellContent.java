@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import javax.servlet.ServletContext;
 
+import com.dougkoellmer.server.entities.ServerGrid;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 
 import swarm.server.thirdparty.servlet.U_Servlet;
@@ -29,7 +30,8 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		builder.append("<div style='width:100%; height:100%; font-size:0px; overflow:hidden;'>");
 		builder.append("<table style='' class='dk_thumb_table'><tr "+trClass+">");
 		
-		int i = 0, minCount = 12, rowHeight = 0, borderHeight = 8;
+		int i = 0, minCount = 12;
+		double rowHeight = 512.0/6.0;
 		Iterator<E_HomeCell> children = homeCell.getChildren();
 		
 		while( i < minCount || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
@@ -45,7 +47,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				
 				builder.append("<td "+tdClass+">");
 				builder.append("<a href='"+address+"' class='waypoint_cell_link'>");
-				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src=/img/coming_soon.thumb.png/></td><td style='text-align:right;'><div class='dk_thumb_desc'>");
+				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src='/img/coming_soon.thumb.png/'></td><td style='text-align:right;'><div class='dk_thumb_desc'>");
 				builder.append(description);
 				builder.append("</div></td></tr></table>");
 				builder.append("</a>");
@@ -68,7 +70,8 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		}
 		
 		int rowCount = i/2;
-		m_height = rowCount*rowHeight - borderHeight;
+		m_height = (int) Math.ceil(((double)rowCount)*rowHeight);
+		m_height = Math.max(m_height, ServerGrid.CELL_SIZE);
 		
 		builder.append("</tr></table></div>");
 		
@@ -84,12 +87,26 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 	
 	public String getSourceCode(E_CodeType eCodeType)
 	{
-		return m_sourcCode;
+		if( eCodeType == E_CodeType.SOURCE )
+		{
+			return m_sourcCode;
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	@Override
 	public E_CodeSafetyLevel getSafetyLevel(E_CodeType eCodeType)
 	{
-		return E_CodeSafetyLevel.VIRTUAL_STATIC_SANDBOX;
+		if( eCodeType == E_CodeType.SPLASH )
+		{
+			return E_CodeSafetyLevel.VIRTUAL_STATIC_SANDBOX;
+		}
+		else
+		{
+			return null;
+		}
 	}
 }
