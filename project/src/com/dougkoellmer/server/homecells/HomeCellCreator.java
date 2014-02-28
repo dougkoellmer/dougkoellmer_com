@@ -216,7 +216,14 @@ public class HomeCellCreator implements I_HomeCellCreator
 				}
 				else  //-DRK> assuming splash and compiled are both not null.
 				{
-					sourceCodeRaw = "<splash>"+sourceCodeForSplash+"</splash>"+sourceCodeForCompiled;
+					if( compiledSafety == E_CodeSafetyLevel.LOCAL_SANDBOX )
+					{
+						sourceCodeRaw = sourceCodeForCompiled.replace("<body>", sourceCodeForSplash);
+					}
+					else
+					{
+						sourceCodeRaw = "<splash>"+sourceCodeForSplash+"</splash>"+sourceCodeForCompiled;
+					}
 					
 					ServerCode splashCode = new ServerCode(sourceCodeForSplash, E_CodeType.SPLASH);
 					splashCode.setSafetyLevel(splashSafety);

@@ -73,6 +73,11 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		m_height = (int) Math.ceil(((double)rowCount)*rowHeight);
 		m_height = Math.max(m_height, ServerGrid.CELL_SIZE);
 		
+		if( rowCount == 10 )
+		{
+			m_height += 1; // wow, ghetto
+		}
+		
 		builder.append("</tr></table></div>");
 		
 		m_sourcCode = builder.toString();
