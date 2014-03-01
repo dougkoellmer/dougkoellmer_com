@@ -9,7 +9,7 @@ import swarm.shared.structs.CellSize;
 
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 
-public class ResumeContent implements I_HomeCellContent
+public class PortfolioContent implements I_HomeCellContent
 {
 	private String m_compiled = null;
 	
@@ -18,7 +18,7 @@ public class ResumeContent implements I_HomeCellContent
 	{
 		if( eCodeType == E_CodeType.SPLASH )
 		{
-			return "<img src='/img/cell_content/resume.splash.jpg' style='width:100%; height:100%; min-height:658px;' />";
+			return "<img src='/img/cell_content/portfolio.splash.jpg' style='width:100%; height:100%; min-height:1126px;' />";
 		}
 		else if( eCodeType == E_CodeType.COMPILED )
 		{
@@ -31,13 +31,13 @@ public class ResumeContent implements I_HomeCellContent
 	@Override
 	public CellSize getFocusedCellSize()
 	{
-		return new CellSize(882, 1139);
+		return new CellSize(992, 2190);
 	}
 
 	@Override
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
-		m_compiled = U_Servlet.getResource(servletContext, "/resume/index.html");
+		m_compiled = U_Servlet.getResource(servletContext, "/portfolio/index.html");
 	}
 
 	@Override

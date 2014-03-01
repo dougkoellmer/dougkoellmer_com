@@ -1,6 +1,7 @@
 package com.dougkoellmer.server.homecells;
 
 import java.util.Iterator;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletContext;
 
@@ -14,7 +15,7 @@ import swarm.shared.structs.CellSize;
 
 public class ThumbnailHomeCellContent implements I_HomeCellContent
 {
-	//private static final String;
+	private static final Logger s_logger = Logger.getLogger(ThumbnailHomeCellContent.class.getName());
 	
 	private String m_sourcCode;
 	private int m_height = 0;
@@ -35,7 +36,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		Iterator<E_HomeCell> children = homeCell.getChildren();
 		
 		while( i < minCount || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
-		{
+		{			
 			boolean isLeft = i%2==0;
 			String tdClass = "class='dk_thumb_cell "+(isLeft?"dk_thumb_cell_left":"")+"'";
 			
@@ -45,9 +46,16 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				String description = U_HomeCellMeta.getDescription(child);
 				String address = child.getPrimaryAddress();
 				
+				String thumb = "/img/cell_content/thumbs/"+child.getCellName()+".thumb.jpg";
+				
+				if( !U_Servlet.fileExists(servletContext, thumb) )
+				{
+					thumb = "/img/coming_soon.thumb.png";
+				}
+				
 				builder.append("<td "+tdClass+">");
 				builder.append("<a href='"+address+"' class='waypoint_cell_link'>");
-				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src='/img/coming_soon.thumb.png/'></td><td style='text-align:right;'><div class='dk_thumb_desc'>");
+				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src='"+thumb+"'></td><td style='text-align:right;'><div class='dk_thumb_desc'>");
 				builder.append(description);
 				builder.append("</div></td></tr></table>");
 				builder.append("</a>");

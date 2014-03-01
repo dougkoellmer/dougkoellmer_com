@@ -185,7 +185,7 @@ public class U_HomeCellMeta
 	
 			case FOR_BIOTICS:					return new ThumbnailHomeCellContent();
 			case RESUME:						return new ResumeContent();
-			case PORTFOLIO:						return new CellComingSoonContent();
+			case PORTFOLIO:						return new PortfolioContent();
 			case POLISH_FOREST_ADVENTURE:		return new CellComingSoonContent();
 			case SPANISH_OPERA_ADVENTURE:		return new CellComingSoonContent();
 			case OLD_FRIEND:					return new CellComingSoonContent();

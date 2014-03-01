@@ -9,8 +9,6 @@
 
 
 
-- do thumbnail processing
-
 - do thumbnail addition on server
 
 
