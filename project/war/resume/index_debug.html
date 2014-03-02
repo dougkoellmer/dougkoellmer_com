@@ -44,56 +44,7 @@
 			
 		</script>
 		
-		<script type="text/javascript" src="/resume/jquery.tipsy.js"></script>
-		
-		<script type="text/javascript" >
-
-				$document = $(document);
-				$document.ready(function()
-				{
-					$(".tag").each(function(index)
-					{
-						var titleValue = "..." + toolTipValues[this.innerHTML];
-						this.title = titleValue;
-					});
-					
-					
-					$window = $(window);
-					var tagMaxWidth = 300;
-					var tagMaxHeight = 140;
-					
-					var gravityCallback = function()
-					{
-						var margin = 0;
-						var prefer = 'nw';
-						var dir = {ns: prefer[0], ew: (prefer.length > 1 ? prefer[1] : false)},
-							boundTop = $document.scrollTop() + margin,
-							boundLeft = $document.scrollLeft() + margin,
-							$this = $(this);
-
-						if ( ($this.offset().top - tagMaxHeight ) < boundTop) dir.ns = 'n';
-						if ($this.offset().left < boundLeft) dir.ew = 'w';
-						if ($window.width() + $document.scrollLeft() - ($this.offset().left + tagMaxWidth/3) < margin) dir.ew = 'e';
-						
-						var toolTipBottom = $this.offset().top + tagMaxHeight;
-						var windowBottom = $window.height() + $document.scrollTop();
-						if ( toolTipBottom > windowBottom ) dir.ns = 's';
-
-						return dir.ns + (dir.ew ? dir.ew : '');
-					}
-				
-					$('.tag').tipsy(
-					{
-						fade:true,
-						offset:5,
-						gravity:gravityCallback,
-						opacity:.9,
-						trigger:'hover'
-					});
-				});
-				
-		</script>
-		
+		<script type="text/javascript" src="/resume/jquery.tipsy.js"></script>		
 		
 		<style>
 		
@@ -783,6 +734,50 @@
 			</tr></table>
 			
 		</div>
+		
+		<script type="text/javascript" >
+
+			$(".tag").each(function(index)
+			{
+				var titleValue = "..." + toolTipValues[this.innerHTML];
+				this.title = titleValue;
+			});
+			
+			$document = $(document);
+			$window = $(window);
+			var tagMaxWidth = 300;
+			var tagMaxHeight = 140;
+			
+			var gravityCallback = function()
+			{
+				var margin = 0;
+				var prefer = 'nw';
+				var dir = {ns: prefer[0], ew: (prefer.length > 1 ? prefer[1] : false)},
+					boundTop = $document.scrollTop() + margin,
+					boundLeft = $document.scrollLeft() + margin,
+					$this = $(this);
+
+				if ( ($this.offset().top - tagMaxHeight ) < boundTop) dir.ns = 'n';
+				if ($this.offset().left < boundLeft) dir.ew = 'w';
+				if ($window.width() + $document.scrollLeft() - ($this.offset().left + tagMaxWidth/3) < margin) dir.ew = 'e';
+				
+				var toolTipBottom = $this.offset().top + tagMaxHeight;
+				var windowBottom = $window.height() + $document.scrollTop();
+				if ( toolTipBottom > windowBottom ) dir.ns = 's';
+
+				return dir.ns + (dir.ew ? dir.ew : '');
+			}
+		
+			$('.tag').tipsy(
+			{
+				fade:true,
+				offset:5,
+				gravity:gravityCallback,
+				opacity:.9,
+				trigger:'hover'
+			});
+				
+		</script>
 		
 	</body>
 </html>

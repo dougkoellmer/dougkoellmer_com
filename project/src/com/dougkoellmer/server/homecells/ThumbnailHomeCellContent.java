@@ -36,7 +36,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		Iterator<E_HomeCell> children = homeCell.getChildren();
 		
 		while( i < minCount || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
-		{			
+		{
 			boolean isLeft = i%2==0;
 			String tdClass = "class='dk_thumb_cell "+(isLeft?"dk_thumb_cell_left":"")+"'";
 			

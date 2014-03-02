@@ -4,16 +4,17 @@
 
 - hud scroll doesn't work when it's larger than window size
 
+- preserve aspect ratios on expansion/retraction
+
+- have scroll work anywhere on focuser surface...so only a click can exit
+
 
 - figure out what loading will look like with focused cell size
 
 
 
-- do thumbnail addition on server
 
-
-
-- tooltips don't work on embedded resume
+- firefox tries to keep loading something in embedded portfolio
 
 
 

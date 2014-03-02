@@ -61,6 +61,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class ClientApp extends A_ClientApp implements EntryPoint
 {
 	private static final double DEBUG_TIME = 7;
+	private static final double DEFAULT_RETRACTION_TIME = .3;
+	
 	private static final Logger s_logger = Logger.getLogger(ClientApp.class.getName());	
 	
 	public ClientApp()
@@ -75,7 +77,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		int cacheSize = 256;
 		double cacheExpiration = Double.MAX_VALUE;
 		
-		appConfig.minSnapTime	 = 1;//.5;
+		appConfig.minSnapTime	 = .35;
 		appConfig.snapTimeRange = 1;
 		appConfig.addressCacheSize = cacheSize;
 		appConfig.addressCacheExpiration_seconds = cacheExpiration;
@@ -84,7 +86,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.cellSizeCacheSize = cacheSize;
 		appConfig.cellSizeCacheExpiration_seconds = cacheExpiration;
 		appConfig.cellHudHeight = S_ClientApp.CELL_HUD_HEIGHT;
-		appConfig.backOffDistance = 0;//S_ClientApp.VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET;	
+		appConfig.backOffDistance = S_ClientApp.VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET;	
 		appConfig.publicRecaptchaKey = "";
 		appConfig.useVirtualSandbox = false;
 		
@@ -100,15 +102,15 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	{
 		ViewConfig viewConfig = new ViewConfig();
 		
-		viewConfig.magFadeInTime_seconds = .4;
-		viewConfig.hudFadeOutTime_seconds = DEBUG_TIME;//.25;
+		viewConfig.magFadeInTime_seconds = DEFAULT_RETRACTION_TIME;//.4;
+		viewConfig.hudFadeOutTime_seconds = DEFAULT_RETRACTION_TIME;//.25;
 		viewConfig.magnifierTickCount = 7;
 		viewConfig.defaultPageTitle = "Doug Koellmer";
 		viewConfig.cellHighlightColor = "rgb(145, 167, 223)";
 		viewConfig.initialBumpDistance = 330;
 		
-		viewConfig.cellSizeChangeTime_seconds = DEBUG_TIME;
-		viewConfig.focuserFadeOutTime_seconds = DEBUG_TIME;//.25;
+		viewConfig.cellSizeChangeTime_seconds = DEFAULT_RETRACTION_TIME;
+		viewConfig.focuserFadeOutTime_seconds = DEFAULT_RETRACTION_TIME;//.25;
 		
 		return viewConfig;
 	}
