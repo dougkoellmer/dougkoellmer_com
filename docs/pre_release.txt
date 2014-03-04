@@ -1,7 +1,0 @@
-- make sure retration time lines up with fade out time...any greater and cell might get lower z-index under surrounding cells as it's still retracting
-
-- put split panel back to zero width
-
-- put back minimum snap time.
-
-- reset back off distance

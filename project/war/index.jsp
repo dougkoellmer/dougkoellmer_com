@@ -15,7 +15,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico?v=3" />
 
-<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1393787975" />
+<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1393903649" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
@@ -31,6 +31,21 @@ var RecaptchaOptions={theme : 'custom'};
   ga('create', 'UA-8687362-1', 'dougkoellmer.com');
   ga('send', 'pageview');
 
+</script>
+
+<script>
+
+	var dk_backOffTime = .4;
+	var dk_config = 
+	{
+		minSnapTime:.3,
+		magFadeInTime_seconds:dk_backOffTime,
+		hudFadeOutTime_seconds:dk_backOffTime,
+		cellSizeChangeTime_seconds:dk_backOffTime,
+		focuserFadeOutTime_seconds:dk_backOffTime,
+		cellRetractionEasing:8,
+		backOffDistance:800
+	};
 </script>
 </head>
 
@@ -56,6 +71,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="/r.app/min.js?v=1393787207"></script>
+	<script type="text/javascript" src="/r.app/min.js?v=1393903648"></script>
 </body>
 </html>

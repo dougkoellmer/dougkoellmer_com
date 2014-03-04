@@ -1,20 +1,12 @@
-- cell hud jumps when exiting a cell that has been scrolled to the right.
-
-- resizing window inwards with rightmost scroll...hud ghosts away
-
-- hud scroll doesn't work when it's larger than window size
-
 - preserve aspect ratios on expansion/retraction
-
-- have scroll work anywhere on focuser surface...so only a click can exit
-
 
 - figure out what loading will look like with focused cell size
 
 
 
 
-- firefox tries to keep loading something in embedded portfolio
+
+- firefox tries to keep loading something in embedded portfolio & resume, probably analytics
 
 
 

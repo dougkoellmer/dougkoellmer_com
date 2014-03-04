@@ -9,6 +9,7 @@ import swarm.client.app.ClientAppConfig;
 import swarm.client.app.E_Platform;
 import swarm.client.app.E_StartUpStage;
 import swarm.client.input.ClickManager;
+import swarm.client.js.JsConfig;
 import swarm.client.states.*;
 import swarm.client.states.account.StateMachine_Account;
 import swarm.client.states.account.State_AccountStatusPending;
@@ -65,6 +66,8 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	
 	private static final Logger s_logger = Logger.getLogger(ClientApp.class.getName());	
 	
+	private static final JsConfig s_config = new JsConfig("dk_config");
+	
 	public ClientApp()
 	{
 		super(makeAppConfig(), makeViewConfig());
@@ -77,7 +80,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		int cacheSize = 256;
 		double cacheExpiration = Double.MAX_VALUE;
 		
-		appConfig.minSnapTime	 = .35;
+		appConfig.minSnapTime	 = s_config.getDouble("minSnapTime");
 		appConfig.snapTimeRange = 1;
 		appConfig.addressCacheSize = cacheSize;
 		appConfig.addressCacheExpiration_seconds = cacheExpiration;
@@ -86,7 +89,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.cellSizeCacheSize = cacheSize;
 		appConfig.cellSizeCacheExpiration_seconds = cacheExpiration;
 		appConfig.cellHudHeight = S_ClientApp.CELL_HUD_HEIGHT;
-		appConfig.backOffDistance = S_ClientApp.VIEWING_CELL_CLOSE_BUTTON_DISTANCE_OFFSET;	
+		appConfig.backOffDistance = s_config.getDouble("backOffDistance");	
 		appConfig.publicRecaptchaKey = "";
 		appConfig.useVirtualSandbox = false;
 		
@@ -102,15 +105,15 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	{
 		ViewConfig viewConfig = new ViewConfig();
 		
-		viewConfig.magFadeInTime_seconds = DEFAULT_RETRACTION_TIME;//.4;
-		viewConfig.hudFadeOutTime_seconds = DEFAULT_RETRACTION_TIME;//.25;
+		viewConfig.magFadeInTime_seconds = s_config.getDouble("magFadeInTime_seconds");//DEFAULT_RETRACTION_TIME;//.4;
+		viewConfig.hudFadeOutTime_seconds = s_config.getDouble("hudFadeOutTime_seconds");//DEFAULT_RETRACTION_TIME;//.25;
 		viewConfig.magnifierTickCount = 7;
 		viewConfig.defaultPageTitle = "Doug Koellmer";
 		viewConfig.cellHighlightColor = "rgb(145, 167, 223)";
 		viewConfig.initialBumpDistance = 330;
-		
-		viewConfig.cellSizeChangeTime_seconds = DEFAULT_RETRACTION_TIME;
-		viewConfig.focuserFadeOutTime_seconds = DEFAULT_RETRACTION_TIME;//.25;
+		viewConfig.cellRetractionEasing = s_config.getDouble("cellRetractionEasing");
+		viewConfig.cellSizeChangeTime_seconds = s_config.getDouble("cellSizeChangeTime_seconds");//DEFAULT_RETRACTION_TIME;
+		viewConfig.focuserFadeOutTime_seconds = s_config.getDouble("focuserFadeOutTime_seconds");//DEFAULT_RETRACTION_TIME;//.25;
 		
 		return viewConfig;
 	}

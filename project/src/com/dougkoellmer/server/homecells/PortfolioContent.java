@@ -31,13 +31,14 @@ public class PortfolioContent implements I_HomeCellContent
 	@Override
 	public CellSize getFocusedCellSize()
 	{
-		return new CellSize(992, 2190);
+		return new CellSize(992, 2182);
 	}
 
 	@Override
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
 		m_compiled = U_Servlet.getResource(servletContext, "/portfolio/index.html");
+		//m_compiled = U_HomeCell.stripAnalytics(m_compiled);
 	}
 
 	@Override
