@@ -3258,12 +3258,12 @@ V$,swarm.client.navigation.HistoryStateManager$1::HistoryStateManager$1(Lswarm/c
 b,swarm.client.navigation.HistoryStateManager$1::this$0,swarm.client.navigation.HistoryStateManager$1,this$0,swarm/client/navigation/HistoryStateManager.java,39,-1
 W$,,swarm.client.navigation.MouseNavigator,,swarm/client/navigation/MouseNavigator.java,49,-1
 Y$,swarm.client.navigation.MouseNavigator::$clinit()V,swarm.client.navigation.MouseNavigator,$clinit,swarm/client/navigation/MouseNavigator.java,49,0
-Z$,swarm.client.navigation.MouseNavigator::$mousePointToWorld(Lswarm/client/navigation/MouseNavigator;Lswarm/shared/structs/Point;)V,swarm.client.navigation.MouseNavigator,$mousePointToWorld,swarm/client/navigation/MouseNavigator.java,315,0
-$$,swarm.client.navigation.MouseNavigator::$onMouseClick(Lswarm/client/navigation/MouseNavigator;)V,swarm.client.navigation.MouseNavigator,$onMouseClick,swarm/client/navigation/MouseNavigator.java,396,0
+Z$,swarm.client.navigation.MouseNavigator::$mousePointToWorld(Lswarm/client/navigation/MouseNavigator;Lswarm/shared/structs/Point;)V,swarm.client.navigation.MouseNavigator,$mousePointToWorld,swarm/client/navigation/MouseNavigator.java,317,0
+$$,swarm.client.navigation.MouseNavigator::$onMouseClick(Lswarm/client/navigation/MouseNavigator;)V,swarm.client.navigation.MouseNavigator,$onMouseClick,swarm/client/navigation/MouseNavigator.java,398,0
 _$,swarm.client.navigation.MouseNavigator::$onMouseEvent(Lswarm/client/navigation/MouseNavigator;Lswarm/client/input/MouseEvent;)V,swarm.client.navigation.MouseNavigator,$onMouseEvent,swarm/client/navigation/MouseNavigator.java,111,0
-a_,swarm.client.navigation.MouseNavigator::$screenToWorld(Lswarm/client/navigation/MouseNavigator;Lswarm/shared/structs/Point;Lswarm/shared/structs/Point;)V,swarm.client.navigation.MouseNavigator,$screenToWorld,swarm/client/navigation/MouseNavigator.java,320,0
-b_,swarm.client.navigation.MouseNavigator::$updateMouse(Lswarm/client/navigation/MouseNavigator;)V,swarm.client.navigation.MouseNavigator,$updateMouse,swarm/client/navigation/MouseNavigator.java,441,0
-c_,swarm.client.navigation.MouseNavigator::$updateMouseGridCoord(Lswarm/client/navigation/MouseNavigator;)V,swarm.client.navigation.MouseNavigator,$updateMouseGridCoord,swarm/client/navigation/MouseNavigator.java,327,0
+a_,swarm.client.navigation.MouseNavigator::$screenToWorld(Lswarm/client/navigation/MouseNavigator;Lswarm/shared/structs/Point;Lswarm/shared/structs/Point;)V,swarm.client.navigation.MouseNavigator,$screenToWorld,swarm/client/navigation/MouseNavigator.java,322,0
+b_,swarm.client.navigation.MouseNavigator::$updateMouse(Lswarm/client/navigation/MouseNavigator;)V,swarm.client.navigation.MouseNavigator,$updateMouse,swarm/client/navigation/MouseNavigator.java,443,0
+c_,swarm.client.navigation.MouseNavigator::$updateMouseGridCoord(Lswarm/client/navigation/MouseNavigator;)V,swarm.client.navigation.MouseNavigator,$updateMouseGridCoord,swarm/client/navigation/MouseNavigator.java,329,0
 X$,swarm.client.navigation.MouseNavigator::MOUSE_TOLERANCE,swarm.client.navigation.MouseNavigator,MOUSE_TOLERANCE,swarm/client/navigation/MouseNavigator.java,55,-1
 d_,swarm.client.navigation.MouseNavigator::MouseNavigator(Lswarm/client/view/ViewContext;Lswarm/client/input/Mouse;)V,swarm.client.navigation.MouseNavigator,MouseNavigator,swarm/client/navigation/MouseNavigator.java,85,0
 b,swarm.client.navigation.MouseNavigator::m_args_SnapToCoord,swarm.client.navigation.MouseNavigator,m_args_SnapToCoord,swarm/client/navigation/MouseNavigator.java,73,-1
@@ -3286,7 +3286,7 @@ v,swarm.client.navigation.MouseNavigator::m_utilPoint1,swarm.client.navigation.M
 w,swarm.client.navigation.MouseNavigator::m_utilPoint2,swarm.client.navigation.MouseNavigator,m_utilPoint2,swarm/client/navigation/MouseNavigator.java,65,-1
 A,swarm.client.navigation.MouseNavigator::m_utilVector,swarm.client.navigation.MouseNavigator,m_utilVector,swarm/client/navigation/MouseNavigator.java,66,-1
 B,swarm.client.navigation.MouseNavigator::m_viewContext,swarm.client.navigation.MouseNavigator,m_viewContext,swarm/client/navigation/MouseNavigator.java,83,-1
-e_,swarm.client.navigation.MouseNavigator::onStateEvent(Lswarm/shared/statemachine/StateEvent;)V,swarm.client.navigation.MouseNavigator,onStateEvent,swarm/client/navigation/MouseNavigator.java,538,0
+e_,swarm.client.navigation.MouseNavigator::onStateEvent(Lswarm/shared/statemachine/StateEvent;)V,swarm.client.navigation.MouseNavigator,onStateEvent,swarm/client/navigation/MouseNavigator.java,540,0
 f_,,swarm.client.navigation.ScrollNavigator,,swarm/client/navigation/ScrollNavigator.java,44,-1
 h_,swarm.client.navigation.ScrollNavigator::$adjustTargetSnapPoint(Lswarm/client/navigation/ScrollNavigator;Lswarm/client/states/camera/Action_Camera_SnapToCoordinate$Args;)V,swarm.client.navigation.ScrollNavigator,$adjustTargetSnapPoint,swarm/client/navigation/ScrollNavigator.java,477,0
 i_,swarm.client.navigation.ScrollNavigator::$adjustTargetSnapPoint_private(Lswarm/client/navigation/ScrollNavigator;Lswarm/shared/structs/GridCoordinate;Lswarm/shared/structs/Point;)V,swarm.client.navigation.ScrollNavigator,$adjustTargetSnapPoint_private,swarm/client/navigation/ScrollNavigator.java,484,0

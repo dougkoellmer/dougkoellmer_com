@@ -2,14 +2,13 @@
 
 - figure out what loading will look like with focused cell size
 
-
-
-
-
 - firefox tries to keep loading something in embedded portfolio & resume, probably analytics
+
+- scrolling really laggy in IE
 
 
 
 
 - make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
 
+- split panel resizer doesn't play nice with iframes
