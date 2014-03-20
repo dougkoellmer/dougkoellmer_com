@@ -187,7 +187,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		List<Class<? extends A_State>> tabStates = new ArrayList<Class<? extends A_State>>();
 		//tabStates.add(StateMachine_Account.class);
 		tabStates.add(StateMachine_EditingCode.class);
-		m_stateContext.registerState(new StateMachine_Tabs(tabStates));
+		m_stateContext.register(new StateMachine_Tabs(tabStates));
 	}
 	
 	@Override

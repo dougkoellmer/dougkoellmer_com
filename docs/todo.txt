@@ -2,9 +2,21 @@
 
 - figure out what loading will look like with focused cell size
 
-- firefox tries to keep loading something in embedded portfolio & resume, probably analytics
 
-- scrolling really laggy in IE
+
+
+- larger cell sizes don't align properly on direct address navigation
+
+- cells next to resume on direct address navigation are greyed out.
+
+- fix cell hud thing
+
+- ie scroll bar appears under cell until resize or scroll...ie bug, but needs workaround...actually cause cell is fixed on focus gained somehow
+
+
+
+
+- firefox tries to keep loading something in embedded portfolio & resume
 
 
 

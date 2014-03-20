@@ -8,14 +8,14 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="description" content="Doug Koellmer's personal website.">
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 <title>Doug Koellmer</title>
 
 <link rel="shortcut icon" href="/favicon.ico?v=3" />
 
-<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1393906497" />
+<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1395285284" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
@@ -71,6 +71,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="/r.app/min.js?v=1393906497"></script>
+	<script type="text/javascript" src="/r.app/min.js?v=1395285284"></script>
 </body>
 </html>

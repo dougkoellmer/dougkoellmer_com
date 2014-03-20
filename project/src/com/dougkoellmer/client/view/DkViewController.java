@@ -19,7 +19,7 @@ public class DkViewController extends ViewController
 	@Override
 	protected void startUpCoreUI()
 	{
-		m_viewContext.stateContext.performAction(Action_Base_HideSupplementState.class);
+		m_viewContext.stateContext.perform(Action_Base_HideSupplementState.class);
 		
 		super.startUpCoreUI();
 		
