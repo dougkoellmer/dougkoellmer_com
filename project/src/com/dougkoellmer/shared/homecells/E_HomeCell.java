@@ -203,6 +203,11 @@ public enum E_HomeCell
 		return m_children.iterator();
 	}
 	
+	public int getChildCount()
+	{
+		return m_children.size();
+	}
+	
 	public String getCellName()
 	{
 		return this.name().toLowerCase();

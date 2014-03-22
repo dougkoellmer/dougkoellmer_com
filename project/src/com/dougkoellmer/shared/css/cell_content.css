@@ -11,12 +11,27 @@ body, caja-v-body
 
 .dk_thumb_cell
 {
-	padding:0px;
+	padding:0px; 
 }
 
-.dk_thumb_cell_left
+.dk_thumb_cell_with_border_left
 {
-	border-right:5px solid rgb(100,100,100); 
+	border-left:5px solid rgb(100,100,100); 
+}
+
+.dk_thumb_cell_with_border_right
+{
+	border-right:5px solid rgb(100,100,100);
+}
+
+.dk_thumb_cell_with_border_top
+{
+	border-top:5px solid rgb(100,100,100); 
+}
+
+.dk_thumb_cell_with_border_bottom
+{
+	border-bottom:5px solid rgb(100,100,100); 
 }
 
 .dk_thumb_table
@@ -29,7 +44,7 @@ body, caja-v-body
 
 .dk_thumb_row
 {
-	border-bottom:5px solid rgb(100,100,100);
+	/*border-bottom:5px solid rgb(100,100,100);*/
 }
 
 .dk_thumb_cell_img

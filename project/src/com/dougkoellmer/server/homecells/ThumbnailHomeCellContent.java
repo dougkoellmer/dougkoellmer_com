@@ -34,11 +34,30 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		int i = 0, minCount = 12;
 		double rowHeight = 512.0/6.0;
 		Iterator<E_HomeCell> children = homeCell.getChildren();
+		int childCount = Math.max(minCount, homeCell.getChildCount());
 		
 		while( i < minCount || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
 		{
+			boolean lastRow = i >= childCount-2;
 			boolean isLeft = i%2==0;
-			String tdClass = "class='dk_thumb_cell "+(isLeft?"dk_thumb_cell_left":"")+"'";
+			String verClass, horClass;
+			if( i < 2 )
+			{
+				verClass = "dk_thumb_cell_with_border_bottom";
+			}
+			else if( lastRow )
+			{
+				verClass = "dk_thumb_cell_with_border_top";
+			}
+			else
+			{
+				verClass = "dk_thumb_cell_with_border_bottom dk_thumb_cell_with_border_top";
+			}
+			
+			horClass = isLeft ? "dk_thumb_cell_with_border_right" : "dk_thumb_cell_with_border_left";
+			
+			String tdClass = "class='dk_thumb_cell "+verClass + " " + horClass + "'";
+			String tdStyle = childCount == minCount && lastRow ? "style='height:82px;'" : "";
 			
 			if( children.hasNext() )
 			{
@@ -53,7 +72,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 					thumb = "/img/coming_soon.thumb.png";
 				}
 				
-				builder.append("<td "+tdClass+">");
+				builder.append("<td "+tdClass+" " + tdStyle + ">");
 				builder.append("<a href='"+address+"' class='waypoint_cell_link'>");
 				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src='"+thumb+"'></td><td style='text-align:right;'><div class='dk_thumb_desc'>");
 				builder.append(description);
@@ -63,7 +82,8 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 			}
 			else
 			{
-				builder.append("<td "+tdClass+">");
+				builder.append("<td "+tdClass+" " + tdStyle + ">");
+				builder.append("<div style='width:100%; height:100%;'></div>");
 				builder.append("</td>");
 			}
 			

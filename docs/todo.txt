@@ -5,13 +5,11 @@
 
 
 
-- larger cell sizes don't align properly on direct address navigation
-
 - cells next to resume on direct address navigation are greyed out.
 
-- fix cell hud thing
+- ie 10 iframes go over scroll bars and mess up history
 
-- ie scroll bar appears under cell until resize or scroll...ie bug, but needs workaround...actually cause cell is fixed on focus gained somehow
+- ie 11...thick borders on some cells are messed up
 
 
 
@@ -22,5 +20,3 @@
 
 
 - make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
-
-- split panel resizer doesn't play nice with iframes
