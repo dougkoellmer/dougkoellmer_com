@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 
 import com.dougkoellmer.server.entities.ServerGrid;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
+import com.dougkoellmer.shared.homecells.S_HomeCell;
 
 import swarm.server.thirdparty.servlet.U_Servlet;
 import swarm.shared.entities.E_CodeSafetyLevel;
@@ -17,12 +18,16 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 {
 	private static final Logger s_logger = Logger.getLogger(ThumbnailHomeCellContent.class.getName());
 	
+	static final int MIN_COUNT = 12;
+	
 	private String m_sourcCode;
 	private int m_height = 0;
 	
 	public ThumbnailHomeCellContent()
 	{
 	}
+	
+	
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
@@ -31,14 +36,13 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		builder.append("<div style='width:100%; height:100%; font-size:0px; overflow:hidden;'>");
 		builder.append("<table style='' class='dk_thumb_table'><tr "+trClass+">");
 		
-		int i = 0, minCount = 12;
-		double rowHeight = 512.0/6.0;
+		int i = 0;
 		Iterator<E_HomeCell> children = homeCell.getChildren();
-		int childCount = Math.max(minCount, homeCell.getChildCount());
+		int paddedChildCount = homeCell.getPaddedChildCount();
 		
-		while( i < minCount || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
+		while( i < MIN_COUNT || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
 		{
-			boolean lastRow = i >= childCount-2;
+			boolean lastRow = i >= paddedChildCount-2;
 			boolean isLeft = i%2==0;
 			String verClass, horClass;
 			if( i < 2 )
@@ -57,7 +61,9 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 			horClass = isLeft ? "dk_thumb_cell_with_border_right" : "dk_thumb_cell_with_border_left";
 			
 			String tdClass = "class='dk_thumb_cell "+verClass + " " + horClass + "'";
-			String tdStyle = childCount == minCount && lastRow ? "style='height:82px;'" : "";
+			
+			//--- DRK > WOAH! mega-hack!!!
+			String tdStyle = (paddedChildCount == MIN_COUNT || paddedChildCount == MIN_COUNT+2 ) && lastRow ? "style='height:82px;'" : "";
 			
 			if( children.hasNext() )
 			{
@@ -87,7 +93,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				builder.append("</td>");
 			}
 			
-			boolean lastCell = !children.hasNext() && i >= minCount-1;
+			boolean lastCell = !children.hasNext() && i >= MIN_COUNT-1;
 			
 			if( i % 2 != 0 && i != 0 && !lastCell)
 			{
@@ -97,9 +103,9 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 			i++;
 		}
 		
-		int rowCount = i/2;
-		m_height = (int) Math.ceil(((double)rowCount)*rowHeight);
-		m_height = Math.max(m_height, ServerGrid.CELL_SIZE);
+		int rowCount = paddedChildCount/2;
+		m_height = (int) Math.ceil(((double)rowCount)*S_HomeCell.THUMB_ROW_HEIGHT);
+		m_height = Math.max(m_height, S_HomeCell.DEFAULT_CELL_SIZE);
 		
 		if( rowCount == 10 )
 		{
@@ -109,13 +115,6 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		builder.append("</tr></table></div>");
 		
 		m_sourcCode = builder.toString();
-	}
-	
-	public CellSize getFocusedCellSize()
-	{
-		CellSize cellSize = new CellSize(CellSize.DEFAULT_DIMENSION, m_height);
-		
-		return cellSize;
 	}
 	
 	public String getSourceCode(E_CodeType eCodeType)

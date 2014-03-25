@@ -12,8 +12,6 @@ public interface I_HomeCellContent
 {
 	String getSourceCode(E_CodeType eCodeType);
 	
-	CellSize getFocusedCellSize();
-	
 	E_CodeSafetyLevel getSafetyLevel(E_CodeType eCodeType);
 	
 	void init(ServletContext servletContext, E_HomeCell homeCell);

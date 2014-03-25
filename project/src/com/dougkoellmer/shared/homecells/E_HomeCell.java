@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
+
+
+
+
+import com.dougkoellmer.server.entities.ServerGrid;
+
+import swarm.shared.structs.CellSize;
 import swarm.shared.structs.GridCoordinate;
 
 public enum E_HomeCell
@@ -196,6 +203,42 @@ public enum E_HomeCell
 		{
 			S_HomeCellHelper.s_cellStack.add(this);
 		}
+	}
+	
+	private CellSize getThumbCellSize()
+	{
+		int paddedChildCount = this.getPaddedChildCount();
+		int rowCount = paddedChildCount/2;
+		int height = (int) Math.ceil(((double)rowCount)*S_HomeCell.THUMB_ROW_HEIGHT);
+		height = Math.max(height, S_HomeCell.DEFAULT_CELL_SIZE);
+		
+		if( rowCount == 10 )
+		{
+			height += 1; // wow, ghetto
+		}
+
+		return new CellSize(CellSize.DEFAULT_DIMENSION, height);
+	}
+	
+	public CellSize getFocusedCellSize()
+	{
+		switch(this)
+		{
+			case RESUME:			return new CellSize(882, 1139);
+			
+			case PORTFOLIO:			return new CellSize(992, 2182);
+			
+			case PRECIOUSES: case ABILITIES: case FOR_COMPUTERS: case FOR_BIOTICS:
+			case INVENTIONS: case SUNDRY: case WOOD: case ART:
+									return getThumbCellSize();
+			
+			default:				return new CellSize(CellSize.DEFAULT_DIMENSION, CellSize.DEFAULT_DIMENSION);
+		}
+	}
+	
+	public int getPaddedChildCount()
+	{
+		return Math.max(S_HomeCell.MIN_THUMBNAIL_COUNT, this.getChildCount());
 	}
 	
 	public Iterator<E_HomeCell> getChildren()

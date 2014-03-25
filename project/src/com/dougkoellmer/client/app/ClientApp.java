@@ -37,14 +37,18 @@ import swarm.client.view.tabs.account.AccountTab;
 import swarm.client.view.tabs.code.CodeEditorTab;
 import swarm.client.view.tooltip.E_ToolTipType;
 import swarm.client.view.tooltip.ToolTipManager;
+import swarm.shared.entities.A_Grid;
 import swarm.shared.statemachine.A_State;
 import swarm.shared.statemachine.I_StateEventListener;
+import swarm.shared.structs.CellAddressMapping;
+import swarm.shared.structs.CellSize;
 
 import com.dougkoellmer.client.entities.ClientGrid;
 import com.dougkoellmer.client.entities.ClientUser;
 import com.dougkoellmer.client.view.DkViewController;
 import com.dougkoellmer.shared.app.S_App;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
+import com.dougkoellmer.shared.homecells.S_HomeCell;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Document;
@@ -92,6 +96,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.backOffDistance = s_config.getDouble("backOffDistance");	
 		appConfig.publicRecaptchaKey = "";
 		appConfig.useVirtualSandbox = false;
+		appConfig.appServerVersion = S_App.APP_SERVER_VERSION;
 		
 		appConfig.appId = S_App.APP_ID;
 		
@@ -131,17 +136,26 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	{
 		super.stage_startAppManagers();
 		
+		A_Grid grid = this.m_appContext.gridMngr.getGrid();
+		
 		//--- DRK > address -> mapping relationships are embedded into the page as inline transactions,
 		//---		so here we're invoking those transactions as an implicit prefilling side effect
 		//---		to cache mapping -> address relationships as well without having to hit server.
 		for( int i = 0; i < E_HomeCell.values().length; i++ )
 		{
-			E_HomeCell cell = E_HomeCell.values()[i];
+			E_HomeCell ithCell = E_HomeCell.values()[i];
 			
 			//--- DRK > We could send each request individually, but we're queueing as a failsafe in case
 			//-			for some reason the transactions aren't inlined in the future...wouldn't
 			//-			want 100+ individual transactions to go out.
-			m_appContext.addressMngr.getCellAddress(cell.getCoordinate(), E_TransactionAction.QUEUE_REQUEST);
+			m_appContext.addressMngr.getCellAddress(ithCell.getCoordinate(), E_TransactionAction.QUEUE_REQUEST);
+			
+			//--- DRK > Prepopulate cell size cache...no need to go to server since
+			//---		we know all the cell info from the enumeration.
+			CellSize focusedCellSize = ithCell.getFocusedCellSize();
+			focusedCellSize.setIfDefault(S_HomeCell.DEFAULT_CELL_SIZE, S_HomeCell.DEFAULT_CELL_SIZE);
+			CellAddressMapping mapping = new CellAddressMapping(ithCell.getCoordinate());
+			m_appContext.cellSizeMngr.forceCache(mapping, focusedCellSize);
 		}
 		
 		m_appContext.txnMngr.flushAsyncRequestQueue();

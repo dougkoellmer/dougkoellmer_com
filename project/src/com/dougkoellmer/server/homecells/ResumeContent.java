@@ -29,12 +29,6 @@ public class ResumeContent implements I_HomeCellContent
 	}
 
 	@Override
-	public CellSize getFocusedCellSize()
-	{
-		return new CellSize(882, 1139);
-	}
-
-	@Override
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
 		m_compiled = U_Servlet.getResource(servletContext, "/resume/index.html");

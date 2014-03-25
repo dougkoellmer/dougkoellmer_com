@@ -5,11 +5,9 @@
 
 
 
-- cells next to resume on direct address navigation are greyed out.
-
 - ie 10 iframes go over scroll bars and mess up history
 
-- ie 11...thick borders on some cells are messed up
+- shouldn't be hitting server for compiled /home cell...actually should be on direct address nav, but hmm...that's wasteful...at the least check that compiled is ignored
 
 
 

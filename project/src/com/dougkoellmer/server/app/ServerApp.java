@@ -74,6 +74,7 @@ public final class ServerApp extends A_ServerApp
 		config.gridExpansionDelta = 8;
 		config.startingZ = 430;
 		config.startingCoord = E_HomeCell.HOME.getCoordinate();
+		config.appServerVersion = S_App.APP_SERVER_VERSION;
 		
 		config.mainPage = "http://www.dougkoellmer.com";
 		

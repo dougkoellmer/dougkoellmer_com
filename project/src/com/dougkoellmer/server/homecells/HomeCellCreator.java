@@ -170,7 +170,7 @@ public class HomeCellCreator implements I_HomeCellCreator
 			HomeCellMetaData metaData = getMetaData(eCell);
 			I_HomeCellContent content = metaData.getContent();
 			content.init(m_servletContext, eCell);
-			persistedCell.getFocusedCellSize().copy(metaData.getContent().getFocusedCellSize());
+			persistedCell.getFocusedCellSize().copy(eCell.getFocusedCellSize());
 			persistedCell.getCodePrivileges().setCharacterQuota(E_CharacterQuota.UNLIMITED);
 			E_CodeSafetyLevel splashSafety = content.getSafetyLevel(E_CodeType.SPLASH);
 			E_CodeSafetyLevel compiledSafety = content.getSafetyLevel(E_CodeType.COMPILED);

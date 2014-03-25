@@ -15,7 +15,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico?v=3" />
 
-<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1395461799" />
+<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1395533616" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
@@ -71,6 +71,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="/r.app/min.js?v=1395370435"></script>
+	<script type="text/javascript" src="/r.app/min.js?v=1395533616"></script>
 </body>
 </html>
