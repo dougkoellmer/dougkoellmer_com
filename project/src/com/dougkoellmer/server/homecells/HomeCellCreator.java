@@ -179,10 +179,12 @@ public class HomeCellCreator implements I_HomeCellCreator
 			
 			//s_logger.severe(splashSafety + " " + compiledSafety + " " + eCell);
 			
-			if( eCell == E_HomeCell.CREATIONS )
+			if( eCell == E_HomeCell.ROSE )
 			{
 				s_logger.severe("");
 			}
+			
+			s_logger.severe("Generating " + eCell);
 			
 			if( splashSafety.isVirtual() && (compiledSafety != null && compiledSafety.isVirtual() || compiledSafety == null) )
 			{
@@ -201,6 +203,16 @@ public class HomeCellCreator implements I_HomeCellCreator
 					return;
 				}
 			}
+			/*else if( splashSafety == E_CodeSafetyLevel.NO_SANDBOX_STATIC && compiledSafety == null )
+			{
+				String sourceCode = content.getSourceCode(E_CodeType.SOURCE);
+				
+				ServerCode splashCode = new ServerCode(sourceCode, E_CodeType.SPLASH, E_CodeType.COMPILED);
+				splashCode.setSafetyLevel(splashSafety);
+				persistedCell.setCode(E_CodeType.SPLASH, splashCode);
+				
+				sourceCodeRaw = sourceCode;
+			}*/
 			else
 			{
 				String sourceCodeForSplash = content.getSourceCode(E_CodeType.SPLASH);

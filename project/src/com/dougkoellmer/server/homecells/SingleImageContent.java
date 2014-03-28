@@ -2,25 +2,28 @@ package com.dougkoellmer.server.homecells;
 
 import javax.servlet.ServletContext;
 
+import com.dougkoellmer.shared.homecells.E_HomeCell;
+
+import swarm.server.thirdparty.servlet.U_Servlet;
 import swarm.shared.entities.E_CodeSafetyLevel;
 import swarm.shared.entities.E_CodeType;
 import swarm.shared.structs.CellSize;
 
-import com.dougkoellmer.shared.homecells.E_HomeCell;
-
-public class CellComingSoonContent implements I_HomeCellContent
+public class SingleImageContent implements I_HomeCellContent
 {
-	private String m_sourceCode = "";
+	private static final String IMG_PATH = "/img/cell_content/";
 	
-	public CellComingSoonContent()
+	private String m_sourceCode;
+	private final String m_cellName;
+	
+	public SingleImageContent(String cellName)
 	{
+		m_cellName = cellName;
 	}
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
-		m_sourceCode += "<table style='width:100%; height:100%;'><tr><td style='vertical-alignment:middle; text-align:center;'>";
-		m_sourceCode += "<img src='/img/coming_soon.png' />";
-		m_sourceCode += "</td></tr></table>";
+		m_sourceCode = "<img style='height:100%; width:auto;' src='"+IMG_PATH+m_cellName+".solo.jpg'/>";
 	}
 	
 	public String getSourceCode(E_CodeType eCodeType)
@@ -29,10 +32,12 @@ public class CellComingSoonContent implements I_HomeCellContent
 		{
 			return m_sourceCode;
 		}
-		
-		return null;
+		else
+		{
+			return null;
+		}
 	}
-	
+
 	@Override
 	public E_CodeSafetyLevel getSafetyLevel(E_CodeType eCodeType)
 	{
@@ -40,7 +45,9 @@ public class CellComingSoonContent implements I_HomeCellContent
 		{
 			return E_CodeSafetyLevel.NO_SANDBOX_STATIC;
 		}
-		
-		return null;
+		else
+		{
+			return null;
+		}
 	}
 }

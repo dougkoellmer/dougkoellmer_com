@@ -3,18 +3,9 @@
 - figure out what loading will look like with focused cell size
 
 
-
-
 - ie 10 iframes go over scroll bars and mess up history
 
-- shouldn't be hitting server for compiled /home cell...actually should be on direct address nav, but hmm...that's wasteful...at the least check that compiled is ignored
 
-
-
-
-- firefox tries to keep loading something in embedded portfolio & resume
-
-
-
+- firefox tries to load something with cells with iframes
 
 - make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.

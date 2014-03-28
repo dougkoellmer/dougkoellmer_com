@@ -33,7 +33,7 @@ public class ResumeContent implements I_HomeCellContent
 	{
 		m_compiled = U_Servlet.getResource(servletContext, "/resume/index.html");
 		
-		//m_compiled = U_HomeCell.stripAnalytics(m_compiled);
+		m_compiled = U_HomeCell.stripAnalytics(m_compiled);
 	}
 
 	@Override

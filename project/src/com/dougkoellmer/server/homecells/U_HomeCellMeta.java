@@ -248,7 +248,7 @@ public class U_HomeCellMeta
 			case PLYWOOD_PUNISHER:				return new CellComingSoonContent();
 						
 			case ART:							return new ThumbnailHomeCellContent();
-			case ROSE:							return new CellComingSoonContent();
+			case ROSE:							return new SingleImageContent("rose");
 			case DRAGON:						return new CellComingSoonContent();
 			case SOLAR_SYSTEM:					return new CellComingSoonContent();
 			case BANANA:						return new CellComingSoonContent();

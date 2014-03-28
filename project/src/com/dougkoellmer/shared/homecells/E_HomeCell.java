@@ -69,20 +69,20 @@ public enum E_HomeCell
 	CREATIONS		(HOME,	-1,	1),
 		USEFUL			(CREATIONS, -1,		0),
 			INVENTIONS	(USEFUL, -1, -1),
-				BIKE_CARD_THING			(-1,	-1),
-				DOWEL_HOLDER			(-1,	0),
+				GUITAR_CASE				(-1,	-1),
+				SLING_SHOT				(-1,	0),
 				OUTDOOR_TOOL_HOLDER		(-1,	-1),
-				GUITAR_CASE				(-1,	0),
-				FLASHLIGHT_LAMP			(0,		-1),
-				SLING_SHOT				(0,		-1),
+				DOWEL_HOLDER			(-1,	0),
+				HANGING_CRATES			(0,		-1),
+				SANDER_HOLDER			(0,		-1),
 				BREAKAWAY_KNOT			(0,		-1),
-				SANDER_HOLDER			(1,		0),
+				TORSION_KNOT			(1,		0),
 				RASP_HANDLE				(0,		-1),
-				HANGING_CRATES			(1,		-1),
+				FLASHLIGHT_LAMP			(1,		-1),
 				HEATING_BAG				(1,		-1),
 				SAND_WEIGHT				(1,		0),
 				SHIRT_PILLOW_CASE		(1,		-1),
-				TORSION_KNOT			(1,		0),
+				BIKE_CARD_THING			(1,		0),
 			
 			SUNDRY	(USEFUL, -1, 0),
 				TERMINATOR_GLASSES	(-1,	0),
@@ -99,34 +99,34 @@ public enum E_HomeCell
 				FIRE_POKER			(1,		-1),
 				
 			WOOD	(USEFUL, -1, 1),
-				TILLER_TREE				(0,		1),
-				THROWING_KNIFE_TARGET	(-1,	1),
-				WOOD_MALLET				(0,		1),
-				COASTERS				(-1,	0),
+				BOOMERANG				(0,		1),
+				BIKE_RACK				(-1,	1),
+				CUTTING_BOARD_STAND		(0,		1),
+				OAR						(-1,	0),
 				KITCHEN_UTENSILS		(0,		1),
 				SHAKERS					(-1,	0),
-				BIKE_RACK				(0,		1),
+				THROWING_KNIFE_TARGET	(0,		1),
 				BACKSCRATCHER_1			(-1,	0),
 				BACKSCRATCHER_2			(-1,	0),
-				CUTTING_BOARD_STAND		(0,		1),
+				WOOD_MALLET				(0,		1),
 				CUTTING_BOARD			(-1,	0),
 				BOW_1					(-1,	0),
 				BOW_2					(-1,	0),
 				DOORSTOP				(0,		-1),
 				DOGGIE_RAMP				(-1,	0),
-				OAR						(-1,	0),
-				BOOMERANG				(0,		-1),
+				COASTERS				(-1,	0),
+				TILLER_TREE				(0,		-1),
 				COASTER_HOLDER			(0,		-1),
 				RED_OAK_SPOON			(-1,	-1),
 				PLYWOOD_PUNISHER		(0,		-1),
 				
 		ART		(CREATIONS, 0, 1),
 			ROSE						(0,		1),
-			DRAGON						(1,		1),
+			LADY						(1,		1),
 			SOLAR_SYSTEM				(1,		0),
 			BANANA						(0,		1),
-			PEACEFUL_MAN				(1,		0),
-			LADY						(0,		1),
+			WOOD_CHAIN					(1,		0),
+			DRAGON						(0,		1),
 			BLACKHOLE					(0,		1),
 			INFINITE_TOLERANCE			(0,		1),
 			SAVE_ANIMALS				(-1,	0),
@@ -135,7 +135,7 @@ public enum E_HomeCell
 			B33HIVE_LOGO				(-1,	1),
 			MILKMAN						(-1,	0),
 			MOTHER_AND_CHILD			(-1,	1),
-			WOOD_CHAIN					(-1,	0),
+			PEACEFUL_MAN				(-1,	0),
 			GLASSES_HOLDER				(-1,	0);
 	
 	
@@ -205,7 +205,7 @@ public enum E_HomeCell
 		}
 	}
 	
-	private CellSize getThumbCellSize()
+	private CellSize calcThumbCellSize()
 	{
 		int paddedChildCount = this.getPaddedChildCount();
 		int rowCount = paddedChildCount/2;
@@ -230,10 +230,10 @@ public enum E_HomeCell
 			
 			case PRECIOUSES: case ABILITIES: case FOR_COMPUTERS: case FOR_BIOTICS:
 			case INVENTIONS: case SUNDRY: case WOOD: case ART:
-									return getThumbCellSize();
-			
-			default:				return new CellSize(CellSize.DEFAULT_DIMENSION, CellSize.DEFAULT_DIMENSION);
+									return calcThumbCellSize();
 		}
+		
+		return U_HomeCell.getCellSize(this);
 	}
 	
 	public int getPaddedChildCount()
