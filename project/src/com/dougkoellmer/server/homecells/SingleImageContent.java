@@ -16,9 +16,9 @@ public class SingleImageContent implements I_HomeCellContent
 	private String m_sourceCode;
 	private final String m_cellName;
 	
-	public SingleImageContent(String cellName)
+	public SingleImageContent(E_HomeCell cell)
 	{
-		m_cellName = cellName;
+		m_cellName = cell.getCellName();
 	}
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)

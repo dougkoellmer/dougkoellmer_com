@@ -112,6 +112,14 @@
 	</exec>
   </target>
   
+   <target name="build_cell_sizes" depends="" description="Auto generate switch block returning cell sizes derived from actual image sizes.">
+	  <exec executable="sh" newenvironment="false" dir="../scripts/client">
+		  <arg value="./build_cell_sizes.sh" />
+	</exec>
+	
+	<antcall target="build_app"/>
+  </target>
+  
   <target name="build_app" depends="gwtc,build_js,build_css,minify_html" description="Build this project" />
   
   

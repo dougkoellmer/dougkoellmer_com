@@ -6,6 +6,16 @@
 - ie 10 iframes go over scroll bars and mess up history
 
 
+
+
+
+- pull cell sizes from server as inlined transactions
+
+- have a development server reload called after generating cell sizes
+
+
+
+
 - firefox tries to load something with cells with iframes
 
 - make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
