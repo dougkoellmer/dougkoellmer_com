@@ -1,6 +1,9 @@
 package com.dougkoellmer.server.homecells;
 
+import swarm.shared.structs.CellSize;
+
 import com.dougkoellmer.shared.homecells.E_HomeCell;
+import com.dougkoellmer.shared.homecells.S_HomeCell;
 
 //--- DRK > Doing this rather inefficiently with giant switch cases (assuming java doesn't
 //---		optimize them and they're just if/else chains under the hood) in the interest
@@ -267,5 +270,51 @@ public class U_HomeCellMeta
 			
 			default:							return null;
 		}
+	}
+	
+	private static CellSize calcThumbCellSize(E_HomeCell cell)
+	{
+		int paddedChildCount = cell.getPaddedChildCount();
+		int rowCount = paddedChildCount/2;
+		int height = (int) Math.ceil(((double)rowCount)*S_HomeCell.THUMB_ROW_HEIGHT);
+		height = Math.max(height, S_HomeCell.DEFAULT_CELL_SIZE);
+		
+		if( rowCount == 10 )
+		{
+			height += 1; // wow, ghetto
+		}
+
+		return new CellSize(CellSize.DEFAULT_DIMENSION, height);
+	}
+	
+	static CellSize getFocusedCellSize(E_HomeCell cell)
+	{
+		CellSize cellSize = U_AutoGenHomeCellSize.getFocusedCellSize(cell);
+		
+		if( cellSize == null )
+		{
+			switch(cell)
+			{
+				case RESUME:			cellSize = new CellSize(882, 1139);  break;
+				
+				case PORTFOLIO:			cellSize = new CellSize(992, 2182);  break;
+				
+				case PRECIOUSES: case ABILITIES: case FOR_COMPUTERS: case FOR_BIOTICS:
+				case INVENTIONS: case SUNDRY: case WOOD: case ART:
+										cellSize = calcThumbCellSize(cell);  break;
+			}
+		}
+		
+		if( cellSize == null )
+		{
+			cellSize = new CellSize(CellSize.DEFAULT_DIMENSION, CellSize.DEFAULT_DIMENSION);
+		}
+		
+		if( cellSize.isPartiallyExplicit() )
+		{
+			cellSize.setToDefaultsIfMatches(S_HomeCell.DEFAULT_CELL_SIZE, S_HomeCell.DEFAULT_CELL_SIZE);
+		}
+		
+		return cellSize;
 	}
 }

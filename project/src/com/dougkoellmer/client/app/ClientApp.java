@@ -10,6 +10,7 @@ import swarm.client.app.E_Platform;
 import swarm.client.app.E_StartUpStage;
 import swarm.client.input.ClickManager;
 import swarm.client.js.JsConfig;
+import swarm.client.managers.CellAddressManager;
 import swarm.client.states.*;
 import swarm.client.states.account.StateMachine_Account;
 import swarm.client.states.account.State_AccountStatusPending;
@@ -23,7 +24,11 @@ import swarm.client.states.camera.State_ViewingCell;
 import swarm.client.states.code.StateMachine_EditingCode;
 import swarm.client.states.code.State_EditingCode;
 import swarm.client.states.code.State_EditingCodeBlocker;
+import swarm.client.transaction.E_ResponseErrorControl;
+import swarm.client.transaction.E_ResponseSuccessControl;
 import swarm.client.transaction.E_TransactionAction;
+import swarm.client.transaction.I_AsyncRequestDispatcher;
+import swarm.client.transaction.I_TransactionResponseHandler;
 import swarm.client.view.E_ZIndex;
 import swarm.client.view.S_UI;
 import swarm.client.view.ViewConfig;
@@ -40,8 +45,13 @@ import swarm.client.view.tooltip.ToolTipManager;
 import swarm.shared.entities.A_Grid;
 import swarm.shared.statemachine.A_State;
 import swarm.shared.statemachine.I_StateEventListener;
+import swarm.shared.structs.CellAddress;
 import swarm.shared.structs.CellAddressMapping;
 import swarm.shared.structs.CellSize;
+import swarm.shared.transaction.E_RequestPath;
+import swarm.shared.transaction.E_ResponseError;
+import swarm.shared.transaction.TransactionRequest;
+import swarm.shared.transaction.TransactionResponse;
 
 import com.dougkoellmer.client.entities.ClientGrid;
 import com.dougkoellmer.client.entities.ClientUser;
@@ -97,6 +107,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.publicRecaptchaKey = "";
 		appConfig.useVirtualSandbox = false;
 		appConfig.appServerVersion = S_App.APP_SERVER_VERSION;
+		appConfig.maxSubCellDimension = 32;
 		
 		appConfig.appId = S_App.APP_ID;
 		
@@ -138,27 +149,63 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		
 		A_Grid grid = this.m_appContext.gridMngr.getGrid();
 		
-		//--- DRK > address -> mapping relationships are embedded into the page as inline transactions,
+		final CellAddressMapping utilMapping = new CellAddressMapping();
+		final CellSize utilCellSize = new CellSize();
+		
+		I_TransactionResponseHandler cellSizeHandler = new I_TransactionResponseHandler()
+		{
+			public E_ResponseSuccessControl onResponseSuccess(TransactionRequest request, TransactionResponse response)
+			{
+				return E_ResponseSuccessControl.CONTINUE; // Pass handling up to cell size manager.
+			}
+			
+			public E_ResponseErrorControl onResponseError(TransactionRequest request, TransactionResponse response)
+			{
+				if( request.getPath() == E_RequestPath.getFocusedCellSize )
+				{
+					if( response.getError() == E_ResponseError.NO_DISPATCHER )
+					{
+						utilMapping.readJson(request.getJsonArgs(), m_appContext.jsonFactory);
+						m_appContext.cellSizeMngr.forceCache(utilMapping, utilCellSize);
+						
+						return E_ResponseErrorControl.BREAK;
+					}
+				}
+				
+				return E_ResponseErrorControl.CONTINUE;
+			}
+		};
+		
+		m_appContext.txnMngr.addHandler(m_appContext.addressMngr);
+		m_appContext.txnMngr.addHandler(m_appContext.cellSizeMngr);
+		m_appContext.txnMngr.addHandler(cellSizeHandler);
+		
+		//--- DRK > Temporarily null out async dispatcher to force everything local.
+		I_AsyncRequestDispatcher dispatcher_saved = m_appContext.txnMngr.getAsyncDispatcher();
+		m_appContext.txnMngr.setAsyncDispatcher(null);
+		
+		//--- DRK > address->mapping relationships are embedded into the page as inline transactions,
 		//---		so here we're invoking those transactions as an implicit prefilling side effect
-		//---		to cache mapping -> address relationships as well without having to hit server.
+		//---		to cache mapping->address relationships as well without having to hit server.
 		for( int i = 0; i < E_HomeCell.values().length; i++ )
 		{
 			E_HomeCell ithCell = E_HomeCell.values()[i];
+
+			CellAddress address = new CellAddress(ithCell.getPrimaryAddress());
+			m_appContext.txnMngr.makeRequest(E_RequestPath.getCellAddressMapping, address);
 			
-			//--- DRK > We could send each request individually, but we're queueing as a failsafe in case
-			//-			for some reason the transactions aren't inlined in the future...wouldn't
-			//-			want 100+ individual transactions to go out.
-			m_appContext.addressMngr.getCellAddress(ithCell.getCoordinate(), E_TransactionAction.QUEUE_REQUEST);
-			
-			//--- DRK > Prepopulate cell size cache...no need to go to server since
-			//---		we know all the cell info from the enumeration.
-			CellSize focusedCellSize = ithCell.getFocusedCellSize();
-			focusedCellSize.setIfDefault(S_HomeCell.DEFAULT_CELL_SIZE, S_HomeCell.DEFAULT_CELL_SIZE);
+			//--- DRK > Prepopulate cell size cache at the same time.
 			CellAddressMapping mapping = new CellAddressMapping(ithCell.getCoordinate());
-			m_appContext.cellSizeMngr.forceCache(mapping, focusedCellSize);
+			m_appContext.txnMngr.makeRequest(E_RequestPath.getFocusedCellSize, mapping);
 		}
 		
-		m_appContext.txnMngr.flushAsyncRequestQueue();
+		m_appContext.txnMngr.flushSyncResponses();
+		
+		m_appContext.txnMngr.removeHandler(cellSizeHandler);
+		m_appContext.txnMngr.removeHandler(m_appContext.cellSizeMngr);
+		m_appContext.txnMngr.removeHandler(m_appContext.addressMngr);
+		
+		m_appContext.txnMngr.setAsyncDispatcher(dispatcher_saved);		
 	}
 	
 	@Override

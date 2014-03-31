@@ -29,6 +29,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>CellPreviewServlet</servlet-name>
+		<servlet-class>swarm.server.thirdparty.servlet.CellPreviewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CellPreviewServlet</servlet-name>
+		<url-pattern>/r.preview/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>AdminServlet</servlet-name>
 		<servlet-class>swarm.server.thirdparty.servlet.AdminServlet</servlet-class>
 	</servlet>

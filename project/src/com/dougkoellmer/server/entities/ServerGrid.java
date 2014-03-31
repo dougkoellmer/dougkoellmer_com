@@ -16,6 +16,6 @@ public class ServerGrid extends BaseServerGrid
 		this.m_cellHeight = this.m_cellWidth = S_HomeCell.DEFAULT_CELL_SIZE;
 		this.m_cellPadding = 16;
 		
-		this.expandToSize(35, 35);
+		this.expandToSize(32, 32);
 	}
 }

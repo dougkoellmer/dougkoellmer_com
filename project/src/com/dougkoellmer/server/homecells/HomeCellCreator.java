@@ -46,6 +46,7 @@ import swarm.shared.code.CompilerResult;
 import swarm.shared.code.E_CompilationStatus;
 import swarm.shared.code.U_Code;
 import swarm.shared.entities.E_CodeType;
+import swarm.shared.structs.CellSize;
 import swarm.shared.structs.Code;
 import swarm.shared.structs.CodePrivileges;
 import swarm.shared.structs.E_NetworkPrivilege;
@@ -170,7 +171,8 @@ public class HomeCellCreator implements I_HomeCellCreator
 			HomeCellMetaData metaData = getMetaData(eCell);
 			I_HomeCellContent content = metaData.getContent();
 			content.init(m_servletContext, eCell);
-			persistedCell.getFocusedCellSize().copy(eCell.getFocusedCellSize());
+			CellSize focusedCellSize = U_HomeCellMeta.getFocusedCellSize(eCell);
+			persistedCell.getFocusedCellSize().copy(focusedCellSize);
 			persistedCell.getCodePrivileges().setCharacterQuota(E_CharacterQuota.UNLIMITED);
 			E_CodeSafetyLevel splashSafety = content.getSafetyLevel(E_CodeType.SPLASH);
 			E_CodeSafetyLevel compiledSafety = content.getSafetyLevel(E_CodeType.COMPILED);
