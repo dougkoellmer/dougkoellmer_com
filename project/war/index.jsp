@@ -21,7 +21,6 @@
 var RecaptchaOptions={theme : 'custom'};
 <%
 	U_InlineTransactions.addInlineTransactions(request, response, out);
-	U_InlineAddressTransactions.addInlineTransactions(request, response, out);
 	U_InlineCellSizeTransactions.addInlineTransactions(request, response, out);
 %>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

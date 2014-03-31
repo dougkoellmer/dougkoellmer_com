@@ -24,6 +24,8 @@
 
 - fix preview regex
 
+- have background color be in a settings class somewhere, referenceable by both the app and the compositor script
+
 
 
 

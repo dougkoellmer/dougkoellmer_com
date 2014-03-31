@@ -10,7 +10,6 @@ import swarm.client.app.E_Platform;
 import swarm.client.app.E_StartUpStage;
 import swarm.client.input.ClickManager;
 import swarm.client.js.JsConfig;
-import swarm.client.managers.CellAddressManager;
 import swarm.client.states.*;
 import swarm.client.states.account.StateMachine_Account;
 import swarm.client.states.account.State_AccountStatusPending;
@@ -53,6 +52,7 @@ import swarm.shared.transaction.E_ResponseError;
 import swarm.shared.transaction.TransactionRequest;
 import swarm.shared.transaction.TransactionResponse;
 
+import com.dougkoellmer.client.managers.CellAddressManager;
 import com.dougkoellmer.client.entities.ClientGrid;
 import com.dougkoellmer.client.entities.ClientUser;
 import com.dougkoellmer.client.view.DkViewController;
@@ -145,6 +145,8 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	@Override
 	protected void stage_startAppManagers()
 	{
+		m_appContext.addressMngr = new CellAddressManager(m_appContext);
+		
 		super.stage_startAppManagers();
 		
 		A_Grid grid = this.m_appContext.gridMngr.getGrid();
@@ -176,7 +178,6 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 			}
 		};
 		
-		m_appContext.txnMngr.addHandler(m_appContext.addressMngr);
 		m_appContext.txnMngr.addHandler(m_appContext.cellSizeMngr);
 		m_appContext.txnMngr.addHandler(cellSizeHandler);
 		
@@ -190,20 +191,16 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		for( int i = 0; i < E_HomeCell.values().length; i++ )
 		{
 			E_HomeCell ithCell = E_HomeCell.values()[i];
-
-			CellAddress address = new CellAddress(ithCell.getPrimaryAddress());
-			m_appContext.txnMngr.makeRequest(E_RequestPath.getCellAddressMapping, address);
 			
 			//--- DRK > Prepopulate cell size cache at the same time.
 			CellAddressMapping mapping = new CellAddressMapping(ithCell.getCoordinate());
 			m_appContext.txnMngr.makeRequest(E_RequestPath.getFocusedCellSize, mapping);
+			
+			m_appContext.txnMngr.flushSyncResponses();
 		}
-		
-		m_appContext.txnMngr.flushSyncResponses();
 		
 		m_appContext.txnMngr.removeHandler(cellSizeHandler);
 		m_appContext.txnMngr.removeHandler(m_appContext.cellSizeMngr);
-		m_appContext.txnMngr.removeHandler(m_appContext.addressMngr);
 		
 		m_appContext.txnMngr.setAsyncDispatcher(dispatcher_saved);		
 	}
