@@ -10,8 +10,10 @@ import java.util.Iterator;
 
 
 
+
 import com.dougkoellmer.server.entities.ServerGrid;
 
+import swarm.shared.structs.CellAddress;
 import swarm.shared.structs.CellAddressMapping;
 import swarm.shared.structs.CellSize;
 import swarm.shared.structs.GridCoordinate;
@@ -143,8 +145,8 @@ public enum E_HomeCell
 	
 	
 	private final CellAddressMapping m_mapping;
-	private final String m_primaryAddress;
-	private final String m_secondaryAddress;
+	private final CellAddress m_primaryAddress;
+	private final CellAddress m_secondaryAddress;
 	private final ArrayList<E_HomeCell> m_children = new ArrayList<E_HomeCell>();
 	
 	private E_HomeCell(int offsetM, int offsetN)
@@ -160,7 +162,7 @@ public enum E_HomeCell
 		if( this.ordinal() == 0 )
 		{
 			m_mapping = new CellAddressMapping(offsetM, offsetN);
-			m_primaryAddress = cellName;
+			m_primaryAddress = new CellAddress(cellName);
 			m_secondaryAddress = null;
 		}
 		else
@@ -170,7 +172,7 @@ public enum E_HomeCell
 			if( relativeCell_nullable == null )
 			{
 				relativeCell_nullable = S_HomeCellHelper.s_previousCell;
-				m_secondaryAddress = cellName;
+				m_secondaryAddress = new CellAddress(cellName);
 			}
 			else
 			{
@@ -196,7 +198,7 @@ public enum E_HomeCell
 				parent.m_children.add(this);
 			}
 
-			m_primaryAddress = getBaseAddress() + cellName;			
+			m_primaryAddress = new CellAddress(getBaseAddress() + cellName);			
 			m_mapping = new CellAddressMapping(relativeCell_nullable.m() + offsetM, relativeCell_nullable.n() + offsetN);
 		}
 		
@@ -250,12 +252,12 @@ public enum E_HomeCell
 		return m_mapping;
 	}
 	
-	public String getPrimaryAddress()
+	public CellAddress getPrimaryAddress()
 	{
 		return m_primaryAddress;
 	}
 	
-	public String getSecondaryAddress()
+	public CellAddress getSecondaryAddress()
 	{
 		return m_secondaryAddress;
 	}

@@ -106,7 +106,7 @@ public class HomeCellCreator implements I_HomeCellCreator
 			ServerCellAddressMapping mapping = new ServerCellAddressMapping(E_GridType.ACTIVE, coordinate);
 			
 			ServerCellAddress primaryAddress = new ServerCellAddress(eCell.getPrimaryAddress());
-			ServerCellAddress secondaryAddress = eCell.getSecondaryAddress() != null ? new ServerCellAddress(eCell.getSecondaryAddress()) : null;
+			ServerCellAddress secondaryAddress = new ServerCellAddress(eCell.getSecondaryAddress());
 			
 			ServerCellAddress[] addressArray;
 			

@@ -69,7 +69,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 			{
 				E_HomeCell child = children.next();
 				String description = U_HomeCellMeta.getDescription(child);
-				String address = child.getPrimaryAddress();
+				String address = child.getPrimaryAddress().getRaw();
 				
 				String thumb = "/img/cell_content/thumbs/"+child.getCellName()+".thumb.jpg";
 				
