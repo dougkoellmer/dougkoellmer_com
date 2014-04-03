@@ -8,9 +8,11 @@
 
 
 
-- have the development server reload called after generating cell sizes, instead of recompiling client
+- have the development server reload called after generating cell sizes, instead of recompiling client like before
 
 - be able to anchor single image cell with gravity, then fix peaceful man
+
+- add orientation to single image cell (maybe strip too).
 
 - fix bottom-right tags in resume
 
@@ -20,11 +22,9 @@
 
 - strip cell size generator should pull spacing variable from java
 
-- image compisitor should pull cell size and grid size variables from java
+- image compisitor should pull cell size and grid size variables from java, and spacing/background color
 
-- fix preview regex
-
-- have background color be in a settings class somewhere, referenceable by both the app and the compositor script
+- be able to refresh single cell
 
 
 

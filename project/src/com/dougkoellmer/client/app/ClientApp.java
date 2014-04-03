@@ -121,15 +121,15 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	{
 		ViewConfig viewConfig = new ViewConfig();
 		
-		viewConfig.magFadeInTime_seconds = s_config.getDouble("magFadeInTime_seconds");//DEFAULT_RETRACTION_TIME;//.4;
-		viewConfig.hudFadeOutTime_seconds = s_config.getDouble("hudFadeOutTime_seconds");//DEFAULT_RETRACTION_TIME;//.25;
+		viewConfig.magFadeInTime_seconds = s_config.getDouble("magFadeInTime_seconds");
+		viewConfig.hudFadeOutTime_seconds = s_config.getDouble("hudFadeOutTime_seconds");
 		viewConfig.magnifierTickCount = 7;
 		viewConfig.defaultPageTitle = "Doug Koellmer";
 		viewConfig.cellHighlightColor = "rgb(145, 167, 223)";
 		viewConfig.initialBumpDistance = 330;
 		viewConfig.cellRetractionEasing = s_config.getDouble("cellRetractionEasing");
-		viewConfig.cellSizeChangeTime_seconds = s_config.getDouble("cellSizeChangeTime_seconds");//DEFAULT_RETRACTION_TIME;
-		viewConfig.focuserFadeOutTime_seconds = s_config.getDouble("focuserFadeOutTime_seconds");//DEFAULT_RETRACTION_TIME;//.25;
+		viewConfig.cellSizeChangeTime_seconds = s_config.getDouble("cellSizeChangeTime_seconds");
+		viewConfig.focuserFadeOutTime_seconds = s_config.getDouble("focuserFadeOutTime_seconds");
 		
 		return viewConfig;
 	}

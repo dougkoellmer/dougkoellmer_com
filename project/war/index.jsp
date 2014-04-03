@@ -15,7 +15,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico?v=3" />
 
-<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1396319190" />
+<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1396323573" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
@@ -38,7 +38,7 @@ var RecaptchaOptions={theme : 'custom'};
 	var dk_backOffTime = .4;
 	var dk_config = 
 	{
-		minSnapTime:.3,
+		minSnapTime:10,
 		magFadeInTime_seconds:dk_backOffTime,
 		hudFadeOutTime_seconds:dk_backOffTime,
 		cellSizeChangeTime_seconds:dk_backOffTime,
@@ -71,6 +71,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="/r.app/min.js?v=1396319189"></script>
+	<script type="text/javascript" src="/r.app/min.js?v=1396323573"></script>
 </body>
 </html>

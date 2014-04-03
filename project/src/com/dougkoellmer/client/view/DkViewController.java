@@ -1,5 +1,7 @@
 package com.dougkoellmer.client.view;
 
+import com.dougkoellmer.shared.app.S_App;
+
 import swarm.client.app.ClientAppConfig;
 import swarm.client.states.Action_Base_HideSupplementState;
 import swarm.client.view.ViewConfig;
@@ -28,6 +30,6 @@ public class DkViewController extends ViewController
 		this.addStateListener(cellHud);
 		cellContainer.getScrollContainer().add(cellHud);
 		
-		cellContainer.getCellContainerInner().getElement().getStyle().setBackgroundColor("rgb(100,100,100)");
+		cellContainer.getCellContainerInner().getElement().getStyle().setBackgroundColor(S_App.BACKGROUND_COLOR);
 	}
 }

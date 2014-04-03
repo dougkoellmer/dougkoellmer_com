@@ -120,7 +120,7 @@ public class U_HomeCellMeta
 			case PLYWOOD_PUNISHER:				return "3-person sled made<br>of steam-bent plywood";
 						
 			case ART:							return "";
-			case ROSE:							return "Realistic rose drawn<br>with colored pencil";
+			case ROSE:							return "Realistic rose drawn<br>with colored pencils";
 			case DRAGON:						return "Muscular dragon cast<br>from liquid plastic";
 			case SOLAR_SYSTEM:					return "Alien solar system from<br>acid-etched zinc plate";
 			case BANANA:						return "Realistic banana<br>drawn with pencil";
@@ -251,11 +251,11 @@ public class U_HomeCellMeta
 			case PLYWOOD_PUNISHER:				return new CellComingSoonContent();
 						
 			case ART:							return new ThumbnailHomeCellContent();
-			case ROSE:							return new SingleImageContent(E_HomeCell.ROSE);
+			case ROSE:							return new SingleImageContent(E_HomeCell.ROSE, E_Direction.HORIZONTAL);
 			case DRAGON:						return new CellComingSoonContent();
 			case SOLAR_SYSTEM:					return new CellComingSoonContent();
 			case BANANA:						return new CellComingSoonContent();
-			case PEACEFUL_MAN:					return new SingleImageContent(E_HomeCell.PEACEFUL_MAN);
+			case PEACEFUL_MAN:					return new SingleImageContent(E_HomeCell.PEACEFUL_MAN, "center");
 			case LADY:							return new CellComingSoonContent();
 			case BLACKHOLE:						return new CellComingSoonContent();
 			case INFINITE_TOLERANCE:			return new CellComingSoonContent();
