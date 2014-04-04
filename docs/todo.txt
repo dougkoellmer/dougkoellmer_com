@@ -10,10 +10,6 @@
 
 - have the development server reload called after generating cell sizes, instead of recompiling client like before
 
-- be able to anchor single image cell with gravity, then fix peaceful man
-
-- add orientation to single image cell (maybe strip too).
-
 - fix bottom-right tags in resume
 
 - have thumb building script work for all images

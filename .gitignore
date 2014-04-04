@@ -11,6 +11,7 @@ target
 /app_engine_sdk
 */war/r.app
 project/.metadata
+/image_stage
 
 project/lib/swarm
 
