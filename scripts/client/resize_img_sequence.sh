@@ -2,14 +2,15 @@
 
 STAGE_DIR=./image_stage
 OUTPUT_DIR="../../project/war/img/cell_content"
-NAME=$1
+
+QUALITY=90%
+WIDTH=700
 
 count=0;
 for file in `ls $STAGE_DIR | sort -V -r`; do
 
-	newName="${NAME}.strip_${count}.jpg"
 	file="$STAGE_DIR/$file"
-	dest="$OUTPUT_DIR/$newName"
-	cp $file $dest
-	let "count++"
+	
+	convert.exe $file -resize $WIDTH -quality $QUALITY $file
+	
 done
