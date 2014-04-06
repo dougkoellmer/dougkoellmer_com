@@ -5,6 +5,8 @@
 
 - ie 10 iframes go over scroll bars and mess up history
 
+- have mouse x/y pan not affect any possible zoom ease that's happening (should "fix" mac magic mouse jerky behavior)
+
 
 
 
@@ -14,14 +16,13 @@
 
 - have thumb building script work for all images
 
-- strip content should read images, get unit height and image count directly from server, then double check against auto-gen cell size
-
-- strip cell size generator should pull spacing variable from java
-
 - image compisitor should pull cell size and grid size variables from java, and spacing/background color
 
 - be able to refresh single cell
 
+- fix source code generation for splash+compiled cells and single image cells
+
+- have cell flag for whether content should refresh itself on focus lost...optimization
 
 
 

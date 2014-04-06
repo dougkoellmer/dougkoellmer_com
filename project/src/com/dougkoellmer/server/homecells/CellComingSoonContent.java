@@ -18,8 +18,9 @@ public class CellComingSoonContent implements I_HomeCellContent
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
+		String imgPath = U_HomeCell.getImgPath("/img/coming_soon.png");
 		m_sourceCode += "<table style='width:100%; height:100%;'><tr><td style='vertical-alignment:middle; text-align:center;'>";
-		m_sourceCode += "<img src='/img/coming_soon.png' />";
+		m_sourceCode += "<img src='"+imgPath+"' />";
 		m_sourceCode += "</td></tr></table>";
 	}
 	

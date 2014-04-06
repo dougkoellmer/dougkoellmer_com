@@ -15,7 +15,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico?v=3" />
 
-<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1396323573" />
+<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1396800044" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
@@ -52,7 +52,7 @@ var RecaptchaOptions={theme : 'custom'};
 <body>
 
 <!-- preload spinner -->
-<div style='display:none;'><img src='/r.img/spinner_plate.png' /></div>
+<div style='display:none;'><img src='/r.img/spinner_plate.png?v=2' /></div>
 
 	<noscript>
 		<table id='error_splash' class='sm_unsupported_platform_font' style='width:100%; height:100%;'><tr><td style='vertical-align:middle; text-align:center;'>
@@ -71,6 +71,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="/r.app/min.js?v=1396323573"></script>
+	<script type="text/javascript" src="/r.app/min.js?v=1396800043"></script>
 </body>
 </html>

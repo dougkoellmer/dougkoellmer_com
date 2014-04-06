@@ -59,7 +59,8 @@ public class SingleImageContent implements I_HomeCellContent
 			position = "background-position:"+m_gravity+";";
 		}
 		
-		m_sourceCode = "<div style=\"background-repeat:no-repeat; width:100%; height:100%; "+heightWidth+" "+position+" background-image:url('"+IMG_PATH+m_cellName+".solo.jpg');\"></div>";
+		String imgPath = U_HomeCell.getImgPath(IMG_PATH+m_cellName+".solo.jpg");
+		m_sourceCode = "<div style=\"background-repeat:no-repeat; width:100%; height:100%; "+heightWidth+" "+position+" background-image:url('"+imgPath+"');\"></div>";
 	}
 	
 	public String getSourceCode(E_CodeType eCodeType)

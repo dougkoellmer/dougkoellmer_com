@@ -78,6 +78,8 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 					thumb = "/img/coming_soon.thumb.png";
 				}
 				
+				thumb = U_HomeCell.getImgPath(thumb);
+				
 				builder.append("<td "+tdClass+" " + tdStyle + ">");
 				builder.append("<a href='"+address+"' class='waypoint_cell_link'>");
 				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src='"+thumb+"'></td><td style='text-align:right;'><div class='dk_thumb_desc'>");

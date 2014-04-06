@@ -55,6 +55,8 @@ import com.dougkoellmer.server.homecells.HomeCellCreator;
 import com.dougkoellmer.shared.app.S_App;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.google.appengine.api.rdbms.AppEngineDriver;
+import com.google.appengine.api.utils.SystemProperty;
+import com.google.appengine.api.utils.SystemProperty.Environment.Value;
 import com.google.gwt.user.client.Window;
 
 public final class ServerApp extends A_ServerApp
@@ -82,6 +84,15 @@ public final class ServerApp extends A_ServerApp
 		config.publicRecaptchaKey = null;
 		
 		config.appId = S_App.APP_ID;
+		
+		SystemProperty.Environment.Value env = SystemProperty.environment.value();
+		if (env  == Value.Production)
+		{
+			config.requestCacheExpiration_seconds = 60*60*24*365;// one year expiration for json requests
+		}
+		else if(env == Value.Development)
+		{
+		}
 		
 		/*boolean clientSide = false;
 		smI_AccountDatabase accountDatabase = new smDummyAccountDatabase();

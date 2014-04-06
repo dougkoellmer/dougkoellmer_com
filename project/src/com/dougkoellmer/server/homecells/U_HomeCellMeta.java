@@ -251,11 +251,11 @@ public class U_HomeCellMeta
 			case PLYWOOD_PUNISHER:				return new CellComingSoonContent();
 						
 			case ART:							return new ThumbnailHomeCellContent();
-			case ROSE:							return new SingleImageContent(E_HomeCell.ROSE, E_Direction.HORIZONTAL);
+			case ROSE:							return new SingleImageContent(homeCell, E_Direction.HORIZONTAL);
 			case DRAGON:						return new CellComingSoonContent();
 			case SOLAR_SYSTEM:					return new CellComingSoonContent();
 			case BANANA:						return new CellComingSoonContent();
-			case PEACEFUL_MAN:					return new SingleImageContent(E_HomeCell.PEACEFUL_MAN, "center");
+			case PEACEFUL_MAN:					return new SingleImageContent(homeCell, "center");
 			case LADY:							return new CellComingSoonContent();
 			case BLACKHOLE:						return new CellComingSoonContent();
 			case INFINITE_TOLERANCE:			return new CellComingSoonContent();
@@ -265,7 +265,7 @@ public class U_HomeCellMeta
 			case B33HIVE_LOGO:					return new CellComingSoonContent();
 			case MILKMAN:						return new CellComingSoonContent();
 			case MOTHER_AND_CHILD:				return new CellComingSoonContent();
-			case WOOD_CHAIN:					return new CellComingSoonContent();
+			case WOOD_CHAIN:					return new StripContent(homeCell, "center");
 			case GLASSES_HOLDER:				return new CellComingSoonContent();
 			
 			default:							return null;
