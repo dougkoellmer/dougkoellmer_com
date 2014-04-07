@@ -4,15 +4,20 @@ SEARCH_DIR="../../project/war/img/cell_content"
 
 for entry in "$SEARCH_DIR"/*
 do
-	if [[ $entry == *.splash.* -o $entry == *.strip_0.* ]]
-	then
-		thumb=${entry/splash/thumb}
-		thumb=${thumb/cell_content/"cell_content/thumbs"}
-		
-		convert.exe $entry -resize 64x64^ -gravity north -extent 64x64 -quality 100% $thumb
-	elif [[  ]]
+	if [[ $entry == *.splash.* || $entry == *.strip_0.* || $entry == *.solo.* ]]
 	then
 	
+		thumb=$(echo $entry | sed -re 's/\b(splash|strip_0|solo)\b/thumb/g')
+		thumb=${thumb/cell_content/cell_content\/thumbs}
+		
+		gravity="North"
+		
+		if [[ $entry == *rose* ]]
+		then
+			gravity="NorthWest"
+		fi		
+		
+		convert.exe $entry -resize 64x64^ -gravity $gravity -extent 64x64 -quality 100% $thumb
 	fi
 done
 
