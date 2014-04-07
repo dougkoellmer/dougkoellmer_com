@@ -20,7 +20,8 @@ import swarm.server.data.blob.I_BlobManager;
 import swarm.server.data.blob.U_Blob;
 
 public class VersionTracker
-{	
+{
+	//private static final Logger 
 	private static class BlobKey implements I_BlobKey
 	{
 		@Override
@@ -84,10 +85,10 @@ public class VersionTracker
 		try {
 			version = blobMngr.getBlob(m_key, VersionBlob.class);
 			
-			if( version != null && version.m_version == ServerApp.getInstance().getConfig().appVersion )
+			int instanceAppVersion = ServerApp.getInstance().getConfig().appVersion;
+			if( version != null && version.m_version == instanceAppVersion )
 			{
-				ServerAppConfig config = ServerApp.getInstance().getConfig();
-				config.requestCacheExpiration_seconds = S_App.HTTP_CACHE_EXPIRATION_SECONDS;
+				this.setCacheExpiration();
 			}
 		}
 		catch (BlobException e)
@@ -96,24 +97,30 @@ public class VersionTracker
 		}
 	}
 	
+	private void setCacheExpiration()
+	{
+		ServerAppConfig config = ServerApp.getInstance().getConfig();
+		SystemProperty.Environment.Value env = SystemProperty.environment.value();
+		
+		if (env  == Value.Production)
+		{
+			config.requestCacheExpiration_seconds = S_App.HTTP_CACHE_EXPIRATION_SECONDS;
+		}
+		else if(env == Value.Development)
+		{
+		}
+	}
+	
 	public void pushVersion()
 	{
 		I_BlobManager blobMngr = ServerApp.getInstance().getContext().blobMngrFactory.create(E_BlobCacheLevel.PERSISTENT);
 		VersionBlob version = new VersionBlob(ServerApp.getInstance().getConfig().appVersion);
-		ServerAppConfig config = ServerApp.getInstance().getConfig();
 		
 		try
 		{
 			blobMngr.putBlob(m_key, version);
 			
-			SystemProperty.Environment.Value env = SystemProperty.environment.value();
-			if (env  == Value.Production)
-			{
-				config.requestCacheExpiration_seconds = S_App.HTTP_CACHE_EXPIRATION_SECONDS;
-			}
-			else if(env == Value.Development)
-			{
-			}
+			this.setCacheExpiration();
 		}
 		catch (ConcurrentModificationException e)
 		{

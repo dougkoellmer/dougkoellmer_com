@@ -8,7 +8,7 @@
 - have mouse x/y pan not affect any possible zoom ease that's happening (should "fix" mac magic mouse jerky behavior)
 
 
-
+- experiment with dashed line seperator for strip
 
 - have the development server reload called after generating cell sizes and building app
 
