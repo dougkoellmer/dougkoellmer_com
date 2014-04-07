@@ -106,7 +106,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.backOffDistance = s_config.getDouble("backOffDistance");	
 		appConfig.publicRecaptchaKey = "";
 		appConfig.useVirtualSandbox = false;
-		appConfig.appServerVersion = S_App.APP_SERVER_VERSION;
+		appConfig.appVersion = S_App.APP_VERSION;
 		appConfig.maxSubCellDimension = 32;
 		
 		appConfig.appId = S_App.APP_ID;

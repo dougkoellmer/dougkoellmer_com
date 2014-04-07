@@ -11,6 +11,6 @@ public class U_HomeCell
 	
 	public static String getImgPath(String rawPath)
 	{
-		return rawPath + "?v="+ServerApp.getInstance().getConfig().appServerVersion;
+		return rawPath + "?v="+ServerApp.getInstance().getConfig().appVersion;
 	}
 }

@@ -5029,7 +5029,7 @@ qnb,swarm.shared.account.U_Account::cropPassword([Ljava/lang/String;I)V,swarm.sh
 P,,swarm.shared.app.A_App,,swarm/shared/app/A_App.java,5,-1
 PW,,swarm.shared.app.AppConfig,,swarm/shared/app/AppConfig.java,5,-1
 r,swarm.shared.app.AppConfig::appId,swarm.shared.app.AppConfig,appId,swarm/shared/app/AppConfig.java,11,-1
-s,swarm.shared.app.AppConfig::appServerVersion,swarm.shared.app.AppConfig,appServerVersion,swarm/shared/app/AppConfig.java,8,-1
+s,swarm.shared.app.AppConfig::appVersion,swarm.shared.app.AppConfig,appVersion,swarm/shared/app/AppConfig.java,8,-1
 JW,,swarm.shared.app.BaseAppContext,,swarm/shared/app/BaseAppContext.java,7,-1
 u,swarm.shared.app.BaseAppContext::jsonFactory,swarm.shared.app.BaseAppContext,jsonFactory,swarm/shared/app/BaseAppContext.java,10,-1
 v,swarm.shared.app.BaseAppContext::requestPathMngr,swarm.shared.app.BaseAppContext,requestPathMngr,swarm/shared/app/BaseAppContext.java,9,-1
@@ -5192,7 +5192,7 @@ aqb,swarm.shared.json.E_JsonKey::$clinit()V,swarm.shared.json.E_JsonKey,$clinit,
 bqb,swarm.shared.json.E_JsonKey::E_JsonKey(Ljava/lang/String;I)V,swarm.shared.json.E_JsonKey,E_JsonKey,swarm/shared/json/E_JsonKey.java,85,0
 fpb,swarm.shared.json.E_JsonKey::accountId,swarm.shared.json.E_JsonKey,accountId,swarm/shared/json/E_JsonKey.java,72,-1
 gpb,swarm.shared.json.E_JsonKey::accountInfo,swarm.shared.json.E_JsonKey,accountInfo,swarm/shared/json/E_JsonKey.java,50,-1
-hpb,swarm.shared.json.E_JsonKey::appServerVersion,swarm.shared.json.E_JsonKey,appServerVersion,swarm/shared/json/E_JsonKey.java,12,-1
+hpb,swarm.shared.json.E_JsonKey::appVersion,swarm.shared.json.E_JsonKey,appVersion,swarm/shared/json/E_JsonKey.java,12,-1
 ipb,swarm.shared.json.E_JsonKey::assertMessage,swarm.shared.json.E_JsonKey,assertMessage,swarm/shared/json/E_JsonKey.java,75,-1
 jpb,swarm.shared.json.E_JsonKey::bitArray,swarm.shared.json.E_JsonKey,bitArray,swarm/shared/json/E_JsonKey.java,58,-1
 kpb,swarm.shared.json.E_JsonKey::bitArrayLength,swarm.shared.json.E_JsonKey,bitArrayLength,swarm/shared/json/E_JsonKey.java,59,-1
@@ -5220,7 +5220,7 @@ Fpb,swarm.shared.json.E_JsonKey::gridCellWidth,swarm.shared.json.E_JsonKey,gridC
 Gpb,swarm.shared.json.E_JsonKey::gridHeight,swarm.shared.json.E_JsonKey,gridHeight,swarm/shared/json/E_JsonKey.java,53,-1
 Hpb,swarm.shared.json.E_JsonKey::gridWidth,swarm.shared.json.E_JsonKey,gridWidth,swarm/shared/json/E_JsonKey.java,52,-1
 Ipb,swarm.shared.json.E_JsonKey::lastPosition,swarm.shared.json.E_JsonKey,lastPosition,swarm/shared/json/E_JsonKey.java,28,-1
-Jpb,swarm.shared.json.E_JsonKey::libServerVersion,swarm.shared.json.E_JsonKey,libServerVersion,swarm/shared/json/E_JsonKey.java,11,-1
+Jpb,swarm.shared.json.E_JsonKey::libVersion,swarm.shared.json.E_JsonKey,libVersion,swarm/shared/json/E_JsonKey.java,11,-1
 a,swarm.shared.json.E_JsonKey::m_compiledKey,swarm.shared.json.E_JsonKey,m_compiledKey,swarm/shared/json/E_JsonKey.java,83,-1
 Kpb,swarm.shared.json.E_JsonKey::networkPrivilege,swarm.shared.json.E_JsonKey,networkPrivilege,swarm/shared/json/E_JsonKey.java,71,-1
 Lpb,swarm.shared.json.E_JsonKey::ownedCoordinates,swarm.shared.json.E_JsonKey,ownedCoordinates,swarm/shared/json/E_JsonKey.java,27,-1

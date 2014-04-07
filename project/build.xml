@@ -71,6 +71,12 @@
 	</exec>
   </target>
   
+   <target name="bump_version" description="Bumps the app version, mostly to bust cache.">
+	  <exec executable="sh" newenvironment="false" dir="../scripts/client">
+		  <arg value="./bump_version.sh" />
+	</exec>
+  </target>
+  
   <target name="build_css" description="Takes a bunch of CSS files, cats them, minifies them, updates resource version in HTML">
 	  <exec executable="sh" newenvironment="false" dir="../project/lib/swarm/scripts/client/">
 		  <arg value="minify_css.sh" />
@@ -120,11 +126,7 @@
 	<antcall target="build_app"/>
   </target>
  
-  <target name="build_app" depends="gwtc,build_js,build_css,build_html" description="Build this project" />
-  
-  
-   <target name="build_all" depends="build_resume, build_imgs, build_app" description="Build this project" />
-
+  <target name="build_app" depends="bump_version,gwtc,build_js,build_css,build_html" description="Build this project" />
   
 
 

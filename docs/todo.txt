@@ -20,8 +20,6 @@
 
 - be able to refresh single cell
 
-- fix source code generation for splash+compiled cells and single image cells
-
 - have cell flag for whether content should refresh itself on focus lost...optimization
 
 

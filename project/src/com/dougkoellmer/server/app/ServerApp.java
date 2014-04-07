@@ -65,7 +65,7 @@ public final class ServerApp extends A_ServerApp
 
 	ServerApp(ServletContext servletContext)
 	{
-		super();
+		super(new ServerContext());
 		
 		ServerAppConfig config = new ServerAppConfig();
 		
@@ -76,7 +76,7 @@ public final class ServerApp extends A_ServerApp
 		config.gridExpansionDelta = 8;
 		config.startingZ = 430;
 		config.startingCoord = E_HomeCell.HOME.getCoordinate();
-		config.appServerVersion = S_App.APP_SERVER_VERSION;
+		config.appVersion = S_App.APP_VERSION;
 		
 		config.mainPage = "http://www.dougkoellmer.com";
 		
@@ -84,21 +84,6 @@ public final class ServerApp extends A_ServerApp
 		config.publicRecaptchaKey = null;
 		
 		config.appId = S_App.APP_ID;
-		
-		SystemProperty.Environment.Value env = SystemProperty.environment.value();
-		if (env  == Value.Production)
-		{
-			config.requestCacheExpiration_seconds = 60*60*24*365;// one year expiration for json requests
-		}
-		else if(env == Value.Development)
-		{
-		}
-		
-		/*boolean clientSide = false;
-		smI_AccountDatabase accountDatabase = new smDummyAccountDatabase();
-		smSignInValidator signInValidator = new smSignInValidator(clientSide);
-		smSignUpValidator signUpValidator = new smSignUpValidator(clientSide);
-		m_context.accountMngr = new smServerAccountManager(signInValidator, signUpValidator, accountDatabase);*/
 		
 		boolean clientSide = false;
 		PropertyAccountDatabase localDatabase = new PropertyAccountDatabase(servletContext, "/WEB-INF/account.properties");
@@ -111,8 +96,11 @@ public final class ServerApp extends A_ServerApp
 		ServerTransactionManager txnManager = this.m_context.txnMngr;
 		
 		setNormalHandler(new getUserData(false, config.gridExpansionDelta),	E_RequestPath.getUserData);		
-		setAdminHandler(new createGrid(ServerGrid.class), swarm.server.transaction.E_AdminRequestPath.createGrid);
-		
+		setAdminHandler(new createGrid(ServerGrid.class), swarm.server.transaction.E_AdminRequestPath.createGrid);		
 		//setAdminHandler(new refreshGrid(),	smE_AdminRequestPath.refreshGrid);
+		
+		ServerContext serverContext = (ServerContext) this.getContext();
+		serverContext.versionTracker = new VersionTracker();
+		serverContext.versionTracker.checkVersion();
 	}
 }
