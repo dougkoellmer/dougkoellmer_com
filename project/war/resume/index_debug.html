@@ -768,13 +768,15 @@
 
 				if ( ($this.offset().top - tagMaxHeight ) < boundTop) dir.ns = 'n';
 				if ($this.offset().left < boundLeft) dir.ew = 'w';
-				if ($window.width() + $document.scrollLeft() - ($this.offset().left + tagMaxWidth/3) < margin) dir.ew = 'e';
+				if ( ($window.width() + $document.scrollLeft()) - ($this.offset().left + tagMaxWidth) < margin) dir.ew = 'e';
 				
 				var toolTipBottom = $this.offset().top + tagMaxHeight;
 				var windowBottom = $window.height() + $document.scrollTop();
 				if ( toolTipBottom > windowBottom ) dir.ns = 's';
 
-				return dir.ns + (dir.ew ? dir.ew : '');
+				var toReturn = dir.ns + (dir.ew ? dir.ew : '');
+				
+				return toReturn;
 			}
 		
 			$('.tag').tipsy(
