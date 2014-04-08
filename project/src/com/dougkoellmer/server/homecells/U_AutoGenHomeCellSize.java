@@ -10,6 +10,8 @@ class U_AutoGenHomeCellSize
 	{
 		switch(cell)
 		{
+			case FIRE_POI: return new CellSize(700, 1060);
+			case JUGGLING_TORCHES: return new CellSize(700, 525);
 			case PEACEFUL_MAN: return new CellSize(622, 512);
 			case ROSE: return new CellSize(709, 595);
 			case WOOD_CHAIN: return new CellSize(700, 4805);

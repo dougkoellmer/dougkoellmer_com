@@ -32,7 +32,7 @@ public class StripContent implements I_HomeCellContent
 	
 	public StripContent(E_HomeCell cell)
 	{
-		this(cell, null);
+		this(cell, "center");
 	}
 	
 	public StripContent(E_HomeCell cell, String gravity)

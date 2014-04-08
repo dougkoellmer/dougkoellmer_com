@@ -141,9 +141,9 @@ public class U_HomeCellMeta
 		return null;
 	}
 	
-	public static I_HomeCellContent getContent(E_HomeCell homeCell)
+	public static I_HomeCellContent getContent(E_HomeCell cell)
 	{
-		switch(homeCell)
+		switch(cell)
 		{
 			case HOME:							return new FileBasedHomeCellContent("home");
 			
@@ -222,8 +222,8 @@ public class U_HomeCellMeta
 			case F1_SHEATH_MOD:					return new CellComingSoonContent();
 			case SAW_SHEATH:					return new CellComingSoonContent();
 			case BROOM:							return new CellComingSoonContent();
-			case FIRE_POI:						return new CellComingSoonContent();
-			case JUGGLING_TORCHES:				return new CellComingSoonContent();
+			case FIRE_POI:						return new StripContent(cell, "left");
+			case JUGGLING_TORCHES:				return new SingleImageContent(cell);
 			case THROWING_KNIVES:				return new CellComingSoonContent();
 			case STONE_CUP:						return new CellComingSoonContent();
 			case FIRE_POKER:					return new CellComingSoonContent();
@@ -251,11 +251,11 @@ public class U_HomeCellMeta
 			case PLYWOOD_PUNISHER:				return new CellComingSoonContent();
 						
 			case ART:							return new ThumbnailHomeCellContent();
-			case ROSE:							return new SingleImageContent(homeCell, E_Direction.HORIZONTAL);
+			case ROSE:							return new SingleImageContent(cell, "left");
 			case DRAGON:						return new CellComingSoonContent();
 			case SOLAR_SYSTEM:					return new CellComingSoonContent();
 			case BANANA:						return new CellComingSoonContent();
-			case PEACEFUL_MAN:					return new SingleImageContent(homeCell, "center");
+			case PEACEFUL_MAN:					return new SingleImageContent(cell, "center");
 			case LADY:							return new CellComingSoonContent();
 			case BLACKHOLE:						return new CellComingSoonContent();
 			case INFINITE_TOLERANCE:			return new CellComingSoonContent();
@@ -265,7 +265,7 @@ public class U_HomeCellMeta
 			case B33HIVE_LOGO:					return new CellComingSoonContent();
 			case MILKMAN:						return new CellComingSoonContent();
 			case MOTHER_AND_CHILD:				return new CellComingSoonContent();
-			case WOOD_CHAIN:					return new StripContent(homeCell, "center");
+			case WOOD_CHAIN:					return new StripContent(cell, "center");
 			case GLASSES_HOLDER:				return new CellComingSoonContent();
 			
 			default:							return null;

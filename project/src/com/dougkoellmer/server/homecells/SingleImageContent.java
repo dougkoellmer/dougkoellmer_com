@@ -20,7 +20,7 @@ public class SingleImageContent implements I_HomeCellContent
 	
 	public SingleImageContent(E_HomeCell cell)
 	{
-		this(cell, E_Direction.HORIZONTAL, null);
+		this(cell, E_Direction.HORIZONTAL, "center");
 	}
 	
 	public SingleImageContent(E_HomeCell cell, String gravity)
@@ -30,7 +30,7 @@ public class SingleImageContent implements I_HomeCellContent
 	
 	public SingleImageContent(E_HomeCell cell, E_Direction direction)
 	{
-		this(cell, direction, null);
+		this(cell, direction, "center");
 	}
 	
 	public SingleImageContent(E_HomeCell cell, E_Direction direction, String gravity)
