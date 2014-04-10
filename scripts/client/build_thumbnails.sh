@@ -15,7 +15,10 @@ do
 		if [[ $entry == *rose* ]]
 		then
 			gravity="NorthWest"
-		fi		
+		elif [[ $entry == *glasses_holder* ]]
+		then
+			gravity="Center"
+		fi
 		
 		convert.exe $entry -resize 64x64^ -gravity $gravity -extent 64x64 -quality 100% $thumb
 	fi

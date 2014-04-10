@@ -266,7 +266,7 @@ public class U_HomeCellMeta
 			case MILKMAN:						return new CellComingSoonContent();
 			case MOTHER_AND_CHILD:				return new CellComingSoonContent();
 			case WOOD_CHAIN:					return new StripContent(cell, "center");
-			case GLASSES_HOLDER:				return new CellComingSoonContent();
+			case GLASSES_HOLDER:				return new StripContent(cell, "center");
 			
 			default:							return null;
 		}

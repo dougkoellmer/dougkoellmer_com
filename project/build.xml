@@ -127,7 +127,7 @@
 	<antcall target="build_app"/>
   </target>
  
-  <target name="build_app" depends="gwtc,build_js,build_css,build_html" description="Build this project" />
+  <target name="build_app" depends="bump_version,gwtc,build_js,build_css,build_html" description="Build this project" />
   
 
 
