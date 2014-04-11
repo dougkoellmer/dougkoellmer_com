@@ -15,7 +15,7 @@ do
 		if [[ $entry == *rose* ]]
 		then
 			gravity="NorthWest"
-		elif [[ $entry == *glasses_holder* ]]
+		elif [[ $entry == *glasses_holder* || $entry == *milkman* ]]
 		then
 			gravity="Center"
 		fi

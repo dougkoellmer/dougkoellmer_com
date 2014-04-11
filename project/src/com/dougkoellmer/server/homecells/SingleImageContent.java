@@ -1,8 +1,16 @@
 package com.dougkoellmer.server.homecells;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.servlet.ServletContext;
 
+import org.apache.commons.io.IOUtils;
+
 import com.dougkoellmer.shared.homecells.E_HomeCell;
+import com.dougkoellmer.shared.homecells.S_HomeCell;
+import com.google.appengine.api.images.Image;
+import com.google.appengine.api.images.ImagesServiceFactory;
 
 import swarm.server.thirdparty.servlet.U_Servlet;
 import swarm.shared.entities.E_CodeSafetyLevel;
@@ -59,8 +67,19 @@ public class SingleImageContent implements I_HomeCellContent
 			position = "background-position:"+m_gravity+";";
 		}
 		
-		String imgPath = U_HomeCell.getImgPath(IMG_PATH+m_cellName+".solo.jpg");
-		m_sourceCode = "<div style=\"background-repeat:no-repeat; width:100%; height:100%; "+heightWidth+" "+position+" background-image:url('"+imgPath+"');\"></div>";
+		String imgPath = IMG_PATH+m_cellName+".solo.jpg";
+		InputStream imageStream = servletContext.getResourceAsStream(imgPath);
+		byte[] imageData = null;
+		try {
+			imageData = IOUtils.toByteArray(imageStream);
+		} catch (IOException e) {}			
+		Image image = ImagesServiceFactory.makeImage(imageData);
+		
+		int imageHeight = image.getHeight();
+		int maxHeight = imageHeight < S_HomeCell.DEFAULT_CELL_SIZE ? S_HomeCell.DEFAULT_CELL_SIZE : imageHeight;
+		
+		imgPath = U_HomeCell.getImgPath(imgPath);
+		m_sourceCode = "<div style=\"background-repeat:no-repeat; width:100%; max-height:"+maxHeight+"px; height:100%; "+heightWidth+" "+position+" background-image:url('"+imgPath+"');\"></div>";
 	}
 	
 	public String getSourceCode(E_CodeType eCodeType)

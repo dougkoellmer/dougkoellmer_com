@@ -132,7 +132,7 @@ public class U_HomeCellMeta
 			case DINOSAURS:						return "Sketch supporting<br>dinosaurs taking over";
 			case QUICKB2_LOGO:					return "Logo for open<br>source physics engine";
 			case B33HIVE_LOGO:					return "Logo for open<br>source content engine";
-			case MILKMAN:						return "Wooden sculpture of<br>1950s-era milkman";
+			case MILKMAN:						return "Basswood carving of<br>1950s-era milkman";
 			case MOTHER_AND_CHILD:				return "Wooden sculpture of<br>mother & child";
 			case WOOD_CHAIN:					return "Chain carved from <br>solid rock maple";
 			case GLASSES_HOLDER:				return "Wooden desktop holder<br>for reading glasses";
@@ -254,16 +254,16 @@ public class U_HomeCellMeta
 			case ROSE:							return new SingleImageContent(cell, "left");
 			case DRAGON:						return new CellComingSoonContent();
 			case SOLAR_SYSTEM:					return new CellComingSoonContent();
-			case BANANA:						return new CellComingSoonContent();
+			case BANANA:						return new SingleImageContent(cell, "center");
 			case PEACEFUL_MAN:					return new SingleImageContent(cell, "center");
-			case LADY:							return new CellComingSoonContent();
+			case LADY:							return new SingleImageContent(cell, "top");
 			case BLACKHOLE:						return new CellComingSoonContent();
 			case INFINITE_TOLERANCE:			return new CellComingSoonContent();
 			case SAVE_ANIMALS:					return new CellComingSoonContent();
 			case DINOSAURS:						return new CellComingSoonContent();
 			case QUICKB2_LOGO:					return new CellComingSoonContent();
 			case B33HIVE_LOGO:					return new CellComingSoonContent();
-			case MILKMAN:						return new CellComingSoonContent();
+			case MILKMAN:						return new StripContent(cell, "center");
 			case MOTHER_AND_CHILD:				return new CellComingSoonContent();
 			case WOOD_CHAIN:					return new StripContent(cell, "center");
 			case GLASSES_HOLDER:				return new StripContent(cell, "center");

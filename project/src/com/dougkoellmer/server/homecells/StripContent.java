@@ -97,6 +97,7 @@ public class StripContent implements I_HomeCellContent
 				
 				imageHeight = image.getHeight();
 				
+				
 				imgPath = U_HomeCell.getImgPath(imgPath);
 				String img = this.getImg(imgPath, imageHeight);
 				emptyImg = this.getEmptyImg(imageHeight);
@@ -107,6 +108,7 @@ public class StripContent implements I_HomeCellContent
 			else
 			{
 				m_splash += emptyImg;
+				imgPath = U_HomeCell.getImgPath(imgPath);
 				m_compiled += this.getImg(imgPath, imageHeight);
 			}
 			
@@ -131,7 +133,7 @@ public class StripContent implements I_HomeCellContent
 	
 	private String getImg(String source, int height)
 	{
-		return "<div style=\"background-repeat:no-repeat; width:100%; height:"+height+"px; "+ m_heightWidth+" "+m_position+" background-image:url('"+source+"');\"></div>";
+		return "<div style=\"background-repeat:no-repeat; width:100%; max-height:"+height+"px; height:100%; "+ m_heightWidth+" "+m_position+" background-image:url('"+source+"');\"></div>";
 	}
 	
 	private String getEmptyImg(int height)
