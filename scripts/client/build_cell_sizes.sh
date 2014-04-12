@@ -11,7 +11,7 @@ THIS_FILE="${THIS_PATH}/${THIS_FILE}"
 
 STRIP_SPACING=$(grep -F -m 1 'IMG_STRIP_SPACING =' $SETTINGS_FILE);
 STRIP_SPACING=$(echo $STRIP_SPACING | sed -re 's/.*= *([0-9]*);/\1/g')
-MIN_WIDTH=512
+MIN_SIZE=512
 
 
 printf "" > $OUT_FILE
@@ -51,13 +51,24 @@ do
 		width=$(convert $entry -format "%w" info:)
 		height=$(convert $entry -format "%h" info:)
 		count=$(ls -l $SEARCH_DIR/$cell_name* | wc -l)
+		
+		if (( $height < $MIN_SIZE ));
+		then
+			height=$MIN_SIZE
+		fi
+		
 		let "height = (height*count) + STRIP_SPACING*(count-1)"
 		print_statement=true
 	fi
 	
-	if (( $width < $MIN_WIDTH ));
+	if (( $width < $MIN_SIZE ));
 	then
-		width=$MIN_WIDTH
+		width=$MIN_SIZE
+	fi
+	
+	if (( $height < $MIN_SIZE ));
+	then
+		height=$MIN_SIZE
 	fi
 	
 	if [ "$print_statement" = true ] ; then

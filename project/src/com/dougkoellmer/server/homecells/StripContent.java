@@ -96,7 +96,10 @@ public class StripContent implements I_HomeCellContent
 				Image image = ImagesServiceFactory.makeImage(imageData);
 				
 				imageHeight = image.getHeight();
-				
+				if( imageHeight < S_HomeCell.DEFAULT_CELL_SIZE )
+				{
+					imageHeight = S_HomeCell.DEFAULT_CELL_SIZE;
+				}
 				
 				imgPath = U_HomeCell.getImgPath(imgPath);
 				String img = this.getImg(imgPath, imageHeight);

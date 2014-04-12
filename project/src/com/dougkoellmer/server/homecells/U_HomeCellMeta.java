@@ -131,7 +131,7 @@ public class U_HomeCellMeta
 			case SAVE_ANIMALS:					return "Sketch supporting <br>all the animals";
 			case DINOSAURS:						return "Sketch supporting<br>dinosaurs taking over";
 			case QUICKB2_LOGO:					return "Logo for open<br>source physics engine";
-			case B33HIVE_LOGO:					return "Logo for open<br>source content engine";
+			case B33HIVE_LOGO:					return "Logo & icons for open<br>source content engine";
 			case MILKMAN:						return "Basswood carving of<br>1950s-era milkman";
 			case MOTHER_AND_CHILD:				return "Wooden sculpture of<br>mother & child";
 			case WOOD_CHAIN:					return "Chain carved from <br>solid rock maple";
@@ -252,17 +252,17 @@ public class U_HomeCellMeta
 						
 			case ART:							return new ThumbnailHomeCellContent();
 			case ROSE:							return new SingleImageContent(cell, "left");
-			case DRAGON:						return new CellComingSoonContent();
-			case SOLAR_SYSTEM:					return new CellComingSoonContent();
+			case DRAGON:						return new StripContent(cell, "center");
+			case SOLAR_SYSTEM:					return new SingleImageContent(cell, "center");
 			case BANANA:						return new SingleImageContent(cell, "center");
 			case PEACEFUL_MAN:					return new SingleImageContent(cell, "center");
 			case LADY:							return new SingleImageContent(cell, "top");
-			case BLACKHOLE:						return new CellComingSoonContent();
-			case INFINITE_TOLERANCE:			return new CellComingSoonContent();
-			case SAVE_ANIMALS:					return new CellComingSoonContent();
-			case DINOSAURS:						return new CellComingSoonContent();
-			case QUICKB2_LOGO:					return new CellComingSoonContent();
-			case B33HIVE_LOGO:					return new CellComingSoonContent();
+			case BLACKHOLE:						return new SingleImageContent(cell, "center");
+			case INFINITE_TOLERANCE:			return new SingleImageContent(cell, "center");
+			case SAVE_ANIMALS:					return new SingleImageContent(cell, "center");
+			case DINOSAURS:						return new SingleImageContent(cell, "center");
+			case QUICKB2_LOGO:					return new SingleImageContent(cell, "center");
+			case B33HIVE_LOGO:					return new SingleImageContent(cell, "center");
 			case MILKMAN:						return new StripContent(cell, "center");
 			case MOTHER_AND_CHILD:				return new CellComingSoonContent();
 			case WOOD_CHAIN:					return new StripContent(cell, "center");
