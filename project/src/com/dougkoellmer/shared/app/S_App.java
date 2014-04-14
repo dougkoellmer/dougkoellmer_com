@@ -4,7 +4,7 @@ public class S_App
 {
 	public static final String APP_ID = "dk";
 	
-	public static final int APP_VERSION = 40;
+	public static final int APP_VERSION = 41;
 	
 	
 	public static final String BACKGROUND_COLOR = "rgb(100,100,100)";

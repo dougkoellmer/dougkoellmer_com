@@ -11,20 +11,29 @@ class U_AutoGenHomeCellSize
 		switch(cell)
 		{
 			case B33HIVE_LOGO: return new CellSize(512, 512);
+			case BACKSCRATCHER_1: return new CellSize(640, 1034);
+			case BACKSCRATCHER_2: return new CellSize(780, 605);
 			case BANANA: return new CellSize(640, 512);
 			case BLACKHOLE: return new CellSize(746, 583);
+			case BOW_1: return new CellSize(512, 1290);
+			case CANVAS_BAG: return new CellSize(683, 512);
+			case CANVAS_WRAP: return new CellSize(615, 1556);
+			case COASTER_HOLDER: return new CellSize(780, 1082);
 			case DINOSAURS: return new CellSize(768, 576);
 			case DRAGON: return new CellSize(640, 1034);
 			case FIRE_POI: return new CellSize(700, 1060);
 			case GLASSES_HOLDER: return new CellSize(512, 1432);
 			case INFINITE_TOLERANCE: return new CellSize(768, 576);
 			case JUGGLING_TORCHES: return new CellSize(700, 525);
+			case KITCHEN_UTENSILS: return new CellSize(780, 585);
 			case LADY: return new CellSize(512, 640);
 			case MILKMAN: return new CellSize(512, 2622);
 			case PEACEFUL_MAN: return new CellSize(622, 512);
 			case QUICKB2_LOGO: return new CellSize(512, 512);
+			case RED_OAK_SPOON: return new CellSize(780, 1170);
 			case ROSE: return new CellSize(709, 595);
 			case SAVE_ANIMALS: return new CellSize(768, 576);
+			case SHAKERS: return new CellSize(780, 585);
 			case SOLAR_SYSTEM: return new CellSize(640, 512);
 			case WOOD_CHAIN: return new CellSize(700, 4805);
 		}

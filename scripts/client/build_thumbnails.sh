@@ -18,6 +18,12 @@ do
 		elif [[ $entry == *glasses_holder* || $entry == *milkman* ]]
 		then
 			gravity="Center"
+		elif [[ $entry == *backscratcher_1* ]]
+		then
+			gravity="East"
+		elif [[ $entry == *bow_1* ]]
+		then
+			gravity="South"
 		fi
 		
 		convert.exe $entry -resize 64x64^ -gravity $gravity -extent 64x64 -quality 100% $thumb
