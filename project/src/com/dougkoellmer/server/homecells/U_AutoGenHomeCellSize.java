@@ -22,6 +22,7 @@ class U_AutoGenHomeCellSize
 			case DINOSAURS: return new CellSize(768, 576);
 			case DRAGON: return new CellSize(640, 1034);
 			case FIRE_POI: return new CellSize(700, 1060);
+			case FLASHLIGHT_LAMP: return new CellSize(640, 1556);
 			case GLASSES_HOLDER: return new CellSize(512, 1432);
 			case INFINITE_TOLERANCE: return new CellSize(768, 576);
 			case JUGGLING_TORCHES: return new CellSize(700, 525);
@@ -33,8 +34,10 @@ class U_AutoGenHomeCellSize
 			case RED_OAK_SPOON: return new CellSize(780, 1170);
 			case ROSE: return new CellSize(709, 595);
 			case SAVE_ANIMALS: return new CellSize(768, 576);
+			case SAW_SHEATH: return new CellSize(780, 1180);
 			case SHAKERS: return new CellSize(780, 585);
 			case SOLAR_SYSTEM: return new CellSize(640, 512);
+			case TERMINATOR_GLASSES: return new CellSize(780, 1180);
 			case WOOD_CHAIN: return new CellSize(700, 4805);
 		}
 

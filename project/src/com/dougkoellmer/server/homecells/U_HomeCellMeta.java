@@ -89,7 +89,7 @@ public class U_HomeCellMeta
 			case CANVAS_WRAP:					return "Hand-sewn canvas<br>needle file holder";
 			case SANTOKU_SHEATH:				return "Sturdy leather sheath<br>for santoku knife";
 			case F1_SHEATH_MOD:					return "Modification of F1<br>survival knife sheath";
-			case SAW_SHEATH:					return "Magnetic sheath for<br>basic wood handsaw";
+			case SAW_SHEATH:					return "Magnetic sheath for<br>rip and crosscut saws";
 			case BROOM:							return "Stiff-bristle broom for<br>cleaning wood shop";
 			case FIRE_POI:						return "Fire poi with kevlar<br>monkey-fist knots";
 			case JUGGLING_TORCHES:				return "Juggling torches made<br>from various pipes";
@@ -109,7 +109,7 @@ public class U_HomeCellMeta
 			case BACKSCRATCHER_2:				return "Manly backscratcher<br>made from red oak";
 			case CUTTING_BOARD_STAND:			return "Cutting board stand<br>using no metal fasteners";
 			case CUTTING_BOARD:					return "Massive cutting board<br>made from rock maple";
-			case BOW_1:							return "Recurved maple flat bow<br>with bamboo backing";
+			case BOW_1:							return "Recurved maple flat bow<br>with canvas backing";
 			case BOW_2:							return "Red oak long bow<br>with canvas backing";
 			case DOORSTOP:						return "Doorstop made from<br>length of poplar sapling";
 			case DOGGIE_RAMP:					return "Ramp for little doggies<br>to get to high places";
@@ -203,7 +203,7 @@ public class U_HomeCellMeta
 			case DOWEL_HOLDER:					return new CellComingSoonContent();
 			case OUTDOOR_TOOL_HOLDER:			return new CellComingSoonContent();
 			case GUITAR_CASE:					return new CellComingSoonContent();
-			case FLASHLIGHT_LAMP:				return new CellComingSoonContent();
+			case FLASHLIGHT_LAMP:				return new StripContent(cell);
 			case SLING_SHOT:					return new CellComingSoonContent();
 			case BREAKAWAY_KNOT:				return new CellComingSoonContent();
 			case SANDER_HOLDER:					return new CellComingSoonContent();
@@ -215,12 +215,12 @@ public class U_HomeCellMeta
 			case TORSION_KNOT:					return new CellComingSoonContent();
 					
 			case SUNDRY:						return new ThumbnailHomeCellContent();
-			case TERMINATOR_GLASSES:			return new CellComingSoonContent();
+			case TERMINATOR_GLASSES:			return new StripContent(cell);
 			case CANVAS_BAG:					return new SingleImageContent(cell);
 			case CANVAS_WRAP:					return new StripContent(cell);
 			case SANTOKU_SHEATH:				return new CellComingSoonContent();
 			case F1_SHEATH_MOD:					return new CellComingSoonContent();
-			case SAW_SHEATH:					return new CellComingSoonContent();
+			case SAW_SHEATH:					return new StripContent(cell);
 			case BROOM:							return new CellComingSoonContent();
 			case FIRE_POI:						return new StripContent(cell, "left");
 			case JUGGLING_TORCHES:				return new SingleImageContent(cell);
