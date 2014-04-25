@@ -174,7 +174,7 @@ public class U_HomeCellMeta
 			case PRESSURE_AND_HEAT:				return new CellComingSoonContent();
 			case RADIOACTIVE_DECAY:				return new CellComingSoonContent();
 			case CORROSION_CELL:				return new CellComingSoonContent();
-			case FEED_THE_BEAR:					return new CellComingSoonContent();
+			case FEED_THE_BEAR:					return new IFrameContent(cell, "/games/feed_the_bear", "right");
 			case SWARM:							return new CellComingSoonContent();
 			case B33HIVE:						return new CellComingSoonContent();
 			case QUICKPHYX:						return new CellComingSoonContent();
@@ -312,6 +312,8 @@ public class U_HomeCellMeta
 				case RESUME:			cellSize = new CellSize(882, 1139);  break;
 				
 				case PORTFOLIO:			cellSize = new CellSize(992, 2182);  break;
+				
+				case FEED_THE_BEAR:		cellSize = new CellSize(950, 650);  break;
 				
 				case PRECIOUSES: case ABILITIES: case FOR_COMPUTERS: case FOR_BIOTICS:
 				case INVENTIONS: case SUNDRY: case WOOD: case ART:

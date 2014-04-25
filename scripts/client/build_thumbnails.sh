@@ -18,7 +18,7 @@ do
 		elif [[ $entry == *glasses_holder* || $entry == *milkman* ]]
 		then
 			gravity="Center"
-		elif [[ $entry == *backscratcher_1* ]]
+		elif [[ $entry == *backscratcher_1* || $entry == *feed_the_bear* ]]
 		then
 			gravity="East"
 		elif [[ $entry == *bow_1* ]]

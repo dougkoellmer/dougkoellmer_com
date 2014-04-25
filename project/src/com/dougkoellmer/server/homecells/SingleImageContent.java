@@ -18,9 +18,7 @@ import swarm.shared.entities.E_CodeType;
 import swarm.shared.structs.CellSize;
 
 public class SingleImageContent implements I_HomeCellContent
-{
-	private static final String IMG_PATH = "/img/cell_content/";
-	
+{	
 	private String m_sourceCode;
 	private final String m_cellName;
 	private final E_Direction m_direction;
@@ -67,7 +65,7 @@ public class SingleImageContent implements I_HomeCellContent
 			position = "background-position:"+m_gravity+";";
 		}
 		
-		String imgPath = IMG_PATH+m_cellName+".solo.jpg";
+		String imgPath = U_HomeCell.IMG_PATH+m_cellName+".solo.jpg";
 		InputStream imageStream = servletContext.getResourceAsStream(imgPath);
 		byte[] imageData = null;
 		try {
