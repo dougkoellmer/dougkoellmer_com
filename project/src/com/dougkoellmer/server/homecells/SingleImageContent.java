@@ -80,7 +80,7 @@ public class SingleImageContent implements I_HomeCellContent
 		m_sourceCode = "<div style=\"background-repeat:no-repeat; width:100%; max-height:"+maxHeight+"px; height:100%; "+heightWidth+" "+position+" background-image:url('"+imgPath+"');\"></div>";
 	}
 	
-	public String getSourceCode(E_CodeType eCodeType)
+	public String getCode(E_CodeType eCodeType)
 	{
 		if( eCodeType == E_CodeType.SPLASH )
 		{

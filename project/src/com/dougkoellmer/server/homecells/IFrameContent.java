@@ -17,21 +17,23 @@ public class IFrameContent implements I_HomeCellContent
 	private final E_HomeCell m_cell;
 	private final String m_htmlPath;
 	private final String m_gravity;
+	private final boolean m_remote;
 	
-	public IFrameContent(E_HomeCell cell, String htmlPath)
+	public IFrameContent(E_HomeCell cell, boolean remote, String htmlPath)
 	{
-		this(cell, htmlPath, "center");
+		this(cell, htmlPath, remote, "center");
 	}
 	
-	public IFrameContent(E_HomeCell cell, String htmlPath, String gravity)
+	public IFrameContent(E_HomeCell cell, String htmlPath, boolean remote, String gravity)
 	{
 		m_cell = cell;
 		m_htmlPath = htmlPath;
 		m_gravity = gravity;
+		m_remote = remote;
 	}
 	
 	@Override
-	public String getSourceCode(E_CodeType eCodeType)
+	public String getCode(E_CodeType eCodeType)
 	{
 		if( eCodeType == E_CodeType.SPLASH )
 		{
@@ -39,7 +41,11 @@ public class IFrameContent implements I_HomeCellContent
 		}
 		else if( eCodeType == E_CodeType.COMPILED )
 		{
-			return m_compiled;
+			return m_remote ? m_htmlPath+"/index.html" : m_compiled;
+		}
+		else if( eCodeType == E_CodeType.SOURCE )
+		{
+			return m_remote ? m_compiled : null;
 		}
 		
 		return null;
@@ -64,7 +70,7 @@ public class IFrameContent implements I_HomeCellContent
 		}
 		else if( eCodeType == E_CodeType.COMPILED )
 		{
-			return E_CodeSafetyLevel.LOCAL_SANDBOX;
+			return m_remote ? E_CodeSafetyLevel.REMOTE_SANDBOX : E_CodeSafetyLevel.LOCAL_SANDBOX;
 		}
 		
 		return null;

@@ -2,6 +2,8 @@
 
 SEARCH_DIR="../../project/war/img/cell_content"
 
+THUMB_SIZE=96x96
+
 for entry in "$SEARCH_DIR"/*
 do
 	if [[ $entry == *.splash.* || $entry == *.strip_0.* || $entry == *.solo.* ]]
@@ -26,7 +28,7 @@ do
 			gravity="South"
 		fi
 		
-		convert.exe $entry -resize 64x64^ -gravity $gravity -extent 64x64 -quality 100% $thumb
+		convert.exe $entry -resize $THUMB_SIZE^ -gravity $gravity -extent $THUMB_SIZE -quality 100% $thumb
 	fi
 done
 

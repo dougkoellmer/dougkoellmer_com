@@ -149,7 +149,7 @@ public class StripContent implements I_HomeCellContent
 		return "<div style='background-color:"+S_HomeCell.IMG_STRIP_SPACING_COLOR+"; width:100%; height:"+S_HomeCell.IMG_STRIP_SPACING+"px;'></div>";
 	}
 	
-	public String getSourceCode(E_CodeType eCodeType)
+	public String getCode(E_CodeType eCodeType)
 	{
 		if( eCodeType == E_CodeType.SPLASH )
 		{

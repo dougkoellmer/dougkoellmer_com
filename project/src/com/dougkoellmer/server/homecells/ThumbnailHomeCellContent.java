@@ -119,7 +119,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		m_sourcCode = builder.toString();
 	}
 	
-	public String getSourceCode(E_CodeType eCodeType)
+	public String getCode(E_CodeType eCodeType)
 	{
 		if( eCodeType == E_CodeType.SOURCE )
 		{

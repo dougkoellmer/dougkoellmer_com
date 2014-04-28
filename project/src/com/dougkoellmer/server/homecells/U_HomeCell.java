@@ -2,6 +2,7 @@ package com.dougkoellmer.server.homecells;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.*;
 
 import javax.servlet.ServletContext;
 
@@ -16,6 +17,7 @@ import com.google.appengine.api.images.ImagesServiceFactory;
 public class U_HomeCell
 {
 	public static final String IMG_PATH = "/img/cell_content/";
+	private static final Logger s_logger = Logger.getLogger(U_HomeCell.class.getName());
 	
 	public static String stripAnalytics(String html)
 	{
@@ -52,7 +54,10 @@ public class U_HomeCell
 		byte[] imageData = null;
 		try {
 			imageData = IOUtils.toByteArray(imageStream);
-		} catch (IOException e) {}			
+		} catch (IOException e)
+		{
+			s_logger.severe(e+"");
+		}
 		Image image = ImagesServiceFactory.makeImage(imageData);
 		
 		int imageHeight = image.getHeight();

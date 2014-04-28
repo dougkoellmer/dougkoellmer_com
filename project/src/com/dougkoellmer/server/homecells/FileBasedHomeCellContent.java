@@ -24,7 +24,7 @@ public class FileBasedHomeCellContent implements I_HomeCellContent
 		m_sourceCode = U_Servlet.getResource(servletContext, HomeCellCreator.BASE_RESOURCE_PATH + "/" + m_fileName + ".html");
 	}
 	
-	public String getSourceCode(E_CodeType eCodeType)
+	public String getCode(E_CodeType eCodeType)
 	{
 		if( eCodeType == E_CodeType.SOURCE )
 		{

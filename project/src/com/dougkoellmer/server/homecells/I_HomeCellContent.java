@@ -10,7 +10,7 @@ import com.dougkoellmer.shared.homecells.E_HomeCell;
 
 public interface I_HomeCellContent
 {
-	String getSourceCode(E_CodeType eCodeType);
+	String getCode(E_CodeType eCodeType);
 	
 	E_CodeSafetyLevel getSafetyLevel(E_CodeType eCodeType);
 	

@@ -24,7 +24,7 @@ public class CellComingSoonContent implements I_HomeCellContent
 		m_sourceCode += "</td></tr></table>";
 	}
 	
-	public String getSourceCode(E_CodeType eCodeType)
+	public String getCode(E_CodeType eCodeType)
 	{
 		if( eCodeType == E_CodeType.SPLASH )
 		{

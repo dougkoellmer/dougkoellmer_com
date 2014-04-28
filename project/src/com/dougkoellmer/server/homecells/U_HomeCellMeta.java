@@ -170,11 +170,11 @@ public class U_HomeCellMeta
 				
 			case SOFTWARE:						return new FileBasedHomeCellContent("software");
 			case FOR_COMPUTERS:					return new ThumbnailHomeCellContent();
-			case PRESSURE:						return new CellComingSoonContent();
-			case PRESSURE_AND_HEAT:				return new CellComingSoonContent();
-			case RADIOACTIVE_DECAY:				return new CellComingSoonContent();
+			case PRESSURE:						return new IFrameContent(cell, "/games/pressure", true, "center");
+			case PRESSURE_AND_HEAT:				return new IFrameContent(cell, "/games/pressure_and_heat", true, "center");
+			case RADIOACTIVE_DECAY:				return new IFrameContent(cell, "/games/radioactive_decay", true, "center");
 			case CORROSION_CELL:				return new CellComingSoonContent();
-			case FEED_THE_BEAR:					return new IFrameContent(cell, "/games/feed_the_bear", "right");
+			case FEED_THE_BEAR:					return new IFrameContent(cell, "/games/feed_the_bear", false, "right");
 			case SWARM:							return new CellComingSoonContent();
 			case B33HIVE:						return new CellComingSoonContent();
 			case QUICKPHYX:						return new CellComingSoonContent();
@@ -309,11 +309,14 @@ public class U_HomeCellMeta
 		{
 			switch(cell)
 			{
-				case RESUME:			cellSize = new CellSize(882, 1139);  break;
+				case RESUME:					cellSize = new CellSize(882, 1139);  break;
 				
-				case PORTFOLIO:			cellSize = new CellSize(992, 2182);  break;
+				case PORTFOLIO:					cellSize = new CellSize(992, 2182);  break;
 				
-				case FEED_THE_BEAR:		cellSize = new CellSize(950, 650);  break;
+				case FEED_THE_BEAR:				cellSize = new CellSize(950, 650);  break;
+				case PRESSURE:					cellSize = new CellSize(821, 612);  break;
+				case PRESSURE_AND_HEAT:			cellSize = new CellSize(928, 755);  break;
+				case RADIOACTIVE_DECAY:			cellSize = new CellSize(978, 615);  break;
 				
 				case PRECIOUSES: case ABILITIES: case FOR_COMPUTERS: case FOR_BIOTICS:
 				case INVENTIONS: case SUNDRY: case WOOD: case ART:

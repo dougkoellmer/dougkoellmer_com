@@ -14,7 +14,7 @@ public class PortfolioContent implements I_HomeCellContent
 	private String m_compiled = null;
 	
 	@Override
-	public String getSourceCode(E_CodeType eCodeType)
+	public String getCode(E_CodeType eCodeType)
 	{
 		if( eCodeType == E_CodeType.SPLASH )
 		{

@@ -194,25 +194,36 @@ public class HomeCellCreator implements I_HomeCellCreator {
 
 			boolean containsSplash = false;
 
-			if (splashSafety.isVirtual()
-					&& (compiledSafety != null && compiledSafety.isVirtual() || compiledSafety == null)) {
+			if (splashSafety.isVirtual() && (compiledSafety != null && compiledSafety.isVirtual() || compiledSafety == null))
+			{
 				// --- DRK > Get the source code for the cell.
-				sourceCodeRaw = HTML_START
-						+ content.getSourceCode(E_CodeType.SOURCE) + HTML_END;
-				ServerCode sourceCode = new ServerCode(sourceCodeRaw,
-						E_CodeType.SOURCE);
+				sourceCodeRaw = HTML_START + content.getCode(E_CodeType.SOURCE) + HTML_END;
+				ServerCode sourceCode = new ServerCode(sourceCodeRaw, E_CodeType.SOURCE);
 
-				CompilerResult result = U_CellCode.compileCell(
-						m_serverContext.codeCompiler, persistedCell,
-						sourceCode, mapping, m_serverContext.config.appId);
+				CompilerResult result = U_CellCode.compileCell(m_serverContext.codeCompiler, persistedCell, sourceCode, mapping, m_serverContext.config.appId);
 
-				if (result.getStatus() != E_CompilationStatus.NO_ERROR) {
+				if (result.getStatus() != E_CompilationStatus.NO_ERROR)
+				{
 					s_logger.severe("Couldn't compile source code: ");
 
 					response.setError(E_ResponseError.SERVICE_EXCEPTION);
 
 					return;
 				}
+			}
+			else if( compiledSafety == E_CodeSafetyLevel.REMOTE_SANDBOX )
+			{
+				sourceCodeRaw = content.getCode(E_CodeType.SOURCE);
+				ServerCode sourceCode = new ServerCode(sourceCodeRaw, E_CodeType.SOURCE);
+				persistedCell.setCode(E_CodeType.SOURCE, sourceCode);
+				
+				ServerCode splashCode = new ServerCode(content.getCode(E_CodeType.SPLASH), E_CodeType.SPLASH);
+				splashCode.setSafetyLevel(splashSafety);
+				persistedCell.setCode(E_CodeType.SPLASH, splashCode);
+				
+				ServerCode compiledCode = new ServerCode(content.getCode(E_CodeType.COMPILED), E_CodeType.COMPILED);
+				compiledCode.setSafetyLevel(compiledSafety);
+				persistedCell.setCode(E_CodeType.COMPILED, compiledCode);
 			}
 			/*
 			 * else if( splashSafety == E_CodeSafetyLevel.NO_SANDBOX_STATIC &&
@@ -226,21 +237,20 @@ public class HomeCellCreator implements I_HomeCellCreator {
 			 * 
 			 * sourceCodeRaw = sourceCode; }
 			 */
-			else {
-				String sourceCodeForSplash = content
-						.getSourceCode(E_CodeType.SPLASH);
-				String sourceCodeForCompiled = content
-						.getSourceCode(E_CodeType.COMPILED);
+			else
+			{
+				String sourceCodeForSplash = content.getCode(E_CodeType.SPLASH);
+				String sourceCodeForCompiled = content.getCode(E_CodeType.COMPILED);
 
-				if (sourceCodeForSplash != null
-						&& sourceCodeForCompiled == null) {
+				if (sourceCodeForSplash != null && sourceCodeForCompiled == null)
+				{
 					sourceCodeRaw = sourceCodeForSplash;
 
-					ServerCode splashCode = new ServerCode(sourceCodeForSplash,
-							E_CodeType.SPLASH, E_CodeType.COMPILED);
+					ServerCode splashCode = new ServerCode(sourceCodeForSplash, E_CodeType.SPLASH, E_CodeType.COMPILED);
 					splashCode.setSafetyLevel(splashSafety);
 					persistedCell.setCode(E_CodeType.SPLASH, splashCode);
-				} else // -DRK > assuming splash and compiled are both not null.
+				}
+				else // -DRK > assuming splash and compiled are both not null.
 				{
 					// TODO: Add splash tag somehow so tidy doesn't freak out.
 
@@ -249,7 +259,9 @@ public class HomeCellCreator implements I_HomeCellCreator {
 						// "<body><div name='splash'>"+sourceCodeForSplash+"splash</div>");
 						containsSplash = true;
 						sourceCodeRaw = sourceCodeForCompiled;
-					} else {
+					}
+					else
+					{
 						containsSplash = true;
 						// sourceCodeRaw =
 						// "<splash>"+sourceCodeForSplash+"</splash>"+sourceCodeForCompiled;
