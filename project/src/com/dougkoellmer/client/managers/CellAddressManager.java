@@ -31,6 +31,7 @@ public class CellAddressManager extends swarm.client.managers.CellAddressManager
 			E_HomeCell ithCell = E_HomeCell.values()[i];
 			
 			m_addyToCell.put(ithCell.getPrimaryAddress().getRaw(), i);
+			m_addyToCell.put(ithCell.getCellName(), i);
 			m_mappingToCell.put(ithCell.getMapping(), i);
 		}
 	}

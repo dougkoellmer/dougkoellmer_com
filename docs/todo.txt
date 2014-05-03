@@ -9,6 +9,10 @@
 
 
 
+- mini inventions cell...pillow case, heating bag
+
+
+
 - have the development server reload called after generating cell sizes and building app
 
 - image compisitor should pull cell size and grid size variables from java, and spacing/background color
@@ -21,8 +25,6 @@
 
 
 - fix cell hud...goes 2 pixels too far
-
-- try out new easing algorithm for cell size
 
 - NPE on direct navigation to naked cell name address
 

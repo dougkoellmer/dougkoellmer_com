@@ -222,7 +222,7 @@ public class U_HomeCellMeta
 			case F1_SHEATH_MOD:					return new CellComingSoonContent();
 			case SAW_SHEATH:					return new StripContent(cell);
 			case BROOM:							return new CellComingSoonContent();
-			case FIRE_POI:						return new StripContent(cell, "left");
+			case FIRE_POI:						return new StripContent(cell, "center");
 			case JUGGLING_TORCHES:				return new SingleImageContent(cell);
 			case THROWING_KNIVES:				return new CellComingSoonContent();
 			case STONE_CUP:						return new CellComingSoonContent();
