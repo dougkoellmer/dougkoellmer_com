@@ -20,6 +20,13 @@
 
 
 
+- fix cell hud...goes 2 pixels too far
+
+- try out new easing algorithm for cell size
+
+- NPE on direct navigation to naked cell name address
+
+
 
 - firefox tries to load something with cells with iframes
 

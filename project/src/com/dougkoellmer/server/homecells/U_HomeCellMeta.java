@@ -93,7 +93,7 @@ public class U_HomeCellMeta
 			case BROOM:							return "Stiff-bristle broom for<br>cleaning wood shop";
 			case FIRE_POI:						return "Fire poi with kevlar<br>monkey-fist knots";
 			case JUGGLING_TORCHES:				return "Juggling torches made<br>from various pipes";
-			case THROWING_KNIVES:				return "Throwing knives made<br>from steel blanks";
+			case THROWING_KNIVES:				return "Throwing knives ground<br>from steel blanks";
 			case STONE_CUP:						return "Caveman cup hewn from<br>block of solid granite";
 			case FIRE_POKER:					return "Oaken-handled fire<br>poker with steel dowel";
 						
@@ -133,7 +133,7 @@ public class U_HomeCellMeta
 			case QUICKB2_LOGO:					return "Logo for open<br>source physics engine";
 			case B33HIVE_LOGO:					return "Logo & icons for open<br>source content engine";
 			case MILKMAN:						return "Basswood carving of<br>1950s-era milkman";
-			case MOTHER_AND_CHILD:				return "Wooden sculpture of<br>mother & child";
+			case MOTHER_AND_CHILD:				return "Wooden carving of<br>a mother & child";
 			case WOOD_CHAIN:					return "Chain carved from <br>solid rock maple";
 			case GLASSES_HOLDER:				return "Wooden desktop holder<br>for reading glasses";
 		}
@@ -241,7 +241,7 @@ public class U_HomeCellMeta
 			case CUTTING_BOARD_STAND:			return new CellComingSoonContent();
 			case CUTTING_BOARD:					return new CellComingSoonContent();
 			case BOW_1:							return new StripContent(cell, "bottom");
-			case BOW_2:							return new CellComingSoonContent();
+			case BOW_2:							return new SingleImageContent(cell, "top");
 			case DOORSTOP:						return new CellComingSoonContent();
 			case DOGGIE_RAMP:					return new CellComingSoonContent();
 			case OAR:							return new CellComingSoonContent();

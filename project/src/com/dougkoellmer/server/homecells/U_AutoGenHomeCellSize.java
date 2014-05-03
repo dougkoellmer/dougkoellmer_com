@@ -16,6 +16,7 @@ class U_AutoGenHomeCellSize
 			case BANANA: return new CellSize(640, 512);
 			case BLACKHOLE: return new CellSize(746, 583);
 			case BOW_1: return new CellSize(512, 1290);
+			case BOW_2: return new CellSize(512, 604);
 			case CANVAS_BAG: return new CellSize(683, 512);
 			case CANVAS_WRAP: return new CellSize(615, 1556);
 			case COASTER_HOLDER: return new CellSize(780, 1082);
