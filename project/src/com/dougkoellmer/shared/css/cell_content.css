@@ -9,6 +9,23 @@ body, caja-v-body
 	-moz-box-sizing:border-box;
 }
 
+.dk_list_wrapper
+{
+	margin:16px;
+}
+
+.dk_list_title
+{
+	font-weight:bold;
+}
+
+.dk_list_body
+{
+	margin-bottom:16px;
+	margin-left:16px;
+	margin-top:6px;
+}
+
 .dk_thumb_cell
 {
 	padding:0px; 
@@ -77,7 +94,7 @@ body, caja-v-body
 	border-collapse:collapse;
 }
 
-.dk_cell_content_text, .waypoint_cell_link_text, .dk_thumb_desc
+.dk_cell_content_text, .waypoint_cell_link_text, .dk_thumb_desc, .dk_list_wrapper
 {
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	color:rgb(100,100,100);

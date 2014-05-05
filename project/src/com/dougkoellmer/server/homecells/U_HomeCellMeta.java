@@ -78,9 +78,7 @@ public class U_HomeCellMeta
 			case SANDER_HOLDER:					return "Holder for running<br>random orbital sander";
 			case RASP_HANDLE:					return "Easy wood handle<br>for rat-tailed tools";
 			case HANGING_CRATES:				return "Hanging garage storage<br>using milk crates";
-			case HEATING_BAG:					return "Really ghetto<br>heating pack";
-			case SAND_WEIGHT:					return "Cheap way to get<br>exact amount of mass";
-			case SHIRT_PILLOW_CASE:				return "Emergency pillow case<br>for bachelors only";
+			case LIFE_HACKS:					return "Quick hacks with<br>everyday items";
 			case TORSION_KNOT:					return "Knot that gets crazy<br>tight using torsion";
 					
 			case SUNDRY:						return "";
@@ -209,9 +207,7 @@ public class U_HomeCellMeta
 			case SANDER_HOLDER:					return new CellComingSoonContent();
 			case RASP_HANDLE:					return new CellComingSoonContent();
 			case HANGING_CRATES:				return new CellComingSoonContent();
-			case HEATING_BAG:					return new CellComingSoonContent();
-			case SAND_WEIGHT:					return new CellComingSoonContent();
-			case SHIRT_PILLOW_CASE:				return new CellComingSoonContent();
+			case LIFE_HACKS:					return new ListContent(cell, List_MiscInventions.LIST);
 			case TORSION_KNOT:					return new CellComingSoonContent();
 					
 			case SUNDRY:						return new ThumbnailHomeCellContent();

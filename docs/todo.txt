@@ -8,8 +8,7 @@
 - have mouse x/y pan not affect any possible zoom ease that's happening (should "fix" mac magic mouse jerky behavior)
 
 
-
-- mini inventions cell...pillow case, heating bag
+- implict cell focused size option
 
 
 
@@ -21,12 +20,6 @@
 
 - have cell flag for whether content should refresh itself on focus lost...optimization
 
-
-
-
-- fix cell hud...goes 2 pixels too far
-
-- NPE on direct navigation to naked cell name address
 
 
 

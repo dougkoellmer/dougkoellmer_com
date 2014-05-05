@@ -27,7 +27,10 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 	{
 	}
 	
-	
+	private boolean isListCell(E_HomeCell cell)
+	{
+		return cell == E_HomeCell.LIFE_HACKS;
+	}
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
@@ -73,7 +76,11 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				
 				String thumb = "/img/cell_content/thumbs/"+child.getCellName()+".thumb.jpg";
 				
-				if( !U_Servlet.fileExists(servletContext, thumb) )
+				if( isListCell(child) )
+				{
+					thumb = "/img/cell_content/thumbs/list_content.thumb.jpg";
+				}
+				else if( !U_Servlet.fileExists(servletContext, thumb) )
 				{
 					thumb = "/img/coming_soon.thumb.png";
 				}
