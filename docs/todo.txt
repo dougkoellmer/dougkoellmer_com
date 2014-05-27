@@ -9,6 +9,12 @@
 
 
 - implict cell focused size option
+-	optimize event handlers to not recalc layout unless buffer cell's cellSize has natural dimension
+-	fix natural dimension calculation on direct browser navigation
+-	test for extreme resize cases
+-	cell hud isn't positioned correctly...not handling the "cell appeared" event correctly or something
+-	hud is one pixel too large or one pixel too far over for its smallest size when totally scrolled right
+-	forward history button doesn't work anymore
 
 
 

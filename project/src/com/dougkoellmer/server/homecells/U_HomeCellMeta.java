@@ -131,9 +131,10 @@ public class U_HomeCellMeta
 			case QUICKB2_LOGO:					return "Logo for open<br>source physics engine";
 			case B33HIVE_LOGO:					return "Logo & icons for open<br>source content engine";
 			case MILKMAN:						return "Basswood carving of<br>1950s-era milkman";
-			case MOTHER_AND_CHILD:				return "Wooden carving of<br>a mother & child";
+			case MOTHER_AND_CHILD:				return "Ironwood carving of<br>a mother & child";
 			case WOOD_CHAIN:					return "Chain carved from <br>solid rock maple";
-			case GLASSES_HOLDER:				return "Wooden desktop holder<br>for reading glasses";
+//			case GLASSES_HOLDER:				return "Wooden desktop holder<br>for reading glasses";
+			case GLASSES_HOLDER:				return "Rock maple holder<br>for reading glasses ";
 		}
 		
 		return null;
@@ -207,7 +208,7 @@ public class U_HomeCellMeta
 			case SANDER_HOLDER:					return new CellComingSoonContent();
 			case RASP_HANDLE:					return new CellComingSoonContent();
 			case HANGING_CRATES:				return new CellComingSoonContent();
-			case LIFE_HACKS:					return new ListContent(cell, List_MiscInventions.LIST);
+			case LIFE_HACKS:					return new ListContent(cell, List_LifeHacks.LIST);
 			case TORSION_KNOT:					return new CellComingSoonContent();
 					
 			case SUNDRY:						return new ThumbnailHomeCellContent();
