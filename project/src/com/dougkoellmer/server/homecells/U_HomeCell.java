@@ -29,6 +29,18 @@ public class U_HomeCell
 		return rawPath + "?v="+ServerApp.getInstance().getConfig().appVersion;
 	}
 	
+	public static boolean isNaturalHeightCell(E_HomeCell cell)
+	{
+		if( isListCell(cell) )  return true;
+		
+		return cell == E_HomeCell.POLISH_FOREST_ADVENTURE;
+	}
+	
+	public static boolean isListCell(E_HomeCell cell)
+	{
+		return cell == E_HomeCell.LIFE_HACKS || cell == E_HomeCell.MUSINGS;
+	}
+	
 	public static String getSplashImage(E_HomeCell cell, String contentType, String gravity, ServletContext servletContext)
 	{
 		String cellName = cell.getCellName();

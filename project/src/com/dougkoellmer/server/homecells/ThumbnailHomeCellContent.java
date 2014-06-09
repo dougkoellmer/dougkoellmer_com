@@ -27,11 +27,6 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 	{
 	}
 	
-	private boolean isListCell(E_HomeCell cell)
-	{
-		return cell == E_HomeCell.LIFE_HACKS;
-	}
-	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
 		String trClass = "class='dk_thumb_row'";
@@ -76,7 +71,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				
 				String thumb = "/img/cell_content/thumbs/"+child.getCellName()+".thumb.jpg";
 				
-				if( isListCell(child) )
+				if( U_HomeCell.isListCell(child) || child == E_HomeCell.POLISH_FOREST_ADVENTURE )
 				{
 					thumb = "/img/cell_content/thumbs/list_content.thumb.jpg";
 				}

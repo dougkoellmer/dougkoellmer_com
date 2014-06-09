@@ -2,6 +2,7 @@ package com.dougkoellmer.server.homecells;
 
 import swarm.shared.structs.CellSize;
 
+import com.dougkoellmer.server.homecells.FileBasedHomeCellContent.Type;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.dougkoellmer.shared.homecells.S_HomeCell;
 
@@ -133,7 +134,6 @@ public class U_HomeCellMeta
 			case MILKMAN:						return "Basswood carving of<br>1950s-era milkman";
 			case MOTHER_AND_CHILD:				return "Ironwood carving of<br>a mother & child";
 			case WOOD_CHAIN:					return "Chain carved from <br>solid rock maple";
-//			case GLASSES_HOLDER:				return "Wooden desktop holder<br>for reading glasses";
 			case GLASSES_HOLDER:				return "Rock maple holder<br>for reading glasses ";
 		}
 		
@@ -144,7 +144,7 @@ public class U_HomeCellMeta
 	{
 		switch(cell)
 		{
-			case HOME:							return new FileBasedHomeCellContent("home");
+			case HOME:							return new FileBasedHomeCellContent("home", Type.VIRTUALIZED);
 			
 			case PRECIOUSES:					return new ThumbnailHomeCellContent();
 			case SWORD:							return new CellComingSoonContent();
@@ -167,7 +167,7 @@ public class U_HomeCellMeta
 			case ONE_HAND_MATCH_LIGHT:			return new CellComingSoonContent();
 			case FAST_SHIRT_SWAP:				return new CellComingSoonContent();
 				
-			case SOFTWARE:						return new FileBasedHomeCellContent("software");
+			case SOFTWARE:						return new FileBasedHomeCellContent("software", Type.VIRTUALIZED);
 			case FOR_COMPUTERS:					return new ThumbnailHomeCellContent();
 			case PRESSURE:						return new IFrameContent(cell, "/games/pressure", true, "center");
 			case PRESSURE_AND_HEAT:				return new IFrameContent(cell, "/games/pressure_and_heat", true, "center");
@@ -188,15 +188,15 @@ public class U_HomeCellMeta
 			case FOR_BIOTICS:					return new ThumbnailHomeCellContent();
 			case RESUME:						return new ResumeContent();
 			case PORTFOLIO:						return new PortfolioContent();
-			case POLISH_FOREST_ADVENTURE:		return new CellComingSoonContent();
+			case POLISH_FOREST_ADVENTURE:		return new FileBasedHomeCellContent("polish_forest", Type.RAW);
 			case SPANISH_OPERA_ADVENTURE:		return new CellComingSoonContent();
 			case OLD_FRIEND:					return new CellComingSoonContent();
-			case MUSINGS:						return new CellComingSoonContent();
+			case MUSINGS:						return new ListContent(cell, List_Musings.LIST, ListContent.Type.RAW);
 			case WHAT_IS_CORROSION:				return new CellComingSoonContent();
 			case PERFECT_COFFEE:				return new CellComingSoonContent();
 			
-			case CREATIONS:						return new FileBasedHomeCellContent("creations");
-			case USEFUL:						return new FileBasedHomeCellContent("useful");
+			case CREATIONS:						return new FileBasedHomeCellContent("creations", Type.VIRTUALIZED);
+			case USEFUL:						return new FileBasedHomeCellContent("useful", Type.VIRTUALIZED);
 			case INVENTIONS:					return new ThumbnailHomeCellContent();
 			case BIKE_CARD_THING:				return new CellComingSoonContent();
 			case DOWEL_HOLDER:					return new CellComingSoonContent();
@@ -208,7 +208,7 @@ public class U_HomeCellMeta
 			case SANDER_HOLDER:					return new CellComingSoonContent();
 			case RASP_HANDLE:					return new CellComingSoonContent();
 			case HANGING_CRATES:				return new CellComingSoonContent();
-			case LIFE_HACKS:					return new ListContent(cell, List_LifeHacks.LIST);
+			case LIFE_HACKS:					return new ListContent(cell, List_LifeHacks.LIST, ListContent.Type.TITLED);
 			case TORSION_KNOT:					return new CellComingSoonContent();
 					
 			case SUNDRY:						return new ThumbnailHomeCellContent();
@@ -317,16 +317,20 @@ public class U_HomeCellMeta
 				
 				case PRECIOUSES: case ABILITIES: case FOR_COMPUTERS: case FOR_BIOTICS:
 				case INVENTIONS: case SUNDRY: case WOOD: case ART:
-												cellSize = calcThumbCellSize(cell);  break;
-										
-				case LIFE_HACKS:
-												cellSize = new CellSize(CellSize.DEFAULT_DIMENSION, CellSize.NATURAL_DIMENSION);
+												cellSize = calcThumbCellSize(cell);  break;				
 			}
 		}
 		
 		if( cellSize == null )
 		{
-			cellSize = new CellSize(CellSize.DEFAULT_DIMENSION, CellSize.DEFAULT_DIMENSION);
+			if( U_HomeCell.isNaturalHeightCell(cell) )
+			{
+				cellSize = new CellSize(CellSize.DEFAULT_DIMENSION, CellSize.NATURAL_DIMENSION);
+			}
+			else
+			{
+				cellSize = new CellSize(CellSize.DEFAULT_DIMENSION, CellSize.DEFAULT_DIMENSION);
+			}
 		}
 		
 		if( cellSize.isPartiallyExplicit() )

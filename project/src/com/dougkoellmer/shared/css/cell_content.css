@@ -94,7 +94,7 @@ body, caja-v-body
 	border-collapse:collapse;
 }
 
-.dk_cell_content_text, .waypoint_cell_link_text, .dk_thumb_desc, .dk_list_wrapper
+.dk_cell_content_text, .waypoint_cell_link_text, .dk_thumb_desc, .dk_list_wrapper, .dk_longform
 {
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	color:rgb(100,100,100);
@@ -103,6 +103,12 @@ body, caja-v-body
 .dk_cell_content_text
 {
 	font-size:16px;
+}
+
+.dk_longform
+{
+	font-size:14px;
+	margin:16px;
 }
 
 .waypoint_cell_link_text
