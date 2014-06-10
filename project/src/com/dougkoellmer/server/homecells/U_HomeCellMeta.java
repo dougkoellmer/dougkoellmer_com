@@ -189,11 +189,11 @@ public class U_HomeCellMeta
 			case RESUME:						return new ResumeContent();
 			case PORTFOLIO:						return new PortfolioContent();
 			case POLISH_FOREST_ADVENTURE:		return new FileBasedHomeCellContent("polish_forest", Type.RAW);
-			case SPANISH_OPERA_ADVENTURE:		return new CellComingSoonContent();
+			case SPANISH_OPERA_ADVENTURE:		return new FileBasedHomeCellContent("spanish_adventure", Type.RAW);
 			case OLD_FRIEND:					return new CellComingSoonContent();
 			case MUSINGS:						return new ListContent(cell, List_Musings.LIST, ListContent.Type.RAW);
-			case WHAT_IS_CORROSION:				return new CellComingSoonContent();
-			case PERFECT_COFFEE:				return new CellComingSoonContent();
+			case WHAT_IS_CORROSION:				return new FileBasedHomeCellContent("corrosion", Type.RAW);
+			case PERFECT_COFFEE:				return new FileBasedHomeCellContent("coffee", Type.RAW);
 			
 			case CREATIONS:						return new FileBasedHomeCellContent("creations", Type.VIRTUALIZED);
 			case USEFUL:						return new FileBasedHomeCellContent("useful", Type.VIRTUALIZED);

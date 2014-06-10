@@ -71,7 +71,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				
 				String thumb = "/img/cell_content/thumbs/"+child.getCellName()+".thumb.jpg";
 				
-				if( U_HomeCell.isListCell(child) || child == E_HomeCell.POLISH_FOREST_ADVENTURE )
+				if( U_HomeCell.usesListIcon(child) )
 				{
 					thumb = "/img/cell_content/thumbs/list_content.thumb.jpg";
 				}

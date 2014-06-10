@@ -8,6 +8,8 @@ import javax.servlet.ServletContext;
 
 import org.apache.commons.io.IOUtils;
 
+import sun.java2d.pipe.SpanIterator;
+
 import com.dougkoellmer.server.app.ServerApp;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.dougkoellmer.shared.homecells.S_HomeCell;
@@ -29,11 +31,26 @@ public class U_HomeCell
 		return rawPath + "?v="+ServerApp.getInstance().getConfig().appVersion;
 	}
 	
+	public static boolean isLongForm(E_HomeCell cell)
+	{
+		return cell == E_HomeCell.POLISH_FOREST_ADVENTURE ||
+				cell == E_HomeCell.SPANISH_OPERA_ADVENTURE ||
+				cell == E_HomeCell.WHAT_IS_CORROSION ||
+				cell == E_HomeCell.PERFECT_COFFEE;
+	}
+	
+	public static boolean usesListIcon(E_HomeCell cell)
+	{
+		return isListCell(cell) || isLongForm(cell);				
+	}
+	
 	public static boolean isNaturalHeightCell(E_HomeCell cell)
 	{
 		if( isListCell(cell) )  return true;
 		
-		return cell == E_HomeCell.POLISH_FOREST_ADVENTURE;
+		if( isLongForm(cell) )  return true;
+		
+		return false;
 	}
 	
 	public static boolean isListCell(E_HomeCell cell)

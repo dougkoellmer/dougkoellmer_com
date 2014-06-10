@@ -111,6 +111,11 @@ body, caja-v-body
 	margin:16px;
 }
 
+.dk_longform_title
+{
+	font-size:18px;
+}
+
 .waypoint_cell_link_text
 {
 	font-size:32px;
