@@ -4,6 +4,8 @@ public class List_Musings
 {
 	public static final String[] LIST =
 	{
+		"Lines of code is inverse to lines of thought.",
+		
 		"Some people have problems treating people with respect and compassion. I have problems treating people like objects.",
 		
 		"There are two people, each told independently that they live a block away from the other, when actually one lives in Florida " +
@@ -15,6 +17,6 @@ public class List_Musings
 		"Evolution shows that you don't need intelligence to make intelligent decisions. In fact evolution has proved much more " +
 		"intelligent than we are - after all, it created intelligence.",
 		
-		"Photography is an art like racecar driving is a sport.",
+		"Photography is an art like racecar driving is a sport."
 	};
 }

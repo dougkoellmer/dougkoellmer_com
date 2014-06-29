@@ -86,7 +86,7 @@ public class StripContent implements I_HomeCellContent
 		{
 			String imgPath = IMG_PATH+m_cellName+".strip_"+count+".jpg";
 			
-			if( count == 0 )
+//			if( count == 0 )
 			{
 				InputStream imageStream = servletContext.getResourceAsStream(imgPath);
 				byte[] imageData = null;
@@ -107,12 +107,6 @@ public class StripContent implements I_HomeCellContent
 				
 				m_splash += img;
 				m_compiled += img;
-			}
-			else
-			{
-				m_splash += emptyImg;
-				imgPath = U_HomeCell.getImgPath(imgPath);
-				m_compiled += this.getImg(imgPath, imageHeight);
 			}
 			
 			if( count < imgCount-1 )

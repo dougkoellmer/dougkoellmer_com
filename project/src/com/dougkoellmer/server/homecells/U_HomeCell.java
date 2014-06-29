@@ -41,7 +41,7 @@ public class U_HomeCell
 	
 	public static boolean usesListIcon(E_HomeCell cell)
 	{
-		return isListCell(cell) || isLongForm(cell);				
+		return isListCell(cell) || isLongForm(cell) || cell == E_HomeCell.OLD_FRIEND;
 	}
 	
 	public static boolean isNaturalHeightCell(E_HomeCell cell)

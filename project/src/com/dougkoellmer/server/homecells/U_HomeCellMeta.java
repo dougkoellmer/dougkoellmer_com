@@ -147,7 +147,7 @@ public class U_HomeCellMeta
 			case HOME:							return new FileBasedHomeCellContent("home", Type.VIRTUALIZED);
 			
 			case PRECIOUSES:					return new ThumbnailHomeCellContent();
-			case SWORD:							return new CellComingSoonContent();
+			case SWORD:							return new StripContent(cell);
 			case WOODEN_CUP:					return new CellComingSoonContent();
 			case HATCHET:						return new CellComingSoonContent();
 			case MITER_SAW:						return new CellComingSoonContent();
@@ -190,7 +190,7 @@ public class U_HomeCellMeta
 			case PORTFOLIO:						return new PortfolioContent();
 			case POLISH_FOREST_ADVENTURE:		return new FileBasedHomeCellContent("polish_forest", Type.RAW);
 			case SPANISH_OPERA_ADVENTURE:		return new FileBasedHomeCellContent("spanish_adventure", Type.RAW);
-			case OLD_FRIEND:					return new CellComingSoonContent();
+			case OLD_FRIEND:					return new FileBasedHomeCellContent("old_friend", Type.RAW);
 			case MUSINGS:						return new ListContent(cell, List_Musings.LIST, ListContent.Type.RAW);
 			case WHAT_IS_CORROSION:				return new FileBasedHomeCellContent("corrosion", Type.RAW);
 			case PERFECT_COFFEE:				return new FileBasedHomeCellContent("coffee", Type.RAW);
@@ -206,7 +206,7 @@ public class U_HomeCellMeta
 			case SLING_SHOT:					return new CellComingSoonContent();
 			case BREAKAWAY_KNOT:				return new CellComingSoonContent();
 			case SANDER_HOLDER:					return new CellComingSoonContent();
-			case RASP_HANDLE:					return new CellComingSoonContent();
+			case RASP_HANDLE:					return new StripContent(cell);
 			case HANGING_CRATES:				return new CellComingSoonContent();
 			case LIFE_HACKS:					return new ListContent(cell, List_LifeHacks.LIST, ListContent.Type.TITLED);
 			case TORSION_KNOT:					return new CellComingSoonContent();
@@ -215,15 +215,15 @@ public class U_HomeCellMeta
 			case TERMINATOR_GLASSES:			return new StripContent(cell);
 			case CANVAS_BAG:					return new SingleImageContent(cell);
 			case CANVAS_WRAP:					return new StripContent(cell);
-			case SANTOKU_SHEATH:				return new CellComingSoonContent();
+			case SANTOKU_SHEATH:				return new StripContent(cell);
 			case F1_SHEATH_MOD:					return new CellComingSoonContent();
 			case SAW_SHEATH:					return new StripContent(cell);
 			case BROOM:							return new CellComingSoonContent();
 			case FIRE_POI:						return new StripContent(cell, "center");
 			case JUGGLING_TORCHES:				return new SingleImageContent(cell);
-			case THROWING_KNIVES:				return new CellComingSoonContent();
-			case STONE_CUP:						return new CellComingSoonContent();
-			case FIRE_POKER:					return new CellComingSoonContent();
+			case THROWING_KNIVES:				return new SingleImageContent(cell);
+			case STONE_CUP:						return new SingleImageContent(cell);
+			case FIRE_POKER:					return new StripContent(cell, "center");
 						
 			case WOOD:							return new ThumbnailHomeCellContent();
 			case TILLER_TREE:					return new CellComingSoonContent();
@@ -239,10 +239,10 @@ public class U_HomeCellMeta
 			case CUTTING_BOARD:					return new CellComingSoonContent();
 			case BOW_1:							return new StripContent(cell, "bottom");
 			case BOW_2:							return new SingleImageContent(cell, "top");
-			case DOORSTOP:						return new CellComingSoonContent();
+			case DOORSTOP:						return new SingleImageContent(cell, "center");
 			case DOGGIE_RAMP:					return new CellComingSoonContent();
-			case OAR:							return new CellComingSoonContent();
-			case BOOMERANG:						return new CellComingSoonContent();
+			case OAR:							return new StripContent(cell);
+			case BOOMERANG:						return new StripContent(cell);
 			case COASTER_HOLDER:				return new StripContent(cell);
 			case RED_OAK_SPOON:					return new StripContent(cell);
 			case PLYWOOD_PUNISHER:				return new CellComingSoonContent();
@@ -261,7 +261,7 @@ public class U_HomeCellMeta
 			case QUICKB2_LOGO:					return new SingleImageContent(cell, "center");
 			case B33HIVE_LOGO:					return new SingleImageContent(cell, "center");
 			case MILKMAN:						return new StripContent(cell, "center");
-			case MOTHER_AND_CHILD:				return new CellComingSoonContent();
+			case MOTHER_AND_CHILD:				return new SingleImageContent(cell, "top");
 			case WOOD_CHAIN:					return new StripContent(cell, "center");
 			case GLASSES_HOLDER:				return new StripContent(cell, "center");
 			

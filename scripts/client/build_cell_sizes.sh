@@ -47,17 +47,31 @@ do
 		
 	elif [[ $entry == *.strip_0.* ]]
 	then
-	
-		width=$(convert $entry -format "%w" info:)
-		height=$(convert $entry -format "%h" info:)
+		let "height=0"
+		
+		for sub_entry in "$SEARCH_DIR"/*
+		do
+			if [[ "$sub_entry" =~ "$cell_name" ]]
+			then
+				width=$(convert $sub_entry -format "%w" info:)
+				img_height=$(convert $sub_entry -format "%h" info:)
+				
+				if (( $img_height < $MIN_SIZE ));
+				then
+					img_height=$MIN_SIZE
+				fi
+				
+				let "height = height + img_height + STRIP_SPACING"
+				
+				let "count = count + 1"
+			fi
+		done
+		
+		#echo "$cell_name $height"
+		
 		count=$(ls -l $SEARCH_DIR/$cell_name* | wc -l)
 		
-		if (( $height < $MIN_SIZE ));
-		then
-			height=$MIN_SIZE
-		fi
-		
-		let "height = (height*count) + STRIP_SPACING*(count-1)"
+		let "height = height - STRIP_SPACING"
 		print_statement=true
 	fi
 	

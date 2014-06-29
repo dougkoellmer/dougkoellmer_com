@@ -17,6 +17,6 @@ public class List_LifeHacks
 			"If we're honest it does just as much to prevent oxidation (almost nothing), it's 'green', and you can stack stuff on top.",
 		"Hot Mug",
 			"Fill a ceramic mug with hot water. Even microwave it afterwards. Pour water out, pour coffee in. Coffee will stay hotter " +
-			"longer but not get 'cooked' and take on that burnt flavor as is wont to happen with thermal mugs."
+			"longer but not get 'cooked' and take on the burnt flavor that can happen with thermal mugs."
 	};
 }
