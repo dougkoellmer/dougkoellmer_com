@@ -79,6 +79,15 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				{
 					thumb = "/img/coming_soon.thumb.png";
 				}
+				else
+				{
+					String videoId = U_HomeCellMeta.getVideoId(child);
+					
+					if( videoId != null )
+					{
+						thumb = "/img/coming_soon.thumb.png";
+					}
+				}
 				
 				thumb = U_HomeCell.getImgPath(thumb);
 				

@@ -25,8 +25,8 @@ public class StripContent implements I_HomeCellContent
 	private String m_splash;
 	private String m_compiled;
 	private final String m_cellName;
-	private final String m_position;
-	private final String m_heightWidth;
+	private final String m_css_position;
+	private final String m_css_backgroundSize;
 	private final E_HomeCell m_cell;
 	
 	
@@ -40,15 +40,15 @@ public class StripContent implements I_HomeCellContent
 		m_cell = cell;
 		m_cellName = cell.getCellName();
 		
-		m_heightWidth = "background-size:cover;";
+		m_css_backgroundSize = "background-size:cover;";
 		
 		if( gravity != null )
 		{
-			m_position = "background-position:"+gravity+";";
+			m_css_position = "background-position:"+gravity+";";
 		}
 		else
 		{
-			m_position = "";
+			m_css_position = "";
 		}
 	}
 	
@@ -102,7 +102,7 @@ public class StripContent implements I_HomeCellContent
 				}
 				
 				imgPath = U_HomeCell.getImgPath(imgPath);
-				String img = this.getImg(imgPath, imageHeight);
+				String img = U_HomeCell.createImgDiv(imgPath, imageHeight, m_css_backgroundSize, m_css_position);
 				emptyImg = this.getEmptyImg(imageHeight);
 				
 				m_splash += img;
@@ -126,11 +126,6 @@ public class StripContent implements I_HomeCellContent
 		{
 			throw new Error();
 		}
-	}
-	
-	private String getImg(String source, int height)
-	{
-		return "<div style=\"background-repeat:no-repeat; width:100%; max-height:"+height+"px; height:100%; "+ m_heightWidth+" "+m_position+" background-image:url('"+source+"');\"></div>";
 	}
 	
 	private String getEmptyImg(int height)

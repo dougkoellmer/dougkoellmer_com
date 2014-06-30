@@ -26,6 +26,11 @@ public class U_HomeCell
 		return html.replaceAll("<script>.*GoogleAnalyticsObject.*</script>", "");
 	}
 	
+	public static String createImgDiv(String source, int maxHeight, String backgroundSize, String position)
+	{
+		return "<div style=\"background-repeat:no-repeat; width:100%; max-height:"+maxHeight+"px; height:100%; "+ backgroundSize+" "+position+" background-image:url('"+source+"');\"></div>";
+	}
+	
 	public static String getImgPath(String rawPath)
 	{
 		return rawPath + "?v="+ServerApp.getInstance().getConfig().appVersion;

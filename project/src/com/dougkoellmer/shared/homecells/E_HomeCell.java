@@ -146,6 +146,7 @@ public enum E_HomeCell
 	private final CellAddress m_primaryAddress;
 	private final CellAddress m_secondaryAddress;
 	private final ArrayList<E_HomeCell> m_children = new ArrayList<E_HomeCell>();
+	private final E_HomeCell m_parent;
 	
 	private E_HomeCell(int offsetM, int offsetN)
 	{
@@ -162,6 +163,7 @@ public enum E_HomeCell
 			m_mapping = new CellAddressMapping(offsetM, offsetN);
 			m_primaryAddress = new CellAddress(cellName);
 			m_secondaryAddress = null;
+			m_parent = null;
 		}
 		else
 		{
@@ -189,11 +191,11 @@ public enum E_HomeCell
 				}
 			}
 			
-			E_HomeCell parent = stack.size() > 0 ? stack.get(stack.size()-1) : null;
+			m_parent = stack.size() > 0 ? stack.get(stack.size()-1) : null;
 			
-			if( parent != null )
+			if( m_parent != null )
 			{
-				parent.m_children.add(this);
+				m_parent.m_children.add(this);
 			}
 
 			m_primaryAddress = new CellAddress(getBaseAddress() + cellName);			
@@ -206,6 +208,11 @@ public enum E_HomeCell
 		{
 			S_HomeCellHelper.s_cellStack.add(this);
 		}
+	}
+	
+	public E_HomeCell getParent()
+	{
+		return m_parent;
 	}
 	
 	public int getPaddedChildCount()

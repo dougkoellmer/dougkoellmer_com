@@ -156,16 +156,16 @@ public class U_HomeCellMeta
 			case LIGHTER:						return new CellComingSoonContent();
 				
 			case ABILITIES:						return new ThumbnailHomeCellContent();
-			case FOOT_JUGGLING:					return new CellComingSoonContent();
-			case JUGGLING:						return new CellComingSoonContent();
-			case FAST_SHUFFLE:					return new CellComingSoonContent();
-			case CARD_DECK_SPLIT:				return new CellComingSoonContent();
-			case CARD_THROW:					return new CellComingSoonContent();
-			case PEN_TWIRL:						return new CellComingSoonContent();
-			case BOTTLE_OPENING:				return new CellComingSoonContent();
-			case FAST_SHOE_TIE:					return new CellComingSoonContent();
-			case ONE_HAND_MATCH_LIGHT:			return new CellComingSoonContent();
-			case FAST_SHIRT_SWAP:				return new CellComingSoonContent();
+//			case FOOT_JUGGLING:					return new CellComingSoonContent();
+//			case JUGGLING:						return new CellComingSoonContent();
+//			case FAST_SHUFFLE:					return new CellComingSoonContent();
+//			case CARD_DECK_SPLIT:				return new CellComingSoonContent();
+//			case CARD_THROW:					return new CellComingSoonContent();
+//			case PEN_TWIRL:						return new CellComingSoonContent();
+//			case BOTTLE_OPENING:				return new CellComingSoonContent();
+//			case FAST_SHOE_TIE:					return new CellComingSoonContent();
+//			case ONE_HAND_MATCH_LIGHT:			return new CellComingSoonContent();
+//			case FAST_SHIRT_SWAP:				return new CellComingSoonContent();
 				
 			case SOFTWARE:						return new FileBasedHomeCellContent("software", Type.VIRTUALIZED);
 			case FOR_COMPUTERS:					return new ThumbnailHomeCellContent();
@@ -245,7 +245,7 @@ public class U_HomeCellMeta
 			case BOOMERANG:						return new StripContent(cell);
 			case COASTER_HOLDER:				return new StripContent(cell);
 			case RED_OAK_SPOON:					return new StripContent(cell);
-			case PLYWOOD_PUNISHER:				return new CellComingSoonContent();
+//			case PLYWOOD_PUNISHER:				return new YouTubeContent(cell);
 						
 			case ART:							return new ThumbnailHomeCellContent();
 			case ROSE:							return new SingleImageContent(cell, "left");
@@ -264,9 +264,24 @@ public class U_HomeCellMeta
 			case MOTHER_AND_CHILD:				return new SingleImageContent(cell, "top");
 			case WOOD_CHAIN:					return new StripContent(cell, "center");
 			case GLASSES_HOLDER:				return new StripContent(cell, "center");
-			
-			default:							return null;
 		}
+		
+		if( getVideoId(cell) != null )
+		{
+			return new YouTubeContent(cell);
+		}
+		
+		return new CellComingSoonContent();
+	}
+	
+	static String getVideoId(E_HomeCell cell)
+	{
+		switch(cell)
+		{
+			case PLYWOOD_PUNISHER:			return "f_SfUpol2Ok";
+		}
+		
+		return null;
 	}
 	
 	private static CellSize calcThumbCellSize(E_HomeCell cell)
@@ -317,7 +332,9 @@ public class U_HomeCellMeta
 				
 				case PRECIOUSES: case ABILITIES: case FOR_COMPUTERS: case FOR_BIOTICS:
 				case INVENTIONS: case SUNDRY: case WOOD: case ART:
-												cellSize = calcThumbCellSize(cell);  break;				
+												cellSize = calcThumbCellSize(cell);  break;
+												
+				case PLYWOOD_PUNISHER:			cellSize = new CellSize(910, 512);	break;
 			}
 		}
 		
