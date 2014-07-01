@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 
 import org.apache.commons.io.IOUtils;
 
+import com.dougkoellmer.server.homecells.U_HomeCell.E_PlayIcon;
 import com.dougkoellmer.shared.app.S_App;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.dougkoellmer.shared.homecells.S_HomeCell;
@@ -65,6 +66,7 @@ public class YouTubeContent implements I_HomeCellContent
 		
 		String imgPath = U_HomeCell.getImgPath("http://img.youtube.com/vi/"+m_videoId+"/maxresdefault.jpg");
 		m_splash = U_HomeCell.createImgDiv(imgPath, S_HomeCell.DEFAULT_CELL_SIZE, m_css_backgroundSize, m_css_position);
+		m_splash += U_HomeCell.createPlayIcon(E_PlayIcon.LARGE);
 		m_compiled = "<iframe width='100%' height='100%' src='http://www.youtube.com/embed/"+m_videoId+"?"+embedOptions+"' frameborder='0' allowfullscreen></iframe>";
 	}
 	

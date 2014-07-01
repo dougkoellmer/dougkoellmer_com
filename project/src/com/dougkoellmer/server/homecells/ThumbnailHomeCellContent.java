@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javax.servlet.ServletContext;
 
 import com.dougkoellmer.server.entities.ServerGrid;
+import com.dougkoellmer.server.homecells.U_HomeCell.E_PlayIcon;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.dougkoellmer.shared.homecells.S_HomeCell;
 
@@ -20,7 +21,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 	
 	static final int MIN_COUNT = 12;
 	
-	private String m_sourcCode;
+	private String m_sourceCode;
 	private int m_height = 0;
 	
 	public ThumbnailHomeCellContent()
@@ -67,33 +68,45 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 			{
 				E_HomeCell child = children.next();
 				String description = U_HomeCellMeta.getDescription(child);
-				String address = child.getPrimaryAddress().getRaw();
+				String address = "javascript:dk.snap('"+child.getPrimaryAddress().getRaw()+"');";
 				
-				String thumb = "/img/cell_content/thumbs/"+child.getCellName()+".thumb.jpg";
+				String thumbUrl = "/img/cell_content/thumbs/"+child.getCellName()+".thumb.jpg";
+				boolean videoThumb = false;
+				String videoId = U_HomeCellMeta.getVideoId(child);
 				
 				if( U_HomeCell.usesListIcon(child) )
 				{
-					thumb = "/img/cell_content/thumbs/list_content.thumb.jpg";
+					thumbUrl = "/img/cell_content/thumbs/list_content.thumb.jpg";
 				}
-				else if( !U_Servlet.fileExists(servletContext, thumb) )
+				else if( videoId != null )
 				{
-					thumb = "/img/coming_soon.thumb.png";
+					videoThumb = true;
+					thumbUrl = "http://img.youtube.com/vi/"+videoId+"/default.jpg";
+				}
+				else if( !U_Servlet.fileExists(servletContext, thumbUrl) )
+				{
+					thumbUrl = "/img/coming_soon.thumb.png";
+				}
+				
+				thumbUrl = U_HomeCell.getImgPath(thumbUrl);
+				
+				String thumbHtml;
+				
+				if( videoThumb )
+				{
+					thumbHtml = "<div class='dk_thumb_cell_img' style=\"background-position:center center; background-image:url('"+thumbUrl+"');\">";
+					String playIcon = U_HomeCell.createPlayIcon(E_PlayIcon.SMALL);
+					thumbHtml += playIcon;
+					thumbHtml += "</div>";
 				}
 				else
 				{
-					String videoId = U_HomeCellMeta.getVideoId(child);
-					
-					if( videoId != null )
-					{
-						thumb = "/img/coming_soon.thumb.png";
-					}
+					thumbHtml = "<img class='dk_thumb_cell_img' src='"+thumbUrl+"'>";
 				}
 				
-				thumb = U_HomeCell.getImgPath(thumb);
-				
 				builder.append("<td "+tdClass+" " + tdStyle + ">");
-				builder.append("<a href='"+address+"' class='waypoint_cell_link'>");
-				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'><img class='dk_thumb_cell_img' src='"+thumb+"'></td><td style='text-align:right;'><div class='dk_thumb_desc'>");
+				builder.append("<a href=\""+address+"\" class='waypoint_cell_link'>");
+				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'>"+thumbHtml+"</td><td style='text-align:right;'><div class='dk_thumb_desc'>");
 				builder.append(description);
 				builder.append("</div></td></tr></table>");
 				builder.append("</a>");
@@ -127,14 +140,14 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		
 		builder.append("</tr></table></div>");
 		
-		m_sourcCode = builder.toString();
+		m_sourceCode = builder.toString();
 	}
 	
 	public String getCode(E_CodeType eCodeType)
 	{
-		if( eCodeType == E_CodeType.SOURCE )
+		if( eCodeType == E_CodeType.SPLASH )
 		{
-			return m_sourcCode;
+			return m_sourceCode;
 		}
 		else
 		{
@@ -147,7 +160,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 	{
 		if( eCodeType == E_CodeType.SPLASH )
 		{
-			return E_CodeSafetyLevel.VIRTUAL_STATIC_SANDBOX;
+			return E_CodeSafetyLevel.NO_SANDBOX_STATIC;
 		}
 		else
 		{

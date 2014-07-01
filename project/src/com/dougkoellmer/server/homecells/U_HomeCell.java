@@ -31,6 +31,35 @@ public class U_HomeCell
 		return "<div style=\"background-repeat:no-repeat; width:100%; max-height:"+maxHeight+"px; height:100%; "+ backgroundSize+" "+position+" background-image:url('"+source+"');\"></div>";
 	}
 	
+	private static final double PLAY_ICON_ALPHA = .85;
+	
+	static enum E_PlayIcon
+	{
+		SMALL, LARGE;
+	}
+	
+	public static String createPlayIcon(E_PlayIcon icon)
+	{
+		String iconPath;
+		String position;
+		if( icon == E_PlayIcon.SMALL )
+		{
+			position = "";
+			iconPath = "/r.img/video_play_icon.thumb.png";
+		}
+		else
+		{
+			position ="position:absolute;";
+			iconPath = "/r.img/video_play_icon.png";
+		}
+		
+		String html = "<table style='"+position+" top:0px; left:0px; width:100%; height:100%;'><tr><td style='text-align:center'>";
+		html += "<img style='opacity:"+PLAY_ICON_ALPHA+";' src='"+getImgPath(iconPath)+"' />";
+		html += "</td></tr></table>";
+		
+		return html;
+	}
+	
 	public static String getImgPath(String rawPath)
 	{
 		return rawPath + "?v="+ServerApp.getInstance().getConfig().appVersion;
