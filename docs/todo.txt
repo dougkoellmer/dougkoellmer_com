@@ -10,9 +10,11 @@
 
 - list content line height seems too big, especially for FF
 
+- oar main picture is out of focus and doesn't match thumb
+
 - don't capture all touches for pressure
 
-- first pressure as effect/affect typo
+- first pressure has effect/affect typo
 
 - slider doesn't work in decay for android or something.
 

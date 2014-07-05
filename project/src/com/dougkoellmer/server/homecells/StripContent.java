@@ -17,6 +17,7 @@ import swarm.server.thirdparty.servlet.U_Servlet;
 import swarm.shared.entities.E_CodeSafetyLevel;
 import swarm.shared.entities.E_CodeType;
 import swarm.shared.structs.CellSize;
+import swarm.shared.structs.Tuple;
 
 public class StripContent implements I_HomeCellContent
 {
@@ -53,89 +54,10 @@ public class StripContent implements I_HomeCellContent
 	}
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
-	{		
-		int imgCount = 0;
-		int count = 0;
-		while( true )
-		{
-			String imgPath = IMG_PATH+m_cellName+".strip_"+count+".jpg";
-			
-			if( U_Servlet.fileExists(servletContext, imgPath) )
-			{
-				imgCount++;
-			}
-			else
-			{
-				break;
-			}
-			
-			count++;
-		}
-		
-		int imageHeight = 0;
-		
-		m_splash = "";
-		m_compiled = "";
-		int totalHeight = 0;
-		count = 0;
-		
-		String spacer = this.getSpacer();
-		String emptyImg = "";
-		
-		while(count < imgCount)
-		{
-			String imgPath = IMG_PATH+m_cellName+".strip_"+count+".jpg";
-			
-//			if( count == 0 )
-			{
-				InputStream imageStream = servletContext.getResourceAsStream(imgPath);
-				byte[] imageData = null;
-				try {
-					imageData = IOUtils.toByteArray(imageStream);
-				} catch (IOException e) {}			
-				Image image = ImagesServiceFactory.makeImage(imageData);
-				
-				imageHeight = image.getHeight();
-				if( imageHeight < S_HomeCell.DEFAULT_CELL_SIZE )
-				{
-					imageHeight = S_HomeCell.DEFAULT_CELL_SIZE;
-				}
-				
-				imgPath = U_HomeCell.getImgPath(imgPath);
-				String img = U_HomeCell.createImgDiv(imgPath, imageHeight, m_css_backgroundSize, m_css_position);
-				emptyImg = this.getEmptyImg(imageHeight);
-				
-				m_splash += img;
-				m_compiled += img;
-			}
-			
-			if( count < imgCount-1 )
-			{
-				m_splash += spacer;
-				m_compiled += spacer;
-				totalHeight += S_HomeCell.IMG_STRIP_SPACING;
-			}
-			
-			count++;
-			totalHeight += imageHeight;
-		}
-		
-		CellSize cellSize = U_HomeCellMeta.getFocusedCellSize(m_cell);
-		
-		if( cellSize.getHeight() != totalHeight )
-		{
-			throw new Error();
-		}
-	}
-	
-	private String getEmptyImg(int height)
 	{
-		return "<div style='width:100%; height:"+height+"px;'></div>";
-	}
-	
-	private String getSpacer()
-	{
-		return "<div style='background-color:"+S_HomeCell.IMG_STRIP_SPACING_COLOR+"; width:100%; height:"+S_HomeCell.IMG_STRIP_SPACING+"px;'></div>";
+		Tuple<String, String> tuple = U_HomeCell.makeStripHtml(servletContext, homeCell, m_css_backgroundSize, m_css_position);
+		m_splash = tuple.getFirst();
+		m_compiled = tuple.getSecond();
 	}
 	
 	public String getCode(E_CodeType eCodeType)

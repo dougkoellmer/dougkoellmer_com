@@ -28,6 +28,7 @@ class U_AutoGenHomeCellSize
 			case FIRE_POKER: return new CellSize(910, 1034);
 			case FLASHLIGHT_LAMP: return new CellSize(640, 1556);
 			case GLASSES_HOLDER: return new CellSize(512, 1432);
+			case GUITAR_CASE: return new CellSize(683, 4451);
 			case INFINITE_TOLERANCE: return new CellSize(768, 576);
 			case JUGGLING_TORCHES: return new CellSize(700, 525);
 			case KITCHEN_UTENSILS: return new CellSize(780, 585);

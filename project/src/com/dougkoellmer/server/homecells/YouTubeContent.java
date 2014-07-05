@@ -21,25 +21,38 @@ import swarm.shared.structs.CellSize;
 
 public class YouTubeContent implements I_HomeCellContent
 {
-	private String m_splash;
-	private String m_compiled;
-	private final String m_cellName;
-	private final String m_css_position;
-	private final String m_css_backgroundSize;
-	private final E_HomeCell m_cell;
-	private final String m_videoId;
-	
-	
-	public YouTubeContent(E_HomeCell cell)
+	public static enum E_Thumb
 	{
-		this(cell, "center");
+		MAXRESDEFAULT,
+		SDDEFAULT;
+		
+		String getImgUrl(String videoId)
+		{
+			return "http://img.youtube.com/vi/"+videoId+"/"+this.name().toLowerCase()+".jpg";
+		}
 	}
 	
-	public YouTubeContent(E_HomeCell cell, String gravity)
+	protected String m_splash;
+	protected String m_compiled;
+	private final String m_cellName;
+	protected final String m_css_position;
+	protected final String m_css_backgroundSize;
+	private final E_HomeCell m_cell;
+	private final String m_videoId;
+	private final E_Thumb m_thumbType;
+	
+	
+	public YouTubeContent(E_HomeCell cell, E_Thumb thumbType)
+	{
+		this(cell, thumbType, "center");
+	}
+	
+	public YouTubeContent(E_HomeCell cell, E_Thumb thumbType, String gravity)
 	{
 		m_videoId = U_HomeCellMeta.getVideoId(cell);
 		m_cell = cell;
 		m_cellName = cell.getCellName();
+		m_thumbType = thumbType;
 		
 		m_css_backgroundSize = "background-size:cover;";
 		
@@ -64,10 +77,10 @@ public class YouTubeContent implements I_HomeCellContent
 		embedOptions += "theme=light&";
 		embedOptions += "autoplay=1";
 		
-		String imgPath = U_HomeCell.getImgPath("http://img.youtube.com/vi/"+m_videoId+"/maxresdefault.jpg");
+		String imgPath = U_HomeCell.getImgPath(m_thumbType.getImgUrl(m_videoId));
 		m_splash = U_HomeCell.createImgDiv(imgPath, S_HomeCell.DEFAULT_CELL_SIZE, m_css_backgroundSize, m_css_position);
 		m_splash += U_HomeCell.createPlayIcon(E_PlayIcon.LARGE);
-		m_compiled = "<iframe width='100%' height='100%' src='http://www.youtube.com/embed/"+m_videoId+"?"+embedOptions+"' frameborder='0' allowfullscreen></iframe>";
+		m_compiled = "<iframe width='100%' height='"+S_HomeCell.DEFAULT_CELL_SIZE+"px;' src='http://www.youtube.com/embed/"+m_videoId+"?"+embedOptions+"' frameborder='0' allowfullscreen></iframe>";
 	}
 	
 	public String getCode(E_CodeType eCodeType)

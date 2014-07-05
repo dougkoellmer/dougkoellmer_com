@@ -3,6 +3,7 @@ package com.dougkoellmer.server.homecells;
 import swarm.shared.structs.CellSize;
 
 import com.dougkoellmer.server.homecells.FileBasedHomeCellContent.Type;
+import com.dougkoellmer.server.homecells.YouTubeContent.E_Thumb;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.dougkoellmer.shared.homecells.S_HomeCell;
 
@@ -201,7 +202,7 @@ public class U_HomeCellMeta
 			case BIKE_CARD_THING:				return new CellComingSoonContent();
 			case DOWEL_HOLDER:					return new CellComingSoonContent();
 			case OUTDOOR_TOOL_HOLDER:			return new CellComingSoonContent();
-			case GUITAR_CASE:					return new CellComingSoonContent();
+			case GUITAR_CASE:					return new YouTubeAndStripContent(cell, E_Thumb.SDDEFAULT);
 			case FLASHLIGHT_LAMP:				return new StripContent(cell);
 			case SLING_SHOT:					return new CellComingSoonContent();
 			case BREAKAWAY_KNOT:				return new CellComingSoonContent();
@@ -268,7 +269,7 @@ public class U_HomeCellMeta
 		
 		if( getVideoId(cell) != null )
 		{
-			return new YouTubeContent(cell);
+			return new YouTubeContent(cell,  E_Thumb.MAXRESDEFAULT);
 		}
 		
 		return new CellComingSoonContent();
@@ -279,6 +280,7 @@ public class U_HomeCellMeta
 		switch(cell)
 		{
 			case PLYWOOD_PUNISHER:			return "f_SfUpol2Ok";
+			case GUITAR_CASE:				return "tkmwiwan8-M";
 		}
 		
 		return null;
@@ -297,6 +299,16 @@ public class U_HomeCellMeta
 		}
 
 		return new CellSize(CellSize.DEFAULT_DIMENSION, height);
+	}
+	
+	public static int getExtraHeight(E_HomeCell cell)
+	{
+		switch(cell)
+		{
+			case GUITAR_CASE:		return S_HomeCell.DEFAULT_CELL_SIZE+S_HomeCell.IMG_STRIP_SPACING;
+		}
+		
+		return 0;
 	}
 	
 	static CellSize getFocusedCellSize(E_HomeCell cell)
@@ -336,6 +348,10 @@ public class U_HomeCellMeta
 												
 				case PLYWOOD_PUNISHER:			cellSize = new CellSize(910, 512);	break;
 			}
+		}
+		else if( cellSize != null )
+		{
+			cellSize = new CellSize(cellSize.getWidth(), cellSize.getHeight() + U_HomeCellMeta.getExtraHeight(cell));
 		}
 		
 		if( cellSize == null )

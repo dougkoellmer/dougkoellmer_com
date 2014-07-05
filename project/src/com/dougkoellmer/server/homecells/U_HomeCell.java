@@ -9,6 +9,9 @@ import javax.servlet.ServletContext;
 import org.apache.commons.io.IOUtils;
 
 import sun.java2d.pipe.SpanIterator;
+import swarm.server.thirdparty.servlet.U_Servlet;
+import swarm.shared.structs.CellSize;
+import swarm.shared.structs.Tuple;
 
 import com.dougkoellmer.server.app.ServerApp;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
@@ -90,6 +93,97 @@ public class U_HomeCell
 	public static boolean isListCell(E_HomeCell cell)
 	{
 		return cell == E_HomeCell.LIFE_HACKS || cell == E_HomeCell.MUSINGS;
+	}
+	
+	public static Tuple<String, String> makeStripHtml(ServletContext servletContext, E_HomeCell cell, String cssBackgroundSize, String cssPosition)
+	{
+		String cellName = cell.getCellName();
+				
+		int imgCount = 0;
+		int count = 0;
+		while( true )
+		{
+			String imgPath = IMG_PATH+cellName+".strip_"+count+".jpg";
+			
+			if( U_Servlet.fileExists(servletContext, imgPath) )
+			{
+				imgCount++;
+			}
+			else
+			{
+				break;
+			}
+			
+			count++;
+		}
+		
+		int imageHeight = 0;
+		
+		
+		String splash = "";
+		String compiled = "";
+		int totalHeight = 0;
+		count = 0;
+		
+		String spacer = makeStripSpacerHtml();
+		String emptyImg = "";
+		
+		while(count < imgCount)
+		{
+			String imgPath = IMG_PATH+cellName+".strip_"+count+".jpg";
+			
+//			if( count == 0 )
+			{
+				InputStream imageStream = servletContext.getResourceAsStream(imgPath);
+				byte[] imageData = null;
+				try {
+					imageData = IOUtils.toByteArray(imageStream);
+				} catch (IOException e) {}			
+				Image image = ImagesServiceFactory.makeImage(imageData);
+				
+				imageHeight = image.getHeight();
+				if( imageHeight < S_HomeCell.DEFAULT_CELL_SIZE )
+				{
+					imageHeight = S_HomeCell.DEFAULT_CELL_SIZE;
+				}
+				
+				imgPath = U_HomeCell.getImgPath(imgPath);
+				String img = U_HomeCell.createImgDiv(imgPath, imageHeight, cssBackgroundSize, cssPosition);
+				emptyImg = makeEmptyImg(imageHeight);
+				
+				splash += img;
+				compiled += img;
+			}
+			
+			if( count < imgCount-1 )
+			{
+				splash += spacer;
+				compiled += spacer;
+				totalHeight += S_HomeCell.IMG_STRIP_SPACING;
+			}
+			
+			count++;
+			totalHeight += imageHeight;
+		}
+		
+		CellSize cellSize = U_HomeCellMeta.getFocusedCellSize(cell);
+		
+		if( cellSize.getHeight() != totalHeight + U_HomeCellMeta.getExtraHeight(cell))
+		{
+			throw new Error();
+		}
+		
+		return new Tuple<String, String>(splash, compiled);
+	}
+	
+	public static String makeStripSpacerHtml()
+	{
+		return "<div style='background-color:"+S_HomeCell.IMG_STRIP_SPACING_COLOR+"; width:100%; height:"+S_HomeCell.IMG_STRIP_SPACING+"px;'></div>";
+	}
+	
+	private static String makeEmptyImg(int height)
+	{
+		return "<div style='width:100%; height:"+height+"px;'></div>";
 	}
 	
 	public static String getSplashImage(E_HomeCell cell, String contentType, String gravity, ServletContext servletContext)
