@@ -17,6 +17,9 @@ public class List_LifeHacks
 			"If we're honest it does just as much to prevent oxidation (almost nothing), it's 'green', and you can stack stuff on top.",
 		"Hot Mug",
 			"Fill a ceramic mug with hot water. Even microwave it afterwards. Pour water out, pour coffee in. Coffee will stay hotter " +
-			"longer but not get 'cooked' and take on the burnt flavor that can happen with thermal mugs."
+			"longer but not get 'cooked' and take on the burnt flavor that can happen with thermal mugs.",
+		"Cool Plate",
+			"Spread really hot food like oatmeal, rice, thick soup, what have you, onto a flush-bottomed plate then put the plate on a surface with high " +
+			"thermal conductivity & capacitance like a thick pan. This will suck the heat out of the food and make it ready to eat in just a minute or two."
 	};
 }
