@@ -319,7 +319,7 @@ public class U_HomeCellMeta
 		//---		they don't end up working perfectly.
 		switch(cell)
 		{
-			case BACKSCRATCHER_1:			cellSize = new CellSize(674, 1034);  break;
+			case BACKSCRATCHER_1:			cellSize = new CellSize(674, 1040);  break;
 		}
 		
 		if( cellSize != null )

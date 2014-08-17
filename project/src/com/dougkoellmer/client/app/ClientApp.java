@@ -8,6 +8,7 @@ import swarm.client.app.A_ClientApp;
 import swarm.client.app.ClientAppConfig;
 import swarm.client.app.E_Platform;
 import swarm.client.app.E_StartUpStage;
+import swarm.client.entities.ClientGrid;
 import swarm.client.input.ClickManager;
 import swarm.client.js.JsConfig;
 import swarm.client.states.*;
@@ -53,7 +54,6 @@ import swarm.shared.transaction.TransactionRequest;
 import swarm.shared.transaction.TransactionResponse;
 
 import com.dougkoellmer.client.managers.CellAddressManager;
-import com.dougkoellmer.client.entities.ClientGrid;
 import com.dougkoellmer.client.entities.ClientUser;
 import com.dougkoellmer.client.view.DkViewController;
 import com.dougkoellmer.shared.app.S_App;
@@ -107,12 +107,15 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.publicRecaptchaKey = "";
 		appConfig.useVirtualSandbox = false;
 		appConfig.appVersion = S_App.APP_VERSION;
-		appConfig.maxSubCellDimension = 32;
+		appConfig.maxSubCellDimension = 16;
+		appConfig.metaLevelCount = 4;
 		
 		appConfig.appId = S_App.APP_ID;
 		
 		appConfig.user = new ClientUser();
 		appConfig.grid = new ClientGrid();
+		
+		appConfig.homeAddress = E_HomeCell.HOME.getCellName();
 		
 		return appConfig;
 	}

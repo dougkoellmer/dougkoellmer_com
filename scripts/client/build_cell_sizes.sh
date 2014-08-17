@@ -13,6 +13,8 @@ STRIP_SPACING=$(grep -F -m 1 'IMG_STRIP_SPACING =' $SETTINGS_FILE);
 STRIP_SPACING=$(echo $STRIP_SPACING | sed -re 's/.*= *([0-9]*);/\1/g')
 MIN_SIZE=512
 
+echo $STRIP_SPACING
+
 
 printf "" > $OUT_FILE
 printf "package com.dougkoellmer.server.homecells;\n\n" >> $OUT_FILE

@@ -6,6 +6,12 @@
 
 
 
+- up button
+
+- rewrite simple urls to their long ones
+
+- 
+
 
 
 - list content line height seems too big, especially for FF
