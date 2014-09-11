@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SEARCH_DIR="../../project/war/img/cell_content"
-OUT_FILE="../../project/src/com/dougkoellmer/server/homecells/U_AutoGenHomeCellSize.java"
+OUT_FILE="../../project/src/com/dougkoellmer/shared/homecells/U_AutoGenHomeCellSize.java"
 SETTINGS_FILE="../../project/src/com/dougkoellmer/shared/homecells/S_HomeCell.java"
 THIS_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 THIS_PATH_SPLIT=(${THIS_PATH//dougkoellmer_com/ })

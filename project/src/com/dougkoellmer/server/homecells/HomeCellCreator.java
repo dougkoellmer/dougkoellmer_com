@@ -17,6 +17,7 @@ import org.w3c.tidy.TidyMessageListener;
 
 import com.dougkoellmer.server.app.VersionTracker;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
+import com.dougkoellmer.shared.homecells.U_HomeCellSize;
 
 import swarm.shared.entities.E_CharacterQuota;
 import swarm.shared.entities.E_CodeSafetyLevel;
@@ -172,7 +173,7 @@ public class HomeCellCreator implements I_HomeCellCreator {
 			HomeCellMetaData metaData = getMetaData(eCell);
 			I_HomeCellContent content = metaData.getContent();
 			content.init(m_servletContext, eCell);
-			CellSize focusedCellSize = U_HomeCellMeta.getFocusedCellSize(eCell);
+			CellSize focusedCellSize = U_HomeCellSize.getFocusedCellSize(eCell);
 			persistedCell.getFocusedCellSize().copy(focusedCellSize);
 			persistedCell.getCodePrivileges().setCharacterQuota(
 					E_CharacterQuota.UNLIMITED);

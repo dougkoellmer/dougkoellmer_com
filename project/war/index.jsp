@@ -15,13 +15,12 @@
 
 <link rel="shortcut icon" href="/favicon.ico?v=4" />
 
-<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1407526223" />
+<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1410227549" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
 <%
 	U_InlineTransactions.addInlineTransactions(request, response, out);
-	U_InlineCellSizeTransactions.addInlineTransactions(request, response, out);
 %>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -71,6 +70,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="/r.app/min.js?v=1407526222"></script>
+	<script type="text/javascript" src="/r.app/min.js?v=1410227548"></script>
 </body>
 </html>

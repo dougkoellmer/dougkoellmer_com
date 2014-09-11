@@ -16,6 +16,7 @@ import swarm.shared.structs.Tuple;
 import com.dougkoellmer.server.app.ServerApp;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.dougkoellmer.shared.homecells.S_HomeCell;
+import com.dougkoellmer.shared.homecells.U_HomeCellSize;
 import com.google.appengine.api.images.Image;
 import com.google.appengine.api.images.ImagesServiceFactory;
 
@@ -68,31 +69,10 @@ public class U_HomeCell
 		return rawPath + "?v="+ServerApp.getInstance().getConfig().appVersion;
 	}
 	
-	public static boolean isLongForm(E_HomeCell cell)
-	{
-		return cell == E_HomeCell.POLISH_FOREST_ADVENTURE ||
-				cell == E_HomeCell.SPANISH_OPERA_ADVENTURE ||
-				cell == E_HomeCell.WHAT_IS_CORROSION ||
-				cell == E_HomeCell.PERFECT_COFFEE;
-	}
 	
 	public static boolean usesListIcon(E_HomeCell cell)
 	{
-		return isListCell(cell) || isLongForm(cell) || cell == E_HomeCell.OLD_FRIEND;
-	}
-	
-	public static boolean isNaturalHeightCell(E_HomeCell cell)
-	{
-		if( isListCell(cell) )  return true;
-		
-		if( isLongForm(cell) )  return true;
-		
-		return false;
-	}
-	
-	public static boolean isListCell(E_HomeCell cell)
-	{
-		return cell == E_HomeCell.LIFE_HACKS || cell == E_HomeCell.MUSINGS;
+		return U_HomeCellSize.isListCell(cell) || U_HomeCellSize.isLongForm(cell) || cell == E_HomeCell.OLD_FRIEND;
 	}
 	
 	public static Tuple<String, String> makeStripHtml(ServletContext servletContext, E_HomeCell cell, String cssBackgroundSize, String cssPosition)
@@ -166,9 +146,9 @@ public class U_HomeCell
 			totalHeight += imageHeight;
 		}
 		
-		CellSize cellSize = U_HomeCellMeta.getFocusedCellSize(cell);
+		CellSize cellSize = U_HomeCellSize.getFocusedCellSize(cell);
 		
-		if( cellSize.getHeight() != totalHeight + U_HomeCellMeta.getExtraHeight(cell))
+		if( cellSize.getHeight() != totalHeight + U_HomeCellSize.getExtraHeight(cell))
 		{
 			throw new Error();
 		}

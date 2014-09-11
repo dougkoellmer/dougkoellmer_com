@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dougkoellmer.shared.homecells.E_HomeCell;
+import com.dougkoellmer.shared.homecells.U_HomeCellSize;
 
 import swarm.server.account.UserSession;
 import swarm.server.app.A_ServerApp;
@@ -72,7 +73,7 @@ public class U_InlineCellSizeTransactions
 			{
 				E_HomeCell cell = E_HomeCell.values()[i];
 				CellAddressMapping mapping = new CellAddressMapping(cell.getCoordinate());
-				CellSize cellSize = U_HomeCellMeta.getFocusedCellSize(cell);
+				CellSize cellSize = U_HomeCellSize.getFocusedCellSize(cell);
 				
 				if( !cellSize.isDefault() )
 				{

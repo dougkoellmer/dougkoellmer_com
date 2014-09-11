@@ -11,6 +11,7 @@ import swarm.client.app.E_StartUpStage;
 import swarm.client.entities.ClientGrid;
 import swarm.client.input.ClickManager;
 import swarm.client.js.JsConfig;
+import swarm.client.managers.CellSizeManager;
 import swarm.client.states.*;
 import swarm.client.states.account.StateMachine_Account;
 import swarm.client.states.account.State_AccountStatusPending;
@@ -149,63 +150,9 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	protected void stage_startAppManagers()
 	{
 		m_appContext.addressMngr = new CellAddressManager(m_appContext);
+		m_appContext.cellSizeMngr = new com.dougkoellmer.client.managers.CellSizeManager(m_appContext);
 		
 		super.stage_startAppManagers();
-		
-		A_Grid grid = this.m_appContext.gridMngr.getGrid();
-		
-		final CellAddressMapping utilMapping = new CellAddressMapping();
-		final CellSize utilCellSize = new CellSize();
-		
-		I_TransactionResponseHandler cellSizeHandler = new I_TransactionResponseHandler()
-		{
-			public E_ResponseSuccessControl onResponseSuccess(TransactionRequest request, TransactionResponse response)
-			{
-				return E_ResponseSuccessControl.CONTINUE; // Pass handling up to cell size manager.
-			}
-			
-			public E_ResponseErrorControl onResponseError(TransactionRequest request, TransactionResponse response)
-			{
-				if( request.getPath() == E_RequestPath.getFocusedCellSize )
-				{
-					if( response.getError() == E_ResponseError.NO_DISPATCHER )
-					{
-						utilMapping.readJson(request.getJsonArgs(), m_appContext.jsonFactory);
-						m_appContext.cellSizeMngr.forceCache(utilMapping, utilCellSize);
-						
-						return E_ResponseErrorControl.BREAK;
-					}
-				}
-				
-				return E_ResponseErrorControl.CONTINUE;
-			}
-		};
-		
-		m_appContext.txnMngr.addHandler(m_appContext.cellSizeMngr);
-		m_appContext.txnMngr.addHandler(cellSizeHandler);
-		
-		//--- DRK > Temporarily null out async dispatcher to force everything local.
-		I_AsyncRequestDispatcher dispatcher_saved = m_appContext.txnMngr.getAsyncDispatcher();
-		m_appContext.txnMngr.setAsyncDispatcher(null);
-		
-		//--- DRK > address->mapping relationships are embedded into the page as inline transactions,
-		//---		so here we're invoking those transactions as an implicit prefilling side effect
-		//---		to cache mapping->address relationships as well without having to hit server.
-		for( int i = 0; i < E_HomeCell.values().length; i++ )
-		{
-			E_HomeCell ithCell = E_HomeCell.values()[i];
-			
-			//--- DRK > Prepopulate cell size cache at the same time.
-			CellAddressMapping mapping = new CellAddressMapping(ithCell.getCoordinate());
-			m_appContext.txnMngr.makeRequest(E_RequestPath.getFocusedCellSize, mapping);
-			
-			m_appContext.txnMngr.flushSyncResponses();
-		}
-		
-		m_appContext.txnMngr.removeHandler(cellSizeHandler);
-		m_appContext.txnMngr.removeHandler(m_appContext.cellSizeMngr);
-		
-		m_appContext.txnMngr.setAsyncDispatcher(dispatcher_saved);		
 	}
 	
 	@Override
