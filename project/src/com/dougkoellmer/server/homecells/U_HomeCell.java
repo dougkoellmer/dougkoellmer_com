@@ -131,7 +131,7 @@ public class U_HomeCell
 				String img = U_HomeCell.createImgDiv(imgPath, imageHeight, cssBackgroundSize, cssPosition);
 				emptyImg = makeEmptyImg(imageHeight);
 				
-				splash += emptyImg;
+				splash += count == 0 ? img : emptyImg;
 				compiled += img;
 			}
 			

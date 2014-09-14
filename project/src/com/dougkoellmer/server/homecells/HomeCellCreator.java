@@ -187,7 +187,7 @@ public class HomeCellCreator implements I_HomeCellCreator {
 			// s_logger.severe(splashSafety + " " + compiledSafety + " " +
 			// eCell);
 
-			if (eCell == E_HomeCell.WOOD_CHAIN)
+			if (eCell == E_HomeCell.RED_OAK_SPOON)
 			{
 				s_logger.severe("");
 			}
