@@ -1,36 +1,25 @@
 #!/bin/bash
 
-SEARCH_DIR="../../project/war/img/cell_content"
+SNAPSHOT_DIR="./thumb_temp"
+THUMB_DIR="../../project/war/img/cell_content/thumbs/auto"
+
+sh take_cell_snapshots.sh $SNAPSHOT_DIR
 
 THUMB_SIZE=96x96
 
-for entry in "$SEARCH_DIR"/*
+for entry in "$SNAPSHOT_DIR"/*
 do
-	if [[ $entry == *.splash.* || $entry == *.strip_0.* || $entry == *.solo.* ]]
-	then
+	thumb=$THUMB_DIR/$(basename $entry)
 	
-		thumb=$(echo $entry | sed -re 's/\b(splash|strip_0|solo)\b/thumb/g')
-		thumb=${thumb/cell_content/cell_content\/thumbs}
+	entry=$(realpath $entry)
+	thumb=$(realpath $thumb)
 		
-		gravity="North"
-		
-		if [[ $entry == *rose* ]]
-		then
-			gravity="NorthWest"
-		elif [[ $entry == *glasses_holder* || $entry == *milkman* ]]
-		then
-			gravity="Center"
-		elif [[ $entry == *backscratcher_1* || $entry == *feed_the_bear* ]]
-		then
-			gravity="East"
-		elif [[ $entry == *bow_1* ]]
-		then
-			gravity="South"
-		fi
-		
-		convert.exe $entry -resize $THUMB_SIZE^ -gravity $gravity -extent $THUMB_SIZE -quality 100% $thumb
-	fi
+	convert.exe $entry -resize $THUMB_SIZE^ -gravity "NORTH" -extent $THUMB_SIZE -quality 100% $thumb
+	
+	echo $entry $thumb
 done
+
+rm -rf $SNAPSHOT_DIR
 
 
 

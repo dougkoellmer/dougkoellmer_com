@@ -6,6 +6,8 @@
 
 - perhaps give canvas a hint array of the home cells
 
+- make backoff distance right before meta size change, and make sure starting z distance is also this same threshold
+
 
 
 - preserve aspect ratios on expansion/retraction
