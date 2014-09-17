@@ -32,6 +32,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 	{
 		String trClass = "class='dk_thumb_row'";
 		StringBuilder builder = new StringBuilder();
+//		builder.append("<link type='text/css' rel='stylesheet' href='/r.app/min.css?v=1410714686'/>");
 		builder.append("<div style='width:100%; height:100%; font-size:0px; overflow:hidden;'>");
 		builder.append("<table style='' class='dk_thumb_table'><tr "+trClass+">");
 		
@@ -94,7 +95,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				
 				if( videoThumb )
 				{
-					thumbHtml = "<div class='dk_thumb_cell_img' style=\"background-position:center center; background-image:url('"+thumbUrl+"');\">";
+					thumbHtml = "<div class='dk_thumb_cell_img' style=\"background-size:64px 64px; background-repeat:no-repeat; background-position:center center; background-image:url('"+thumbUrl+"');\">";
 					String playIcon = U_HomeCell.createPlayIcon(E_PlayIcon.SMALL);
 					thumbHtml += playIcon;
 					thumbHtml += "</div>";
@@ -106,7 +107,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				
 				builder.append("<td "+tdClass+" " + tdStyle + ">");
 				builder.append("<a href=\""+address+"\" class='waypoint_cell_link'>");
-				builder.append("<table style='width:100%; height:100%;' class='waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'>"+thumbHtml+"</td><td style='text-align:right;'><div class='dk_thumb_desc'>");
+				builder.append("<table style='width:100%;' class='dk_thumb_cell waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'>"+thumbHtml+"</td><td style='text-align:right;'><div class='dk_thumb_desc'>");
 				builder.append(description);
 				builder.append("</div></td></tr></table>");
 				builder.append("</a>");

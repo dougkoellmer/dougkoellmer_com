@@ -1,3 +1,13 @@
+- canvas seems to usually be off by one pixel to the upper left
+
+- there's that one 4x4 in the preciouses branch that really goes off
+
+- skip cells, both for canvas rendering and for buffer filling
+
+- perhaps give canvas a hint array of the home cells
+
+
+
 - preserve aspect ratios on expansion/retraction
 
 - ie 10 iframes go over scroll bars and mess up history
@@ -5,8 +15,6 @@
 - have mouse x/y pan not affect any possible zoom ease that's happening (should "fix" mac magic mouse jerky behavior)
 
 
-
-- up button
 
 - rewrite simple urls to their long ones
 

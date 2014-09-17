@@ -57,7 +57,7 @@ public class U_HomeCell
 			iconPath = "/r.img/video_play_icon.png";
 		}
 		
-		String html = "<table style='"+position+" top:0px; left:0px; width:100%; height:100%;'><tr><td style='text-align:center'>";
+		String html = "<table style='"+position+" top:0px; left:0px; width:100%; height:100%;z'><tr><td style='text-align:center'>";
 		html += "<img style='opacity:"+PLAY_ICON_ALPHA+";' src='"+getImgPath(iconPath)+"' />";
 		html += "</td></tr></table>";
 		

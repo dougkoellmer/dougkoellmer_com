@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#TODO Get these from code or as command line arguments (which should also be from a script upstream).
+#TODO Get some of these from code or as command line arguments (which should also be from code upstream).
 HTTP_ERROR_CODE=404
 GRID_SIZE=32
 CELL_SIZE=512
@@ -18,9 +18,10 @@ for n in `seq 1 $GRID_SIZE`;
 do
 	for m in `seq 1 $GRID_SIZE`;
 	do
-		#CELL="${m}x${n}"
-		CELL="16x14"
+		CELL="${m}x${n}"
+		#CELL="13x14"
 		URL="$SERVER/$CELL"
+		#URL="http://127.0.0.1:8888/home.html"
 		CODE=`curl -s -o /dev/null -I -w "%{http_code}" $URL`
 		
 		if [ "$CODE" != "$HTTP_ERROR_CODE" ]
@@ -29,12 +30,12 @@ do
 			OUT_IMG="$OUT_DIR_SUB/${CELL}.jpg"
 			IMG_SIZE=$CELL_SIZE
 			let IMG_SIZE=$IMG_SIZE+$CROP_OFFSET
-			$SNAPSHOT_TOOL --javascript-delay 500 --crop-x $CROP_OFFSET --crop-y $CROP_OFFSET --disable-smart-width --width $IMG_SIZE --height $IMG_SIZE $URL $OUT_IMG
+			$SNAPSHOT_TOOL --javascript-delay 2000 --crop-x $CROP_OFFSET --crop-y $CROP_OFFSET --disable-smart-width --width $IMG_SIZE --height $IMG_SIZE $URL $OUT_IMG
 		fi
 		
-		break
+		#break
 	done
 	
-	break
+	#break
 	
 done
