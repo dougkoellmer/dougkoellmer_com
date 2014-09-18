@@ -16,7 +16,8 @@ do
 		
 	convert.exe $entry -resize $THUMB_SIZE^ -gravity "NORTH" -extent $THUMB_SIZE -quality 100% $thumb
 	
-	echo $entry $thumb
+	#echo $entry $thumb
+	
 done
 
 rm -rf $SNAPSHOT_DIR

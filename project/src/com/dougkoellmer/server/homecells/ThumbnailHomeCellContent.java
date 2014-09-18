@@ -71,20 +71,10 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				String description = U_HomeCellMeta.getDescription(child);
 				String address = "javascript:dk.snap('"+child.getPrimaryAddress().getRaw()+"');";
 				
-//				String thumbUrl = "/img/cell_content/thumbs/"+child.getCellName()+".thumb.jpg";
 				String thumbUrl = "/img/cell_content/thumbs/auto/"+child.getCoordinate().writeString()+".jpg";
 				boolean videoThumb = false;
 				String videoId = U_HomeCellMeta.getVideoId(child);
-				
-//				if( U_HomeCell.usesListIcon(child) )
-//				{
-//					thumbUrl = "/img/cell_content/thumbs/list_content.thumb.jpg";
-//				}
-//				else if( videoId != null )
-//				{
-//					videoThumb = true;
-//					thumbUrl = "http://img.youtube.com/vi/"+videoId+"/default.jpg";
-//				}
+
 				if( !U_Servlet.fileExists(servletContext, thumbUrl) )
 				{
 					thumbUrl = "/img/coming_soon.thumb.png";
@@ -93,18 +83,6 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				thumbUrl = U_HomeCell.getImgPath(thumbUrl);
 				
 				String thumbHtml = "<img class='dk_thumb_cell_img' src='"+thumbUrl+"'>";
-				
-//				if( videoThumb )
-//				{
-//					thumbHtml = "<div class='dk_thumb_cell_img' style=\"background-size:64px 64px; background-repeat:no-repeat; background-position:center center; background-image:url('"+thumbUrl+"');\">";
-//					String playIcon = U_HomeCell.createPlayIcon(E_PlayIcon.SMALL);
-//					thumbHtml += playIcon;
-//					thumbHtml += "</div>";
-//				}
-//				else
-//				{
-//					thumbHtml = "<img class='dk_thumb_cell_img' src='"+thumbUrl+"'>";
-//				}
 				
 				builder.append("<td "+tdClass+" " + tdStyle + ">");
 				builder.append("<a href=\""+address+"\" class='waypoint_cell_link'>");

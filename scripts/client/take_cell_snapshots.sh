@@ -18,8 +18,8 @@ for n in `seq 1 $GRID_SIZE`;
 do
 	for m in `seq 1 $GRID_SIZE`;
 	do
-		CELL="${m}x${n}"
-		#CELL="13x14"
+		#CELL="${m}x${n}"
+		CELL="17x15"
 		URL="$SERVER/$CELL"
 		#URL="http://127.0.0.1:8888/home.html"
 		CODE=`curl -s -o /dev/null -I -w "%{http_code}" $URL`
@@ -33,9 +33,9 @@ do
 			$SNAPSHOT_TOOL --javascript-delay 2000 --crop-x $CROP_OFFSET --crop-y $CROP_OFFSET --disable-smart-width --width $IMG_SIZE --height $IMG_SIZE $URL $OUT_IMG
 		fi
 		
-		#break
+		break
 	done
 	
-	#break
+	break
 	
 done
