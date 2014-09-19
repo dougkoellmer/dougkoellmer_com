@@ -17,6 +17,7 @@ function onSandboxLoad()
 		cssLink.type = "text/css"; 
 		//console.log(sandbox.contentWindow.document.body);
 		sandbox.contentWindow.document.head.appendChild(cssLink);
+		sandbox.contentWindow.document.body.className="visual_cell_content";
 		
 		/*var $imgs = $(sandbox.contentWindow.document.body).find("img");
 		$imgs.each(function(index, element)

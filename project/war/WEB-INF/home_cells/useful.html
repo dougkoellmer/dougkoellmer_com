@@ -9,11 +9,13 @@
 
 .dk_useful_cell
 {
-	position:relative;
-	top:0px;
-	left:0px;
+ 	position:relative;
+ 	top:0px;
+ 	left:0px;
 	width:100%;
 	height:34%;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
 }
 
 .dk_useful_cell_link_text
@@ -74,12 +76,12 @@
 			</a>
 		</div>
 		
-		<div class="dk_useful_cell">
+		<div style="height:32%;" class="dk_useful_cell">
 			
 			<a href="/creations/useful/wood" class="waypoint_cell_link">
 				<table class="waypoint_no_table_fluff waypoint_cell_inner_table">
 					<tr><td style="vertical-align:bottom;">
-						<div style="margin-bottom:8px;" class="waypoint_nav_arrow_wrapper">
+						<div class="waypoint_nav_arrow_wrapper">
 							<img class="nav_arrow_img waypoint_nav_arrow_sw" src="/img/cell/waypoint_nav_arrow.png"/>
 						</div>
 					</td></tr>

@@ -1,12 +1,12 @@
 - canvas seems to usually be off by one pixel to the upper left
 
+- canvas not resizing vertically when taking away developer console
+
 - there's that one 4x4 in the preciouses branch that really goes off
 
 - skip cells, both for canvas rendering and for buffer filling
 
 - perhaps give canvas a hint array of the home cells
-
-- make backoff distance right before meta size change, and make sure starting z distance is also this same threshold
 
 
 

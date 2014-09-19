@@ -74,7 +74,7 @@ public final class ServerApp extends A_ServerApp
 		config.telemetryDatabase = null;
 		config.T_homeCellCreator = HomeCellCreator.class;
 		config.gridExpansionDelta = 8;
-		config.startingZ = 430;
+		config.startingZ = 505;
 		config.startingCoord = E_HomeCell.HOME.getCoordinate();
 		config.appVersion = S_App.APP_VERSION;
 		

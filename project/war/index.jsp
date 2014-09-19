@@ -15,7 +15,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico?v=4" />
 
-<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1410981348" />
+<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1411092080" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
@@ -43,7 +43,7 @@ var RecaptchaOptions={theme : 'custom'};
 		cellSizeChangeTime_seconds:dk_backOffTime,
 		focuserFadeOutTime_seconds:dk_backOffTime,
 		cellRetractionEasing:2,
-		backOffDistance:800
+		backOffDistance:505
 	};
 </script>
 </head>
@@ -70,6 +70,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="/r.app/min.js?v=1410981347"></script>
+	<script type="text/javascript" src="/r.app/min.js?v=1411092079"></script>
 </body>
 </html>

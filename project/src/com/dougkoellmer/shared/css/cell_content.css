@@ -3,6 +3,11 @@ body, caja-v-body
 	margin:0px;
 }
 
+.visual_cell_content
+{
+	line-height:16px;
+}
+
 .dk_cell_content_border_box
 {
 	box-sizing:border-box;
@@ -98,6 +103,11 @@ body, caja-v-body
 {
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	color:rgb(100,100,100);
+}
+
+.dk_cell_content_text
+{
+	line-height:24px;
 }
 
 .dk_cell_content_text

@@ -1,14 +1,12 @@
 #!/bin/bash
 
 #TODO Get some of these from code or as command line arguments (which should also be from code upstream).
+
+source ./config.sh
+
 OUT_DIR=$1
 HTTP_ERROR_CODE=404
-GRID_SIZE=32
-CELL_SIZE=512
-CELL_PADDING=16
 SERVER=http://127.0.0.1:8888/r.preview/splash
-SNAPSHOT_TOOL=../../tools/wkhtmltopdf/wkhtmltoimage.exe
-#OUT_DIR=../../project/war/img/cell_content/meta
 CROP_OFFSET=3
 
 mkdir -p $OUT_DIR
@@ -18,13 +16,18 @@ for n in `seq 1 $GRID_SIZE`;
 do
 	for m in `seq 1 $GRID_SIZE`;
 	do
-		#CELL="${m}x${n}"
-		CELL="17x15"
-		URL="$SERVER/$CELL"
-		#URL="http://127.0.0.1:8888/home.html"
-		CODE=`curl -s -o /dev/null -I -w "%{http_code}" $URL`
+		let m_less_1=m-1
+		let n_less_1=n-1
 		
-		if [ "$CODE" != "$HTTP_ERROR_CODE" ]
+		CELL="14x15"
+		CELL="${m_less_1}x${n_less_1}"
+		
+		URL="http://127.0.0.1:8888/home.html"
+		URL="$SERVER/$CELL"
+		
+		RESPONSE_CODE=`curl -s -o /dev/null -I -w "%{http_code}" $URL`
+		
+		if [ "$RESPONSE_CODE" != "$HTTP_ERROR_CODE" ]
 		then
 			
 			OUT_IMG="$OUT_DIR/${CELL}.jpg"
@@ -33,9 +36,9 @@ do
 			$SNAPSHOT_TOOL --javascript-delay 2000 --crop-x $CROP_OFFSET --crop-y $CROP_OFFSET --disable-smart-width --width $IMG_SIZE --height $IMG_SIZE $URL $OUT_IMG
 		fi
 		
-		break
+		#break
 	done
 	
-	break
+	#break
 	
 done
