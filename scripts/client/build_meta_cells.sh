@@ -12,13 +12,27 @@ sub_cell_dim=1
 let grid_size=$GRID_SIZE
 COMPONENT_DIR=$SNAPSHOT_DIR
 
+FINAL_IMG_SIZE=${CELL_SIZE}x${CELL_SIZE}
+
+TEMP_IMAGE=$SNAPSHOT_DIR/temp.png
+BLANK_IMAGE=$SNAPSHOT_DIR/blank.png
+BLANK_V_PADDING=$SNAPSHOT_DIR/blank_v_padding.png
+BLANK_H_PADDING=$SNAPSHOT_DIR/blank_h_padding.png
+convert -size $FINAL_IMG_SIZE xc:none $BLANK_IMAGE
+convert -size ${CELL_PADDING}x${CELL_SIZE} xc:none $BLANK_V_PADDING
+convert -size $((${CELL_SIZE}*2+${CELL_PADDING}*2))x${CELL_PADDING} xc:none $BLANK_H_PADDING
+
+
 for meta_level_seed in `seq 1 $META_COUNT`;
 do
 	sub_cell_dim=$(( sub_cell_dim*2 ))
 	grid_size=$(( grid_size/2 ))
 	
 	OUT_DIR_SUB="$OUT_DIR/$sub_cell_dim"
+	rm -rf $OUT_DIR_SUB
 	mkdir -p $OUT_DIR_SUB
+	
+	echo "Compiling size $sub_cell_dim cells..."
 	
 	for n in `seq 1 $grid_size`;
 	do
@@ -30,28 +44,45 @@ do
 			component_m=$(( m_less_1 * 2 ))
 			component_n=$(( n_less_1 * 2 ))
 			
-			top_left_img=$COMPONENT_DIR/${component_m}x${component_n}.jpg
-			top_right_img=$COMPONENT_DIR/$((component_m+1))x${component_n}.jpg
-			bot_left_img=$COMPONENT_DIR/${component_m}x$((component_n+1)).jpg
-			bot_right_img=$COMPONENT_DIR/$((component_m+1))x$((component_n+1)).jpg
+			EXTENSION=jpg
+			if (("$sub_cell_dim" > "2" ))
+			then
+				EXTENSION=png
+			fi
+			
+			top_left_img=$COMPONENT_DIR/${component_m}x${component_n}.$EXTENSION
+			top_right_img=$COMPONENT_DIR/$((${component_m}+1))x${component_n}.$EXTENSION
+			bot_left_img=$COMPONENT_DIR/${component_m}x$((${component_n}+1)).$EXTENSION
+			bot_right_img=$COMPONENT_DIR/$((${component_m}+1))x$((${component_n}+1)).$EXTENSION
 			
 			exist_count=0
 			
 			if [ -f "$top_left_img" ]
 			then
-				exist_count=$((exist_count+1))
+				exist_count=$((${exist_count}+1))
+			else
+				top_left_img=$BLANK_IMAGE
 			fi
+			
 			if [ -f "$top_right_img" ]
 			then
-				exist_count=$((exist_count+1))
+				exist_count=$((${exist_count}+1))
+			else
+				top_right_img=$BLANK_IMAGE
 			fi
+			
 			if [ -f "$bot_left_img" ]
 			then
-				exist_count=$((exist_count+1))
+				exist_count=$((${exist_count}+1))
+			else
+				bot_left_img=$BLANK_IMAGE
 			fi
+			
 			if [ -f "$bot_right_img" ]
 			then
-				exist_count=$((exist_count+1))
+				exist_count=$((${exist_count}+1))
+			else
+				bot_right_img=$BLANK_IMAGE
 			fi
 			
 			if [ "$exist_count" -eq "0" -o "$exist_count" -eq "1" ]
@@ -59,12 +90,20 @@ do
 				continue;
 			fi
 			
-			out_img=$OUT_DIR_SUB/${m_less_1}x${n_less_1}.jpg
+			out_img=$OUT_DIR_SUB/${m_less_1}x${n_less_1}.png
 			
-			if [ -f "$top_left_img" -a -f "$top_right_img" ]
-			then
-				convert.exe "$top_left_img" "$top_right_img" +append $out_img
-			fi
+			convert.exe "$top_left_img" "$BLANK_V_PADDING" +append "$out_img"
+			convert.exe "$out_img" "$top_right_img" +append "$out_img"
+			convert.exe "$out_img" "$BLANK_V_PADDING" +append "$out_img"
+			convert.exe "$out_img" "$BLANK_H_PADDING" -append "$out_img"
+			
+			convert.exe "$bot_left_img" "$BLANK_V_PADDING" +append "$TEMP_IMAGE"
+			convert.exe "$TEMP_IMAGE" "$bot_right_img" +append "$TEMP_IMAGE"
+			convert.exe "$TEMP_IMAGE" "$BLANK_V_PADDING" +append "$TEMP_IMAGE"
+			convert.exe "$TEMP_IMAGE" "$BLANK_H_PADDING" -append "$TEMP_IMAGE"
+			
+			convert.exe "$out_img" "$TEMP_IMAGE" -append "$out_img"
+			convert.exe $out_img -resize $FINAL_IMG_SIZE^ -background "#00000000" $out_img
 			
 		done
 	done

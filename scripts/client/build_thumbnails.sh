@@ -14,7 +14,7 @@ do
 	entry=$(realpath $entry)
 	thumb=$(realpath $thumb)
 		
-	convert.exe $entry -resize $THUMB_SIZE^ -gravity "NORTH" -extent $THUMB_SIZE -quality 100% $thumb
+	convert.exe $entry -resize $THUMB_SIZE^ -gravity "NORTH" -extent $THUMB_SIZE $thumb
 	
 	#echo $entry $thumb
 	
