@@ -4,7 +4,7 @@
 # like History.JS, CodeMirror, Modernizr, etc. Then updates resource version in HTML (or JSP) file.
 
 # Minify support libraries.
-SWARM_SCRIPTS="../..//project/lib/swarm/scripts/client"
+SWARM_SCRIPTS="../../project/lib/swarm/scripts/client"
 cd $SWARM_SCRIPTS
 sh ./minify_codemirror.sh
 sh ./minify_history.sh
@@ -19,8 +19,9 @@ HISTORY_DIR="$SWARM_JS_DIR/history"
 MODERNIZR_DIR="$SWARM_JS_DIR/modernizr"
 FASTCLICK_DIR="$SWARM_JS_DIR/fastclick"
 UTILS_DIR="$SWARM_JS_DIR/utils"
+IMGAGES_LOADED_DIR="$SWARM_JS_DIR/images_loaded"
 TEMP_OUT_DIR="./temp"
-cat $UTILS_DIR/utils.min.js $HISTORY_DIR/native.history_min.js $MODERNIZR_DIR/modernizr.custom.90450.js $CM_DIR/cm_min.js $FASTCLICK_DIR/fastclick.min.js > $TEMP_OUT_DIR/dependencies.min.js
+cat $IMGAGES_LOADED_DIR/images_loaded.min.js $UTILS_DIR/utils.min.js $HISTORY_DIR/native.history_min.js $MODERNIZR_DIR/modernizr.custom.90450.js $CM_DIR/cm_min.js $FASTCLICK_DIR/fastclick.min.js > $TEMP_OUT_DIR/dependencies.min.js
 
 # cat minified support and main app js bootstrapper into one file.
 APP_JS=$(realpath ../../project/war/r.app/r.app.nocache.js)
