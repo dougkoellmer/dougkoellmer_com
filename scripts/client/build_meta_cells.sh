@@ -85,10 +85,10 @@ do
 				bot_right_img=$BLANK_IMAGE
 			fi
 			
-			#if [ "$exist_count" -eq "0" -o "$exist_count" -eq "1" ]
-			#then
-			#	continue;
-			#fi
+			if [ "$exist_count" -eq "0" ]
+			then
+				continue;
+			fi
 			
 			out_img=$OUT_DIR_SUB/${m_less_1}x${n_less_1}.png
 			
