@@ -85,22 +85,28 @@ do
 				bot_right_img=$BLANK_IMAGE
 			fi
 			
-			if [ "$exist_count" -eq "0" -o "$exist_count" -eq "1" ]
-			then
-				continue;
-			fi
+			#if [ "$exist_count" -eq "0" -o "$exist_count" -eq "1" ]
+			#then
+			#	continue;
+			#fi
 			
 			out_img=$OUT_DIR_SUB/${m_less_1}x${n_less_1}.png
 			
-			convert.exe "$top_left_img" "$BLANK_V_PADDING" +append "$out_img"
-			convert.exe "$out_img" "$top_right_img" +append "$out_img"
-			convert.exe "$out_img" "$BLANK_V_PADDING" +append "$out_img"
-			convert.exe "$out_img" "$BLANK_H_PADDING" -append "$out_img"
-			
-			convert.exe "$bot_left_img" "$BLANK_V_PADDING" +append "$TEMP_IMAGE"
-			convert.exe "$TEMP_IMAGE" "$bot_right_img" +append "$TEMP_IMAGE"
-			convert.exe "$TEMP_IMAGE" "$BLANK_V_PADDING" +append "$TEMP_IMAGE"
-			convert.exe "$TEMP_IMAGE" "$BLANK_H_PADDING" -append "$TEMP_IMAGE"
+			if (("$sub_cell_dim" > "2" ))
+			then
+				convert.exe "$top_left_img" "$top_right_img" +append "$out_img"
+				convert.exe "$bot_left_img" "$bot_right_img" +append "$TEMP_IMAGE"
+			else
+				convert.exe "$top_left_img" "$BLANK_V_PADDING" +append "$out_img"
+				convert.exe "$out_img" "$top_right_img" +append "$out_img"
+				convert.exe "$out_img" "$BLANK_V_PADDING" +append "$out_img"
+				convert.exe "$out_img" "$BLANK_H_PADDING" -append "$out_img"
+				
+				convert.exe "$bot_left_img" "$BLANK_V_PADDING" +append "$TEMP_IMAGE"
+				convert.exe "$TEMP_IMAGE" "$bot_right_img" +append "$TEMP_IMAGE"
+				convert.exe "$TEMP_IMAGE" "$BLANK_V_PADDING" +append "$TEMP_IMAGE"
+				convert.exe "$TEMP_IMAGE" "$BLANK_H_PADDING" -append "$TEMP_IMAGE"
+			fi
 			
 			convert.exe "$out_img" "$TEMP_IMAGE" -append "$out_img"
 			convert.exe $out_img -resize $FINAL_IMG_SIZE^ -background "#00000000" $out_img

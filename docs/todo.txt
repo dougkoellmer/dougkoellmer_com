@@ -1,13 +1,12 @@
 - canvas seems to usually be off by one pixel to the upper left
 
-- canvas not resizing vertically when taking away developer console
-
 - there's that one 4x4 in the preciouses branch that really goes off
 
 - skip cells, both for canvas rendering and for buffer filling
 
-- perhaps give canvas a hint array of the home cells
+- delay hud zoom animation until cell is visible
 
+- don't remove visual cell until it's done animating if it's still on screen
 
 
 - preserve aspect ratios on expansion/retraction
@@ -23,10 +22,7 @@
 - 
 
 
-
-- list content line height seems too big, especially for FF
-
-- oar main picture is out of focus and doesn't match thumb
+- oar main picture is out of focus
 
 - don't capture all touches for pressure
 

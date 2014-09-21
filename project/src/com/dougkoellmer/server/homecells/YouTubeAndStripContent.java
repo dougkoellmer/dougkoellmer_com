@@ -44,6 +44,6 @@ public class YouTubeAndStripContent extends YouTubeContent
 		m_splash += tuple.getFirst();
 		m_compiled += tuple.getSecond();
 		
-		m_compiled = "<div style='font-size:0px; height:100%;'>" + m_compiled + "</div>";
+		m_compiled = "<div style='font-size:0px; line-height:0px; height:100%;'>" + m_compiled + "</div>";
 	}
 }

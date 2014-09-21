@@ -52,7 +52,7 @@ public class U_HomeCellMeta
 			case CORROSION_GAME:				return "Training module for the<br>Department of Defense";
 			case GLUE:							return "2d heightfield-based<br>viscous fluid simulation";
 			case WHIP_THE_RAGDOLL:				return "Evil stress reliever<br>with ragdoll beatdown";
-			case TOUCH_TONE_HERO:				return "Rhythm-based game<br>using touch-tone keypad";
+			case TOUCH_TONE_HERO:				return "Rhythm-based iOS game<br>using touch-tone keypad";
 			case BALANCE_THING_GAME:			return "Physics game where you<br>balance crazy objects";
 			case FIREWORKS:						return "Fireworks for end-game<br>celebration screen";
 			case GRAVITATION:					return "Physics simulation<br>of planetary gravity";
