@@ -10,10 +10,12 @@ import org.apache.commons.io.IOUtils;
 
 import sun.java2d.pipe.SpanIterator;
 import swarm.server.thirdparty.servlet.U_Servlet;
+import swarm.shared.app.S_CommonApp;
 import swarm.shared.structs.CellSize;
 import swarm.shared.structs.Tuple;
 
 import com.dougkoellmer.server.app.ServerApp;
+import com.dougkoellmer.shared.app.S_App;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.dougkoellmer.shared.homecells.S_HomeCell;
 import com.dougkoellmer.shared.homecells.U_HomeCellSize;
@@ -57,7 +59,9 @@ public class U_HomeCell
 			iconPath = "/r.img/video_play_icon.png";
 		}
 		
-		String html = "<table style='"+position+" top:0px; left:0px; width:100%; height:100%;z'><tr><td style='text-align:center'>";
+		String size = S_HomeCell.DEFAULT_CELL_SIZE + "px";
+		
+		String html = "<table style='"+position+" top:0px; left:0px; width:100%; height:"+size+";'><tr><td style='text-align:center'>";
 		html += "<img style='opacity:"+PLAY_ICON_ALPHA+";' src='"+getImgPath(iconPath)+"' />";
 		html += "</td></tr></table>";
 		
