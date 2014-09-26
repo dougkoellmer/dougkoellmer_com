@@ -17,5 +17,3 @@
 - for the "creations" cell, the link highlights itself briefly upon clicking, over the description box...might be fixed by using click event
 
 - see if there's any meta tag for preventing the spring scroll-past of the whole page.
-
-- fix crashing when too many cells appear at once.

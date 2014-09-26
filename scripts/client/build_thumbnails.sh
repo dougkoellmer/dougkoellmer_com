@@ -3,6 +3,8 @@
 SNAPSHOT_DIR="./thumb_temp"
 THUMB_DIR="../../project/war/img/cell_content/thumbs/auto"
 
+source ./config.sh
+
 sh take_cell_snapshots.sh $SNAPSHOT_DIR
 
 THUMB_SIZE=96x96
@@ -13,8 +15,8 @@ do
 	
 	entry=$(realpath $entry)
 	thumb=$(realpath $thumb)
-		
-	convert.exe $entry -resize $THUMB_SIZE^ -gravity "NORTH" -extent $THUMB_SIZE $thumb
+	
+	convert.exe $entry -resize $THUMB_SIZE^ -gravity "NORTH" -quality $IMG_QUALITY -extent $THUMB_SIZE $thumb
 	
 	#echo $entry $thumb
 	

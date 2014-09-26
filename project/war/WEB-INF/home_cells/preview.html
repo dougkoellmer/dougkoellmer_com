@@ -18,6 +18,8 @@ function onSandboxLoad()
 		//console.log(sandbox.contentWindow.document.body);
 		sandbox.contentWindow.document.head.appendChild(cssLink);
 		sandbox.contentWindow.document.body.className="visual_cell_content";
+		//sandbox.contentWindow.document.body.style.letterSpacing = "10px";
+		//sandbox.contentWindow.document.body.style.color = "#ff0000";
 		
 		/*var $imgs = $(sandbox.contentWindow.document.body).find("img");
 		$imgs.each(function(index, element)
@@ -31,6 +33,7 @@ function onSandboxLoad()
 
 <table style="width:100%; height:100%;"><tr><td style="text-align:center;">
 <iframe id="sandbox" style="background:white; {{cellSize}} border:none;"></iframe>
+<!-- <img style="opacity:.25; position:relative; top:-512px;" src="/img/cell_content/meta/1/22x17.jpg?v=2"/> -->
 </td></tr></table>
 
 <script>

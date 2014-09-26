@@ -1,5 +1,11 @@
 
+- use some sparse int-key-based hashmap for getCellAtAbsCoord
+
 - long text jumps around a bit with meta cell
+
+
+
+
 
 - delay hud zoom animation until cell is visible
 

@@ -92,7 +92,7 @@ do
 			
 			out_img=$OUT_DIR_SUB/${m_less_1}x${n_less_1}.png
 			
-			if (("$sub_cell_dim" > "2" ))
+			if (( "$sub_cell_dim" > "2" ))
 			then
 				convert.exe "$top_left_img" "$top_right_img" +append "$out_img"
 				convert.exe "$bot_left_img" "$bot_right_img" +append "$TEMP_IMAGE"
@@ -109,7 +109,7 @@ do
 			fi
 			
 			convert.exe "$out_img" "$TEMP_IMAGE" -append "$out_img"
-			convert.exe $out_img -resize $FINAL_IMG_SIZE^ -background "#00000000" $out_img
+			convert.exe $out_img -quality $IMG_QUALITY -resize $FINAL_IMG_SIZE^ -background "#00000000" $out_img
 			
 		done
 	done
