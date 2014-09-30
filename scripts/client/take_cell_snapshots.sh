@@ -20,7 +20,7 @@ do
 		let n_less_1=n-1
 		
 		CELL="22x17"
-		#CELL="${m_less_1}x${n_less_1}"
+		CELL="${m_less_1}x${n_less_1}"
 		
 		URL="http://127.0.0.1:8888/home.html"
 		URL="$SERVER/$CELL"
@@ -36,9 +36,9 @@ do
 			$SNAPSHOT_TOOL --javascript-delay 2000 --quality $IMG_QUALITY --crop-x $CROP_OFFSET --crop-y $CROP_OFFSET --disable-smart-width --width $IMG_SIZE --height $IMG_SIZE $URL $OUT_IMG
 		fi
 		
-		break
+		#break
 	done
 	
-	break
+	#break
 	
 done

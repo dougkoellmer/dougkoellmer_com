@@ -1,15 +1,23 @@
+- have canvas backing draw loading animation
+
+- populate grid ownership client-side...no embedded transaction...
+
+- keep out of scope meta cells around for a frame or two...see if we can eliminate popping white of the cells to a degree
+
+- maybe try to treat subcellcount based on the *target* position and not the current position in some cases...see if we can find some optimizations there
+
+
+
+
+- make it so focused spinner doesn't go off the bottom or right when all the way scrolled over with a really thin window...make it behave kinda like the cell hud does when it's totally collapsed down...kinda ghosts along the opposite direction of the scroll
+
+- canvas backing scrolls with focused cell...not really a concern for now cause backing isn't visible under normal circumstances...only for debug for now
+
+- clean up transform function in VisualCellManager...recently became so that some variables are recalculated for every buffer every frame...instead of just once per frame
 
 - use some sparse int-key-based hashmap for getCellAtAbsCoord
 
-- long text jumps around a bit with meta cell
-
-
-
-
-
 - delay hud zoom animation until cell is visible
-
-- canvas seems to usually be off by one pixel to the upper left
 
 - don't remove visual cell until it's done animating if it's still on screen
 

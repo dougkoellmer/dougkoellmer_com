@@ -1,0 +1,5 @@
+- make sure canvas backing is enabled only for > 1 meta cell count
+
+- take out hack that forces loading spinner on focused cell
+
+- make sure meta-delay-type timingsare set right in VisualCell

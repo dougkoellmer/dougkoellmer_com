@@ -20,6 +20,8 @@ public class List_LifeHacks
 			"longer but not get 'cooked' and take on the burnt flavor that can happen with thermal mugs.",
 		"Cool Plate",
 			"Spread really hot food like oatmeal, rice, thick soup, what have you, onto a flush-bottomed plate then put the plate on a surface with high " +
-			"thermal conductivity & capacitance like a thick pan. This will suck the heat out of the food and make it ready to eat in just a minute or two."
+			"thermal conductivity & capacitance like a thick pan. This will suck the heat out of the food and make it ready to eat in just a minute or two.",
+		"Microwaved Eggs",
+			"As delicious as it sounds. Spray inside of mug with cooking oil, break egg inside, microwave for 30 seconds. Leave yolk intact for epic explosions."
 	};
 }

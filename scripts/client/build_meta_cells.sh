@@ -1,11 +1,16 @@
 #!/bin/bash
 
-SNAPSHOT_DIR="./meta_temp"
 OUT_DIR="../../project/war/img/cell_content/meta"
+
+TAKE_SNAPSHOTS=$1
 
 source ./config.sh
 
-#sh take_cell_snapshots.sh $SNAPSHOT_DIR
+if [ "$TAKE_SNAPSHOTS" == "take_snapshots" ]
+then
+	sh take_cell_snapshots.sh $SNAPSHOT_DIR
+fi
+
 
 META_COUNT=4
 sub_cell_dim=1
@@ -117,7 +122,10 @@ do
 	COMPONENT_DIR=$OUT_DIR_SUB
 done
 
-#rm -rf $SNAPSHOT_DIR
+if [ "$TAKE_SNAPSHOTS" != "take_snapshots" ]
+then
+	rm -rf $SNAPSHOT_DIR
+fi
 
 
 

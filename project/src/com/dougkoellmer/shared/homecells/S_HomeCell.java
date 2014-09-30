@@ -3,6 +3,8 @@ package com.dougkoellmer.shared.homecells;
 public class S_HomeCell
 {
 	public static final int DEFAULT_CELL_SIZE = 512;
+	public static final int CELL_PADDING = 16;
+	public static final int GRID_SIZE = 32;
 	
 	public static int MIN_THUMBNAIL_COUNT = 12;
 	public static int MIN_THUMB_ROW_COUNT = MIN_THUMBNAIL_COUNT/2;

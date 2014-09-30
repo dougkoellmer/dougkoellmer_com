@@ -1,11 +1,15 @@
 #!/bin/bash
 
-SNAPSHOT_DIR="./thumb_temp"
 THUMB_DIR="../../project/war/img/cell_content/thumbs/auto"
+
+TAKE_SNAPSHOTS=$1
 
 source ./config.sh
 
-sh take_cell_snapshots.sh $SNAPSHOT_DIR
+if [ "$TAKE_SNAPSHOTS" == "take_snapshots" ]
+then
+	sh take_cell_snapshots.sh $SNAPSHOT_DIR
+fi
 
 THUMB_SIZE=96x96
 
@@ -22,7 +26,11 @@ do
 	
 done
 
-rm -rf $SNAPSHOT_DIR
+if [ "$TAKE_SNAPSHOTS" != "take_snapshots" ]
+then
+	rm -rf $SNAPSHOT_DIR
+fi
+
 
 
 
