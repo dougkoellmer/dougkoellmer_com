@@ -4,7 +4,7 @@ public class List_Musings
 {
 	public static final String[] LIST =
 	{
-		"We exist to make more humans that ask why we exist.",
+		"We exist to make humans that ask why we exist.",
 		
 		"The only teachers are pain and pleasure.",
 		
