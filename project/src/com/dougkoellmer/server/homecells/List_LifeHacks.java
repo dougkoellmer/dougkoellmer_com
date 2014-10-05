@@ -8,6 +8,11 @@ public class List_LifeHacks
 			"Grab a plastic ziplock bag, fill it with hot water, apply to ache.",
 		"T-shirt Pillowcase",
 			"Pillowcase dirty? Grab a t-shirt, slap it on there instead. Bam, you're a slob. You can even wear the same shirt the next day.",
+		"Fruit Fly Trap",
+			"Cup of whiskey.",
+		"Rocky-IV-style Free Weights",
+			"Pun unintentional but I'll take it. Go to a thrift store, buy some backpacks and totebags. Fill them with river stones. Go work out like you have " +
+			"to fight a giant Russian in a few weeks. Bags are great as free weights or for bodyweight+ excercises.",
 		"Bucket of Sand",
 			"Often while messing around in your workshop you need a heavy weight, whether to press wood down for gluing or " +
 			"test a fixture's load bearing or whatever. Metal weights are ideal but expensive. Enter Bucket of Sand&#8482;. " +

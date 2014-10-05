@@ -2,7 +2,7 @@
 
 - remove drawer for phones
 
-- see how fading in the topmost layer looks when we're snapping
+- see how fading out the topmost layer looks when we're snapping
 
 
 

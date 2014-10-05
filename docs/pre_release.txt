@@ -3,3 +3,5 @@
 - take out hack that forces loading spinner on focused cell
 
 - make sure meta-delay-type timingsare set right in VisualCell
+
+- make sure cell opacity is properly set
