@@ -10,7 +10,6 @@ source ./config_app_version.sh
 SPINNER_CSS=$DK_CSS_DIR/spinner.css
 sed -E "s/url\('(.*)'\)/url('\1?v=$CURRENT_VERSION')/g" $SPINNER_CSS > "$SPINNER_CSS.temp"
 chmod 777 "$SPINNER_CSS.temp"
-cat "$SPINNER_CSS.temp"
 cat "$SPINNER_CSS.temp" > $DK_CSS_DIR/spinner.temp.css
 rm "$SPINNER_CSS.temp"
 

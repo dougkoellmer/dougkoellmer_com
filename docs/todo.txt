@@ -2,7 +2,15 @@
 
 - remove drawer for phones
 
-- see how fading out the topmost layer looks when we're snapping
+- see how fading out the topmost layer looks when we're snapping...either that or topmost layer needs to be at a z-index higher than focused cell when on death row...yea that might work instead
+
+- test the shit out of server errors...error message not coming up...should it?
+
+- try to optimize z index setting for meta cells
+
+- make sure list content (other writing cells) don't have seperate compiled versions and/or they're not going out to the server, cause static should be a standin
+
+- double check what happens when compiled code comes in during/after snap for a natural cell...might have to implement what *should* happen.
 
 
 
