@@ -56,6 +56,7 @@ import swarm.shared.transaction.TransactionResponse;
 
 import com.dougkoellmer.client.managers.CellAddressManager;
 import com.dougkoellmer.client.entities.ClientUser;
+import com.dougkoellmer.client.entities.DkClientGrid;
 import com.dougkoellmer.client.view.DkViewController;
 import com.dougkoellmer.shared.app.S_App;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
@@ -110,11 +111,12 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		appConfig.appVersion = S_App.APP_VERSION;
 		appConfig.maxSubCellDimension = 16;
 		appConfig.metaLevelCount = 4;
+		appConfig.makeGridRequest = false;
 		
 		appConfig.appId = S_App.APP_ID;
 		
 		appConfig.user = new ClientUser();
-		appConfig.grid = new ClientGrid();
+		appConfig.grid = new DkClientGrid();
 		
 		appConfig.homeAddress = E_HomeCell.HOME.getCellName();
 		

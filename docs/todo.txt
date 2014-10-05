@@ -1,14 +1,8 @@
 - have canvas backing draw loading animation
 
-- populate grid ownership client-side...no embedded transaction...
-
-- wait a second or two before removing canvas backing...perhaps have 3-state-enum for loading, rendering (which will be approximated with a time delay), and rendered for meta cell that canvas can use indirectly
-
-- keep out of scope meta cells around for a frame or two...see if we can eliminate popping white of the cells to a degree
-
-- add moz local check
-
 - remove drawer for phones
+
+- see how fading in the topmost layer looks when we're snapping
 
 
 

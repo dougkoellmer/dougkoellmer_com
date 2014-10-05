@@ -21,8 +21,8 @@ public class ServerGrid extends BaseServerGrid
 		this.expandToSize(S_HomeCell.GRID_SIZE, S_HomeCell.GRID_SIZE);
 	}
 	
-//	@Override public void writeJson(I_JsonObject json_out, A_JsonFactory factory)
-//	{
-//		// do nothing cause we already know grid properties on the client through shared constants.
-//	}
+	@Override public void writeJson(I_JsonObject json_out, A_JsonFactory factory)
+	{
+		// do nothing cause we already know grid properties on the client through shared constants.
+	}
 }
