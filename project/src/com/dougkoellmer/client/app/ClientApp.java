@@ -37,6 +37,7 @@ import swarm.client.view.ViewController;
 import swarm.client.view.cell.GifSpinner;
 import swarm.client.view.cell.I_CellSpinner;
 import swarm.client.view.cell.I_CellSpinnerFactory;
+import swarm.client.view.cell.SpritePlateAnimation;
 import swarm.client.view.cell.SpritePlateSpinner;
 import swarm.client.view.tabs.I_Tab;
 import swarm.client.view.tabs.account.AccountTab;
@@ -137,6 +138,10 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		viewConfig.cellSizeChangeTime_seconds = s_config.getDouble("cellSizeChangeTime_seconds");
 		viewConfig.focuserFadeOutTime_seconds = s_config.getDouble("focuserFadeOutTime_seconds");
 		
+		viewConfig.spinnerAnimation = "/r.img/spinner_plate.png?v="+S_App.APP_VERSION;
+		viewConfig.spinnerAnimationFrameCount = 15;
+		viewConfig.spinnerAnimationFramesAcross = 5;
+		
 		return viewConfig;
 	}
 	
@@ -180,7 +185,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 			@Override
 			public I_CellSpinner newSpinner()
 			{
-				return new SpritePlateSpinner("dk_spinner", 15, 1/30.0);
+				return new SpritePlateSpinner("dk_spinner", 15, m_viewContext.config.spinnerAnimationFramerate);
 			}
 		};
 	}

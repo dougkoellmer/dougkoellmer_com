@@ -19,7 +19,9 @@ public class List_Musings
 		"You can have a brain like a computer and still be just as stupid.",
 		
 		"Evolution shows that you don't need intelligence to make intelligent decisions. In fact evolution and intelligence seem like " +
-		"pretty much the same thing, just on different time scales."
+		"pretty much the same thing, just on different time scales.",
+				
+//		"Evolution has a tendency to leverage all physical phenomena. It's fair to say that there are physical phenomena of which we are not yet aware...so called unknown unknowns. If this is the case" +
 		
 //		"Photography is an art like racecar driving is a sport."
 	};

@@ -1,7 +1,9 @@
 - make sure canvas backing is enabled only for > 1 meta cell count
 
-- take out hack that forces loading spinner on focused cell
+- take out hack that forces loading spinner on focused cell (clearStatusHtml body not commented out).
 
 - make sure meta-delay-type timingsare set right in VisualCell
 
 - make sure cell opacity is properly set
+
+- make sure we're properly skipping cells for canvas backing

@@ -11,7 +11,7 @@ public class List_LifeHacks
 		"Fruit Fly Trap",
 			"Cup of whiskey.",
 		"Rocky-IV Weight Set",
-			"Pun unexpected but I'll take it. Go to a thrift store, buy some cheap backpacks and tote bags. Fill them with river stones. Go work out like you're " +
+			"Pun not originally planned but I'll take it. Go to a thrift store, buy some cheap backpacks and tote bags. Fill them with river stones. Go work out like you're " +
 			"fighting a giant Russian dude in a few weeks. Bags are great for bodyweight+ excercises or as free weights.",
 		"Bucket of Sand",
 			"Often while messing around in your workshop you need a heavy weight, whether to press wood down for gluing or " +

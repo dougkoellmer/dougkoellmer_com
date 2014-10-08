@@ -2,18 +2,25 @@
 
 - remove drawer for phones
 
-- see how fading out the topmost layer looks when we're snapping...either that or topmost layer needs to be at a z-index higher than focused cell when on death row...yea that might work instead
-
-- test the shit out of server errors...error message not coming up...should it?
-
-- try to optimize z index setting for meta cells
-
-- make sure list content (other writing cells) don't have seperate compiled versions and/or they're not going out to the server, cause static should be a standin
+- see how fading out the topmost layer looks when we're snapping...either that or topmost layer needs to be at a z-index higher than focused cell when on death row...yea that might work instead...and make sure buffer takes into account that perhaps topmost layer failed to load, so a meta cell layer underneath that is loaded needs to take over this duty
 
 - double check what happens when compiled code comes in during/after snap for a natural cell...might have to implement what *should* happen.
 
+- don't pinch canvas backing when the meta cell is loading...only pinch it for "rendering" or "rendered"...nice
+
+- "grand_ideas" cell with insurance replacement, new democracy, and toll road
 
 
+
+
+
+- perhaps somehow keep meta cells in buffer if there is a problem loading the meta cells or cell_1's underneath?
+
+
+
+- unify spinner animation for cell_1 and meta...cell_1 currently uses css
+
+- perhaps correctly z-order meta cells on kill queue that are over a cell_1...for now they're all piled together at the same z index...not a big deal though
 
 - make it so focused spinner doesn't go off the bottom or right when all the way scrolled over with a really thin window...make it behave kinda like the cell hud does when it's totally collapsed down...kinda ghosts along the opposite direction of the scroll
 
