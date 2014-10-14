@@ -1,14 +1,18 @@
-- have canvas backing draw loading animation
-
 - remove drawer for phones
 
 - see how fading out the topmost layer looks when we're snapping...either that or topmost layer needs to be at a z-index higher than focused cell when on death row...yea that might work instead...and make sure buffer takes into account that perhaps topmost layer failed to load, so a meta cell layer underneath that is loaded needs to take over this duty
 
-- double check what happens when compiled code comes in during/after snap for a natural cell...might have to implement what *should* happen.
 
-- don't pinch canvas backing when the meta cell is loading...only pinch it for "rendering" or "rendered"...nice
+
+
+
+
 
 - "grand_ideas" cell with insurance replacement, new democracy, and toll road
+
+- logical argument to esp
+
+
 
 
 

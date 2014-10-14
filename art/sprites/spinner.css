@@ -1,0 +1,29 @@
+/* ----------------------------------------------------
+   created with http://www.codeandweb.com/texturepacker 
+   ----------------------------------------------------
+   $TexturePacker:SmartUpdate:b115b7109cd8da0eeefa152fa20c460d:48947165238cebb828de2e2208ff0cca:0d8b79bb0e199d12821b28378f6b0937$
+   ----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.loader_sprite {display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url('r/img/spinner_plate.png');}
+
+.loader_sprite_00 {width:124px; height:128px; background-position: -2px -2px}
+.loader_sprite_01 {width:124px; height:128px; background-position: -128px -2px}
+.loader_sprite_02 {width:124px; height:128px; background-position: -254px -2px}
+.loader_sprite_03 {width:124px; height:128px; background-position: -380px -2px}
+.loader_sprite_04 {width:124px; height:128px; background-position: -506px -2px}
+.loader_sprite_05 {width:124px; height:128px; background-position: -2px -132px}
+.loader_sprite_06 {width:124px; height:128px; background-position: -128px -132px}
+.loader_sprite_07 {width:124px; height:128px; background-position: -254px -132px}
+.loader_sprite_08 {width:124px; height:128px; background-position: -380px -132px}
+.loader_sprite_09 {width:124px; height:128px; background-position: -506px -132px}
+.loader_sprite_10 {width:124px; height:128px; background-position: -2px -262px}
+.loader_sprite_11 {width:124px; height:128px; background-position: -128px -262px}
+.loader_sprite_12 {width:124px; height:128px; background-position: -254px -262px}
+.loader_sprite_13 {width:124px; height:128px; background-position: -380px -262px}
+.loader_sprite_14 {width:124px; height:128px; background-position: -506px -262px}

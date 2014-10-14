@@ -1,9 +1,13 @@
 - make sure canvas backing is enabled only for > 1 meta cell count
 
-- take out hack that forces loading spinner on focused cell (clearStatusHtml body not commented out).
+- take out hack that forces loading spinner on focused cell (make sure clearStatusHtml method body is not commented out, and also maybe showLoading at top of setCode())
 
 - make sure meta-delay-type timingsare set right in VisualCell
 
-- make sure cell opacity is properly set
+- make sure cell opacity is properly set (or not set rather)...in onCreate for one
 
 - make sure we're properly skipping cells for canvas backing
+
+- make sure big block in visual cell manager for updating without transforms is not commented out ( code was commented out to force update to cell transforms every frame)
+
+- remove Fpsviewer fro cell container

@@ -94,8 +94,9 @@
 		  <arg value="./war/index.jsp" />
 		  <arg value="min.css" />
 	</exec>
-	
   </target>
+  
+  <target name="build_css_html" depends="build_css,build_html" description="Minifies main HTML file and CSS."></target>
   
   <target name="build_html" description="Minifies main HTML file.">
 	  <exec executable="sh" newenvironment="false" dir="./">
