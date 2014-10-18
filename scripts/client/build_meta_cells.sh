@@ -8,6 +8,7 @@ source ./config.sh
 
 if [ "$TAKE_SNAPSHOTS" == "take_snapshots" ]
 then
+	rm -rf $SNAPSHOT_DIR
 	sh take_cell_snapshots.sh $SNAPSHOT_DIR
 fi
 
@@ -19,11 +20,20 @@ COMPONENT_DIR=$SNAPSHOT_DIR
 
 FINAL_IMG_SIZE=${CELL_SIZE}x${CELL_SIZE}
 
+BIGGER_META_CELL_SIZE_ADDITION=$(( ${CELL_SIZE} ))
+BIGGER_META_CELL_SIZE=$(( ${CELL_SIZE}+${BIGGER_META_CELL_SIZE_ADDITION}))
+BIGGER_FINAL_IMG_SIZE=${BIGGER_META_CELL_SIZE}x${BIGGER_META_CELL_SIZE}
+
 TEMP_IMAGE=$SNAPSHOT_DIR/temp.png
 BLANK_IMAGE=$SNAPSHOT_DIR/blank.png
+BLANK_IMAGE_BIGGER=$SNAPSHOT_DIR/blank_bigger.png
 BLANK_V_PADDING=$SNAPSHOT_DIR/blank_v_padding.png
 BLANK_H_PADDING=$SNAPSHOT_DIR/blank_h_padding.png
+
+
 convert -size $FINAL_IMG_SIZE xc:none $BLANK_IMAGE
+convert -size $BIGGER_FINAL_IMG_SIZE xc:none $BLANK_IMAGE_BIGGER
+
 convert -size ${CELL_PADDING}x${CELL_SIZE} xc:none $BLANK_V_PADDING
 convert -size $((${CELL_SIZE}*2+${CELL_PADDING}*2))x${CELL_PADDING} xc:none $BLANK_H_PADDING
 
@@ -60,34 +70,49 @@ do
 			bot_left_img=$COMPONENT_DIR/${component_m}x$((${component_n}+1)).$EXTENSION
 			bot_right_img=$COMPONENT_DIR/$((${component_m}+1))x$((${component_n}+1)).$EXTENSION
 			
+			OUTPUT_SIZE=$FINAL_IMG_SIZE
+			blank_image_path=$BLANK_IMAGE
+			
+			if [ "$sub_cell_dim" -eq "4" ]
+			then
+				OUTPUT_SIZE=$BIGGER_FINAL_IMG_SIZE
+			elif [ "$sub_cell_dim" -eq "8" ]
+			then
+				blank_image_path=$BLANK_IMAGE_BIGGER
+			elif [ "$sub_cell_dim" -eq "16" ]
+			then
+				OUTPUT_SIZE=$BIGGER_FINAL_IMG_SIZE
+			fi
+			
+			
 			exist_count=0
 			
 			if [ -f "$top_left_img" ]
 			then
 				exist_count=$((${exist_count}+1))
 			else
-				top_left_img=$BLANK_IMAGE
+				top_left_img=$blank_image_path
 			fi
 			
 			if [ -f "$top_right_img" ]
 			then
 				exist_count=$((${exist_count}+1))
 			else
-				top_right_img=$BLANK_IMAGE
+				top_right_img=$blank_image_path
 			fi
 			
 			if [ -f "$bot_left_img" ]
 			then
 				exist_count=$((${exist_count}+1))
 			else
-				bot_left_img=$BLANK_IMAGE
+				bot_left_img=$blank_image_path
 			fi
 			
 			if [ -f "$bot_right_img" ]
 			then
 				exist_count=$((${exist_count}+1))
 			else
-				bot_right_img=$BLANK_IMAGE
+				bot_right_img=$blank_image_path
 			fi
 			
 			if [ "$exist_count" -eq "0" ]
@@ -114,7 +139,7 @@ do
 			fi
 			
 			convert.exe "$out_img" "$TEMP_IMAGE" -append "$out_img"
-			convert.exe $out_img -quality $IMG_QUALITY -resize $FINAL_IMG_SIZE^ -background "#00000000" $out_img
+			convert.exe $out_img -quality $IMG_QUALITY -resize $OUTPUT_SIZE^ -background "#00000000" $out_img
 			
 		done
 	done

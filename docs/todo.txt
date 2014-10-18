@@ -6,6 +6,30 @@
 
 
 
+- see how toggling invisibility is for performance instead of add/remove
+
+- maybe put visual cells on an appear/destroy queue
+
+- have hud disappear to the top
+
+- double-chcek gpu usage
+
+- hud slightly too short on some (all?) browsers
+
+- spinner lags behind on scroll
+
+- do test...see if setting position of element in mouse move handler is faster than in next paint
+
+- firefox really tweaks out on fast zoom...looks canvas-related
+
+- figure out why bigger meta cell renders are still fuzzy
+
+
+
+
+
+
+
 
 
 - "grand_ideas" cell with insurance replacement, new democracy, and toll road
@@ -18,11 +42,14 @@
 
 
 
+
+
+
 - perhaps somehow keep meta cells in buffer if there is a problem loading the meta cells or cell_1's underneath?
 
 
 
-- unify spinner animation for cell_1 and meta...cell_1 currently uses css
+
 
 - perhaps correctly z-order meta cells on kill queue that are over a cell_1...for now they're all piled together at the same z index...not a big deal though
 
@@ -70,6 +97,8 @@
 - be able to refresh single cell's code
 
 - have cell flag for whether content should refresh itself on focus lost...optimization
+
+- detect platform capability (through fps or something) and accordingly skip meta levels and/or use lower rez meta images
 
 
 

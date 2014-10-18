@@ -29,4 +29,13 @@ public class DkClientGrid extends ClientGrid
 		
 		initMetaOwnership();
 	}
+	
+	@Override public int modifySubCellCount(int subCellCount)
+	{
+		if( subCellCount == 1 )  return subCellCount;
+		if( subCellCount == 2 )  return 4;
+		if( subCellCount == 8 )  return 16;
+		
+		return subCellCount;
+	}
 }

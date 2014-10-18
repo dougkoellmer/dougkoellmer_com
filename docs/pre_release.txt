@@ -11,3 +11,7 @@
 - make sure big block in visual cell manager for updating without transforms is not commented out ( code was commented out to force update to cell transforms every frame)
 
 - remove Fpsviewer fro cell container
+
+- make sure we're not hacking start position in camera machine didEnter
+
+- make sure compiler optimize level is set to default (commented out in ant)

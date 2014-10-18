@@ -1,6 +1,6 @@
 - ipad doesn't handle device orientation changes...either crashes or shows scaled-up view
 
-- make touch-click tolerance a little more forgiving, IIRC
+- make touch-click tolerance a little more forgiving
 
 - check side scrolling works correctly..scroll padding isn't respected
 
@@ -16,4 +16,6 @@
 
 - for the "creations" cell, the link highlights itself briefly upon clicking, over the description box...might be fixed by using click event
 
-- see if there's any meta tag for preventing the spring scroll-past of the whole page.
+- see if there's any meta tag for preventing the spring scroll-past of the whole page on iOS
+
+- focused cells get selected pretty easily on android while touching down and pausing for a scroll or something...same as a normal page though i guess so maybe shouldn't worry about it
