@@ -1,16 +1,16 @@
-- remove drawer for phones
-
 - see how fading out the topmost layer looks when we're snapping...either that or topmost layer needs to be at a z-index higher than focused cell when on death row...yea that might work instead...and make sure buffer takes into account that perhaps topmost layer failed to load, so a meta cell layer underneath that is loaded needs to take over this duty
 
+- have hud disappear to the top
 
 
 
+- try fading cells while on death row
+
+- remove drawer for phones
+
+- try to use prerendered image as backing
 
 - see how toggling invisibility is for performance instead of add/remove
-
-- maybe put visual cells on an appear/destroy queue
-
-- have hud disappear to the top
 
 - double-chcek gpu usage
 
