@@ -18,6 +18,8 @@
   <set-property name="gwt.logging.consoleHandler" value="ENABLED"/>  # To disable a default Handler
   <set-property name="gwt.logging.popupHandler" value="DISABLED" />
   
+  <!-- <set-property name="compiler.stackMode" value="emulated" /> -->
+  
   <set-configuration-property name="devModeRedirectEnabled" value="true" />
 
   <!-- Specify the app entry point class.                         -->

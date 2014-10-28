@@ -8,10 +8,16 @@
 
 - make sure we're properly skipping cells for canvas backing
 
+- cell kill queue time is set properly.... .5 as of now
+
 - make sure big block in visual cell manager for updating without transforms is not commented out ( code was commented out to force update to cell transforms every frame)
 
 - remove Fpsviewer fro cell container
 
 - make sure we're not hacking start position in camera machine didEnter
 
-- make sure compiler optimize level is set to default (commented out in ant)
+- make sure to remove and debug compiler flags in ant build config
+
+- make sure magnifying glass slider isn't instant
+
+- make sure backoff distance is set right in index.jsp

@@ -2,31 +2,25 @@
 
 - have hud disappear to the top
 
-
-
 - try fading cells while on death row
 
-- remove drawer for phones
+- make sure onMEtaImageLoaded can't come in after the cell has been reused for another coordinate
 
-- try to use prerendered image as backing
+- integrate latest state machine
 
-- see how toggling invisibility is for performance instead of add/remove
+- stagger "in-memory" meta cells
+
+
+
+
+- still seems like on mobile that loaded cell_1s go white when you zoom out to cell_2/4/whatever
+
+
+
 
 - double-chcek gpu usage
 
-- hud slightly too short on some (all?) browsers
-
-- spinner lags behind on scroll
-
-- do test...see if setting position of element in mouse move handler is faster than in next paint
-
-- firefox really tweaks out on fast zoom...looks canvas-related
-
-- figure out why bigger meta cell renders are still fuzzy
-
-
-
-
+- see if modifying display triggers reflow....see how many reflows per update we're doing...should just be one
 
 
 
@@ -36,6 +30,7 @@
 
 - logical argument to esp
 
+- update resume
 
 
 
@@ -43,13 +38,11 @@
 
 
 
+- spinner lagged behind behind scroll at some point pretty significantly on Android...may be better since a lot of things changed there.
 
+- hud appears fine and animates well before cells and focuser appear when going going between history states with different app sessions
 
 - perhaps somehow keep meta cells in buffer if there is a problem loading the meta cells or cell_1's underneath?
-
-
-
-
 
 - perhaps correctly z-order meta cells on kill queue that are over a cell_1...for now they're all piled together at the same z index...not a big deal though
 
@@ -57,7 +50,7 @@
 
 - canvas backing scrolls with focused cell...not really a concern for now cause backing isn't visible under normal circumstances...only for debug for now
 
-- use some sparse int-key-based hashmap for getCellAtAbsCoord
+- maybe use some sparse int-key-based hashmap for getCellAtAbsCoord
 
 - delay hud zoom animation until cell is visible
 
@@ -100,9 +93,8 @@
 
 - detect platform capability (through fps or something) and accordingly skip meta levels and/or use lower rez meta images
 
+- hud slightly too short on mobile browsers...no idea why...hacked for now to do mobile check but it don't make sense
 
 
 
-- firefox tries to load something with cells with iframes
-
-- make sure holding and dragging a bunch of cells off screen isn't too much of a performance impact...do GC only when stopping moving.
+- firefox tries to continuously load (at least showing favicon spinner) something for cells with iframes

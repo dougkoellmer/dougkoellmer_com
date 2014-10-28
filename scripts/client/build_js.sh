@@ -19,9 +19,10 @@ HISTORY_DIR="$SWARM_JS_DIR/history"
 MODERNIZR_DIR="$SWARM_JS_DIR/modernizr"
 FASTCLICK_DIR="$SWARM_JS_DIR/fastclick"
 UTILS_DIR="$SWARM_JS_DIR/utils"
-IMGAGES_LOADED_DIR="$SWARM_JS_DIR/images_loaded"
+IMAGES_LOADED_DIR="$SWARM_JS_DIR/images_loaded"
+IS_MOBILE_DIR="$SWARM_JS_DIR/is_mobile"
 TEMP_OUT_DIR="./temp"
-cat $IMGAGES_LOADED_DIR/images_loaded.min.js $UTILS_DIR/utils.min.js $HISTORY_DIR/native.history_min.js $MODERNIZR_DIR/modernizr.custom.90450.js $CM_DIR/cm_min.js $FASTCLICK_DIR/fastclick.min.js > $TEMP_OUT_DIR/dependencies.min.js
+cat $IS_MOBILE_DIR/is_mobile.js $IMAGES_LOADED_DIR/images_loaded.min.js $UTILS_DIR/utils.min.js $HISTORY_DIR/native.history_min.js $MODERNIZR_DIR/modernizr.custom.90450.js $CM_DIR/cm_min.js $FASTCLICK_DIR/fastclick.min.js > $TEMP_OUT_DIR/dependencies.min.js
 
 # cat minified support and main app js bootstrapper into one file.
 APP_JS=$(realpath ../../project/war/r.app/r.app.nocache.js)

@@ -15,7 +15,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico?v=4" />
 
-<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1413609043" />
+<link type="text/css" rel="stylesheet" href="/r.app/min.css?v=1414465680" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
@@ -44,7 +44,26 @@ var RecaptchaOptions={theme : 'custom'};
 		focuserFadeOutTime_seconds:dk_backOffTime,
 		cellRetractionEasing:2,
 		backOffDistance:505
+		//backOffDistance:1000
 	};
+	
+	function hideAddressBar()
+	{
+	  if(!window.location.hash)
+	  {
+	      if(document.height < window.outerHeight)
+	      {
+	          document.body.style.height = (window.outerHeight + 50) + 'px';
+	      }
+	 
+	      setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+	  }
+	}
+	 
+	window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
+	window.addEventListener("orientationchange", hideAddressBar );
+
+
 </script>
 </head>
 
@@ -67,6 +86,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="/r.app/min.js?v=1413609042"></script>
+	<script type="text/javascript" src="/r.app/min.js?v=1414465679"></script>
 </body>
 </html>

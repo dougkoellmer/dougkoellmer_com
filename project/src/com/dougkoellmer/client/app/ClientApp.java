@@ -12,6 +12,7 @@ import swarm.client.entities.ClientGrid;
 import swarm.client.input.ClickManager;
 import swarm.client.js.JsConfig;
 import swarm.client.managers.CellSizeManager;
+import swarm.client.navigation.BrowserNavigator;
 import swarm.client.states.*;
 import swarm.client.states.account.StateMachine_Account;
 import swarm.client.states.account.State_AccountStatusPending;
@@ -168,6 +169,9 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 		m_viewContext.clickMngr = new ClickManager();
 		
 		m_viewContext.toolTipMngr = new ToolTipManager(m_appContext.platformInfo.getPlatform() != E_Platform.IOS, S_UI.TOOL_TIP_DELAY);
+		
+		m_viewContext.browserNavigator = new BrowserNavigator(m_viewContext, m_viewConfig.defaultPageTitle, m_appConfig.floatingHistoryUpdateFreq_seconds);
+		m_appConfig.startingPoint = m_viewContext.browserNavigator.getStartingPoint();
 		
 		//--- DRK > Set defaults for tool tips.
 		for( int i = E_ZIndex.TOOL_TIP_1.ordinal(), j = 0; i <= E_ZIndex.TOOL_TIP_5.ordinal(); i++, j++ )
