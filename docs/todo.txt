@@ -2,18 +2,21 @@
 
 - have hud disappear to the top
 
-- try fading cells while on death row
+- copy google maps behavior of retaining higher meta level until we stop zooming.
 
-- make sure onMEtaImageLoaded can't come in after the cell has been reused for another coordinate
+- don't allocate cell_1s while snapping until snapping is finished...probably related to google maps behavior
 
-- integrate latest state machine
+- try to catch image load complete for when we zoom past a meta level real quick.
 
-- stagger "in-memory" meta cells
+- either delay hud animation until actual target cell appears...or alloc target cell sooner
+
 
 
 
 
 - still seems like on mobile that loaded cell_1s go white when you zoom out to cell_2/4/whatever
+
+
 
 
 
@@ -26,7 +29,7 @@
 
 
 
-- "grand_ideas" cell with insurance replacement, new democracy, and toll road
+
 
 - logical argument to esp
 

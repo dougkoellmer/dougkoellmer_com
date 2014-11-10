@@ -63,6 +63,7 @@ public class U_HomeCellMeta
 			case POLISH_FOREST_ADVENTURE:		return "Disturbing walk in cold<br>misty forest in Poland";
 			case SPANISH_OPERA_ADVENTURE:		return "Fantastical experience<br>travelling in Spain";
 			case OLD_FRIEND:					return "Poem about passing old<br>friend from childhood";
+			case GRAND_IDEAS:					return "Grand societal changes<br>that will never happen";
 			case MUSINGS:						return "Random musings on life<br>and nature of reality";
 			case WHAT_IS_CORROSION:				return "Essay for the layman on<br>how corrosion works";
 			case PERFECT_COFFEE:				return "How to make the<br>perfect cup of coffee";
@@ -192,7 +193,8 @@ public class U_HomeCellMeta
 			case POLISH_FOREST_ADVENTURE:		return new FileBasedHomeCellContent("polish_forest", Type.RAW);
 			case SPANISH_OPERA_ADVENTURE:		return new FileBasedHomeCellContent("spanish_adventure", Type.RAW);
 			case OLD_FRIEND:					return new FileBasedHomeCellContent("old_friend", Type.RAW);
-			case MUSINGS:						return new ListContent(cell, List_Musings.LIST, ListContent.Type.RAW);
+			case GRAND_IDEAS:					return new ListContent(cell, Lists.GRAND_IDEAS, ListContent.Type.TITLED);
+			case MUSINGS:						return new ListContent(cell, Lists.MUSINGS, ListContent.Type.RAW);
 			case WHAT_IS_CORROSION:				return new FileBasedHomeCellContent("corrosion", Type.RAW);
 			case PERFECT_COFFEE:				return new FileBasedHomeCellContent("coffee", Type.RAW);
 			

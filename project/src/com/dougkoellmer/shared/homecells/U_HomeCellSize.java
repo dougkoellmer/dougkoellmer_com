@@ -112,6 +112,9 @@ public class U_HomeCellSize
 	
 	public static boolean isListCell(E_HomeCell cell)
 	{
-		return cell == E_HomeCell.LIFE_HACKS || cell == E_HomeCell.MUSINGS;
+		return
+			cell == E_HomeCell.LIFE_HACKS ||
+			cell == E_HomeCell.MUSINGS ||
+			cell == E_HomeCell.GRAND_IDEAS;
 	}
 }

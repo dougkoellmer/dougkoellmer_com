@@ -67,6 +67,7 @@ public enum E_HomeCell
 			POLISH_FOREST_ADVENTURE		(1,		0),
 			SPANISH_OPERA_ADVENTURE		(1,		1),
 			OLD_FRIEND					(1,		1),
+			GRAND_IDEAS					(1,		1),
 			MUSINGS						(0,		1),
 			WHAT_IS_CORROSION			(0,		1),
 			PERFECT_COFFEE				(0,		1),

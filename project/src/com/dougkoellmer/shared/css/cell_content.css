@@ -5,7 +5,7 @@ body, caja-v-body
 
 .visual_cell_content
 {
-	line-height:16px;
+	line-height:18px;
 }
 
 .dk_cell_content_border_box
@@ -112,7 +112,7 @@ body, caja-v-body
 
 .dk_cell_content_text
 {
-	font-size:16px;
+	font-size:18px;
 }
 
 .dk_longform

@@ -63,8 +63,8 @@
       <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
       <arg line="${gwt.args}"/>
 	  <arg value="com.dougkoellmer.dougkoellmer"/>
-	   <!-- <arg line="-style"/>
-	  <arg value="DETAILED"/>-->
+	   <arg line="-style"/>
+	  <arg value="DETAILED"/>
     </java>
   </target>
   
