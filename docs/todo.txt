@@ -1,5 +1,3 @@
-- see how fading out the topmost layer looks when we're snapping...either that or topmost layer needs to be at a z-index higher than focused cell when on death row...yea that might work instead...and make sure buffer takes into account that perhaps topmost layer failed to load, so a meta cell layer underneath that is loaded needs to take over this duty
-
 - have hud disappear to the top
 
 - copy google maps behavior of retaining higher meta level until we stop zooming.
@@ -8,7 +6,7 @@
 
 - try to catch image load complete for when we zoom past a meta level real quick.
 
-- either delay hud animation until actual target cell appears...or alloc target cell sooner
+- hide higlight when meta cell isn't loaded but we're not showing canvas
 
 
 
@@ -40,6 +38,8 @@
 
 
 
+
+- perhaps if the target cell for a snap from a meta level is the default width/height then the meta image slowly fades out to counter the flash that occurs when the target cell has to load for the first time as a result of the snap.
 
 - spinner lagged behind behind scroll at some point pretty significantly on Android...may be better since a lot of things changed there.
 

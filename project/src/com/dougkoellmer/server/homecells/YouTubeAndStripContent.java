@@ -40,7 +40,7 @@ public class YouTubeAndStripContent extends YouTubeContent
 		m_splash += U_HomeCell.makeStripSpacerHtml();
 		m_compiled += U_HomeCell.makeStripSpacerHtml();
 
-		Tuple<String, String> tuple = U_HomeCell.makeStripHtml(servletContext, homeCell, m_css_backgroundSize, m_css_position);
+		Tuple<String, String> tuple = U_HomeCell.makeStripHtml(servletContext, homeCell, m_css_backgroundSize, m_css_position, false);
 		m_splash += tuple.getFirst();
 		m_compiled += tuple.getSecond();
 		

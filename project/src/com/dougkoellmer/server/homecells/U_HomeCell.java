@@ -81,6 +81,11 @@ public class U_HomeCell
 	
 	public static Tuple<String, String> makeStripHtml(ServletContext servletContext, E_HomeCell cell, String cssBackgroundSize, String cssPosition)
 	{
+		return makeStripHtml(servletContext, cell, cssBackgroundSize, cssPosition, true);
+	}
+	
+	public static Tuple<String, String> makeStripHtml(ServletContext servletContext, E_HomeCell cell, String cssBackgroundSize, String cssPosition, boolean includeFirstStaticImage)
+	{
 		String cellName = cell.getCellName();
 				
 		int imgCount = 0;
@@ -135,7 +140,7 @@ public class U_HomeCell
 				String img = U_HomeCell.createImgDiv(imgPath, imageHeight, cssBackgroundSize, cssPosition);
 				emptyImg = makeEmptyImg(imageHeight);
 				
-				splash += count == 0 ? img : emptyImg;
+				splash += count == 0 && includeFirstStaticImage ? img : emptyImg;
 				compiled += img;
 			}
 			
