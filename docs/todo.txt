@@ -1,12 +1,15 @@
 - have hud disappear to the top
 
-- copy google maps behavior of retaining higher meta level until we stop zooming.
-
-- don't allocate cell_1s while snapping until snapping is finished...probably related to google maps behavior
-
-- try to catch image load complete for when we zoom past a meta level real quick.
-
 - hide higlight when meta cell isn't loaded but we're not showing canvas
+
+- get rid of caja code
+
+- still have to catch image load for removed element...not happy with that not being caught...do test with plain javascript so i can post to issue tracker
+
+- white border flash when zooming in on sunglasses (assume others)...maybe get rid of total background for cell_1, revert back to loading div using override background color...maybe then pinch loading div
+
+
+
 
 
 
@@ -37,7 +40,7 @@
 
 
 
-
+- do something about going past (e.g.) meta_4 too fast over and over and having the canvas backing still always showing.
 
 - perhaps if the target cell for a snap from a meta level is the default width/height then the meta image slowly fades out to counter the flash that occurs when the target cell has to load for the first time as a result of the snap.
 
@@ -54,10 +57,6 @@
 - canvas backing scrolls with focused cell...not really a concern for now cause backing isn't visible under normal circumstances...only for debug for now
 
 - maybe use some sparse int-key-based hashmap for getCellAtAbsCoord
-
-- delay hud zoom animation until cell is visible
-
-- don't remove visual cell until it's done animating if it's still on screen
 
 - preserve aspect ratios on expansion/retraction
 

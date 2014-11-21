@@ -1,70 +1,11 @@
-<style>
-
-.waypoint_cell
-{
-	position:relative;
-	top:0px;
-	left:0px;
-	
-	width:50%;
-	height:50%;
-}
-
-.pic_wrapper
-{
-	vertical-align:center;
-	width:180px;
-	height:180px;
-	border-radius:100px;
-	
-	background:white;
-	position:absolute;
-	left:50%;
-	top:50%;
-	margin-left:-100px;
-	margin-top:-100px;
-	text-align:center;
-}
-
-.pic
-{
-	margin-top:15px;
-	
-	width:150px;
-	height:150px;
-	border-radius:75px;
-	border: 1px solid grey;
-	box-sizing:border-box;
-	-moz-box-sizing:border-box;
-}
-
-.waypoint_cell_link_text_nw, .waypoint_cell_link_text_se
-{
-	-webkit-transform: rotate(-45deg) ;
-	-moz-transform: rotate(-45deg) ;
-	-ms-transform: rotate(-45deg) ;
-	-o-transform: rotate(-45deg) ;
-}
-
-.waypoint_cell_link_text_ne, .waypoint_cell_link_text_sw
-{
-	-webkit-transform: rotate(45deg) ;
-	-moz-transform: rotate(45deg) ;
-	-ms-transform: rotate(45deg) ;
-	-o-transform: rotate(45deg) ;
-}
-
-</style>
-
-
-<div style="z-index:3;" class="pic_wrapper waypoint_cell_with_border">
-	<img src="/img/me.jpg" class="pic">
+<div style="z-index:3;" class="dk_home_pic_wrapper waypoint_cell_with_border">
+	<img src="/img/me.jpg" class="dk_home_pic">
 </div>
 
 <table class="waypoint_no_table_fluff" style="position:absolute; width:100%; height:100%;">
 	<tr>
-		<td class="waypoint_cell waypoint_cell_with_bottom_border waypoint_cell_with_right_border">
-			<a href="./preciouses" class="waypoint_cell_link">
+		<td class="dk_home_waypoint_cell waypoint_cell_with_bottom_border waypoint_cell_with_right_border">
+			<a href="javascript:dk.snap('preciouses');" class="waypoint_cell_link">
 				
 				<table class="waypoint_no_table_fluff waypoint_cell_inner_table">
 					<tr style="height:100%;"><td style="height:100%; vertical-align:top;">
@@ -76,7 +17,7 @@
 				
 				<table style="top:-100%;" class="waypoint_no_table_fluff waypoint_cell_inner_table">
 					<tr><td style="vertical-align:middle; text-align:center;">
-						<div class="waypoint_cell_link_text waypoint_cell_link_text_nw">
+						<div class="waypoint_cell_link_text dk_home_waypoint_cell_link_text_nw">
 							PRECIOUSES
 						</div>
 					</td></tr>
@@ -85,9 +26,9 @@
 			</a>
 		</td>
 		
-		<td class="waypoint_cell waypoint_cell_with_bottom_border waypoint_cell_with_left_border" style="">
+		<td class="dk_home_waypoint_cell waypoint_cell_with_bottom_border waypoint_cell_with_left_border" style="">
 			
-			<a href="./abilities" class="waypoint_cell_link">
+			<a href="javascript:dk.snap('abilities');" class="waypoint_cell_link">
 				
 				<table class="waypoint_no_table_fluff waypoint_cell_inner_table">
 					<tr><td style="text-align:right; vertical-align:top;">
@@ -100,7 +41,7 @@
 				<table style="top:-100%;" class="waypoint_no_table_fluff waypoint_cell_inner_table">
 					<tr class="">
 						<td style="width:33%; vertical-align:middle; text-align:center;">
-							<div class="waypoint_cell_link_text waypoint_cell_link_text_ne">
+							<div class="waypoint_cell_link_text dk_home_waypoint_cell_link_text_ne">
 								ABILITIES
 							</div>
 						</td>
@@ -110,9 +51,9 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="waypoint_cell waypoint_cell_with_right_border waypoint_cell_with_top_border" style="vertical-align:bottom;">
+		<td class="dk_home_waypoint_cell waypoint_cell_with_right_border waypoint_cell_with_top_border" style="vertical-align:bottom;">
 			
-			<a href="./creations" class="waypoint_cell_link">
+			<a href="javascript:dk.snap('creations');" class="waypoint_cell_link">
 				
 				<table class="waypoint_no_table_fluff waypoint_cell_inner_table">
 					<tr><td style="text-align:left; vertical-align:bottom;">
@@ -124,7 +65,7 @@
 				
 				<table style="top:-100%;" class="waypoint_no_table_fluff waypoint_cell_inner_table">
 					<tr><td style="vertical-align:middle; text-align:center;">
-						<div class="waypoint_cell_link_text waypoint_cell_link_text_sw">
+						<div class="waypoint_cell_link_text dk_home_waypoint_cell_link_text_sw">
 							CREATIONS
 						</div>
 					</td></tr>
@@ -134,9 +75,9 @@
 			
 		</td>
 		
-		<td class="waypoint_cell waypoint_cell_with_left_border waypoint_cell_with_top_border" style="vertical-align:bottom; text-align:right;">
+		<td class="dk_home_waypoint_cell waypoint_cell_with_left_border waypoint_cell_with_top_border" style="vertical-align:bottom; text-align:right;">
 			
-			<a href="./software" class="waypoint_cell_link">
+			<a href="javascript:dk.snap('software');" class="waypoint_cell_link">
 				
 				<table class="waypoint_no_table_fluff waypoint_cell_inner_table">
 					<tr><td style="text-align:right; vertical-align:bottom;">
@@ -148,7 +89,7 @@
 				
 				<table style="top:-100%;" class="waypoint_no_table_fluff waypoint_cell_inner_table">
 					<tr><td style="vertical-align:middle; text-align:center;">
-						<div class="waypoint_cell_link_text waypoint_cell_link_text_se">
+						<div class="waypoint_cell_link_text dk_home_waypoint_cell_link_text_se">
 							SOFTWARE
 						</div>
 					</td></tr>

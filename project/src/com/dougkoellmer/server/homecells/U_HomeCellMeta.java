@@ -146,7 +146,7 @@ public class U_HomeCellMeta
 	{
 		switch(cell)
 		{
-			case HOME:							return new FileBasedHomeCellContent("home", Type.VIRTUALIZED);
+			case HOME:							return new FileBasedHomeCellContent("home", Type.RAW);
 			
 			case PRECIOUSES:					return new ThumbnailHomeCellContent();
 			case SWORD:							return new StripContent(cell);
@@ -169,7 +169,7 @@ public class U_HomeCellMeta
 //			case ONE_HAND_MATCH_LIGHT:			return new CellComingSoonContent();
 //			case FAST_SHIRT_SWAP:				return new CellComingSoonContent();
 				
-			case SOFTWARE:						return new FileBasedHomeCellContent("software", Type.VIRTUALIZED);
+			case SOFTWARE:						return new FileBasedHomeCellContent("software", Type.RAW);
 			case FOR_COMPUTERS:					return new ThumbnailHomeCellContent();
 			case PRESSURE:						return new IFrameContent(cell, "/games/pressure", true, "center");
 			case PRESSURE_AND_HEAT:				return new IFrameContent(cell, "/games/pressure_and_heat", true, "center");
@@ -198,8 +198,8 @@ public class U_HomeCellMeta
 			case WHAT_IS_CORROSION:				return new FileBasedHomeCellContent("corrosion", Type.RAW);
 			case PERFECT_COFFEE:				return new FileBasedHomeCellContent("coffee", Type.RAW);
 			
-			case CREATIONS:						return new FileBasedHomeCellContent("creations", Type.VIRTUALIZED);
-			case USEFUL:						return new FileBasedHomeCellContent("useful", Type.VIRTUALIZED);
+			case CREATIONS:						return new FileBasedHomeCellContent("creations", Type.RAW);
+			case USEFUL:						return new FileBasedHomeCellContent("useful", Type.RAW);
 			case INVENTIONS:					return new ThumbnailHomeCellContent();
 			case BIKE_CARD_THING:				return new CellComingSoonContent();
 			case DOWEL_HOLDER:					return new CellComingSoonContent();
