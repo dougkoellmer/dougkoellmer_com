@@ -20,7 +20,11 @@
   
   <!-- <set-property name="compiler.stackMode" value="emulated" /> -->
   
+  <add-linker name="std"/>
   <set-configuration-property name="devModeRedirectEnabled" value="true" />
+  
+  <!--<set-configuration-property name="installCode" value="true" />
+  <set-property name="compiler.useSourceMaps" value="true" /> -->
 
   <!-- Specify the app entry point class.                         -->
    <entry-point class='com.dougkoellmer.client.app.ClientApp'/>
