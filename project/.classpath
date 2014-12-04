@@ -5,13 +5,13 @@
 	<classpathentry excluding="com/dougkoellmer/dummy/" kind="src" path="src"/>
 	<classpathentry kind="src" path="lib/json"/>
 	<classpathentry excluding="swarm/client/js/bhI_Config.java|swarm/client/js/bhJsConfig.java" kind="src" path="lib/swarm/src"/>
-	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/App Engine"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/pluginc.jar" sourcepath="war/WEB-INF/lib/pluginc-src.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/joda-time-2.3.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/recaptcha4j-0.0.8.jar"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/GWT (1)"/>
+	<classpathentry exported="true" kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

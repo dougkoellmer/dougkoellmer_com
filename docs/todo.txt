@@ -1,14 +1,16 @@
 - have hud disappear to the top
 
-- hide higlight when meta cell isn't loaded but we're not showing canvas
+- put thumbnails on a sprite plate
 
-- get rid of caja code
+- still have to catch image load for removed element...not happy with that not being caught...do test with plain javascript so i can post to issue tracker.....hmm might be that setcode queue is the issue...might have to get fancier with meta preloading
 
-- still have to catch image load for removed element...not happy with that not being caught...do test with plain javascript so i can post to issue tracker
+- fix flashing of canvas backing when zooming out real fast
 
-- white border flash when zooming in on sunglasses (assume others)...maybe get rid of total background for cell_1, revert back to loading div using override background color...maybe then pinch loading div
+- interested if we're doing double work dragging while cell is animating back to default size
 
+- get rid of either jquery or images loaded when meta loading is figured out
 
+- make sure not setting code for intermediate cells for a cell_1 to cell_1 snap
 
 
 
