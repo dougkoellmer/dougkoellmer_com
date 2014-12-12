@@ -78,7 +78,7 @@ public class YouTubeContent implements I_HomeCellContent
 		embedOptions += "autoplay=1";
 		
 		String imgPath = U_HomeCell.getImgPath(m_thumbType.getImgUrl(m_videoId));
-		m_splash = U_HomeCell.createImgDiv(imgPath, S_HomeCell.DEFAULT_CELL_SIZE, m_css_backgroundSize, m_css_position);
+		m_splash = U_HomeCell.createImgDiv(imgPath, S_HomeCell.DEFAULT_CELL_SIZE, m_css_backgroundSize, m_css_position, /*doOverflow=*/true);
 		m_splash += U_HomeCell.createPlayIcon(E_PlayIcon.LARGE);
 		m_compiled = "<iframe width='100%' height='"+S_HomeCell.DEFAULT_CELL_SIZE+"px;' src='http://www.youtube.com/embed/"+m_videoId+"?"+embedOptions+"' frameborder='0' allowfullscreen></iframe>";
 	}

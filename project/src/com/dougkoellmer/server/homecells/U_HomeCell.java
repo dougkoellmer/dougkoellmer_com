@@ -32,9 +32,10 @@ public class U_HomeCell
 		return html.replaceAll("<script>.*GoogleAnalyticsObject.*</script>", "");
 	}
 	
-	public static String createImgDiv(String source, int maxHeight, String backgroundSize, String position)
+	public static String createImgDiv(String source, int maxHeight, String backgroundSize, String position, boolean doOverflow)
 	{
-		return "<div style=\"background-repeat:no-repeat; width:100%; max-height:"+maxHeight+"px; height:100%; "+ backgroundSize+" "+position+" background-image:url('"+source+"');\"></div>";
+		String percentage = doOverflow ? S_App.IMAGE_CORRECTION_OVERFLOW : "100%";
+		return "<div style=\"background-repeat:no-repeat; width:"+percentage+"; max-height:"+maxHeight+"px; height:"+percentage+"; "+ backgroundSize+" "+position+" background-image:url('"+source+"');\"></div>";
 	}
 	
 	private static final double PLAY_ICON_ALPHA = .85;
@@ -137,7 +138,7 @@ public class U_HomeCell
 				}
 				
 				imgPath = U_HomeCell.getImgPath(imgPath);
-				String img = U_HomeCell.createImgDiv(imgPath, imageHeight, cssBackgroundSize, cssPosition);
+				String img = U_HomeCell.createImgDiv(imgPath, imageHeight, cssBackgroundSize, cssPosition, /*doOverflow=*/true);
 				emptyImg = makeEmptyImg(imageHeight);
 				
 				splash += count == 0 && includeFirstStaticImage ? img : emptyImg;

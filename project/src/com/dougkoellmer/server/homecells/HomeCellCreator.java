@@ -15,8 +15,11 @@ import org.w3c.tidy.Tidy;
 import org.w3c.tidy.TidyMessage;
 import org.w3c.tidy.TidyMessageListener;
 
+import com.dougkoellmer.server.app.ServerApp;
 import com.dougkoellmer.server.app.VersionTracker;
+import com.dougkoellmer.shared.app.S_App;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
+import com.dougkoellmer.shared.homecells.S_HomeCell;
 import com.dougkoellmer.shared.homecells.U_HomeCellSize;
 
 import swarm.shared.entities.E_CharacterQuota;
@@ -93,6 +96,21 @@ public class HomeCellCreator implements I_HomeCellCreator {
 
 	public void run(TransactionRequest request, TransactionResponse response, TransactionContext context, UserSession session, ServerUser user)
 	{
+		int homeCellIndex = 0;
+		for( int i = 0; i < S_HomeCell.GRID_SIZE; i++ )
+		{
+			for( int j = 0; j < S_HomeCell.GRID_SIZE; j++ )
+			{
+				E_HomeCell cell = E_HomeCell.get(j, i);
+				
+				if( cell != null )
+				{
+					cell.setIndex(homeCellIndex);
+					homeCellIndex++;
+				}
+			}
+		}
+		
 		ServerCodePrivileges privileges = new ServerCodePrivileges();
 		privileges.setNetworkPrivilege(E_NetworkPrivilege.ALL);
 		privileges.setCharacterQuota(E_CharacterQuota.TIER_1);

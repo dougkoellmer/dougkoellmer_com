@@ -1,14 +1,20 @@
 package com.dougkoellmer.server.homecells;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletContext;
 
+import org.apache.commons.io.IOUtils;
+
 import com.dougkoellmer.server.entities.ServerGrid;
 import com.dougkoellmer.server.homecells.U_HomeCell.E_PlayIcon;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.dougkoellmer.shared.homecells.S_HomeCell;
+import com.google.appengine.api.images.Image;
+import com.google.appengine.api.images.ImagesServiceFactory;
 
 import swarm.server.thirdparty.servlet.U_Servlet;
 import swarm.shared.entities.E_CodeSafetyLevel;
@@ -30,6 +36,25 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
+		final String thumbPlateUrl = "/img/cell_content/thumbs/auto/thumb_plate.jpg";
+		
+		InputStream imageStream = servletContext.getResourceAsStream(thumbPlateUrl);
+		byte[] imageData = null;
+		try {
+			imageData = IOUtils.toByteArray(imageStream);
+		} catch (IOException e) {}			
+		Image image = ImagesServiceFactory.makeImage(imageData);
+		
+		int padding = 2;
+		double percentage = ((double)S_HomeCell.THUMB_SIZE+padding)/((double)S_HomeCell.THUMB_ACTUAL_SIZE);
+		int plateWidth = image.getWidth();
+		int plateHeight = image.getHeight();
+		double scaledPlateWidth = (plateWidth*percentage);
+		double scaledPlateHeight = (plateHeight*percentage);
+		
+		
+		String backgroundSize = scaledPlateWidth+"px "+scaledPlateHeight+"px";
+		
 		String trClass = "class='dk_thumb_row'";
 		StringBuilder builder = new StringBuilder();
 //		builder.append("<link type='text/css' rel='stylesheet' href='/r.app/min.css?v=1410714686'/>");
@@ -72,8 +97,6 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				String address = "javascript:dk.snap('"+child.getPrimaryAddress().getRaw()+"');";
 				
 				String thumbUrl = "/img/cell_content/thumbs/auto/"+child.getCoordinate().writeString()+".jpg";
-				boolean videoThumb = false;
-				String videoId = U_HomeCellMeta.getVideoId(child);
 
 				if( !U_Servlet.fileExists(servletContext, thumbUrl) )
 				{
@@ -82,7 +105,18 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				
 				thumbUrl = U_HomeCell.getImgPath(thumbUrl);
 				
-				String thumbHtml = "<img class='dk_thumb_cell_img' src='"+thumbUrl+"'>";
+				int index= child.getIndex();
+				int plateM = index % S_HomeCell.THUMBNAIL_SPRITE_PLATE_WIDTH;
+				int plateN = (index-plateM) / S_HomeCell.THUMBNAIL_SPRITE_PLATE_WIDTH;
+				int offsetM = (int) (-((S_HomeCell.THUMB_SIZE+padding)*plateM));
+				int offsetN = (int) (-((S_HomeCell.THUMB_SIZE+padding)*plateN));
+				
+				offsetM-=1;
+				offsetN-=1;
+				
+//				String thumbHtml = "<img class='dk_thumb_cell_img' src='"+thumbUrl+"'>";
+				
+				String thumbHtml = "<div class='dk_thumb_cell_img' style=\"background-position:"+offsetM+"px "+offsetN+"px; ;background-size:"+backgroundSize+"; background-repeat:no-repeat; background-image:url('"+thumbPlateUrl+"')\"></div>";
 				
 				builder.append("<td "+tdClass+" " + tdStyle + ">");
 				builder.append("<a href=\""+address+"\" class='waypoint_cell_link'>");

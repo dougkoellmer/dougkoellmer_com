@@ -1,23 +1,28 @@
 - have hud disappear to the top
 
-- put thumbnails on a sprite plate
+- put thumbnails on a sprite plate...when refreshHomeCells have to iterate topleft-to bottomright and give cells an index then use that index mod 10 or whatever to get position in sprite plate
 
 - still have to catch image load for removed element...not happy with that not being caught...do test with plain javascript so i can post to issue tracker.....hmm might be that setcode queue is the issue...might have to get fancier with meta preloading
 
 - fix flashing of canvas backing when zooming out real fast
 
-- interested if we're doing double work dragging while cell is animating back to default size
+- read about new injection format, if it's much better make a sample app and see how it's done
 
-- get rid of either jquery or images loaded when meta loading is figured out
+- snap to canvas wrapping after a hard refresh...notice white flash of nearby cells (works with other cells too, but need hard refresh)...actually doesn't need snap...when solution is 
 
-- make sure not setting code for intermediate cells for a cell_1 to cell_1 snap
+- see if imagesLoaded handles setting to one image then setting to another image...do we get two callbacks?
+
+- see if we can bring meta filesize down a bit without quality impact...some of them are approaching a meg in size
+
+- see what that cache_miss thing is about
 
 
 
 
 
+- perhaps have delay for actually showing the cell_1 loading animation...so for .5 seconds or whatever it's invisible then fades in real quick...this is to limit the jarring effect it has for most of the time when it's just appearing for a brief instant before the code is retrieved from server...on the same token meta cells won't behave like this...they always have to show loading animation 
 
-- still seems like on mobile that loaded cell_1s go white when you zoom out to cell_2/4/whatever
+- still seems like on mobile that loaded cell_1s go white when you zoom out to cell_2/4/whatever...might be fixed now that meta doesn't use gpu
 
 
 
@@ -49,10 +54,6 @@
 - spinner lagged behind behind scroll at some point pretty significantly on Android...may be better since a lot of things changed there.
 
 - hud appears fine and animates well before cells and focuser appear when going going between history states with different app sessions
-
-- perhaps somehow keep meta cells in buffer if there is a problem loading the meta cells or cell_1's underneath?
-
-- perhaps correctly z-order meta cells on kill queue that are over a cell_1...for now they're all piled together at the same z index...not a big deal though
 
 - make it so focused spinner doesn't go off the bottom or right when all the way scrolled over with a really thin window...make it behave kinda like the cell hud does when it's totally collapsed down...kinda ghosts along the opposite direction of the scroll
 

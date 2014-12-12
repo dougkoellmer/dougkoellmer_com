@@ -148,6 +148,7 @@ public enum E_HomeCell
 	private final CellAddress m_secondaryAddress;
 	private final ArrayList<E_HomeCell> m_children = new ArrayList<E_HomeCell>();
 	private final E_HomeCell m_parent;
+	private int m_index = 0;
 	
 	private E_HomeCell(int offsetM, int offsetN)
 	{
@@ -209,6 +210,16 @@ public enum E_HomeCell
 		{
 			S_HomeCellHelper.s_cellStack.add(this);
 		}
+	}
+	
+	public void setIndex(int index)
+	{
+		m_index = index;
+	}
+	
+	public int getIndex()
+	{
+		return m_index;
 	}
 	
 	public E_HomeCell getParent()
@@ -276,5 +287,19 @@ public enum E_HomeCell
 	private int n()
 	{
 		return getCoordinate().getN();
+	}
+	
+	public static E_HomeCell get(int m, int n)
+	{
+		for( int i = 0; i < values().length; i++ )
+		{
+			E_HomeCell ith = values()[i];
+			if( ith.m() == m && ith.n() == n )
+			{
+				return ith;
+			}
+		}
+		
+		return null;
 	}
 }

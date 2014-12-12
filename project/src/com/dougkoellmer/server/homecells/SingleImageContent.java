@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 
 import org.apache.commons.io.IOUtils;
 
+import com.dougkoellmer.shared.app.S_App;
 import com.dougkoellmer.shared.homecells.E_HomeCell;
 import com.dougkoellmer.shared.homecells.S_HomeCell;
 import com.google.appengine.api.images.Image;
@@ -77,7 +78,8 @@ public class SingleImageContent implements I_HomeCellContent
 		int maxHeight = imageHeight < S_HomeCell.DEFAULT_CELL_SIZE ? S_HomeCell.DEFAULT_CELL_SIZE : imageHeight;
 		
 		imgPath = U_HomeCell.getImgPath(imgPath);
-		m_sourceCode = "<div style=\"background-repeat:no-repeat; width:100%; max-height:"+maxHeight+"px; height:100%; "+heightWidth+" "+position+" background-image:url('"+imgPath+"');\"></div>";
+		String percentage = S_App.IMAGE_CORRECTION_OVERFLOW;
+		m_sourceCode = "<div style=\"background-repeat:no-repeat; width:"+percentage+"; max-height:"+maxHeight+"px; height:"+percentage+"; "+heightWidth+" "+position+" background-image:url('"+imgPath+"');\"></div>";
 	}
 	
 	public String getCode(E_CodeType eCodeType)
