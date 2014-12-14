@@ -149,7 +149,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	/**
 	 * This is the entry point method.
 	 */
-	public void onModuleLoad()
+	@Override public void onModuleLoad()
 	{
 		super.startUp(E_StartUpStage.values()[0]);
 	}

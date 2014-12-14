@@ -57,7 +57,6 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		
 		String trClass = "class='dk_thumb_row'";
 		StringBuilder builder = new StringBuilder();
-//		builder.append("<link type='text/css' rel='stylesheet' href='/r.app/min.css?v=1410714686'/>");
 		builder.append("<div style='width:100%; height:100%; font-size:0px; overflow:hidden;'>");
 		builder.append("<table style='' class='dk_thumb_table'><tr "+trClass+">");
 		

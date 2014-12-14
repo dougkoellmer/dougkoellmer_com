@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<project name="dougkoellmer_com" default="build_all" basedir=".">
+<project name="Dougkoellmer_com" default="build_all" basedir=".">
   <!-- Arguments to gwtc and devmode targets -->
   <property name="gwt.args" value="" />
 
@@ -62,7 +62,7 @@
       <arg value="war"/>
       <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
       <arg line="${gwt.args}"/>
-	  <arg value="com.dougkoellmer.dougkoellmer"/>
+	  <arg value="com.dougkoellmer.Dougkoellmer_com"/>
 	   <!--<arg line="-style"/>
 	  <arg value="DETAILED"/> -->
     </java>
@@ -85,7 +85,7 @@
 		  <arg value="minify_css.sh" />
 		</exec>
 	
-	<copy file="./lib/swarm/bin/min.css" todir="./war/r.app/" />
+	<copy file="./lib/swarm/bin/min.css" todir="./war/dougkoellmer_com/" />
 	
 	 <exec executable="sh" newenvironment="false" dir="../scripts/client/">
 		  <arg value="minify_css.sh" />

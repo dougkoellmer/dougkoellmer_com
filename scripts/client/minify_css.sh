@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SWARM_CSS_DIR=../../project/war/r.app
+SWARM_CSS_DIR=../../project/war/dougkoellmer_com
 DK_CSS_DIR=../../project/src/com/dougkoellmer/shared/css
 
 

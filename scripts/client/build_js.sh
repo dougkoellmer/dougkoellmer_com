@@ -25,12 +25,18 @@ JQUERY_DIR="$SWARM_JS_DIR/jquery"
 TEMP_OUT_DIR="./temp"
 cat $IS_MOBILE_DIR/is_mobile.js $IMAGES_LOADED_DIR/images_loaded.min.js $UTILS_DIR/utils.min.js $HISTORY_DIR/native.history_min.js $MODERNIZR_DIR/modernizr.custom.90450.js $CM_DIR/cm_min.js $FASTCLICK_DIR/fastclick.min.js > $TEMP_OUT_DIR/dependencies.min.js
 
+MODULE_NAME=dougkoellmer_com
 # cat minified support and main app js bootstrapper into one file.
-APP_JS=$(realpath ../../project/war/r.app/r.app.nocache.js)
+APP_JS=$(realpath ../../project/war/$MODULE_NAME/$MODULE_NAME.nocache.js)
 JS_MIN_OUT=min.js
 SUPPORT_JS="$TEMP_OUT_DIR/dependencies.min.js"
-MODULE=$(realpath ../../project/war/r.app)
+MODULE=$(realpath ../../project/war/$MODULE_NAME)
 cat $SUPPORT_JS $APP_JS > "$MODULE/$JS_MIN_OUT"
+#cat "$MODULE/$JS_MIN_OUT" > $APP_JS
+
+cd ../../project/war/$MODULE_NAME
+cp *.cache.js ../
+cd -
 
 # update the query string in the js link in the html in order to force-clear the cache.
 JSP=$(realpath ../../project/war/index.jsp)

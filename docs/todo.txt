@@ -1,20 +1,17 @@
 - have hud disappear to the top
 
-- put thumbnails on a sprite plate...when refreshHomeCells have to iterate topleft-to bottomright and give cells an index then use that index mod 10 or whatever to get position in sprite plate
-
 - still have to catch image load for removed element...not happy with that not being caught...do test with plain javascript so i can post to issue tracker.....hmm might be that setcode queue is the issue...might have to get fancier with meta preloading
 
 - fix flashing of canvas backing when zooming out real fast
-
-- read about new injection format, if it's much better make a sample app and see how it's done
 
 - snap to canvas wrapping after a hard refresh...notice white flash of nearby cells (works with other cells too, but need hard refresh)...actually doesn't need snap...when solution is 
 
 - see if imagesLoaded handles setting to one image then setting to another image...do we get two callbacks?
 
-- see if we can bring meta filesize down a bit without quality impact...some of them are approaching a meg in size
+- see about preserving url when doing direct snap to another cell...same way it works when using forward/back
 
-- see what that cache_miss thing is about
+- go to rose art thumbs, click rose, click back on rose then quick click to back off...you can now go to two floating history states in a row
+
 
 
 
