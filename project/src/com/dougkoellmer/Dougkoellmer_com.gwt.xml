@@ -6,13 +6,19 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.7.0//EN"
   "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 <module rename-to='dougkoellmer_com'>
+
+
   <!-- Inherit the core Web Toolkit stuff.                        -->
-  <inherits name='com.google.gwt.user.User'/>
-  <inherits name='com.google.gwt.user.User'/>
+<!--   <inherits name='com.google.gwt.user.User'/> -->
   <inherits name='com.google.gwt.json.JSON'/>
   <inherits name="com.google.gwt.logging.Logging"/>
   <inherits name="com.google.gwt.xml.XML"/>
   <inherits name="swarm.gwt_module"/>
+  
+  <source path="domain">
+   <exclude name="**/DriftFileBits.*" />
+	</source>
+  
 
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->

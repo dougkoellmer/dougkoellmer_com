@@ -11,11 +11,13 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
+<base href="/" target="_blank">
+
 <title>Doug Koellmer</title>
 
 <link rel="shortcut icon" href="/favicon.ico?v=4" />
 
-<link type="text/css" rel="stylesheet" href="/dougkoellmer_com/min.css?v=1418518915" />
+<link type="text/css" rel="stylesheet" href="/dougkoellmer_com/min.css?v=1419047156" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
@@ -39,7 +41,7 @@ var RecaptchaOptions={theme : 'custom'};
 	var dk_config = 
 	{
 		minSnapTime:.3,
-		//minSnapTime:5,
+		//minSnapTime:2.5,
 		magFadeInTime_seconds:dk_backOffTime,
 		hudFadeOutTime_seconds:dk_backOffTime,
 		cellSizeChangeTime_seconds:dk_backOffTime,
@@ -88,6 +90,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="dougkoellmer_com/min.js?v=1418518915"></script>
+	<script type="text/javascript" src="/dougkoellmer_com/min.js?v=1419047155"></script>
 </body>
 </html>

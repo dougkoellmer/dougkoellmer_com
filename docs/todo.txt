@@ -6,12 +6,7 @@
 
 - snap to canvas wrapping after a hard refresh...notice white flash of nearby cells (works with other cells too, but need hard refresh)...actually doesn't need snap...when solution is 
 
-- see if imagesLoaded handles setting to one image then setting to another image...do we get two callbacks?
-
-- see about preserving url when doing direct snap to another cell...same way it works when using forward/back
-
-- go to rose art thumbs, click rose, click back on rose then quick click to back off...you can now go to two floating history states in a row
-
+- perhaps delay popping of snap target until it's loaded if we start from meta level, with failsafe pop when we get down to cell_1 territory
 
 
 
@@ -24,6 +19,8 @@
 
 
 
+
+- do a direct snap to rose, click up, wait for snap complete...press back then up again before reaching rose and wait for snap complete to rose parent...notice that rose parent is now the base history state...stole it from rose
 
 
 - double-chcek gpu usage

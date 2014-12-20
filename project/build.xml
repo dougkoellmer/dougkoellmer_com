@@ -45,8 +45,14 @@
       <fileset dir="src" excludes="**/*.java"/>
     </copy>
   </target>
+  
+  <target name="clean_js" description="Cleans GWT output">
+	  <exec executable="sh" newenvironment="false" dir="../scripts/client">
+		  <arg value="./clean_js.sh" />
+	</exec>
+  </target>
 
-  <target name="gwtc" depends="javac" description="GWT compile to JavaScript (production mode)">
+  <target name="gwtc" depends="javac,clean_js" description="GWT compile to JavaScript (production mode)">
     <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
       <classpath>
         <pathelement location="src"/>

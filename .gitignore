@@ -16,3 +16,5 @@ scripts/client/image_stage/*
 project/lib/swarm
 
 account.properties
+*.symbolMap
+*.cache.js
