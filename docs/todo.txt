@@ -6,7 +6,7 @@
 
 - snap to canvas wrapping after a hard refresh...notice white flash of nearby cells (works with other cells too, but need hard refresh)...actually doesn't need snap...when solution is 
 
-- perhaps delay popping of snap target until it's loaded if we start from meta level, with failsafe pop when we get down to cell_1 territory
+- perhaps delay popping of snap target until it's loaded if we start from meta level, with failsafe pop when we get down to cell_1 territory...this would hopefully mitigate flashing of snap target while it's loading/rendering
 
 
 

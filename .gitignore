@@ -18,3 +18,8 @@ project/lib/swarm
 account.properties
 *.symbolMap
 *.cache.js
+project/war/dougkoellmer_com/min.js
+project/war/dougkoellmer_com/compilation-mappings.txt
+project/war/dougkoellmer_com/compilation-mappings.txt
+project/war/dougkoellmer_com/dougkoellmer_com.nocache.js
+project/war/index.min.jsp
