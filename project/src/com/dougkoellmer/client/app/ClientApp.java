@@ -35,6 +35,7 @@ import swarm.client.view.E_ZIndex;
 import swarm.client.view.S_UI;
 import swarm.client.view.ViewConfig;
 import swarm.client.view.ViewController;
+import swarm.client.view.cell.Cell1ImageLoader;
 import swarm.client.view.cell.GifSpinner;
 import swarm.client.view.cell.I_CellSpinner;
 import swarm.client.view.cell.I_CellSpinnerFactory;
@@ -168,6 +169,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	protected void stage_startViewManagers()
 	{
 		m_viewContext.metaImageLoader = new MetaImageLoader(m_viewConfig.metaQueuePopRate);
+		m_viewContext.cell1ImageLoader = new Cell1ImageLoader();
 		m_viewContext.clickMngr = new ClickManager();
 		
 		m_viewContext.toolTipMngr = new ToolTipManager(m_appContext.platformInfo.getPlatform() != E_Platform.IOS, S_UI.TOOL_TIP_DELAY);

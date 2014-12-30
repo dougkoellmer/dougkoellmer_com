@@ -1,12 +1,17 @@
 - have hud disappear to the top
 
-- still have to catch image load for removed element...not happy with that not being caught...do test with plain javascript so i can post to issue tracker.....hmm might be that setcode queue is the issue...might have to get fancier with meta preloading
-
-- fix flashing of canvas backing when zooming out real fast
-
 - snap to canvas wrapping after a hard refresh...notice white flash of nearby cells (works with other cells too, but need hard refresh)...actually doesn't need snap...when solution is 
 
 - perhaps delay popping of snap target until it's loaded if we start from meta level, with failsafe pop when we get down to cell_1 territory...this would hopefully mitigate flashing of snap target while it's loading/rendering
+
+- remove higher meta cell when all the cells the meta cell is covering are loaded (already doing it?), and vice versa...might be able to extend kill queue time as a result cause for normal use cases death may occur even sooner and for when loading takes a while we still have the out-of-band cell(s) there even if it's not the optimal represenation
+
+- rewrite history manager...example bug: do a direct snap to rose, click up, wait for snap complete...press back then up again before reaching rose and wait for snap complete to rose parent...notice that rose parent is now the base history state...stole it from rose
+
+- check this: still seems like on mobile that loaded cell_1s go white when you zoom out to cell_2/4/whatever...might be fixed now that meta doesn't use gpu...nothing to do if it still acts like that
+
+
+
 
 
 
@@ -14,13 +19,13 @@
 
 - perhaps have delay for actually showing the cell_1 loading animation...so for .5 seconds or whatever it's invisible then fades in real quick...this is to limit the jarring effect it has for most of the time when it's just appearing for a brief instant before the code is retrieved from server...on the same token meta cells won't behave like this...they always have to show loading animation 
 
-- still seems like on mobile that loaded cell_1s go white when you zoom out to cell_2/4/whatever...might be fixed now that meta doesn't use gpu
 
 
 
 
 
-- do a direct snap to rose, click up, wait for snap complete...press back then up again before reaching rose and wait for snap complete to rose parent...notice that rose parent is now the base history state...stole it from rose
+
+
 
 
 - double-chcek gpu usage

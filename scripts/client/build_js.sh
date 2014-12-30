@@ -22,8 +22,9 @@ UTILS_DIR="$SWARM_JS_DIR/utils"
 IMAGES_LOADED_DIR="$SWARM_JS_DIR/images_loaded"
 IS_MOBILE_DIR="$SWARM_JS_DIR/is_mobile"
 JQUERY_DIR="$SWARM_JS_DIR/jquery"
+WAITFORIMAGES_DIR="$SWARM_JS_DIR/wait_for_images"
 TEMP_OUT_DIR="./temp"
-cat $IS_MOBILE_DIR/is_mobile.js $IMAGES_LOADED_DIR/images_loaded.min.js $UTILS_DIR/utils.min.js $HISTORY_DIR/native.history_min.js $MODERNIZR_DIR/modernizr.custom.90450.js $CM_DIR/cm_min.js $FASTCLICK_DIR/fastclick.min.js > $TEMP_OUT_DIR/dependencies.min.js
+cat $JQUERY_DIR/jquery.min.js $WAITFORIMAGES_DIR/min.js $IS_MOBILE_DIR/is_mobile.js $IMAGES_LOADED_DIR/images_loaded.min.js $UTILS_DIR/utils.min.js $HISTORY_DIR/native.history_min.js $MODERNIZR_DIR/modernizr.custom.90450.js $CM_DIR/cm_min.js $FASTCLICK_DIR/fastclick.min.js > $TEMP_OUT_DIR/dependencies.min.js
 
 MODULE_NAME=dougkoellmer_com
 # cat minified support and main app js bootstrapper into one file.
