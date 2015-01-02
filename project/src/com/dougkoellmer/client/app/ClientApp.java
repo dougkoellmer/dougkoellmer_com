@@ -90,7 +90,7 @@ public class ClientApp extends A_ClientApp implements EntryPoint
 	
 	public ClientApp()
 	{
-		super(makeAppConfig(), makeViewConfig());
+		super(makeAppConfig(), makeViewConfig(), new DkViewContext());
 	}
 	
 	private static ClientAppConfig makeAppConfig()

@@ -27,6 +27,7 @@ public class DkViewController extends ViewController
 		
 		VisualCellContainer cellContainer = m_viewContext.splitPanel.getCellContainer();
 		VisualCellHud cellHud = new VisualCellHud(m_viewContext, m_appConfig);
+		m_viewContext.cellHud = cellHud;
 		this.addStateListener(cellHud);
 		cellContainer.getScrollContainer().add(cellHud);
 		
