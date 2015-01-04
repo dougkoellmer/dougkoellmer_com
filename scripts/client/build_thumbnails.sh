@@ -18,7 +18,7 @@ do
 	
 	convert.exe $entry -resize $THUMB_SIZE^ -gravity "NORTH" -quality $IMG_QUALITY -extent $THUMB_SIZE $thumb
 	
-	#echo $entry $thumb
+	echo $entry $thumb
 	
 done
 

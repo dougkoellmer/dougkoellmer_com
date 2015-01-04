@@ -2,6 +2,18 @@
 
 
 
+- thumb plate is off
+
+- generating too much crap in thumbnails auto dir
+
+
+
+- perhaps don't server-load code for surrounding cells for snap
+
+
+
+
+
 - rewrite history manager...example bug: do a direct snap to rose, click up, wait for snap complete...press back then up again before reaching rose and wait for snap complete to rose parent...notice that rose parent is now the base history state...stole it from rose
 
 - check this post next release: still seems like on mobile that loaded cell_1s go white when you zoom out to cell_2/4/whatever...might be fixed now that meta doesn't use gpu...nothing to do if it still acts like that
@@ -41,9 +53,7 @@
 
 
 
-- do something about going past (e.g.) meta_4 too fast over and over and having the canvas backing still always showing.
-
-- perhaps if the target cell for a snap from a meta level is the default width/height then the meta image slowly fades out to counter the flash that occurs when the target cell has to load for the first time as a result of the snap.
+- don't hit server for cell sizes for interim/snap-adjacent cells while snapping...not a problem for my website for now cause everything's generated locally at start up.
 
 - spinner lagged behind behind scroll at some point pretty significantly on Android...may be better since a lot of things changed there.
 
@@ -92,7 +102,7 @@
 
 - detect platform capability (through fps or something) and accordingly skip meta levels and/or use lower rez meta images
 
-- hud slightly too short on mobile browsers...no idea why...hacked for now to do mobile check but it don't make sense
+- hud slightly too short on mobile browsers...no idea why...hacked for now to do mobile check and add one pixel but it don't make sense
 
 
 
