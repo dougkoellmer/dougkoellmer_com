@@ -28,3 +28,5 @@ project/war/dougkoellmer_com/dougkoellmer_com.nocache.js
 project/war/dougkoellmer_com/compilation-mappings.txt
 project/war/index.min.jsp
 project/war/dougkoellmer_com/compilation-mappings.txt
+scripts/client/meta_temp/*
+scripts/client/meta_temp/package.json

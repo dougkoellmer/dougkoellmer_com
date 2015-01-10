@@ -25,6 +25,8 @@ do
 		URL="$SERVER/$CELL?take_snapshot"
 		URL_ESCAPED="$SERVER_ESCAPED\/$CELL?take_snapshot"
 		
+		echo "curling ${URL}..."
+		
 		RESPONSE_CODE=`curl -s -o /dev/null -I -w "%{http_code}" $URL`
 		
 		if [ "$RESPONSE_CODE" != "$HTTP_ERROR_CODE" ]
@@ -46,6 +48,7 @@ do
 			chmod 777 "$FILE.tmp"
 			rm "$FILE.tmp"
 			
+			echo "SNAPPING"
 			$SNAPSHOT_TOOL
 		fi
 	done
