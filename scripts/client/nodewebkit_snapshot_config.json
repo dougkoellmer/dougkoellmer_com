@@ -1,0 +1,13 @@
+{
+  "name": "screen_snipe",
+  "main": "{{url}}",
+  "window":
+  {
+	"width": 512,
+    "height": 512,
+	"frame":false,
+	"toolbar":false,
+	"show":false
+  },
+  "node-remote":"<local>"
+}

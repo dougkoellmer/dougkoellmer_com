@@ -1,14 +1,13 @@
 - have hud disappear to the top
 
 
+- fix snapshots of various home and thumb cells
 
 - thumb plate is off
 
 - generating too much crap in thumbnails auto dir
 
-
-
-- perhaps don't server-load code for surrounding cells for snap
+- slow down snap, go to canvas bag cell, press up, then press up again...hud goes back to bag (or something like that) instead of adjusting mid-flight
 
 
 
