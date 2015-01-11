@@ -12,6 +12,8 @@ SERVER=http://127.0.0.1:8888/r.preview/splash
 SERVER_ESCAPED="http:\/\/127.0.0.1:8888\/r.preview\/splash"
 CROP_OFFSET=3
 
+mkdir $OUT_DIR
+
 for n in `seq 1 $GRID_SIZE`;
 do
 	for m in `seq 1 $GRID_SIZE`;

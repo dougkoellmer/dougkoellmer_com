@@ -1,6 +1,6 @@
 {
   "name": "screen_snipe",
-  "main": "http://127.0.0.1:8888/r.preview/splash/21x16?take_snapshot",
+  "main": "http://127.0.0.1:8888/r.preview/splash/13x17?take_snapshot",
   "window":
   {
 	"width": 512,
