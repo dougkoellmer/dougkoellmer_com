@@ -3,10 +3,6 @@
 
 - fix snapshots of various home and thumb cells
 
-- thumb plate is off
-
-- generating too much crap in thumbnails auto dir
-
 - slow down snap, go to canvas bag cell, press up, then press up again...hud goes back to bag (or something like that) instead of adjusting mid-flight
 
 
@@ -23,7 +19,7 @@
 
 
 
-- perhaps have delay for actually showing the cell_1 loading animation...so for .5 seconds or whatever it's invisible then fades in real quick...this is to limit the jarring effect it has for most of the time when it's just appearing for a brief instant before the code is retrieved from server...on the same token meta cells won't behave like this...they always have to show loading animation 
+- perhaps have delay for actually showing the cell_1 loading animation...so for .5 seconds or whatever it's invisible then fades in real quick...this is to limit the jarring effect it has for most of the time when it's just appearing for a brief instant before the code is retrieved from server...on the other hand meta cells won't behave like this...they always have to show loading animation, so it would be inconsistent perhaps
 
 
 

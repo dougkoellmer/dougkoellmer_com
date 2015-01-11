@@ -9,6 +9,8 @@ then
 	sh take_cell_snapshots.sh $SNAPSHOT_DIR
 fi
 
+mkdir -p $THUMB_DIR
+
 for entry in "$SNAPSHOT_DIR"/*
 do
 	thumb=$THUMB_DIR/$(basename $entry)
