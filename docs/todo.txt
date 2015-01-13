@@ -1,7 +1,9 @@
 - have hud disappear to the top
 
 
-- fix snapshots of various home and thumb cells
+- put to half screen (drag to side of screen)
+
+- fix snapshots of various home and thumb cells...got to useful cell, press up twice...home cell is white, not loaded or something, until you exit out of viewing state
 
 - slow down snap, go to canvas bag cell, press up, then press up again...hud goes back to bag (or something like that) instead of adjusting mid-flight
 
@@ -83,7 +85,7 @@
 
 - fix image caching for pressure, maybe decay
 
-- snow flake ripples more pronounced
+- snow flake ripples more pronounced and polar bear periodic ripples when still
 
 
 

@@ -7,4 +7,4 @@ source ./config.sh
 sh build_thumbnails.sh take_snapshots
 sh build_meta_cells.sh take_snapshots
 
-rm -rf $SNAPSHOT_DIR
+#rm -rf $SNAPSHOT_DIR

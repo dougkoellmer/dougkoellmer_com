@@ -118,7 +118,7 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				String thumbHtml = "<div class='dk_thumb_cell_img' style=\"background-position:"+offsetM+"px "+offsetN+"px; ;background-size:"+backgroundSize+"; background-repeat:no-repeat; background-image:url('"+thumbPlateUrl+"')\"></div>";
 				
 				builder.append("<td "+tdClass+" " + tdStyle + ">");
-				builder.append("<a href=\""+address+"\" class='waypoint_cell_link'>");
+				builder.append("<a target=\"_self\" href=\""+address+"\" class='waypoint_cell_link'>");
 				builder.append("<table style='width:100%;' class='dk_thumb_cell waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'>"+thumbHtml+"</td><td style='text-align:right;'><div class='dk_thumb_desc'>");
 				builder.append(description);
 				builder.append("</div></td></tr></table>");

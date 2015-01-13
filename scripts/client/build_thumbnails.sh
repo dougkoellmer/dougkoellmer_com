@@ -28,7 +28,7 @@ sh ./build_thumb_spriteplate.sh
 
 if [ "$TAKE_SNAPSHOTS" != "take_snapshots" ]
 then
-	rm -rf $SNAPSHOT_DIR
+	#rm -rf $SNAPSHOT_DIR
 fi
 
 

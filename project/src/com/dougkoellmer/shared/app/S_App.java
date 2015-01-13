@@ -4,7 +4,7 @@ public class S_App
 {
 	public static final String APP_ID = "dk";
 	
-	public static final int APP_VERSION = 78;
+	public static final int APP_VERSION = 79;
 	
 	//--- DRK > Need this cause in Chrome (at least) with DIVs using background-url and set at width/height at 100%
 	//----		when you zoom out a bit you can see the element behind it (in this case the white background of the cell)
