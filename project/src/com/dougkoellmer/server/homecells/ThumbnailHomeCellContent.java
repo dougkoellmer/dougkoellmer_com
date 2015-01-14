@@ -55,39 +55,28 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 		
 		String backgroundSize = scaledPlateWidth+"px "+scaledPlateHeight+"px";
 		
-		String trClass = "class='dk_thumb_row'";
 		StringBuilder builder = new StringBuilder();
-		builder.append("<div style='width:100%; height:100%; font-size:0px; overflow:hidden;'>");
-		builder.append("<table style='' class='dk_thumb_table'><tr "+trClass+">");
+		builder.append("<div style='width:100%; height:100%; font-size:0px; line-height:0px; overflow:hidden;'>");
 		
 		int i = 0;
+		int borderWidth = 5;
 		Iterator<E_HomeCell> children = homeCell.getChildren();
 		int paddedChildCount = homeCell.getPaddedChildCount();
+		String border = borderWidth+"px solid rgb(100,100,100)";
+		double cellWidth = ((double)(S_HomeCell.DEFAULT_CELL_SIZE - borderWidth))/2.0;
+		double cellHeight = ((double)(S_HomeCell.DEFAULT_CELL_SIZE - borderWidth*5))/6.0;
 		
 		while( i < MIN_COUNT || (children.hasNext() || !children.hasNext() && i % 2 != 0) )
 		{
 			boolean lastRow = i >= paddedChildCount-2;
 			boolean isLeft = i%2==0;
-			String verClass, horClass;
-			if( i < 2 )
-			{
-				verClass = "dk_thumb_cell_with_border_bottom";
-			}
-			else if( lastRow )
-			{
-				verClass = "dk_thumb_cell_with_border_top";
-			}
-			else
-			{
-				verClass = "dk_thumb_cell_with_border_bottom dk_thumb_cell_with_border_top";
-			}
-			
-			horClass = isLeft ? "dk_thumb_cell_with_border_right" : "dk_thumb_cell_with_border_left";
-			
-			String tdClass = "class='dk_thumb_cell "+verClass + " " + horClass + "'";
 			
 			//--- DRK > WOAH! mega-hack!!!
-			String tdStyle = (paddedChildCount == MIN_COUNT || paddedChildCount == MIN_COUNT+2 ) && lastRow ? "style='height:82px;'" : "";
+			String wrapperStyle = isLeft ? "display:inline-block;" : "display:inline-block;";
+			wrapperStyle += isLeft ? "border-right:"+border+";" : "";
+			wrapperStyle += "border-bottom:"+border+";";
+			wrapperStyle += "height:"+cellHeight+"px;width:"+cellWidth+"px;";
+			
 			
 			if( children.hasNext() )
 			{
@@ -117,26 +106,26 @@ public class ThumbnailHomeCellContent implements I_HomeCellContent
 				
 				String thumbHtml = "<div class='dk_thumb_cell_img' style=\"background-position:"+offsetM+"px "+offsetN+"px; ;background-size:"+backgroundSize+"; background-repeat:no-repeat; background-image:url('"+thumbPlateUrl+"')\"></div>";
 				
-				builder.append("<td "+tdClass+" " + tdStyle + ">");
-				builder.append("<a target=\"_self\" href=\""+address+"\" class='waypoint_cell_link'>");
+				builder.append("<div style='"+wrapperStyle+"'>");
+				builder.append("<a target=\"_self\" href=\""+address+"\" class='waypoint_cell_link visual_cell_content'>");
 				builder.append("<table style='width:100%;' class='dk_thumb_cell waypoint_no_table_fluff'><tr><td style='vertical-align:middle;'>"+thumbHtml+"</td><td style='text-align:right;'><div class='dk_thumb_desc'>");
 				builder.append(description);
 				builder.append("</div></td></tr></table>");
 				builder.append("</a>");
-				builder.append("</td>");
+				builder.append("</div>");
 			}
 			else
 			{
-				builder.append("<td "+tdClass+" " + tdStyle + ">");
-				builder.append("<div style='width:100%; height:100%;'></div>");
-				builder.append("</td>");
+				builder.append("<div style='"+wrapperStyle+"'>");
+//				builder.append("<div style='width:100%; height:100%;'></div>");
+				builder.append("</div>");
 			}
 			
 			boolean lastCell = !children.hasNext() && i >= MIN_COUNT-1;
 			
 			if( i % 2 != 0 && i != 0 && !lastCell)
 			{
-				builder.append("</tr><tr "+trClass+">");
+//				builder.append("<br>");
 			}
 			
 			i++;

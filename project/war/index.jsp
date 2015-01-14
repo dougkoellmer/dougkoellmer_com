@@ -17,7 +17,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico?v=4" />
 
-<link type="text/css" rel="stylesheet" href="/dougkoellmer_com/min.css?v=1421122516" />
+<link type="text/css" rel="stylesheet" href="/dougkoellmer_com/min.css?v=1421203764" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
