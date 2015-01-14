@@ -1,9 +1,11 @@
 - have hud disappear to the top
 
 
-- put to half screen (drag to side of screen)
+- go to creations cell, zoom out using magnifier, fast but not real fast, to higher meta level...notice flashing of cell_1s disappearing before meta cells are fully faded in...to prevent, probably as simple as just using that new "fully displayed" method instead of isLoaded to gate cell_1s going onto kill queue
 
-- fix snapshots of various home and thumb cells...got to useful cell, press up twice...home cell is white, not loaded or something, until you exit out of viewing state
+- put to half screen (drag to side of screen)...got to useful cell, press up twice...home cell is white, not loaded or something, until you exit out of viewing state
+
+- fix snapshots of various home and thumb cells
 
 - slow down snap, go to canvas bag cell, press up, then press up again...hud goes back to bag (or something like that) instead of adjusting mid-flight
 
