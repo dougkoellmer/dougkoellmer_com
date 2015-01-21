@@ -10,6 +10,8 @@ public class List_LifeHacks
 			"Pillowcase dirty? Grab a t-shirt, slap it on there instead. Bam, you're a slob. You can even wear the same shirt the next day.",
 		"Fruit Fly Trap",
 			"Cup of whiskey.",
+		"Tongue Scraper",
+			"Spoon.",
 		"Rocky-IV Weight Set",
 			"Pun not originally planned but I'll take it. Go to a thrift store, buy some cheap backpacks and tote bags. Fill them with river stones. Go work out like you're " +
 			"fighting a giant Russian dude in a few weeks. Bags are great for bodyweight+ excercises or as free weights.",
