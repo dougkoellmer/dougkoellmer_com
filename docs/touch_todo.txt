@@ -21,3 +21,5 @@
 - can't scroll iframes in iOS
 
 - iOS doesn't scroll smoothly...can't fling
+
+- rotate on ipad...layout updates itself several times pretty sloppily...maybe getting several intermediate resize events and we should just key off the last one?

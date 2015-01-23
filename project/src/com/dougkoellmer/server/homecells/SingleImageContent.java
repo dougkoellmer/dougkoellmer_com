@@ -49,7 +49,7 @@ public class SingleImageContent implements I_HomeCellContent
 	
 	public void init(ServletContext servletContext, E_HomeCell homeCell)
 	{
-		String heightWidth = "background-size:cover;";
+		String backgroundSize = "background-size:cover;";
 		/*if( m_direction == E_Direction.HORIZONTAL )
 		{
 			heightWidth = "background-size:auto 100%;";
@@ -78,8 +78,8 @@ public class SingleImageContent implements I_HomeCellContent
 		int maxHeight = imageHeight < S_HomeCell.DEFAULT_CELL_SIZE ? S_HomeCell.DEFAULT_CELL_SIZE : imageHeight;
 		
 		imgPath = U_HomeCell.getImgPath(imgPath);
-		String percentage = S_App.IMAGE_CORRECTION_OVERFLOW;
-		m_sourceCode = "<div style=\"background-repeat:no-repeat; width:"+percentage+"; max-height:"+maxHeight+"px; height:"+percentage+"; "+heightWidth+" "+position+" background-image:url('"+imgPath+"');\"></div>";
+		
+		m_sourceCode = U_HomeCell.createImgDiv(imgPath, maxHeight, backgroundSize, position, /*doOverflow=*/true);
 	}
 	
 	public String getCode(E_CodeType eCodeType)

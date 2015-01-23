@@ -1,5 +1,5 @@
-- have hud disappear to the top
 
+- check cache totally clear...zoom out real fast to furthest level then zoom in again to mid-level...seem to have some flashing of certain cells...think it was in art branch
 
 
 - rewrite history manager...example bug: do a direct snap to rose, click up, wait for snap complete...press back then up again before reaching rose and wait for snap complete to rose parent...notice that rose parent is now the base history state...stole it from rose

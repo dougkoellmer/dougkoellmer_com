@@ -58,15 +58,15 @@
 		
 		
 		
-		<servlet>
-			<servlet-name>devmode_overload</servlet-name>
-			<jsp-file>/dougkoellmer_com/dougkoellmer_com.devmode.js</jsp-file>
-		</servlet>
+<!-- 		<servlet> -->
+<!-- 			<servlet-name>devmode_overload</servlet-name> -->
+<!-- 			<jsp-file>/dougkoellmer_com/dougkoellmer_com.devmode.js</jsp-file> -->
+<!-- 		</servlet> -->
 		
-		<servlet-mapping>
-			<servlet-name>devmode_overload</servlet-name>
-			<url-pattern>/dougkoellmer_com.devmode.js</url-pattern>
-		</servlet-mapping>
+<!-- 		<servlet-mapping> -->
+<!-- 			<servlet-name>devmode_overload</servlet-name> -->
+<!-- 			<url-pattern>/dougkoellmer_com.devmode.js</url-pattern> -->
+<!-- 		</servlet-mapping> -->
 		
 		
 		

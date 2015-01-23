@@ -14,7 +14,7 @@ public class List_LifeHacks
 			"Spoon.",
 		"Rocky-IV Weight Set",
 			"Pun not originally planned but I'll take it. Go to a thrift store, buy some cheap backpacks and tote bags. Fill them with river stones. Go work out like you're " +
-			"fighting a giant Russian dude in a few weeks. Bags are great for bodyweight+ excercises or as free weights.",
+			"fighting a giant Russian dude in a few weeks. Bags are great for bodyweight+ exercises or as free weights.",
 		"Bucket of Sand",
 			"Often while messing around in your workshop you need a heavy weight, whether to press wood down for gluing or " +
 			"test a fixture's load bearing or whatever. Metal weights are ideal but expensive. Enter Bucket of Sand&#8482;. " +

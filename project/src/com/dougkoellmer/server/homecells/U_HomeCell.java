@@ -34,8 +34,9 @@ public class U_HomeCell
 	
 	public static String createImgDiv(String source, int maxHeight, String backgroundSize, String position, boolean doOverflow)
 	{
-		String percentage = doOverflow ? S_App.IMAGE_CORRECTION_OVERFLOW : "100%";
-		return "<div style=\"background-repeat:no-repeat; width:"+percentage+"; max-height:"+maxHeight+"px; height:"+percentage+"; "+ backgroundSize+" "+position+" background-image:url('"+source+"');\"></div>";
+		String percentage = doOverflow ? (100.0 + S_App.IMAGE_CORRECTION_OVERFLOW)+"%" : "100%";
+		String leftOffset = doOverflow ? "left:-" + (S_App.IMAGE_CORRECTION_OVERFLOW/2.0) + "%;" : "";
+		return "<div style=\"position:relative; "+leftOffset+" background-repeat:no-repeat; width:"+percentage+"; max-height:"+maxHeight+"px; height:"+percentage+"; "+ backgroundSize+" "+position+" background-image:url('"+source+"');\"></div>";
 	}
 	
 	private static final double PLAY_ICON_ALPHA = .85;
@@ -168,7 +169,10 @@ public class U_HomeCell
 	
 	public static String makeStripSpacerHtml()
 	{
-		return "<div style='background-color:"+S_HomeCell.IMG_STRIP_SPACING_COLOR+"; width:100%; height:"+S_HomeCell.IMG_STRIP_SPACING+"px;'></div>";
+		int padding = 4;
+		int innerHeight = S_HomeCell.IMG_STRIP_SPACING + padding;
+		int innerTopOffset = -padding/2;
+		return "<div style='width:100%; height:"+S_HomeCell.IMG_STRIP_SPACING+"px;'><div style='z-index:-1; position:relative; width:102%; left:-1%; height:"+innerHeight+"px; top:"+innerTopOffset+"px;background-color:"+S_HomeCell.IMG_STRIP_SPACING_COLOR+";'></div></div>";
 	}
 	
 	private static String makeEmptyImg(int height)
