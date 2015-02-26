@@ -1,12 +1,15 @@
 
-- check cache totally clear...zoom out real fast to furthest level then zoom in again to mid-level...seem to have some flashing of certain cells...think it was in art branch
-
+- try trick where hud stays put until you move your mouse...complication is how to work with touches, both conceptually and technical distinguishing.
 
 - rewrite history manager...example bug: do a direct snap to rose, click up, wait for snap complete...press back then up again before reaching rose and wait for snap complete to rose parent...notice that rose parent is now the base history state...stole it from rose
 
-- check this post next release: still seems like on mobile that loaded cell_1s go white when you zoom out to cell_2/4/whatever...might be fixed now that meta doesn't use gpu...nothing to do if it still acts like that
 
 
+- might be not rendering cell_1s until the initial snap ends...coming from another domain
+
+- visit home cell, do browser addy-bar navigation to new page, press back...home cell may not be popped soon enough (do slow snap speed).
+
+- see if U_Servlet returned streams need to be closed or not
 
 
 
@@ -14,7 +17,7 @@
 
 - perhaps have delay for actually showing the cell_1 loading animation...so for .5 seconds or whatever it's invisible then fades in real quick...this is to limit the jarring effect it has for most of the time when it's just appearing for a brief instant before the code is retrieved from server...on the other hand meta cells won't behave like this...they always have to show loading animation, so it would be inconsistent perhaps
 
-
+-perhaps show higher metas that are already loaded when panning at cell_1 level and enough cells haven't loaded yet that maybe it makes sense to show a fuzzy preview for a second or two, instead of nothing.
 
 
 
@@ -42,10 +45,6 @@
 
 
 - don't hit server for cell sizes for interim/snap-adjacent cells while snapping...not a problem for my website for now cause everything's generated locally at start up.
-
-- spinner lagged behind behind scroll at some point pretty significantly on Android...may be better since a lot of things changed there.
-
-- hud appears fine and animates well before cells and focuser appear when going going between history states with different app sessions
 
 - make it so focused spinner doesn't go off the bottom or right when all the way scrolled over with a really thin window...make it behave kinda like the cell hud does when it's totally collapsed down...kinda ghosts along the opposite direction of the scroll
 

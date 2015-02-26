@@ -78,7 +78,7 @@ public class U_HomeCellMeta
 			case FLASHLIGHT_LAMP:				return "Converts flashlight<br>into diffuse lamp";
 			case SLING_SHOT:					return "Primitive take on<br>wrist-braced slingshots";
 			case BREAKAWAY_KNOT:				return "Lanyard knot that unties<br>upon abrupt force";
-			case SANDER_HOLDER:					return "Holder for running<br>random orbital sander";
+			case SANDER_HOLDER:					return "Holder for running<br>electric sander";
 			case RASP_HANDLE:					return "Easy wood handle<br>for rat-tailed tools";
 			case HANGING_CRATES:				return "Hanging garage storage<br>using milk crates";
 			case LIFE_HACKS:					return "Quick hacks with<br>everyday items";
@@ -208,7 +208,7 @@ public class U_HomeCellMeta
 			case FLASHLIGHT_LAMP:				return new StripContent(cell);
 			case SLING_SHOT:					return new CellComingSoonContent();
 			case BREAKAWAY_KNOT:				return new CellComingSoonContent();
-			case SANDER_HOLDER:					return new CellComingSoonContent();
+			case SANDER_HOLDER:					return new StripContent(cell);
 			case RASP_HANDLE:					return new StripContent(cell);
 			case HANGING_CRATES:				return new CellComingSoonContent();
 			case LIFE_HACKS:					return new ListContent(cell, List_LifeHacks.LIST, ListContent.Type.TITLED);

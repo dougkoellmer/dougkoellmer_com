@@ -17,7 +17,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico?v=5" />
 
-<link type="text/css" rel="stylesheet" href="/dougkoellmer_com/min.css?v=1421984909" />
+<link type="text/css" rel="stylesheet" href="/dougkoellmer_com/min.css?v=1424987862" />
 
 <script type="text/javascript">
 var RecaptchaOptions={theme : 'custom'};
@@ -90,6 +90,6 @@ var RecaptchaOptions={theme : 'custom'};
 		</table>
 	</div>
 	
-	<script type="text/javascript" src="/dougkoellmer_com/min.js?v=1421984909"></script>
+	<script type="text/javascript" src="/dougkoellmer_com/min.js?v=1424987860"></script>
 </body>
 </html>

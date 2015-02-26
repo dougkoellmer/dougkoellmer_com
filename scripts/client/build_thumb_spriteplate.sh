@@ -3,7 +3,6 @@
 source ./config.sh
 
 MOD_COUNT=10
-found_count=0
 
 out_file=$THUMB_DIR/thumb_plate.jpg
 
@@ -21,13 +20,7 @@ do
 		
 		if [ -f $potentialThumb ];
 		then
-		
-			
-			
 			all_files="$all_files $potentialThumb"
-			
-			let found_count=found_count+1
-		
 		fi
 		
 	done
