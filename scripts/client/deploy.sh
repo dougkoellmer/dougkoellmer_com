@@ -1,0 +1,1 @@
+sh ../../appengine-java-sdk/bin/appcfg.sh --email=dougk16@tlen.pl update ../../project/war
