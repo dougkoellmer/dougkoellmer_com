@@ -84,7 +84,7 @@ public class U_InlineCellSizeTransactions
 		catch(Exception e)
 		{
 			buffer = null;
-			throw e;
+            throw new RuntimeException(e);
 		}
 		finally
 		{

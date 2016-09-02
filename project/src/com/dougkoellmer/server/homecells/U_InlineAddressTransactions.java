@@ -80,7 +80,7 @@ public class U_InlineAddressTransactions
 		catch(Exception e)
 		{
 			buffer = null;
-			throw e;
+			throw new RuntimeException(e);
 		}
 		finally
 		{

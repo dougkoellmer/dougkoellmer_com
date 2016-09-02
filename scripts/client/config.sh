@@ -11,4 +11,5 @@ IMG_QUALITY=90
 SNAPSHOT_DIR="./meta_temp"
 THUMB_DIR="../../project/war/img/cell_content/thumbs/auto"
 THUMB_SIZE=96x96
-GAE_HOME=$(file_absPath "${SWARM_DIR}/tools/appengine-java-sdk")
+export GAE_HOME=$(file_absPath "${SWARM_DIR}/tools/appengine-java-sdk")
+export GWT_HOME=$(file_absPath "${SWARM_DIR}/tools/gwt")

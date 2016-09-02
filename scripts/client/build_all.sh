@@ -6,5 +6,5 @@
 source ./config.sh
 
 cd ../../project/
-ant build_all
+ant build_app
 cd - > /dev/null

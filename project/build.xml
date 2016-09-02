@@ -28,6 +28,12 @@
 
   <target name="javac" depends="libs" description="Compile java source to bytecode">
     <mkdir dir="war/WEB-INF/classes"/>
+    <javac srcdir="lib/json" includes="**" encoding="utf-8"
+        destdir="war/WEB-INF/classes"
+        source="1.5" target="1.5" nowarn="true"
+        debug="true" debuglevel="lines,vars,source">
+        <classpath refid="project.class.path"/>
+    </javac>
 	<javac srcdir="lib/swarm/src" includes="**" encoding="utf-8"
         destdir="war/WEB-INF/classes"
         source="1.5" target="1.5" nowarn="true"
@@ -57,6 +63,7 @@
       <classpath>
         <pathelement location="src"/>
 		<pathelement location="lib/swarm/src"/>
+        <pathelement location="lib/json"/>
 		
         <path refid="project.class.path"/>
         <pathelement location="../../validation-api-1.0.0.GA.jar" />
