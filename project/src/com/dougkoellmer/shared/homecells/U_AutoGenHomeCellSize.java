@@ -41,7 +41,7 @@ class U_AutoGenHomeCellSize
 			case RASP_HANDLE: return new CellSize(910, 2145);
 			case RED_OAK_SPOON: return new CellSize(780, 1181);
 			case ROSE: return new CellSize(709, 595);
-			case SANDER_HOLDER: return new CellSize(512, 512);
+			case SANDER_HOLDER: return new CellSize(512, 1040);
 			case SANTOKU_SHEATH: return new CellSize(910, 1040);
 			case SAVE_ANIMALS: return new CellSize(768, 576);
 			case SAW_SHEATH: return new CellSize(780, 1186);

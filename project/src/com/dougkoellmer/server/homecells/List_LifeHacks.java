@@ -31,12 +31,12 @@ public class List_LifeHacks
 		"Microwaved Eggs",
 			"As delicious as it sounds. Spray inside of mug with cooking oil, break egg inside, microwave for 30 seconds. Leave yolk intact for epic explosions.",
 		"Dog Leash",
-			"(1) Go to hardware store. (2) Buy a bolt snap and piece of rope for $3.00. (3) Bolt snap + rope = dog leash.",
+			"(1) Go to hardware store.<br>(2) Buy a bolt snap and piece of rope for $3.00.<br>(3) Bolt snap + rope = dog leash.",
 		"Teeth Cleaner",
 			"Fill your mouth with broccoli and start chewing.",
 		"Hangover Blocker",
 			"Fill your mouth with broccoli and start chewing. Seriously, eat a bunch of broccoli before you go to bed after a hard night of drinking. " +
-			"No idea what the mechanism is but you'll wake up feeling great.",
+			"No idea how it works but you'll wake up feeling great.",
 		"Toddler Mittens",
 			"Wool socks. They can get caked with snow, soaking wet and cold, but somehow your kid's hands stay warm inside."
 	};

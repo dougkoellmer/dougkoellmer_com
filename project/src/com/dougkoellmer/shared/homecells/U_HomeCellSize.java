@@ -52,7 +52,7 @@ public class U_HomeCellSize
 		{
 			switch(cell)
 			{
-				case RESUME:					cellSize = new CellSize(882, 1139);  break;
+				case RESUME:					cellSize = new CellSize(882, 1358);  break;
 				
 				case PORTFOLIO:					cellSize = new CellSize(992, 2182);  break;
 				

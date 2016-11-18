@@ -208,7 +208,7 @@ public class U_HomeCellMeta
 			case FLASHLIGHT_LAMP:				return new StripContent(cell);
 			case SLING_SHOT:					return new CellComingSoonContent();
 			case BREAKAWAY_KNOT:				return new CellComingSoonContent();
-			case SANDER_HOLDER:					return new StripContent(cell);
+			case SANDER_HOLDER:					return new CellComingSoonContent();//StripContent(cell);
 			case RASP_HANDLE:					return new StripContent(cell);
 			case HANGING_CRATES:				return new CellComingSoonContent();
 			case LIFE_HACKS:					return new ListContent(cell, List_LifeHacks.LIST, ListContent.Type.TITLED);

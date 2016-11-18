@@ -5,12 +5,22 @@
 
 
 
+
+- total wishlist, but when you press up from a cell and go to the parent directory, the child's link is highlighted and the cell automatically scrolled to reach it
+
 - might be not rendering cell_1s until the initial snap ends...coming from another domain
 
 - visit home cell, do browser addy-bar navigation to new page, press back...home cell may not be popped soon enough (do slow snap speed).
 
 - see if U_Servlet returned streams need to be closed or not
 
+- still a little white border when snapping to strip cells (maybe others) i think...maybe slow down snap and see if it's easy to repro
+
+- snap to a cell, put lag in getCode, call refresh, notice spinner, exit cell...spinner leaves
+
+- lead slash on tab title
+
+- focused cells resize to Min(screen size, cell size)
 
 
 
@@ -34,7 +44,7 @@
 
 
 
-
+- "Nothing in an explanation is more important than the words after 'for example'".
 
 - logical argument to esp
 

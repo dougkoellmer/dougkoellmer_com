@@ -19,7 +19,7 @@ public class ResumeContent implements I_HomeCellContent
 		if( eCodeType == E_CodeType.SPLASH )
 		{
 			String imgPath = U_HomeCell.getImgPath("/img/cell_content/resume.splash.jpg");
-			return "<img src='"+imgPath+"' style='width:100%; height:100%; min-height:658px;' />";
+			return "<img src='"+imgPath+"' style='width:100%; height:100%; min-height:792px;' />";
 		}
 		else if( eCodeType == E_CodeType.COMPILED )
 		{
