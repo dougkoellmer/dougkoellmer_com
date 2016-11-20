@@ -1,7 +1,21 @@
-const centerVStartPoint = new Point();
+var centerVStartPoint = new Point();
 var centerVLowerTrapezoidLength = 0;
-const frontVDrawStartPoint = new Point();
-const startOfTopCrossPipe = new Point();
+var frontVDrawStartPoint = new Point();
+var startOfTopCrossPipe = new Point();
+
+var HORIZONTAL_MEASURE_SCALE = 2;
+
+function getCrossGapMultiplier() {
+	var crossPipeGapMultiplier = 1;
+	if( CROSS_PIPE_COUNT > 6 ) {
+		crossPipeGapMultiplier = 2;
+	}
+	if( CROSS_PIPE_COUNT > 9 ) {
+		crossPipeGapMultiplier = 3;
+	}
+	
+	return crossPipeGapMultiplier;
+}
 
 function drawPipes(canvas) {
 	drawVs(canvas);
@@ -17,36 +31,36 @@ function drawVs(canvas)
 
 function drawV(canvas, direction)
 {
-	const context = canvas.getContext("2d");
+	var context = canvas.getContext("2d");
 	context.lineWidth = DEFAULT_LINE_WIDTH;
 	context.fillStyle = PIPE_COLOR;
 	context.beginPath();
 	
-	const startY = START_POINT.getY() + OFFSET_FROM_AXLE;
-	const offsetH = BOTTOM_PIPE_LENGTH/2.0;
-	const startX = START_POINT.getX();
-	const offsetRadius = Math.abs(PIPE_RADIUS / Math.cos(FORK_ANGLE_RAD));
+	var startY = START_POINT.getY() + OFFSET_FROM_AXLE;
+	var offsetH = BOTTOM_PIPE_LENGTH/2.0;
+	var startX = START_POINT.getX();
+	var offsetRadius = Math.abs(PIPE_RADIUS() / Math.cos(FORK_ANGLE_RAD()));
 	
-	const drawPoint = new Point(startX + direction * (offsetH + offsetRadius), startY);
-	const drawVecX = new Point((-direction)*offsetRadius*2, 0);
-	const drawVecY = new Point(0, -direction*PIPE_DIAM/2.0);
-	drawVecY.rotateBy(direction*FORK_ANGLE_RAD);
+	var drawPoint = new Point(startX + direction * (offsetH + offsetRadius), startY);
+	var drawVecX = new Point((-direction)*offsetRadius*2, 0);
+	var drawVecY = new Point(0, -direction*PIPE_DIAM/2.0);
+	drawVecY.rotateBy(direction*FORK_ANGLE_RAD());
 	drawVecY.setLength(offsetRadius + PIPE_OVERHANG);
 	if( direction == 1 ) drawVecY.negate();
 	drawPoint.translateBy(drawVecY);
 	drawPoint.moveTo(context);
 	frontVDrawStartPoint.copy(drawPoint);
 	frontVDrawStartPoint.incX(-offsetRadius);
-	const measurePoint = new Point();
+	var measurePoint = new Point();
 	measurePoint.copy(drawPoint);
 	startMeasurement(measurePoint);
 	drawPoint.translateBy(drawVecX);
 	drawPoint.lineTo(context);
 	
-	const countDelta = direction == 1 ? 2 : 1;
-	const vLength = (CROSS_PIPE_COUNT-2)*(RACK_HEIGHT / (CROSS_PIPE_COUNT-countDelta));
+	var countDelta = direction == 1 ? 2 : 1;
+	var vLength = (CROSS_PIPE_COUNT-2)*(RACK_HEIGHT / (CROSS_PIPE_COUNT-countDelta));
 	drawVecY.negate();
-	drawVecY.setLength(vLength / Math.cos(FORK_ANGLE_RAD) + offsetRadius*2 + PIPE_OVERHANG*2);
+	drawVecY.setLength(vLength / Math.cos(FORK_ANGLE_RAD()) + offsetRadius*2 + PIPE_OVERHANG*2);
 	drawPoint.translateBy(drawVecY);
 	drawPoint.lineTo(context);
 	
@@ -54,7 +68,8 @@ function drawV(canvas, direction)
 	drawPoint.translateBy(drawVecX);
 	drawPoint.lineTo(context);
 	measurePoint.set(measurePoint.getX(), drawPoint.getY());
-	endMeasurement(drawPoint, 9*direction, MeasureType.LENGTH)
+	var measureOffset = direction*getMeasurementOffset(3, MeasureType.LENGTH);
+	endMeasurement(drawPoint, measureOffset, MeasureType.LENGTH)
 	
 	
 	context.closePath();
@@ -64,29 +79,31 @@ function drawV(canvas, direction)
 
 function drawCenterV(canvas)
 {
-	const context = canvas.getContext("2d");
+	var context = canvas.getContext("2d");
 	context.lineWidth = DEFAULT_LINE_WIDTH*2;
 	context.fillStyle = PIPE_COLOR;
 	context.beginPath();
 	
-	const offsetH = BOTTOM_PIPE_LENGTH/2.0;
-	const startX = START_POINT.getX();
-	const offsetRadius = Math.abs(PIPE_RADIUS / Math.cos(FORK_ANGLE_RAD));
-	const crossPipeGap = RACK_HEIGHT / (CROSS_PIPE_COUNT-1);
-	const startXOffset = ((crossPipeGap - OFFSET_FROM_AXLE) * Math.tan(FORK_ANGLE_RAD));
+	var crossPipeGapMultiplier = getCrossGapMultiplier();
+	var offsetH = BOTTOM_PIPE_LENGTH/2.0;
+	var startX = START_POINT.getX();
+	var offsetRadius = Math.abs(PIPE_RADIUS() / Math.cos(FORK_ANGLE_RAD()));
+	var crossPipeGap = RACK_HEIGHT / (CROSS_PIPE_COUNT-1);
+	var startXOffset = ((crossPipeGap*crossPipeGapMultiplier - OFFSET_FROM_AXLE) * Math.tan(FORK_ANGLE_RAD()));
 	
-	const drawPoint = new Point(startX+startXOffset, START_POINT.getY() + OFFSET_FROM_AXLE - crossPipeGap);
+	
+	var drawPoint = new Point(startX+startXOffset, START_POINT.getY() + OFFSET_FROM_AXLE - crossPipeGap*crossPipeGapMultiplier);
 	centerVStartPoint.copy(drawPoint);
 	centerVStartPoint.incX(offsetRadius);
-	const startPointOfCenterV = new Point(drawPoint.getX() + offsetRadius, drawPoint.getY());
-	const drawVecX = new Point(startXOffset, 0);
-	const drawVecY = new Point(0, PIPE_DIAM/2.0);
-	drawVecY.rotateBy(-FORK_ANGLE_RAD);
+	var startPointOfCenterV = new Point(drawPoint.getX() + offsetRadius, drawPoint.getY());
+	var drawVecX = new Point(startXOffset, 0);
+	var drawVecY = new Point(0, PIPE_DIAM/2.0);
+	drawVecY.rotateBy(-FORK_ANGLE_RAD());
 	drawVecY.setLength(offsetRadius + PIPE_OVERHANG);
 	drawPoint.translateBy(drawVecY);
 	drawPoint.moveTo(context);
 	
-	const measurePoint = new Point();
+	var measurePoint = new Point();
 	measurePoint.copy(drawPoint);
 	startMeasurement(measurePoint);
 	
@@ -94,59 +111,78 @@ function drawCenterV(canvas)
 	drawPoint.translateBy(drawVecX);
 	drawPoint.lineTo(context);
 	
-	const vLength = crossPipeGap*(CROSS_PIPE_COUNT-2) + CENTER_V_OVERHANG;
+	var lengthSubtraction = 2 + (crossPipeGapMultiplier-1);
+	var vLength = crossPipeGap*(CROSS_PIPE_COUNT-lengthSubtraction) + CENTER_V_OVERHANG;
 	drawVecY.negate();
-	drawVecY.setLength(vLength / Math.cos(FORK_ANGLE_RAD) + offsetRadius*2 + PIPE_OVERHANG);
+	drawVecY.setLength(vLength / Math.cos(FORK_ANGLE_RAD()) + offsetRadius*2 + PIPE_OVERHANG);
 	drawPoint.translateBy(drawVecY);
 	drawPoint.lineTo(context);
+	
+	var topCrossBarVec = new Point();
+	topCrossBarVec.copy(drawVecY);
+	topCrossBarVec.setLength(PIPE_OVERHANG+PIPE_RADIUS());
+	topCrossBarVec.negate();
+	var topCrossBarPoint = new Point();
+	topCrossBarPoint.copy(drawPoint);
+	topCrossBarPoint.translateBy(topCrossBarVec);
+	topCrossBarVec.setToPerpVector(-1);
+	topCrossBarVec.setLength(PIPE_RADIUS());
+	topCrossBarPoint.translateBy(topCrossBarVec);
 	
 	drawVecX.negate();
 	drawPoint.translateBy(drawVecX);
 	drawPoint.lineTo(context);
 	
-	endMeasurement(drawPoint, -17, MeasureType.LENGTH);
+	var measureOffset = -getMeasurementOffset(7, MeasureType.LENGTH);
+	endMeasurement(drawPoint, measureOffset, MeasureType.LENGTH);
 	
 	context.closePath();
 	context.stroke();
 	context.fill();
+	
+	drawSideOfPipe(canvas, topCrossBarPoint);
 }
 
 function drawCrossPipes(canvas)
 {
-	const offsetY = RACK_HEIGHT / (CROSS_PIPE_COUNT-1);
-	const startY = START_POINT.getY() + OFFSET_FROM_AXLE;
-	const offsetRadius = (PIPE_RADIUS / Math.cos(FORK_ANGLE_RAD));
-	const overhang = PIPE_OVERHANG*2 + 2*offsetRadius;
+	var offsetY = RACK_HEIGHT / (CROSS_PIPE_COUNT-1);
+	var startY = START_POINT.getY() + OFFSET_FROM_AXLE;
+	var offsetRadius = (PIPE_RADIUS() / Math.cos(FORK_ANGLE_RAD()));
+	var overhang = PIPE_OVERHANG*2 + 2*offsetRadius;
 	var currY = startY;
 	
 	for( var i = 0; i < CROSS_PIPE_COUNT; i++ )
 	{
-		const adjacent = currY - startY;
-		const pipeLength = overhang + BOTTOM_PIPE_LENGTH + 2*Math.abs(Math.tan(FORK_ANGLE_RAD) * adjacent);
-		const drawPoint = new Point(START_POINT.getX(), currY);
-		const specialPoint = new Point();
+		var adjacent = currY - startY;
+		var pipeLength = overhang + BOTTOM_PIPE_LENGTH + 2*Math.abs(Math.tan(FORK_ANGLE_RAD()) * adjacent);
+		var drawPoint = new Point(START_POINT.getX(), currY);
+		var specialPoint = new Point();
 		var specialPipeLength = 0;
 		
 		if( i == CROSS_PIPE_COUNT-1 )
 		{
-			specialPipeLength = centerVLowerTrapezoidLength + overhang + 2*Math.abs(Math.tan(FORK_ANGLE_RAD) * (offsetY*(CROSS_PIPE_COUNT-2)))
+			var lengthSubtraction = 2 + (getCrossGapMultiplier()-1);
+			specialPipeLength = centerVLowerTrapezoidLength + overhang + 2*Math.abs(Math.tan(FORK_ANGLE_RAD()) * (offsetY*(CROSS_PIPE_COUNT-lengthSubtraction)))
 			specialPoint.copy(drawPoint);
 			specialPoint.setX(centerVStartPoint.getX() + centerVLowerTrapezoidLength/2.0);
 			drawCrossPipe(canvas, specialPoint, specialPipeLength, i, pipeLength);
 		}
 		else
 		{
-			if( i == 1 )
+			if( i == getCrossGapMultiplier() )
 			{
 				centerVLowerTrapezoidLength = (drawPoint.getX() + pipeLength/2 - overhang/2) - centerVStartPoint.getX();
 				
-				const newOffsetPoint = new Point();
+				var newOffsetPoint = new Point();
 				newOffsetPoint.copy(drawPoint);
 				newOffsetPoint.incX(-pipeLength/2.0);
 				startMeasurement(newOffsetPoint);
 				newOffsetPoint.copy(centerVStartPoint);
 				newOffsetPoint.incX(offsetRadius);
-				endMeasurement(newOffsetPoint, 20, MeasureType.OFFSET);
+				
+				var measureOffset = getMeasurementOffset(CROSS_PIPE_COUNT+1, MeasureType.LENGTH, HORIZONTAL_MEASURE_SCALE);
+				var pipeOffset = startY - currY;
+				endMeasurement(newOffsetPoint, (measureOffset + pipeOffset) - PIPE_RADIUS(), MeasureType.OFFSET);
 			}
 			
 			drawCrossPipe(canvas, drawPoint, pipeLength, i, pipeLength);
@@ -154,23 +190,24 @@ function drawCrossPipes(canvas)
 		
 		if( i < CROSS_PIPE_COUNT-1 )
 		{
-			const offset = 15 - (currY - frontVDrawStartPoint.getY())/2;
+			var offset = 15 - (currY - frontVDrawStartPoint.getY())/2;
 			//startMeasurement(frontVDrawStartPoint);
-			const endMeasurePoint = new Point();
+			var endMeasurePoint = new Point();
 			endMeasurePoint.copy(drawPoint);
 			endMeasurePoint.incX(pipeLength/2 - overhang/2);
 // 			endMeasurement(endMeasurePoint, offset);
 			
 			//if( i == 0 )
 			{
-				const adjacent_imaginary = (currY-PIPE_RADIUS) - startY;
-				const pipeLength_imaginary = overhang + BOTTOM_PIPE_LENGTH + 2*Math.abs(Math.tan(FORK_ANGLE_RAD) * adjacent_imaginary);
+				var adjacent_imaginary = (currY-PIPE_RADIUS()) - startY;
+				var pipeLength_imaginary = overhang + BOTTOM_PIPE_LENGTH + 2*Math.abs(Math.tan(FORK_ANGLE_RAD()) * adjacent_imaginary);
 				
 				startMeasurement(frontVDrawStartPoint);
 				endMeasurePoint.copy(drawPoint);
-				endMeasurePoint.incY(-PIPE_RADIUS);
+				endMeasurePoint.incY(-PIPE_RADIUS());
 				endMeasurePoint.incX(pipeLength_imaginary/2 - overhang/2);
-				endMeasurement(endMeasurePoint, offset, MeasureType.OFFSET);
+				var measureOffset = getMeasurementOffset((CROSS_PIPE_COUNT - (i+1)) + 3, MeasureType.OFFSET);
+				endMeasurement(endMeasurePoint, measureOffset, MeasureType.OFFSET);
 			}
 		}
 		
@@ -178,11 +215,11 @@ function drawCrossPipes(canvas)
 		
 		if( i == CROSS_PIPE_COUNT-1 ) {
 			
-			console.log(offsetRadius);
+			//console.log(offsetRadius);
 			
-			const effectiveTopLength = specialPipeLength - overhang - offsetRadius*2 - PIPE_DIAM - PIPE_OVERHANG*2.0;
+			var effectiveTopLength = specialPipeLength - overhang - offsetRadius*2 - PIPE_DIAM - PIPE_OVERHANG*2.0;
 			specialPoint.incX(-effectiveTopLength/2);
-			const stepSize = effectiveTopLength/(TOP_PIPE_COUNT-1);
+			var stepSize = effectiveTopLength/(TOP_PIPE_COUNT-1);
 			for( var j = 0; j < TOP_PIPE_COUNT; j++ ) {
 				
 				drawSideOfPipe(canvas, specialPoint);
@@ -190,10 +227,12 @@ function drawCrossPipes(canvas)
 				//if( j > 0 )
 				{
 					startMeasurement(startOfTopCrossPipe);
-					const endMeasurePoint = new Point();
+					var endMeasurePoint = new Point();
 					endMeasurePoint.copy(specialPoint);
-					endMeasurePoint.incX(-PIPE_RADIUS);
-					endMeasurement(endMeasurePoint, (1 + (TOP_PIPE_COUNT-j) *2), MeasureType.OFFSET);
+					endMeasurePoint.incX(-PIPE_RADIUS());
+					
+					var measureOffset = getMeasurementOffset(j, MeasureType.OFFSET, HORIZONTAL_MEASURE_SCALE);
+					endMeasurement(endMeasurePoint, measureOffset, MeasureType.OFFSET);
 				}
 				
 				specialPoint.incX(stepSize);
@@ -204,24 +243,25 @@ function drawCrossPipes(canvas)
 
 function drawCrossPipe(canvas, position, pipeLength, index, defaultPipeLength)
 {
-	const context = canvas.getContext("2d");
+	var startY = START_POINT.getY() + OFFSET_FROM_AXLE;
+	var context = canvas.getContext("2d");
 	
 	context.beginPath();
 	
 	context.fillStyle = PIPE_COLOR;
 	context.lineWidth = DEFAULT_LINE_WIDTH;
 	
-	const angledDiam = Math.abs(PIPE_DIAM / Math.cos(FORK_ANGLE_RAD));
+	var angledDiam = Math.abs(PIPE_DIAM / Math.cos(FORK_ANGLE_RAD()));
 	
-	const squeeze = Math.abs((PIPE_DIAM * Math.tan(FORK_ANGLE_RAD)))/2;
+	var squeeze = Math.abs((PIPE_DIAM * Math.tan(FORK_ANGLE_RAD())))/2;
 	
-	const drawVecX = new Point(pipeLength/2.0, 0);
-	const drawVecY = new Point(0, -angledDiam/2.0);
-	const drawPoint = new Point();
-	const measurePoint_local = new Point();
+	var drawVecX = new Point(pipeLength/2.0, 0);
+	var drawVecY = new Point(0, -angledDiam/2.0);
+	var drawPoint = new Point();
+	var measurePoint_local = new Point();
 	
 	drawPoint.copy(position);
-	drawVecY.rotateBy(FORK_ANGLE_RAD);
+	drawVecY.rotateBy(FORK_ANGLE_RAD());
 	drawPoint.translateBy(drawVecX);
 	drawPoint.translateBy(drawVecY);
 	drawPoint.moveTo(context);
@@ -242,7 +282,7 @@ function drawCrossPipe(canvas, position, pipeLength, index, defaultPipeLength)
 	drawVecY.setLength(angledDiam/2.0);
 	drawVecX.negate();
 	drawPoint.copy(position);
-	drawVecY.rotateBy(-FORK_ANGLE_RAD*2);
+	drawVecY.rotateBy(-FORK_ANGLE_RAD()*2);
 	drawPoint.translateBy(drawVecX);
 	drawPoint.translateBy(drawVecY);
 	drawPoint.lineTo(context);
@@ -256,12 +296,14 @@ function drawCrossPipe(canvas, position, pipeLength, index, defaultPipeLength)
 	{
 		measurePoint_local.copy(drawPoint);
 		measurePoint_local.incX(squeeze);
-		endMeasurement(measurePoint_local, -(defaultPipeLength/2+index*6), MeasureType.LENGTH);
+		var measureOffset = getMeasurementOffset(index+1, MeasureType.LENGTH, HORIZONTAL_MEASURE_SCALE);
+		var pipeOffset = startY - position.getY();
+		endMeasurement(measurePoint_local, -(measureOffset + pipeOffset), MeasureType.LENGTH);
 		
 		if( index == CROSS_PIPE_COUNT-1) {
 			startOfTopCrossPipe.copy(measurePoint_local);
 			startOfTopCrossPipe.incX(pipeLength);
-			startOfTopCrossPipe.incY(PIPE_RADIUS);
+			startOfTopCrossPipe.incY(PIPE_RADIUS());
 		}
 	}
 	
@@ -273,11 +315,11 @@ function drawCrossPipe(canvas, position, pipeLength, index, defaultPipeLength)
 
 function drawSideOfPipe(canvas, point) {
 	
-	const context = canvas.getContext("2d");
+	var context = canvas.getContext("2d");
 	context.beginPath();
 	context.lineWidth = DEFAULT_LINE_WIDTH;
 	
-	context.arc(point.getX()*PIXELS_PER_INCH,point.getY()*PIXELS_PER_INCH,PIPE_RADIUS*PIXELS_PER_INCH,0,2*Math.PI);
+	context.arc(point.getX()*PIXELS_PER_INCH,point.getY()*PIXELS_PER_INCH,PIPE_RADIUS()*PIXELS_PER_INCH,0,2*Math.PI);
 	
 	context.stroke();
 }

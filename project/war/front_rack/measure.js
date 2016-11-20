@@ -1,16 +1,34 @@
-const measureCanvas = document.getElementById("measure_canvas");
+var MeasureType = 
+{
+	LENGTH:"LN",
+	OFFSET:"OS"
+}
+
+var MEASUREMENT_SEPARATION = 2;
+
+function getMeasurementOffset(index, measureType, scale) {
+	scale = scale ? scale : 2.5;
+	var defaultOffset = index * scale + MEASUREMENT_SEPARATION;
+	if( measureType == MeasureType.LENGTH ) {
+		return defaultOffset;// >= 0 ? defaultOffset + PIPE_RADIUS() : defaultOffset - PIPE_RADIUS();
+	} else {
+		return defaultOffset >= 0 ? defaultOffset + PIPE_RADIUS() : defaultOffset - PIPE_RADIUS();
+	}
+}
+
+var measureCanvas = document.getElementById("measure_canvas");
 measureCanvas.width = measureCanvas.clientWidth;
 measureCanvas.height = measureCanvas.clientHeight;
 if( SHOWING_RIGHT_SIDE == true )
 {
 	//measureCanvas.style.scale="-1,1;
 }
-const measureContext = measureCanvas.getContext("2d");
+var measureContext = measureCanvas.getContext("2d");
 measureContext.lineWidth = DEFAULT_LINE_WIDTH;
 measureContext.setLineDash([5, 5]);
 measureContext.font = "bold 15px Courier New";
 measureContext.textAlign="center";
-const measurePoint = new Point();
+var measurePoint = new Point();
 measureContext.fillStyle = "black";
 measureContext.strokeStyle = "rgba(0, 0, 0, .75)";
 
@@ -31,16 +49,10 @@ function startMeasurement(point)
 	measurePoint.copy(point);
 }
 
-const MeasureType = 
-{
-	LENGTH:"LN",
-	OFFSET:"OS"
-}
-
 function toFraction(decimal) {
-	const blankLengthNearest16 = (Math.round(decimal * 16) / 16);
-	const blankLengthMod = blankLengthNearest16 % 1.0;
-	const blankLengthFraction = Math.round(16 * blankLengthMod);
+	var blankLengthNearest16 = (Math.round(decimal * 16) / 16);
+	var blankLengthMod = blankLengthNearest16 % 1.0;
+	var blankLengthFraction = Math.round(16 * blankLengthMod);
 	var lengthString = "";
 	if( blankLengthFraction == 0.0 )
 	{
@@ -56,9 +68,9 @@ function toFraction(decimal) {
 
 function endMeasurement(point, offset, measureType)
 {
-	const measureVec = new Point();
-	const offsetVec = new Point();
-	const drawPoint = new Point();
+	var measureVec = new Point();
+	var offsetVec = new Point();
+	var drawPoint = new Point();
 	drawPoint.copy(measurePoint);
 	drawPoint.calcDeltaTo(point, measureVec);
 	offsetVec.copy(measureVec);
@@ -72,7 +84,7 @@ function endMeasurement(point, offset, measureType)
 	drawPoint.lineTo(measureContext);
 	measureVec.scaleByNumber(.5);
 	drawPoint.translateBy(measureVec);
-	const vecLength = measureVec.calcLength() * 2;
+	var vecLength = measureVec.calcLength() * 2;
 	var blankLength;
 	
 	if( measureType )
@@ -91,8 +103,9 @@ function endMeasurement(point, offset, measureType)
 		blankLength = vecLength;
 	}
 	
+	var lengthString = toFraction(vecLength) + "in";
 	//var lengthString = measureType+"='" + toFraction(blankLength) + "(" + toFraction(vecLength) + ")"
-	var lengthString = measureType+"='" + toFraction(blankLength);
+	//var lengthString = measureType+"='" + toFraction(blankLength);
 	measureContext.fillText(lengthString, drawPoint.getX() * PIXELS_PER_INCH, drawPoint.getY() * PIXELS_PER_INCH-3);
 	drawPoint.translateBy(measureVec);
 	drawPoint.lineTo(measureContext);

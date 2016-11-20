@@ -120,5 +120,10 @@
 			<servlet-name>redirector</servlet-name>
 			<url-pattern>/games/atmospheric_layers</url-pattern>
 		</servlet-mapping>
+        
+        <servlet-mapping>
+            <servlet-name>redirector</servlet-name>
+            <url-pattern>/front_rack</url-pattern>
+        </servlet-mapping>
 
 </web-app>

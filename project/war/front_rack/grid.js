@@ -1,7 +1,7 @@
 function drawGrid(canvas) {
 	
-	const context = canvas.getContext("2d");
-	console.log(context);
+	var context = canvas.getContext("2d");
+	//console.log(context);
 	
 	context.lineWidth = GRID_LINE_WIDTH;
 	context.strokeStyle = GRID_COLOR;
@@ -9,7 +9,7 @@ function drawGrid(canvas) {
 	context.beginPath();
 	
 	var x = 0, y = 0;
-	const delta = GRID_SIZE * PIXELS_PER_INCH;
+	var delta = GRID_SIZE * PIXELS_PER_INCH;
 	
 	for( x = 0; x < canvas.width; x += delta )
 	{

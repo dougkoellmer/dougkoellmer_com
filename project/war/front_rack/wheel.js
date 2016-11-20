@@ -1,10 +1,10 @@
 function drawWheel(canvas) {
 	
-	const context = canvas.getContext("2d");
+	var context = canvas.getContext("2d");
 	
-	const rimRadius = WHEEL_DIAM/2 - TIRE_THICKNESS - RIM_THICKNESS;
-	const rotationPoint = new Point(START_POINT.getX(), START_POINT.getY() - rimRadius);
-	const angle = (360 / SPOKE_COUNT) * (Math.PI / 180);
+	var rimRadius = WHEEL_DIAM/2 - TIRE_THICKNESS - RIM_THICKNESS;
+	var rotationPoint = new Point(START_POINT.getX(), START_POINT.getY() - rimRadius);
+	var angle = (360 / SPOKE_COUNT) * (Math.PI / 180);
 	
 	
 	// context.beginPath();

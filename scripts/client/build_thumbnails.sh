@@ -18,7 +18,7 @@ do
 	entry=$(realpath $entry)
 	thumb=$(realpath $thumb)
 	
-	convert.exe $entry -resize $THUMB_SIZE^ -gravity "NORTH" -quality $IMG_QUALITY -extent $THUMB_SIZE $thumb
+	$IMAGE_MAGICK_CONVERT $entry -resize $THUMB_SIZE^ -gravity "NORTH" -quality $IMG_QUALITY -extent $THUMB_SIZE $thumb
 	
 	echo $entry $thumb
 	
@@ -28,6 +28,7 @@ sh ./build_thumb_spriteplate.sh
 
 if [ "$TAKE_SNAPSHOTS" != "take_snapshots" ]
 then
+	echo
 	#rm -rf $SNAPSHOT_DIR
 fi
 

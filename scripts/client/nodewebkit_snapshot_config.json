@@ -3,11 +3,12 @@
   "main": "{{url}}",
   "window":
   {
-	"width": 512,
-    "height": 512,
-	"frame":false,
-	"toolbar":false,
-	"show":false
+		"width": 512,
+	  "height": 512,
+		"frame":true,
+		"toolbar":false,
+		"show":false
   },
-  "node-remote":"<local>"
+  "node-remote":"{{node-remote}}",
+	"//chromium-args": "--enable-logging=stderr"
 }

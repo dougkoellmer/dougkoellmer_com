@@ -1,6 +1,6 @@
 function drawFrame(canvas) {
 	
-	const context = canvas.getContext("2d");
+	var context = canvas.getContext("2d");
 	
 	context.beginPath();
 	
@@ -8,10 +8,10 @@ function drawFrame(canvas) {
 	context.lineWidth = DEFAULT_LINE_WIDTH;
 	
 	
-	const drawVec = new Point(FORK_BOTTOM_DIAM/2.0, 0);
-	drawVec.rotateBy(-FORK_ANGLE_RAD);
+	var drawVec = new Point(FORK_BOTTOM_DIAM/2.0, 0);
+	drawVec.rotateBy(-FORK_ANGLE_RAD());
 	
-	const drawPoint = new Point();
+	var drawPoint = new Point();
 	
 	
 	
@@ -32,7 +32,7 @@ function drawFrame(canvas) {
 	
 	
 	drawVec.set(FORK_TOP_DIAM/2.0, 0);
-	drawVec.rotateBy(-FORK_ANGLE_RAD);
+	drawVec.rotateBy(-FORK_ANGLE_RAD());
 	drawVec.negate();
 	
 	drawPoint.copy(START_POINT);
@@ -45,7 +45,7 @@ function drawFrame(canvas) {
 	
 	
 	drawVec.set(FORK_TOP_DIAM/2.0, 0);
-	drawVec.rotateBy(-FORK_ANGLE_RAD);
+	drawVec.rotateBy(-FORK_ANGLE_RAD());
 	
 	drawPoint.copy(START_POINT);
 	drawPoint.translateBy(drawVec);

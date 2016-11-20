@@ -1,5 +1,7 @@
 <html style="width:100%; height:100%;">
 <head>
+  
+  <title>/front_rack</title>
 	
 	<style>
 	/*body {
@@ -8,13 +10,52 @@
 	#measure_canvas {
 		transform: scale(-1, 1) translate(-2000px, 0px);
 	}*/
+		
+		.slider {
+			margin-bottom:8px;
+		}
+		
+		.slider_value {
+			text-align:center;
+		}
+		
+		.slider_wrapper {
+			width:164px;
+			padding:18px;
+			
+			padding-top:12px;
+			padding-bottom:8px;
+		}
+		
+		.light_border {
+			border:1px solid #bbbbbb;
+		}
+		
+		body {
+		  background-color: #fff;
+		  padding:20px;
+		  font: 12px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		  color:#727272;
+		  font-weight:400;
+		}
+		
 	</style>
+	
+	<link rel="stylesheet" type="text/css" href="nouislider.min.css">
+	
+	<script src="./nouislider.js"></script>
 
 </head>
-<body style="width:100%; height:100%;">
-<canvas id="grid_canvas" style="position:absolute; width:2000px; height:2000px;" ></canvas>
-<canvas id="default_canvas" style="position:absolute; width:2000px; height:2000px;" ></canvas>
-<canvas id="measure_canvas" style="position:absolute; width:2000px; height:2000px;" ></canvas>
+<body style="width:100%; height:100%; margin:0px;">
+
+<div id="slider_parent" class="light_border" style="border-right:none; display:inline-block;  width:200px;">
+</div>
+
+<div style="display:inline; width:1000px; height:1000px;">
+	<canvas id="grid_canvas" style="opacity:.25; position:absolute; width:1000px; height:1000px;" ></canvas>
+	<canvas id="default_canvas" style="position:absolute; width:1000px; height:1000px;" ></canvas>
+	<canvas class="light_border" id="measure_canvas" style="position:absolute; width:1000px; height:1000px;" ></canvas>
+</div>
 
 
 <script src="./point.js"></script>
