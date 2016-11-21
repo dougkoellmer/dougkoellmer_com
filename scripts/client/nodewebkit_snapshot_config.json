@@ -9,6 +9,6 @@
 		"toolbar":false,
 		"show":false
   },
-  "node-remote":"{{node-remote}}",
-	"//chromium-args": "--enable-logging=stderr"
+  "node-remote":"{{node-remote}}"
+	//"chromium-args": "--allow-file-access-from-files --allow-file-access --user-data-dir --mixed-context"
 }
