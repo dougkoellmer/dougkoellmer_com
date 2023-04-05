@@ -1,0 +1,117 @@
+<credits>
+	<entry>
+		<type>Project Manager</type>
+		<name>John Heckman</name>
+		<detail>JCS Director and Manager</detail>
+	</entry>
+	
+	<entry>
+		<type>Lead Programmer/Voiceover</type>
+		<name>Doug Koellmer</name>
+		<detail>Core Programming | Level Architecture | Research</detail>
+	</entry>
+	
+	<entry>
+		<type>Lead Artist/Production</type>
+		<name>Brandon Schapekahm</name>
+		<detail>Animations, Level Production, and Various 2d/3d Assets</detail>
+	</entry>
+
+	<entry>
+		<type>Artist</type>
+		<name>Gary Storkamp</name>
+		<detail>3d Modeling and 2d Art</detail>
+	</entry>
+
+	<entry>
+		<type>Artist</type>
+		<name>Mike Hansen</name>
+		<detail>Preliminary Art/Concepts, 3d Modeling and 2d Art</detail>
+	</entry>
+
+	<entry>
+		<type>Programmer</type>
+		<name>Marty Rabens</name>
+		<detail>Additional Programming</detail>
+	</entry>
+
+	<entry>
+		<type>Programmer</type>
+		<name>Mark Manyen</name>
+		<detail>Additional Technology Assistance</detail>
+	</entry>
+
+	<entry>
+		<type>ITS</type>
+		<name>Andrew Letourneau</name>
+		<detail>Additional Technology Assistance</detail>
+	</entry>
+	
+	<dod>
+		<type></type>
+		<name>Dan Dunmire, Director: DoD Office of Corrosion Policy and Oversight</name>
+	</dod>
+	
+	<dod>
+		<type>Project Coordinator, Achievia Solutions</type>
+		<name>Michael Carpenter, Project Coordinator: Achievia Solutions</name>
+	</dod>
+	
+	<dod>
+		<type>Subject Matter Expert</type>
+		<name>Tom Tehada, Subject Matter Expert</name>
+	</dod>
+	
+	<dod>
+		<type></type>
+		<name>Dick Kinzie</name>
+	</dod>
+	
+	<dod>
+		<type></type>
+		<name>Larry Lee</name>
+	</dod>
+	
+	<dod>
+		<type></type>
+		<name>Tim Timko, LMI</name>
+	</dod>
+	
+	<dod>
+		<type></type>
+		<name>CPC Training WIPT</name>
+	</dod>
+	
+	<nace>
+		<name>Dan Kurth</name>
+	</nace>
+	
+	<nace>
+		<name>Cliff Johnson</name>
+	</nace>
+	
+	<mandaree>
+		<name>Charles Gibbs, Grants Manager</name>
+	</mandaree>
+	
+	<defu>
+		<name>Dr. Alicia Sanchez</name>
+	</defu>
+	
+	<bruno>
+		<name>Lorri Berglund</name>
+	</bruno>
+
+	<bruno>
+		<name>Shane Lord</name>
+	</bruno>
+	
+	<bruno>
+		<name>Stacey Cook</name>
+	</bruno>
+	
+	<bruno>
+		<name>Mitch Dean</name>
+	</bruno>
+
+</credits>

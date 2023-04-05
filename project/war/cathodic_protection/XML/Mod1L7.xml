@@ -1,0 +1,68 @@
+<Mod1L7>	
+	
+	<name>Safety and Measurement</name>
+	
+	<description>
+		Now you know how to set up a CP system, but you still need to know how to take measurements and be safe while doing it.
+	</description>
+
+	<dialogs>
+
+		<dialog mp3="01"><!--Frame 4-->
+			<text>Get ready for the obligatory safety lecture now. Because when you're dealing with CP systems, especially impressed ones, you're dealing with high voltages and currents, enough to kill you. Often you will be asked to take measurements on rectifiers like depicted in the graphic above. Using both hands can complete a circuit through yours arms and across your heart, leading to severe consequences, such as...
+			</text>
+		</dialog>
+
+		<dialog mp3="02"><!--Frame 5-->
+			<text>SEVERE ELECTRIC SHOCK!!!...or even...</text>
+		</dialog>
+
+		<dialog mp3="03"><!--Frame 6-->
+			<text>death...</text>
+		</dialog>
+
+		<dialog mp3="04"><!--Frame 7-->
+			<text>The chopstick method is generally safer...</text>
+		</dialog>
+		
+		<dialog mp3="05">
+			<text>However, you are still susceptible to anomalous shocks, as you remain part of a circuit which wants to be grounded. There's much less chance of the current going through your heart though.</text>
+		</dialog>
+
+		<dialog mp3="06"><!--Frame 8-->
+			<text>The best way to reduce the risk of shock is to apply the connectors with clamps and remove yourself from direct contact with any element of the rectifier.</text>
+		</dialog>
+
+		<dialog mp3="07"><!--Frame 9-->
+			<!--**UPDATE**--><text>The ideal (and safest) method when checking the rectifier would involve insulated electricians gloves and thick, rubber-soled boots.</text>
+		</dialog>
+		
+		<dialog mp3="08">
+			<!--**UPDATE**--><text>Now to take some real measurements. Criteria for adequate cathodic protection indicate that structure-to-electrolyte potentials within the range of -0.85 to -1.1 volts measured with a copper sulfate electrode in soil/fresh water and -0.78 to -1.05 measured with a silver chloride electrode in seawater are indicative of adequate cathodic protection. We're now going to find out how that measurement is actually taken in the field, and use it to select the best "mystery" anode for our structure. But first, make sure you read the above information.
+			</text>
+		</dialog>
+		
+		<dialog mp3="09">
+			<text>Follow the instructions above. Which anode, A, B, C, D, E, or F, will provide the best protection for our tank? Remember that only one of the two reference electrodes are suitable for use in soil.</text>
+		</dialog>
+		
+		<dialog mp3="10">
+			<text>Same thing here, but this time the electrolyte has changed from soil to water. Which will be the best anode this time?</text>
+		</dialog>
+
+	</dialogs>
+	
+	<anodetest>
+		<sulfateinwater emotion="Disappointed" mp3="11">The copper sulfate reference electrode can only be used in soil. Use the other reference electrode.</sulfateinwater>
+		<chlorideinsoil emotion="Disappointed" mp3="12">The silver chloride reference electrode can only be used in water. Use the other reference electrode.</chlorideinsoil>
+		<correctelectrode emotion="Happy" mp3="13">Yes, that is the correct electrode to use in this environment.</correctelectrode>
+		<alltested emotion="Anticipation" mp3="14">Ok, you've measured how all the anodes affect the structure-to-electrolyte potential of the tank. Now which anode do you think will provide the best protection?</alltested>
+		<protected emotion="Excited" mp3="15">Excellent choice. The anode you've chosen has pushed the structure-to-electrolyte potential right where we want it. Our tank will enjoy a long, healthy life. Proceed to the next frame.</protected>
+		<protectedagain emotion="Excited" mp3="16">Again, a terrific choice. Saltwater will be no match against our tank now!</protectedagain>
+		<!--**UPDATE**--><underprotected emotion="Tired" mp3="17">Almost right.  The structure is receiving adequate protection but the anode selected is providing more current than is necessary.  Choose another anode that may be a better economic choice.</underprotected>
+		<overprotected emotion="Stupid" mp3="18">Almost right. While that anode will prevent corrosion of the tank, it will also cause a phenomenon called over-protection, which can cause the steel of the tank to become brittle. Choose another.</overprotected>
+	</anodetest>
+	
+	<endoflevel>This is the end of level 7. In this level you learned about how to take measurements on a Cathodic Protection system, and the possible dangers involved in doing so. This is also the end of the game. You may go back through any of the levels and animations at your leisure to review material.</endoflevel>
+	
+</Mod1L7>

@@ -1,0 +1,176 @@
+﻿<Mod1L5>
+
+	<name>Basic Impressed Current CP</name>
+	
+	<description>
+		Build off your Galvanic CP know-how and take the next step in corrosion prevention technology.
+	</description>
+
+	<dialogs>
+	
+		<dialog mp3="01"><!--Frame 4-->
+			<text>
+				In this level we will cover Impressed Current Cathodic Protection, or ICCP. There are two significant differences between this and Galvanic CP. The first is that the electrode used to protect the structure typically has a much higher electrical potential than the structure itself.  Instead of using lower potential metals like magnesium and zinc, ICCP anodes are made of high potential materials such as platinum and graphite.  If you've kept up so far, you'll know that anodes made of these materials would normally accelerate corrosion of our structure.
+				</text>
+		</dialog>
+
+		<dialog mp3="02"><!--Frame 4-->
+			<!--**UPDATE**--><text>
+				But the second difference between the two methods is that with ICCP, the anodes are formulated to allow higher anode output currents at much lower consumption rates than galvanic anodes. This is possible because the electrons don't come from corrosion of the anode, but from an external power source "impressing" electrons onto the cell. The most obvious result of this is that IC anodes typically have a very long lifetime, while Galvanic anodes are used up relatively quickly.  Above you can see the difference between a galvanic and impressed current cell.
+			</text>
+		</dialog>
+
+		<dialog mp3="03"><!--Frame 5-->
+			<!--**UPDATE**--><text>
+				The additional component to the cell is a DC power source, most commonly a transformer rectifier, or simply, a rectifier. This is the power source in place of the more active galvanic anode. A CP engineer can fine tune the amount of current provided to exactly match the requirements for protecting a structure.  Why don't you try it out above?  Adjust the voltage output with the knob until the steel electrode to the left is protected.  Remember to turn everything on first though.
+			</text>
+		</dialog>
+		
+		<zero emotion="Impatient" mp3="04">There's no voltage being supplied to the system, and therefore your structure is left corroding in the presence of the high potential Impressed Current anode. Adjust the knob please.</zero>
+
+		<under emotion="Bored" mp3="05">The voltage you supplied to the system is not enough to protect the steel. Keep trying.</under>
+		
+		<toolittle emotion="GrudgingApproval" mp3="06">Technically the voltage is enough to give some protection, but why don't you give it a little more juice to really ensure that the steel will last.</toolittle>
+		
+		<!--**UPDATE**--><perfect emotion="Approved" mp3="07">Congratulations! You've set up your first ICCP system. You've reached a potential within the range of -0.85 to -1.1 Volts, which is enough to protect the structure and isn't too expensive either. Please continue.</perfect>
+		
+		<!--**UPDATE**--><toomuch emotion="Worried" mp3="08">Whoa! Whoa! The electricity bills are gonna kill us! Not to mention that structure-to-electrolyte potentials in excess of -1.20 Volts can lead to something called over-protection, which can make your structure (the cathode) very brittle. So turn it down a little!</toomuch>
+
+		<dialog mp3="09"><!--Frame 6-->
+			<text>
+Good job so far.  Let's go through some advantages to using impressed current...
+			</text>
+		</dialog>
+
+		<dialog mp3="10"><!--Frame 7-->
+			<text>
+The disadvantages of impressed current systems include...
+			</text>
+		</dialog>
+
+		<dialog mp3="11"><!--Frame 8-->
+			<text>
+				Now that you have a general understanding of how ICCP works, I've given you another 3 structures to consider.  These structures will either require an ICCP system or no system at all.  The same as with the Galvanic CP minigame in the last level, you must click on a structure, acquire information, and take action.
+			</text>
+		</dialog>
+
+	</dialogs>
+	
+	<endoflevel>This is the end of level 5.  This level covered the basics of Impressed Current Cathodic Protection; how it works and when it's used.  In the next level, you will make decisions on when to use ICCP and when to use Galvanic CP.</endoflevel>
+	
+	<minigame>
+		
+		<minigamecomplete mp3="12">You've already completed the minigame, so you may move on.</minigamecomplete>
+		
+		<congrats emotion="Excited" mp3="13">You've completed the challenge!  All your structures are safe for the time being.  You may now move on.</congrats>
+		
+		<otherstructs>
+			<needsitchoseyesok emotion="Smug" mp3="14">Good job, your system is running smoothly and that structure should last a long time.</needsitchoseyesok>
+			<needsitchoseyesbut emotion="Stupid" mp3="15">An Impressed Current system requires a current strong enough to turn the structure into a cathode. Try again.</needsitchoseyesbut>
+			<needsitchoseyesbutoff emotion="Impatient" mp3="16">You might want to go back and turn your system on...</needsitchoseyesbutoff>
+			<needsitchoseyesbutnotenough emotion="Sad" mp3="17">Ok, Ok, very close. You've set the rectifier to a point where it is technically protecting the structure, but why don't you give it a little more juice. Remember about that magic -.85 number.</needsitchoseyesbutnotenough>
+			<needsitchoseyesbuttoomuch emotion="Worried" mp3="18">Not quite. There's too much current going through your system. Remember to get it as close to -.85 as possible.</needsitchoseyesbuttoomuch>
+			<needsitchoseno emotion="Disappointed" mp3="19">Hrm, not quite. Why don't you go back and take another look...</needsitchoseno>
+			<doesntneedchoseyes emotion="Disappointed" mp3="20">Really? I would say CP isn't needed there. Take another look.</doesntneedchoseyes>
+			<doesntneedchoseno emotion="Smug" mp3="21">Yes, I agree, that structure doesn't need CP.</doesntneedchoseno>
+			<doesntneedchosenobutanode emotion="Bored" mp3="21b">Almost right. The structure doesn't need CP and technically you're not running a system, but the anode you put in is just being wasted. Go back and take it out.</doesntneedchosenobutanode>
+			<doesntneedchosenobuton emotion="Bored" mp3="22">Ah so close. The structure doesn't need CP and a current isn't flowing, but the system is still technically active. Go back and shut it off.</doesntneedchosenobuton>
+			<doesntneedchosenobutonandcurrent emotion="Bored" mp3="23">I don't think so. Go back and check the information window one more time.</doesntneedchosenobutonandcurrent>
+		</otherstructs>
+		
+		<storageTank background="SoilZoom" >
+			<hmm emotion="Stupid" mp3="24">I don't think this tank will be too straightforward...</hmm>
+			<!-- <scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>An inspection found numerous leaks around the base of the tank.  The leaks can be patched up for now, but the inspector recommended replacing the tank within a few years.</info>
+				<needscp>no</needscp>
+				<salt>.25</salt>
+			</scenario> -->
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The water tank is 10 years old but in decent shape despite some coating deterioration because it is sitting in some very dry, high-resistivity soil. However, rust is forming in the coating discontinuities (on the tank interior walls submerged in water) and your superiors are starting to get a little worried.</info>
+				<needscp>yes</needscp>
+				<salt>1</salt>
+			</scenario>
+			<!-- <scenario>
+				<budget>0</budget>
+				<metal>New Steel</metal>
+				<info>Chloride content exceeds the threshold for corrosion.</info>
+				<needscp>yes</needscp>
+				<salt>1</salt>
+			</scenario>
+			<scenario>
+				<budget>0</budget>
+				<metal>Old Steel</metal>
+				<info>The bridge's rebar structure is corroding due to salts leaking down through the concrete.  A system requiring a minimal amount of maintenance is desired.</info>
+				<needscp>yes</needscp>
+				<salt>2</salt>
+			</scenario> -->
+		</storageTank>
+
+		<pipeline background="SoilZoom">
+			<hmm emotion="Flustered" mp3="25">Pipelines are always a challenge...</hmm>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>An inspection revealed numerous leaks along 3 miles of the pipeline. A CP system might not be a priority for this structure.</info>
+				<needscp>no</needscp>
+				<salt>7</salt>
+			</scenario>
+			<!--<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The pipeline has been in service for over 15 years, and although it is still sound, it is expected to have experienced significant coating deterioration.  Recoating the tank simply isn't feasible at this time.</info>
+				<needscp>yes</needscp>
+				<salt>.25</salt>
+			</scenario> -->
+			<!--<scenario>
+				<budget>0</budget>
+				<metal>New Steel</metal>
+				<info>Soil resistivity is 3,500 ohm-cm.</info>
+				<needscp>yes</needscp>
+			</scenario>
+			<scenario>
+				<budget>0</budget>
+				<metal>New Steel</metal>
+				<info>Electrical isolation of the storage tank system (including the associated pipelines) from other buried metallic structures in the area can be easily accomplished.</info>
+				<needscp>yes</needscp>
+			</scenario>	-->
+		</pipeline>
+
+		<pier background="WaterZoom">
+			<hmm emotion="Cocky" mp3="26">This pier will really test your CP knowledge...</hmm>
+			<!--<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>An inspection found that many of the piles supporting the pier had questionable structural integrity.  The pier isn't mission critical and may even be demolished in a few years.</info>
+				<needscp>no</needscp>
+				<salt>.2</salt>
+			</scenario> -->
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The pier has many, many steel piles to protect, readily available electrical power, and qualified technicians on staff. The piles are in seawater, and a silver-chloride electrode would be used to measure the potentials.</info>
+				<needscp>yes</needscp>
+				<salt>.4</salt>
+			</scenario>
+			<!--<scenario>
+				<budget>0</budget>
+				<metal>Aluminum</metal>
+				<info>The hull is made of aluminum. </info>
+				<needscp>yes</needscp>
+			</scenario>
+			<scenario>
+				<budget>0</budget>
+				<metal>Aluminum</metal>
+				<info>Even though your boat is looking fine at the moment, your superiors have informed you that they need a cheap and easy way to prevent it from corroding in the future.</info>
+				<needscp>yes</needscp>
+				<salt>.1</salt>
+			</scenario> -->
+		</pier>
+
+	</minigame>
+	
+</Mod1L5>

@@ -14,6 +14,7 @@ THUMB_DIR="../../project/war/img/cell_content/thumbs/auto"
 THUMB_SIZE=96x96
 export GAE_HOME=$(file_absPath "${SWARM_DIR}/tools/appengine-java-sdk")
 export GWT_HOME=$(file_absPath "${SWARM_DIR}/tools/gwt")
+LOCAL_DEV_SERVER="127.0.0.1:8080"
 
 
 FINAL_IMG_SIZE=${CELL_SIZE}x${CELL_SIZE}

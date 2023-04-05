@@ -1,0 +1,31 @@
+<Mod1L1>
+
+	<name>Introduction</name>
+
+	<description>
+		Game concept, how to play the game, and introduction to the game.
+	</description>
+
+	<dialogs>
+	
+	<!--*****-->	<dialog mp3="01"><!--Frame 4-->
+			<!--**UPDATE**--><text>Welcome to Inspect and Protect - A Cathodic Protection Learning Game. This project was funded by a grant from the Department of Defense. It is part of an initiative to inform people about the effects of corrosion on our nation's infrastructure and explain how we can stop it.</text>
+		</dialog>
+		
+		<dialog mp3="02"><!--Frame 5-->
+			<!--**UPDATE**--><text>This game was created to help Engineers and Technicians learn more about the introductory basics of cathodic protection systems and impress upon them the importance of their work. You will learn about the damage that corrosion does to our country's infrastructure and how we can protect against it. It is for informational purposes and not intended to lead the student to any type of certification. In an effort to create an entertaining but meaningful experience, some technical content may not be highly accurate.</text>
+		</dialog>
+		
+		<dialog mp3="04"><!--Frame 7-->
+			<text>This game is designed to be simple to understand and follow. Advancement to the next frame will often require you to simply read or listen to the information being presented. In other cases, a list of objectives must be completed to move on. All interaction within the game can be done through a mouse or touchpad.</text>
+		</dialog>
+
+		<dialog mp3="05"><!--Frame 8-->
+			<text>First off, we define corrosion and how it effects the world around us. Next, we take a look at what makes metals corrode and the environmental factors involved. Then we take a solid look at galvanic protection, and impressed current protection systems. We will analyze the conditions surrounding a variety of structures, and decide on an appropriate means of protection for them. Finally, we will go over safety concerns when dealing with the installation and maintenance of a cathodic protection system and some data logging.</text>
+		</dialog>
+
+	</dialogs>
+	
+	<endoflevel>This is the end of the introductory level. You learned the basic what, why and how of this game. Click "RETURN" in the upper left hand corner to return to the level select screen and play the rest of the levels.</endoflevel>
+	
+</Mod1L1>

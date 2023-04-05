@@ -1,0 +1,179 @@
+﻿<Mod1L6>	
+	
+	<name>Galvanic vs. Impressed</name>
+	
+	<description>
+		Which is better? Find out what you should look for when deciding on a CP system to use.
+	</description>
+		
+	<dialogs>
+
+		<dialog mp3="01"><!--Frame 4-->
+			<text>
+There are many different conditions that require the use of a CP system. Depending on the details of a particular scenario, an expert must decide whether a galvanic system is enough, or if a structure is going to require an impressed current system. Above you can see how Galvanic CP is the most efficient way to protect a structure when a relatively small amount of current is required. A common example of this scenario is when the surface area to protect is rather small.
+			</text>
+		</dialog>
+		
+		<dialog mp3="02"><!--Frame 6-->
+			<text>
+Galvanic CP is also useful when dealing with lower-resistivity electrolytes. If the electrolyte has a low resistance to electronic current, it means things can flow more freely and thus a sacrificial anode can usually produce enough current to do the job.  The structure on the left would need too many anodes to overcome the high resistivity of the dry soil, and, so, would cost too much.
+			</text>
+		</dialog>
+		
+		<dialog mp3="03"><!--Frame 7-->
+			<text>
+Galvanic CP is very helpful when used to provide current to a specific area on a structure. Sometimes portions of a structure are isolated or electrically shielded and, so, are not protected by the main CP system. These portions then require their own localized system to prevent corrosion.</text>
+		</dialog>
+		
+		<dialog mp3="04"><!--Frame 9-->
+			<text>
+The following are examples of optimal conditions for the use of ICCP systems. Generally, ICCP is used when there are large current requirements involved.  For example a system is being used above to protect a ship which has a large portion of its hull exposed to salt water.
+			</text>
+		</dialog>
+
+		<dialog mp3="05"><!--Frame 10-->
+			<text>
+While Impressed Current systems can be used in all electrolyte resistivities, they are often the only option in high resistivity electrolytes like dry, rocky soil.  A Galvanic system wouldn't be effective in the leftmost electrolyte, because it wouldn't create enough current to overcome the high resistance.
+			</text>
+		</dialog>
+
+		<dialog mp3="06"><!--Frame 11-->
+			<text>
+Stray current from nearby power sources can cause a structure to become the anode in a galvanic cell and bring about rapid corrosion. Often the current drawn from the structure is simply too strong for a galvanic CP system to overcome.  ICCP is the only option in these situations.
+			</text>
+		</dialog>
+		
+		<dialog mp3="07">
+		<text>You should be pretty familiar with the corrosion cell model by now, but there's one last concept to be covered, and that is surface area. It plays a big role in metal corrosion.  Up to this point, we've been working with equally-sized electrodes.  But what happens when they're different sizes?  Make the copper as big as possible and the iron as small as possible to observe the reaction.</text>
+		</dialog>
+		
+		<maxed emotion="Happy" mp3="08">Great. You can see how having a larger cathode can really accelerate corrosion of the anode. Now try to do the opposite. So, make the iron as large as possible and the copper as small as possible.</maxed>
+		
+		<minned emotion="Pleased" mp3="09">Very good. Notice how the corrosion rate between the two electrodes is now much slower. Continue to the next frame and we'll see how surface area factors into cathodic protection.</minned>
+		
+		<dialog mp3="10"><text>Above is a corrosion cell depicting a large structure to the left and an available anode connection to the right. The structure is slowly corroding due to its own microscopic local action cells. Like you have in previous levels, place an anode into the empty slot to try and protect this structure.</text></dialog>
+		
+		<yikes emotion="Worried" mp3="11">Yikes that anode is getting eaten alive! You better put more in...</yikes>		
+		<keepgoin emotion="Tired" mp3="12">Keep going...</keepgoin>
+		<tenin emotion="Approved" mp3="13">Ok that should be enough. As you saw, using just one anode would have caused that anode to die rather quickly. In addition, although not depicted here, it would have only protected the structure in the immediate vicinity. CP engineers place multiple anodes evenly over a structure to ensure good overall protection. Continue to the next frame to use this newfound knowledge on some real structures.</tenin>
+		
+		<dialog mp3="14"><text>Now for the real test of your CP know-how. You have 6 structures to consider, and each will require either a cheaper Galvanic System, or a more expensive Impressed Current system. It's your job to decide which.</text></dialog>
+
+	</dialogs>
+	
+	<endoflevel>This is the end of level 6. Here you learned best practices for when to use Galvanic and when to use Impressed, then tested your knowledge on some various real-life scenarios. The next level will go into some hands-on activities involving safety, measurements, and record keeping.</endoflevel>
+	
+	<minigame>
+	
+		<rememberaluminum emotion="Angry" mp3="15">Remember, even though it's offered, aluminum does not make a good anode in soil due to its passivating effects. Use another metal please.</rememberaluminum>
+	
+		<budget>10000</budget>
+		
+		<minigamecomplete mp3="16">You've already completed the minigame, so you may move on.</minigamecomplete>
+		
+		<congrats emotion="Excited" mp3="17">You've completed the final challenge! All your structures are safe, and will remain that way for some time. You may now move on.</congrats>
+		
+		<otherstructs>
+			<needsgcpchoseiccp emotion="Disappointed" mp3="18">Take another look. Impressed current might not be the best choice there.</needsgcpchoseiccp>
+			<!-- *****--><needsiccpchosegcp emotion="Disappointed" mp3="19">Try again. Galvanic CP probably won't work there.</needsiccpchosegcp>
+			
+			<gcp>
+				<needsitchoseyesok mp3="20" emotion="Smug">I agree, that is an excellent Galvanic CP installation.</needsitchoseyesok>
+				<needsitchoseyesbutnotenough mp3="21" emotion="Anticipation">Ok very close. You've chosen an anode configuration that will protect the structure to a degree, but you either need to add more anodes or choose a different type of anode.</needsitchoseyesbutnotenough>
+					<needsitchoseyesbuttoomuch mp3="22" emotion="Worried">You've pushed the structure-to-electrolyte potential too far past -.85V.  Go back and choose an anode configuration that's more suitable.</needsitchoseyesbuttoomuch>
+
+				<noanode emotion="Disappointed" mp3="25">A Galvanic CP system requires a sacrificial anode. Go back and install one.</noanode>
+			</gcp>
+			
+			<iccp>
+				<needsitchoseyesok emotion="Smug" mp3="26">Very good job! Your system is running smoothly and that structure will last a long time.</needsitchoseyesok>
+				<needsitchoseyesbut emotion="Stupid" mp3="27">An Impressed Current system requires a current strong enough to turn the structure into a cathode.  Try again.</needsitchoseyesbut>
+				<needsitchoseyesbutoff emotion="Impatient" mp3="28">You might want to go back and turn your system on...</needsitchoseyesbutoff>
+				<needsitchoseyesbutnotenough emotion="Sad" mp3="29">Ok, not bad. You've set the rectifier to a point where it is technically protecting the structure, but why don't you give it a little more power. Remember that -0.85 number.</needsitchoseyesbutnotenough>
+				<needsitchoseyesbuttoomuch emotion="Worried" mp3="30">Not quite. There's too much current going through your system. Remember to get it as close to -.85 as possible.</needsitchoseyesbuttoomuch>
+				<noanode mp3="31">An Impressed Current system requires an anode to complete the circuit. Go back and install one.</noanode>
+			</iccp>
+		</otherstructs>
+		
+		<storageTank background="SoilZoom" >
+			<hmm emotion="Worried" mp3="32">Gee, I hope you can figure this one out...</hmm>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The soil around the base of this tank is very dry, with a resistivity reading of about 10,000 Ohm-meters, which is quite high. You'll probably need a system that will guarantee enough current to negate the high resistance.</info>
+				<needs>iccp</needs>
+				<salt>.25</salt>
+				<area>2</area>
+				<res>1000</res>
+			</scenario>
+		</storageTank>
+
+		<pipeline background="SoilZoom">
+			<hmm emotion="Flustered" mp3="33">Ahh... I don't know what's going on here...</hmm>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The pipeline is very long with a lot of bare steel, and so already has one ICCP system installed to protect its large surface area.  However there is an electrically isolated section that is not getting sufficient current. A supplemental system is needed here.</info>
+				<needs>gcp</needs>
+				<salt>0</salt>
+				<area>1.2</area>
+				<res>-300</res>
+			</scenario>
+		</pipeline>
+
+		<pier background="WaterZoom">
+			<hmm emotion="Cocky" mp3="34">So you think you can handle this one?</hmm>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The piles supporting this pier collectively have a large surface area exposed to salt water. Which system to choose may seem obvious, but an inspection revealed that the piles are not electrically continuous with each other. Impressed current can do the job but at a much higher initial cost to install connections.</info>
+				<needs>gcp</needs>
+				<salt>.2</salt>
+				<area>2.6</area>
+				<res>-400</res>
+			</scenario>
+		</pier>
+		
+		<!-- magnesium -->
+		<bridge background="SoilZoom" >
+			<hmm emotion="Bored" mp3="35">This one should be easy...</hmm>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>There's a lot of steel rebar to protect here and obviously we want the best system for the job, but right now there's very limited funding available in the maintenance and operation budget.</info>
+				<needs>gcp</needs>
+				<salt>.15</salt>
+				<area>2.3</area>
+				<res>-50</res>
+			</scenario>
+		</bridge>
+
+		<tank background="SoilZoom">
+			<hmm emotion="Concentrated" mp3="36">What to do, what to do...</hmm>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>Stray current from a nearby railway station is causing rapid corrosion of one end of the tank. A system is needed which can be fine-tuned to match the large current requirements needed to overcome the stray current.</info>
+				<needs>iccp</needs>
+				<salt>0</salt>
+				<area>1.5</area>
+				<res>1500</res>
+			</scenario>
+		</tank>
+
+		<boat background="WaterZoom">
+			<hmm emotion="Surprised" mp3="37">This one might surprise you!</hmm>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The hull has a large area to protect and plenty of money in the budget.</info>
+				<needs>iccp</needs>
+				<salt>0</salt>
+				<area>2.6</area>
+				<res>700</res>
+			</scenario>
+		</boat>
+
+	</minigame>
+	
+</Mod1L6>

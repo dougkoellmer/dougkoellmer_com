@@ -1,0 +1,166 @@
+﻿<Mod1L2>
+	
+	<name>Corrosion Basics</name>
+
+	<description>
+		A delve into some basic corrosion theory, and why corrosion is such an important issue these days.
+	</description>
+
+	<theory>
+		<dialog mp3="01">
+			<!--**UPDATE**--><text>So, what is corrosion? RUST! Right? Well, it’s a bit more complicated than that, but you probably have the general idea. Corrosion is usually described by its results, with terms like rust, scaling, discoloration, oxidation, pitting, etc. The actual electrochemical process however is much less noticeable. The word, "rust", describes the corrosion of iron and steel, one of the most noticeable effects of corrosion.</text>
+		</dialog>
+
+		<dialog mp3="02">
+			<text>Corrosion acts upon engineered materials, usually metals. In essence, it changes a metal into a different substance that no longer has the same desired properties (e.g. strength, toughness, etc.). Navigate through the four slides above (green arrows).</text>
+		</dialog>
+
+		<dialog mp3="03">
+			<text>You can consider corrosion to be the opposite of producing a metal. Iron, for example, is made by first mining iron oxide, and then introducing a large amount of energy to extract the iron. The resulting high-energy product is inherently unstable. Nature prefers low energy states (a glass of milk left on the table edge will eventually fall to the floor). Iron transitions into a lower energy state by corroding. Click and drag on the slides above to observe iron's life-cycle.</text>
+		</dialog>
+
+		<dialog mp3="04">
+			<text>Corrosion has a severe impact on the capability, readiness, and safety of important structures. By a purely monetary measure, the US Federal Highway Administration estimated in 2002 that corrosion cost the U.S. about 3% of Gross Domestic Product, or roughly $276 billion.</text>
+		</dialog>
+
+		<dialog mp3="05">
+			<text>Asset failure due to corrosion can also have other serious ramifications. Bridges collapse, roadways degrade, and many other essential assets become unusable. Repairs or replacements cost time and money. In the most severe cases, injury or death can take place.</text>
+		</dialog>
+
+		<pictures>
+			<pipeline mp3="06">Oil pipelines that carry oil out of Alaska cover more than 800 miles of terrain. The Alaska Department of Environmental Conservation estimates that there are over 500 oil spills per year, primarily due to corrosion. These spills deeply affect the surrounding environment. The state of Alaska and its wildlife are paying the price for poor corrosion control.</pipeline>
+
+			<ship mp3="07">Ships are particularly susceptible to corrosion as they are constantly exposed to corrosive salt water. Ballast tanks can corrode and fail, leaking their contents. Hull corrosion can cause both major and minor leaks. Loss of speed and steering occurs when propellers and rudders become too corroded.</ship>
+
+			<road mp3="09">Metal rebar is used to help maintain the shape and integrity of concrete roads and runways. When this rebar corrodes away, it can adversely affect that asset's overall integrity. If you think hitting a big pothole with your car is bad, think about how bad it would be to hit one on a runway in an airplane.</road>
+
+			<bridge mp3="08">Recently the 35W bridge in Minneapolis collapsed, causing numerous deaths and injuries to the people who were on it at the time. Corrosion of the bridge structure and supports was identified as a contributing factor to its collapse.</bridge>
+
+			<transportation mp3="10">Motor vehicles, trains, and airplanes all contain metal that is critical to structural integrity and function but is often directly exposed to corrosive environments. The 20th century saw corrosion being considered in the design process through use of better materials and coatings, but there is still a lack of fundamental understanding of corrosion in these industries.</transportation>
+
+			<plumbing mp3="11">The pipes that deliver water throughout our houses and apartments are susceptible to corrosion. The buildup that occurs inside of these pipes can cause reduced water flow, and in some unfortunate cases, contamination.</plumbing>
+		</pictures>
+	</theory>
+
+	<ccs>
+		<name>
+		Demo Corrosion Cell
+		</name>
+		
+		<description>
+		A demo for showing a basic corrosion cell simulation.
+		</description>
+	
+		<anode>
+			<material>Iron</material>
+			<surface_area></surface_area>
+		</anode>
+	
+		<cathode>
+			<material>Copper</material>
+			<surface_area></surface_area>
+		</cathode>
+	
+		<return_path>  <!-- (its length is determined by node positioning in the .fla) -->
+			<material>Iron</material>
+			<diameter>.5</diameter>
+		</return_path>
+	
+		<temperature>30</temperature>  <!-- (in degrees Celcius) -->
+	
+		<dialog mp3="12">
+			<!--**UPDATE**--><text>But enough of the real world. We're about to get into some technical jargon here. This is a corrosion cell. All corrosion of iron and other metals is an electrochemical process. Simply put, it involves a flow of ions and electrons resulting from chemical interactions between a metal and its surroundings. This flow implies an electrical current (the corrosion current). The meaning of the voltages assigned to each of the metals will be explained later.  However, note the magnitude and sign convention of the voltage number, and the relative position of the metal in the list.
+			</text>
+		</dialog>
+
+		<dialog mp3="13">
+			<text>There are four necessary elements to a corrosion cell: the anode, the cathode, the return path (electronic/metallic pathway) and the electrolyte. Let's take a brief look at each of these...
+			</text>
+		</dialog>
+
+		<dialog mp3="14">
+			<text>The anode is the part of the metal that corrodes. In the case of iron, positively charged iron ions react with the surrounding electrolyte to create the well known iron oxide commonly called rust. Electrons are freed in this reaction (oxidation) and conducted along a metallic pathway to the cathode, where a complementary gain of electrons (a reduction reaction) takes place.</text>
+		</dialog>
+
+		<dialog mp3="15">
+			<text>The cathode is where the electrons from the anode are consumed. The cathode is said to be positively charged – the opposite of the anode. Therefore there is a potential difference between the two, creating a voltage which drives the corrosion current. In this case, the total voltage of our cell is 0.345 V (cathode) - -0.44 V (anode) = 0.835 V.</text>
+		</dialog>
+
+		<dialog mp3="16">
+			<text>The return path connects the anode and the cathode to allow a flow of electrons. Oxidation and reduction (or redox), the chemical reactions which drive corrosion, always occur together - you cannot have just one or the other. If you take away the return path, electrons freed in the oxidation reaction at the anode couldn't make it to the cathode, and so corrosion would not occur. See what happens when you open and close the circuit above.</text>
+		</dialog>
+
+		<dialog mp3="17">
+			<text>The electrolyte is a medium that conducts ionic (rather than electron) current. The majority of electrolytes are based on water, like in this example, and contain ions - anions and cations - which carry a respectively negative or positive charge. In order for oxidation-reduction reactions to proceed, an electrolytic pathway is required for the transport of these ions between the anode and cathode. The electrolyte must be present to close the loop in the corrosion cell. Click on either the anode or the cathode to observe the complete reaction taking place.</text>
+		</dialog>
+
+		<dialog mp3="18">
+			<text>Now that you know how a basic corrosion cell works, try swapping some different metals for the anode and cathode. Simply click your mouse on a metal in the palette, then drag it to either the anode or the cathode and observe what happens. See if you can reverse the current direction, slow it down and speed it up, or even try to stop it all together!</text>
+		</dialog>
+
+		<!--*****--><dialog mp3="25">
+			<text>And that's your basic corrosion cell! Remember, for corrosion to occur, all four parts need to be present. Take away or inhibit just one and you eliminate corrosion, or at least render its effects negligible. Click NEXT to proceed to the next section.</text>
+		</dialog>
+		
+		<spedup mp3="19">Woah! Things are really speeding up! Remember, the greater the difference in potentials, the faster the corrosion current flows. That anode won't last very long!</spedup>
+		
+		<slowed mp3="20">Good job, that current is really slowing down. Remember, the closer together two materials' potentials are, the slower the reaction takes place. That anode will take a long time to corrode.</slowed>
+		
+		<stopped mp3="21">You have stopped the cell! By making both the anode and cathode the same metal, the potential of the cell is now zero and corrosion won't occur. Later we will find out that this isn't exactly the case, but remember for now that if the electrical potential of the cell is zero, corrosion stops.</stopped>
+		
+		<reversed mp3="22">You have reversed the cell! By giving the cathode side a more negative potential than the anode side, the two have switched roles. The previously corroding anode metal now serves as the cathode and is protected from further degredation. This is a very important concept in cathodic protection called Galvanic, or Sacrificial, CP, where one metal is purposely sacrificed to prevent corrosion of another.</reversed>
+		
+		<freakcase mp3="23">In practice, metals like gold, platinum, and silver, which have high standard potentials, can only corrode under very special conditions, usually man-made. The salt water in this example wouldn't be enough to start a reaction. So don't worry about your jewelry suddenly turning to rust!</freakcase>
+		
+		<continuenow mp3="24">You may now continue.</continuenow>
+
+	</ccs>
+
+	<dry_cell>
+		<dialog mp3="26">
+			<text>Now for a real example of a corrosion cell. You probably use one every day of your life: the dry cell battery. The dry cell battery depends on galvanic corrosion to generate electrical power. Let's see how.</text>
+		</dialog>
+
+		<dialog mp3="27">
+			<text>First, we should get a look at the inside. Hold on while I carefully cut it open, then please click and drag on the top half to remove it.</text>
+		</dialog>
+
+		<dialog mp3="28">
+			<text>Now, if the carbon is the cathode and the zinc is the anode, which side is positive and which side is negative? I'll be surprised if you get this one first try. Click and drag on the + and - icons to put them in their proper place.</text>
+		</dialog>
+
+		<dialog mp3="29">
+			<text>The return path is the wire that connects the battery to the device it is powering. Here, electrons flow from the anode along the wire until reaching the light, which acts as a resistor to convert electronic energy into heat and light. The electrons then continue to the cathode to complete the reaction. If the circuit is broken (a switch turned off), the corrosion cell as we know it up to now ceases to function. However, because of impurities in the zinc's surface, it will still be slowly corroded by what are known as local action cells. Click NEXT to learn more.</text>
+		</dialog>
+		
+		<droporthrow mp3="30">Good, now you can drop it or throw it and we'll move on.</droporthrow>
+		<nicetoss  mp3="31">Nice toss. So now we can get a glimpse of the inside. A dry cell battery creates an "ideal" setting for oxidation-reduction to occur. Zinc serves as the anode and carbon as the cathode, with an electrolytic paste to spur the reactions.</nicetoss>
+		
+		<goodjob mp3="32">Good job. Carbon has a higher potential than zinc, and therefore serves as the cathode in the cell.</goodjob>
+		<nopesorry mp3="33">Nope sorry, try again.</nopesorry>
+
+	</dry_cell>
+
+	<mobile_electrodes>
+		<dialog mp3="34">
+			<!--**UPDATE**--><text>At this point you might be saying to yourself, "Wait, most of the corrosion I see every day is only on one piece of metal. The rusty tools in my garage certainly aren't touching any pieces of copper!" And you would be right. Many times corrosion occurs with just one type of metal present, but the corrosion cell model is still applicable.</text>
+		</dialog>
+		
+		<dialog mp3="35">
+			<!--**UPDATE**--><text>Any metal will have microscopic impurities on its surface, especially due to its refinement and production. These impurities, because of slight potential differences between them, form the anodes and cathodes of what are known as local action cells, which are not fixed on a metal's surface. Click and drag on the iron anvil above to see all its electrodes moving around. The constant changing of the local action cells results in general corrosion throughout the surface of the metal.</text>
+			<action>showLocalCells</action>
+		</dialog>
+
+		<dialog mp3="36">
+			<!--**UPDATE**--><text>So if impurities in a metal increase its tendency to corrode, how do you think we could make this piece of metal much less susceptible to general corrosion? How about we try to remove these impurities. Click on an electrode to remove it. Rotate around the piece to get all of them before the time runs out!</text>
+			<action>initMiniGame</action>
+		</dialog>
+		
+	<goodjob mp3="37">Good job! You eliminated all of the electrodes on the anvil's surface. Now it will be much less susceptible to general corrosion.  The removal of the impurities has significantly reduced or eliminated the local action cells that cause the corrosion. Click NEXT to finish the level.</goodjob>
+		<sorry mp3="38">Sorry, you didn't manage to eliminate all of the electrodes in time. Click Begin to try again.</sorry>
+	</mobile_electrodes>
+
+	<the_end>
+		This is the end of level 2. This level covered the basics behind corrosion and why it's such an important issue. In future levels, you will learn more about its impact and how it can be controlled through an understanding of its underlying processes.
+	</the_end>
+</Mod1L2>

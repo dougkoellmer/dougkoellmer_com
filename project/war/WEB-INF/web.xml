@@ -74,6 +74,41 @@
 			<servlet-name>redirector</servlet-name>
 			<servlet-class>com.dougkoellmer.server.thirdparty.servlets.RedirectServlet</servlet-class>
 		</servlet>
+        
+        <servlet-mapping>
+            <servlet-name>redirector</servlet-name>
+            <url-pattern>/quickphyx/forum</url-pattern>
+        </servlet-mapping>
+        
+        <servlet-mapping>
+            <servlet-name>redirector</servlet-name>
+            <url-pattern>/quickphyx/demo</url-pattern>
+        </servlet-mapping>
+        
+        <servlet-mapping>
+            <servlet-name>redirector</servlet-name>
+            <url-pattern>/quickphyx/demo/</url-pattern>
+        </servlet-mapping>
+        
+        <servlet-mapping>
+            <servlet-name>redirector</servlet-name>
+            <url-pattern>/cp</url-pattern>
+        </servlet-mapping>
+        
+        <servlet-mapping>
+            <servlet-name>redirector</servlet-name>
+            <url-pattern>/cp/</url-pattern>
+        </servlet-mapping>
+        
+        <servlet-mapping>
+            <servlet-name>redirector</servlet-name>
+            <url-pattern>/cathodic_protection</url-pattern>
+        </servlet-mapping>
+        
+        <servlet-mapping>
+            <servlet-name>redirector</servlet-name>
+            <url-pattern>/cathodic_protection/</url-pattern>
+        </servlet-mapping>
 		
 		
 		<servlet-mapping>

@@ -25,7 +25,20 @@ public class RedirectServlet extends HttpServlet
 		"/games/coriolis",
 		"/games/atmospheric_layers",
 		"/games",
-        "/front_rack"
+        "/front_rack",
+        "/quickphyx/forum",
+        "/quickphyx/forums"
+	};
+	
+	private final String[] m_cpRedirects = 
+	{
+		"/cp",
+		"/cathodic_protection"
+	};
+	
+	private final String[] m_quickphyxDemoRedirects = 
+	{
+		"/quickphyx/demo"
 	};
 
 	@Override
@@ -36,11 +49,39 @@ public class RedirectServlet extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
+		for( int i = 0; i < m_quickphyxDemoRedirects.length; i++ )
+		{
+			if( req.getRequestURI().equals(m_quickphyxDemoRedirects[i]) || req.getRequestURI().equals(m_quickphyxDemoRedirects[i]+"/") )
+			{
+				resp.sendRedirect("/quickphyx/bin/demo.swf");
+				return;
+			}
+		}
+		
+		for( int i = 0; i < m_cpRedirects.length; i++ )
+		{
+			if( req.getRequestURI().equals(m_cpRedirects[i]) || req.getRequestURI().equals(m_cpRedirects[i]+"/") )
+			{
+				resp.sendRedirect("/cathodic_protection/Shell/Preloader.html");
+				return;
+			}
+		}
+		
+		for( int i = 0; i < m_cpRedirects.length; i++ )
+		{
+			if( req.getRequestURI().equals(m_cpRedirects[i]) || req.getRequestURI().equals(m_cpRedirects[i]+"/") )
+			{
+				resp.sendRedirect("/cathodic_protection/Shell/Preloader.html");
+				return;
+			}
+		}
+		
 		for( int i = 0; i < m_redirects.length; i++ )
 		{
 			if( req.getRequestURI().equals(m_redirects[i]) )
 			{
 				resp.sendRedirect(m_redirects[i] + "/");
+				return;
 			}
 		}
 		

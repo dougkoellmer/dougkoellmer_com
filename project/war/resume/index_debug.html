@@ -43,7 +43,9 @@
 				'positioning-system':'is a mechanism for determining the position and orientation of an object in a 2d plane or full 3d space, typically within a radius of a few meters.',
 				'epub3':'is a free and open e-book standard by the International Digital Publishing Forum, allowing complex fixed layouts, embedded HTML5 with full interactivy, and advanced narration capabilities.',
 				'bluetooth-lowenergy':'( or "BLE"), is a new radio standard, introduced in 2006. It is also known as Bluetooth Smart and is a subset of Bluetooth v4.0.',
-				iot:' is the network of physical objects or "things" embedded with electronics, software, sensors, and connectivity to enable objects to exchange data with the manufacturer, operator and/or other connected devices'
+				iot:'is the network of physical objects or "things" embedded with electronics, software, sensors, and connectivity to enable objects to exchange data with the manufacturer, operator and/or other connected devices',
+        robolectric:'is a unit testing framework that allows Android applications to be tested on the JVM in seconds without using an emulator or device.',
+        swift:'is an open-source programming language developed by Apple'
 			};
 			
 		</script>
@@ -76,6 +78,34 @@
 			{
 				margin:0px;
 				background:#C9C9C9;
+        padding-top:10px;
+			}
+      
+      .cell_ordinal
+      {
+        float: left;
+        font-size: 20px;
+        margin-left: 3px;
+        margin-top: -6px;
+        /* opacity: .5; */
+        color: #DAB058;
+        font-weight: bolder;
+        letter-spacing:1px;
+      }
+      
+      .ordinal_of
+      {
+        font-size: 12px;
+        margin-left: 2px;
+        margin-right: 2px;
+      }
+      
+			@media print
+			{
+				.cell_ordinal
+				{
+           letter-spacing:0px;
+				}
 			}
 			
 			.page
@@ -84,7 +114,7 @@
 				/*height: 11in;*/
 				margin-left:auto;
 				margin-right:auto;
-				margin-top:10px;
+				/*margin-top:10px;*/
 				padding-left:8px;
 				padding-right:8px;
 			}
@@ -108,7 +138,7 @@
 			
 			.photo
 			{
-				width:80px; height:80px; border-radius:50px;
+				width:80px; height:80px; border-radius:5px;
 			}
 			
 			.column
@@ -307,6 +337,9 @@
 				font-size:12px;
 			}
 			
+      /* wkhtmltopdf now supports border radius nicely visually, but really bloats the PDF, makes it slow to render and such.
+        Before I had this just because visually it was way off
+      */
 			@media print
 			{
 				.cell
@@ -397,9 +430,9 @@
 					<td style="vertical-align:top;">
 						<div class="contact">
 							<span class="my_name">Doug Koellmer</span><br/>
-							<span class="my_title">Software Engineer</span><br/>
+							<span class="my_title">Professional Software Engineer</span><br/>
 							<div class="contact_info">
-								West Hartford, CT<br/>
+								Canton, CT, USA<br/>
 								<a href="mailto:doug@dougkoellmer.com">doug@dougkoellmer.com</a>
 							</div>
 							
@@ -408,7 +441,9 @@
 					
 					<td>
 						<div class="photo_wrapper">
-							<img src="/img/me.jpg" class="photo" />
+              <a class="img_link_wrapper" target="_blank" href="http://www.dougkoellmer.com">
+							  <img src="/img/me_cropped.png" class="photo" />
+              </a>
 						</div>
 					</td>
 				</tr></table>
@@ -419,7 +454,7 @@
 					<div style="width:70%; display:inline-block; vertical-align:top;">
 						<div class="category_title">Open Source</div>
 						<div class="category_desc">
-						I maintain several projects related to math, physics, games, and application frameworks.<br/>
+						I maintain several projects related to application frameworks, graphics, math, physics, and games.<br/>
 						Check out my account profiles to the right and my most ambitious projects below.
 						</div>
 					</div>
@@ -449,8 +484,8 @@
 									
 									<span class="project_link_wrapper">
 										<a class="project_link" target="_blank" href="https://github.com/dougkoellmer/swarm">source</a>,
-										<a class="project_link" target="_blank" href="http://www.b33hive.net">demo</a>,
-										<a class="project_link" target="_blank" href="http://eagrereader.appspot.com">demo</a><br/>
+										<a class="project_link" target="_blank" href="http://eagrereader.appspot.com">demo</a>,
+                    <a class="project_link" target="_blank" href="http://www.dougkoellmer.com">demo</a><br/>
 									</span>
 									
 									<div class="entry_brief">A next-generation web-based CMS...</div>
@@ -491,8 +526,8 @@
 									
 									<span class="project_link_wrapper">
 										<a class="project_link" target="_blank" href="https://github.com/dougkoellmer/quickphyx">source</a>,
-										<a class="project_link" target="_blank" href="http://quickb2.dougkoellmer.com/bin/qb2DemoReel.swf">demo</a>,
-										<a class="project_link" target="_blank" href="http://quickb2.dougkoellmer.com/forum">forums</a><br/>
+										<a class="project_link" target="_blank" href="http://www.dougkoellmer.com/quickphyx/bin/demo.swf">demo</a>,
+										<a class="project_link" target="_blank" href="http://www.dougkoellmer.com/quickphyx/forums/">forums</a><br/>
 									</span>
 									
 									<div class="entry_brief">A high-level game physics engine...</div>
@@ -503,7 +538,7 @@
 									
 								</td>
 								<td class="entry_img_wrapper">
-									<a class="img_link_wrapper" target="_blank" href="http://quickb2.dougkoellmer.com/bin/qb2DemoReel.swf"><img width="75" height="90" class="img_link" src="/img/quick_phyx.png"/></a>
+									<a class="img_link_wrapper" target="_blank" href="http://www.dougkoellmer.com/quickphyx/bin/demo.swf"><img width="75" height="90" class="img_link" src="/img/quick_phyx.png"/></a>
 								</td>
 							</tr>
 						</table>
@@ -537,7 +572,7 @@
 							<!-- {{{ -->
 							<a class="img_link_wrapper" target="_blank" href="http://www.venanarcade.com/boh_info.php"><img class="img_link" style="margin-right:1px; width:65px; height:62px;" src="/img/book_of_heroes.png" /></a>
 							<a class="img_link_wrapper" target="_blank" href="http://www.gametrailers.com/videos/lpbewe/touch-tone-hero"><img class="img_link" style="margin-right:3px; border-radius:10px; width:60px; height:60px;" src="/img/touch_tone_hero.png" /></a>
-							<a class="img_link_wrapper" target="_blank" href="http://cp.johnsonsimcenter.com/"><img class="img_link" style="margin-right:3px; border-radius:10px; width:60px; height:59px; border:1px solid #CCCCCC" src="/img/teacher_icon.png" /></a>
+							<a class="img_link_wrapper" target="_blank" href="http://dougkoellmer.com/cathodic_protection/"><img class="img_link" style="margin-right:3px; border-radius:10px; width:60px; height:59px; border:1px solid #CCCCCC" src="/img/teacher_icon.png" /></a>
 							<a class="img_link_wrapper" target="_blank" href="http://dougkoellmer.com/games/"><img class="img_link" style="margin-right:2px; border-radius:10px; width:60px; height:59px; border:1px solid #CCCCCC" src="/img/ei_logo_icon.png" /></a>
 							<!-- }}} -->
 						</div>
@@ -555,13 +590,60 @@
 							<tr>
 								<td>
 									<span class="entry_title">
-										Lead Programmer
+										Senior Android Engineer
+									</span>
+									
+									<div class="job_brief">
+										Third Iron<br/>
+										EdTech Startup<br/>
+										Winter 2016 - Present
+									</div>
+								</td>
+								<td class="entry_img_wrapper">
+									<a class="img_link_wrapper" target="_blank" href="http://www.thirdiron.com"><img style="" width="184" height="43" class="img_link" src="/img/thirdiron.png"/></a>
+								</td>
+							</tr>
+							
+							<tr>
+								<td colspan="2">
+									<div class="job_desc" style="margin-top:-8px;">
+										<ul>
+											<li>Took ownership of existing flagship app <a href="https://play.google.com/store/apps/details?id=com.browzine&hl=en" target="_blank">Browzine</a>,
+                        leading the development of new features and refactoring prototype debt.
+                      <li>Lines of code cut by 50%, dependencies slashed, 3 install permissions removed, app filesize cut by 25%, crash-free users up 10%, robust unit testing added, 1/8th the build time, cleaner architecture.</li>
+											<li>Ported new features both to and from iOS in Swift.</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+							
+						</table>
+						
+            <div class="cell_ordinal">1<span class="ordinal_of">of</span>7</div>
+            
+						<div class="work_tag_container tag_container">
+							<a class="tag tooltip">java</a>
+              <a class="tag tooltip">swift</a>
+							<a class="tag tooltip">android</a>
+              <a class="tag tooltip">robolectric</a>
+							<a class="tag tooltip">git</a>
+							<!--<a class="tag tooltip">pulling hair out</a>-->
+						</div>
+					</div>
+          
+					<div class="work_cell cell entry_wrapper half_cell">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										Senior IoT Engineer
 									</span>
 									
 									<div class="job_brief">
 										iDevices<br/>
 										IoT Startup<br/>
-										Spring 2014 - Present
+										Spring 2014 - Winter 2016
 									</div>
 								</td>
 								<td class="entry_img_wrapper">
@@ -574,15 +656,17 @@
 									<div class="job_desc" style="margin-top:-8px;">
 										<ul>
 											<li>Built up their Android development team from zero to five.</li>
-											<li>Led the development of their flagship app, <a href="https://play.google.com/store/apps/details?id=com.idevicesllc.connected&hl=en" target="_blank">iDevices Connected</a>.</li>
+											<li>Led the development of their flagship app <a href="https://play.google.com/store/apps/details?id=com.idevicesllc.connected&hl=en" target="_blank">iDevices Connected</a>.</li>
 											<li>Led the development and management of <a href="https://github.com/iDevicesInc/SweetBlue" target="_blank">SweetBlue</a>.</li>
-											<li>Oversaw both porting and from-scratch development efforts for several client applications on Android.</li>
+											<li>Oversaw consulting projects for several Android apps, most significant being <a href="https://play.google.com/store/apps/details?id=com.nkhome.kestrel&hl=en" target="_blank">Kestrel LiNK</a>.</li>
 										</ul>
 									</div>
 								</td>
 							</tr>
 							
 						</table>
+            
+            <div class="cell_ordinal">3<span class="ordinal_of">of</span>7</div>
 						
 						<div class="work_tag_container tag_container">
 							<a class="tag tooltip">bluetooth-lowenergy</a>
@@ -593,149 +677,7 @@
 							<!--<a class="tag tooltip">pulling hair out</a>-->
 						</div>
 					</div>
-					
-					
-					<div class="work_cell cell entry_wrapper half_cell">
-						
-						<table class="entry_table">
-							<tr>
-								<td>
-									<span class="entry_title">
-										Lead Programmer
-									</span>
-									
-									<div class="job_brief">
-										Eagre Interactive<br/>
-										EdTech Startup<br/>
-										Summer 2012 - Winter 2014
-									</div>
-								</td>
-								<td class="entry_img_wrapper">
-									<a class="img_link_wrapper" target="_blank" href="http://eagreinteractive.com"><img style="margin-top:-8px; margin-right:-8px;" width="80" height="80" class="img_link" src="/img/ei_logo_icon.png"/></a>
-								</td>
-							</tr>
-							
-							<tr>
-								<td colspan="2">
-									<div class="job_desc" style="margin-top:-8px;">
-										<ul>
-											<li>Created the company <a href="http://eagreinteractive.com" target="_blank">website</a>.</li>
-											<li>Helped run a Kickstarter <a href="http://www.kickstarter.com/projects/1610630098/why-do-polar-bears-have-such-big-butts" target="_blank">campaign</a>.</li>
-											<li>Created a series of interactive HTML5 minigames for McGraw-Hill's Earth Science division. See some samples <a href="http://dougkoellmer.com/games/" target="_blank">here</a>.</li>
-											<li>Prototyped a radical new kind of <a href="http://eagrereader.appspot.com" target="_blank">fixed-layout ePub3 reader</a> for textbooks.</li>
-											<li>General system administration and tech troubleshooting.</li>
-											<!--<li>Knee-deep in all the gore that goes along with running a business.</li>-->
-										</ul>
-									</div>
-								</td>
-							</tr>
-							
-						</table>
-						
-						<div class="work_tag_container tag_container">
-							<a class="tag tooltip">html5</a>
-							<a class="tag tooltip">javascript</a>
-							<a class="tag tooltip">php</a>
-							<a class="tag tooltip">java</a>
-							<a class="tag tooltip">epub3</a>
-							<a class="tag tooltip">svn</a>
-							<!--<a class="tag tooltip">pulling hair out</a>-->
-						</div>
-					</div>
-					
-					<div class="work_cell cell entry_wrapper half_cell">
-						
-						<table class="entry_table">
-							<tr>
-								<td>
-									<span class="entry_title">
-										Lead Programmer
-									</span>
-									
-									<div class="job_brief">
-										Johnson Center for Simulation<br/>
-										Serious Game Studio<br/>
-										Spring 2008 - Winter 2011
-									</div>
-									
-								</td>
-								<td class="entry_img_wrapper">
-									<a class="img_link_wrapper" target="_blank" href="http://johnsonsimcenter.com"><img width="71.5px" height="50px" class="img_link" src="/img/jcs_logo_white.png"/></a>
-								</td>
-							</tr>
-							
-							<tr>
-							<td colspan="2">
-								<div class="job_desc">
-									<ul>
-										<li>Led the programming and design for a <a target="_blank" href="http://cp.johnsonsimcenter.com">$1 million game</a> funded by the Department of Defense to teach metal corrosion principles and prevention. They gave us another $2 million the next year.</li>
-										<li>Led a $200,000 project funded by <a target="_blank" href="http://medrad.com">Medrad</a> using force-feedback devices to simulate a gluing procedure that was too expensive to teach with real parts.</li>
-										<li>Programmed and co-designed a rhythm-based iOS game called <a target="_blank" href="http://www.gametrailers.com/videos/lpbewe/touch-tone-hero">Touch Tone Hero</a>. It currently has a 4/5 rating.</li>
-										<li>Created an in-house logging system to track daily project progress and compile reports for clients. It has been used for 4 years and saved countless manager-hours.</li>
-										<li>Made a proof-of-concept for using a $30 Wiimote as a 6-DoF 3d tracker. Funded by the NSF to replace the multi-thousand dollar trackers normally in use.</li>
-										<li>Made numerous custom hardware components for the center's various VR systems; mounts, electronics, casings, mock-ups, etc.</li>
-									</ul>
-								</div>
-							</td>
-						</tr>
-						
-						</table>
-						
-						<div class="work_tag_container tag_container">
-							<a class="tag tooltip">ios</a>
-							<a class="tag tooltip">as3</a>
-							<a class="tag tooltip">c++</a>
-							<a class="tag tooltip">c#</a>
-							<a class="tag tooltip">php</a>
-							<a class="tag tooltip">aug-reality</a>
-							<a class="tag tooltip">positioning-system</a>
-							<a class="tag tooltip">svn</a>
-						</div>
-					</div>
-					
-				</td>
-				
-				<td class="column column_right">
-					<div class="work_cell column_top_cell cell entry_wrapper half_cell">
-						
-						<table class="entry_table">
-							<tr>
-								<td>
-									<span class="entry_title">
-										SweetBlue
-									</span>
-									
-									<span class="project_link_wrapper">
-										<a class="project_link" target="_blank" href="https://github.com/iDevicesInc/SweetBlue">source</a>,
-										<a class="project_link" target="_blank" href="https://www.youtube.com/watch?v=IVHjKXb5sms">video</a>,
-										<a class="project_link" target="_blank" href="http://idevicesinc.com/sweetblue/">website</a><br/>
-									</span>
-									
-									<div class="entry_brief">Bluetooth Low Energy on Android...</div>
-									
-									<div class="entry_desc">
-										with a simple, consistent, async-event-based API that drastically reduces the effort needed to bring a BLE app to market. Headed development, pushed through its public release, and was technical point of contact for over a dozen proprietary licensees.
-									</div>
-									
-								</td>
-								<td class="entry_img_wrapper">
-									<a class="img_link_wrapper" style="padding-right:12px; padding-left:12px;" target="_blank" href="https://github.com/iDevicesInc/SweetBlue"><img height="125" width="32" class="img_link" src="/img/sweetblue_logo.png"/></a>
-									
-								</td>
-							</tr>
-						</table>
-						
-						<div class="tag_container">
-							<a class="tag tooltip">bluetooth-lowenergy</a>
-							<a class="tag tooltip">java</a>
-							<a class="tag tooltip">c</a>
-							<a class="tag tooltip">android</a>
-							<a class="tag tooltip">ios</a>
-							<a class="tag tooltip">git</a>
-						</div>
-					</div>
-					
-					
+          
 					<div class="work_cell cell entry_wrapper half_cell">
 						
 						<table class="entry_table">
@@ -768,6 +710,8 @@
 								</td>
 							</tr>
 						</table>
+            
+            <div class="cell_ordinal">5<span class="ordinal_of">of</span>7</div>
 						
 						<div class="work_tag_container tag_container">
 							<a class="tag tooltip">ios</a>
@@ -782,7 +726,7 @@
 							<a class="tag tooltip">svn</a>
 						</div>
 					</div>
-					
+          
 					<div class="work_cell cell entry_wrapper half_cell">
 						
 						<table class="entry_table">
@@ -819,6 +763,8 @@
 							</tr>
 							
 						</table>
+            
+            <div class="cell_ordinal">7<span class="ordinal_of">of</span>7</div>
 						
 						<div class="work_tag_container tag_container">
 							<a class="tag tooltip">c++</a>
@@ -827,6 +773,163 @@
 							<a class="tag tooltip">svn</a>
 						</div>
 						
+					</div>
+					
+				</td>
+				
+				<td class="column column_right">
+          
+					<div class="work_cell column_top_cell cell entry_wrapper half_cell">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										SweetBlue
+									</span>
+									
+									<span class="project_link_wrapper">
+										<a class="project_link" target="_blank" href="https://github.com/iDevicesInc/SweetBlue">source</a>,
+										<a class="project_link" target="_blank" href="https://www.youtube.com/watch?v=IVHjKXb5sms">video</a>,
+										<a class="project_link" target="_blank" href="http://idevicesinc.com/sweetblue/">website</a>,
+										<a class="project_link" target="_blank" href="http://www.dougkoellmer.com/sweetblue/docs/">docs</a>,
+										<a class="project_link" target="_blank" href="https://github.com/iDevicesInc/SweetBlue/wiki">wiki</a><br/>
+									</span>
+									
+									<div class="entry_brief">Bluetooth Low Energy for Android...</div>
+									
+									<div class="entry_desc">
+										with a simple, consistent, async-event-based API that drastically reduces the effort needed to bring a BLE app to market. Headed development, pushed through its public release, and was technical point of contact for over a dozen proprietary licensees.<br>
+									</div>
+									
+								</td>
+								<td class="entry_img_wrapper">
+									<a class="img_link_wrapper" style="padding-right:12px; padding-left:12px;" target="_blank" href="https://github.com/iDevicesInc/SweetBlue"><img height="125" width="32" class="img_link" src="/img/sweetblue_logo.png"/></a>
+								</td>
+							</tr>
+              
+              <tr>
+                <td colspan="2">
+                  <div class="entry_desc" style="margin-top:0px;">
+                    This started as an internal project to aid in developing <a href="https://play.google.com/store/apps/details?id=com.idevicesllc.connected&hl=en" target="_blank">iDevices Connected</a>, but I saw the potential this could have for all Android BLE apps
+                    and championed the cause of getting it open sourced under the GPL together with a proprietary licensing system which brought iDevices roughly $100,000 in additional annual revenue.
+                  </div>
+                </td>
+              </tr>
+						</table>
+            
+            <div class="cell_ordinal" style="margin-top:5px;">2<span class="ordinal_of">of</span>7</div>
+						
+						<div class="tag_container">
+							<a class="tag tooltip">bluetooth-lowenergy</a>
+							<a class="tag tooltip">java</a>
+							<a class="tag tooltip">c</a>
+							<a class="tag tooltip">android</a>
+							<a class="tag tooltip">ios</a>
+							<a class="tag tooltip">git</a>
+						</div>
+					</div>
+          
+					<div class="work_cell cell entry_wrapper half_cell">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										Technical Director
+									</span>
+									
+									<div class="job_brief">
+										Eagre Interactive<br/>
+										EdTech Startup<br/>
+										Summer 2012 - Winter 2014
+									</div>
+								</td>
+								<td class="entry_img_wrapper">
+									<a class="img_link_wrapper" target="_blank" href="http://eagre.dougkoellmer.com"><img style="margin-top:-8px; margin-right:-8px;" width="80" height="80" class="img_link" src="/img/ei_logo_icon.png"/></a>
+								</td>
+							</tr>
+							
+							<tr>
+								<td colspan="2">
+									<div class="job_desc" style="margin-top:-8px;">
+										<ul>
+											<li>Created the company <a href="http://eagre.dougkoellmer.com" target="_blank">website</a>.</li>
+											<li>Led a Kickstarter <a href="http://www.kickstarter.com/projects/1610630098/why-do-polar-bears-have-such-big-butts" target="_blank">campaign</a>.</li>
+											<li>Created a series of interactive HTML5 minigames for McGraw-Hill's Earth Science division. See some samples <a href="http://dougkoellmer.com/games/" target="_blank">here</a>.</li>
+											<li>Prototyped a radical new kind of <a href="http://eagrereader.appspot.com" target="_blank">fixed-layout ePub3 reader</a> for textbooks.</li>
+											<li>General system administration and tech troubleshooting.</li>
+											<!--<li>Knee-deep in all the gore that goes along with running a business.</li>-->
+										</ul>
+									</div>
+								</td>
+							</tr>
+							
+						</table>
+            
+            <div class="cell_ordinal">4<span class="ordinal_of">of</span>7</div>
+						
+						<div class="work_tag_container tag_container">
+							<a class="tag tooltip">html5</a>
+							<a class="tag tooltip">javascript</a>
+							<a class="tag tooltip">php</a>
+							<a class="tag tooltip">java</a>
+							<a class="tag tooltip">epub3</a>
+							<a class="tag tooltip">svn</a>
+							<!--<a class="tag tooltip">pulling hair out</a>-->
+						</div>
+					</div>
+          
+					<div class="work_cell cell entry_wrapper half_cell">
+						
+						<table class="entry_table">
+							<tr>
+								<td>
+									<span class="entry_title">
+										Lead Programmer
+									</span>
+									
+									<div class="job_brief">
+										Johnson Center for Simulation<br/>
+										Serious Game Studio<br/>
+										Spring 2008 - Winter 2011
+									</div>
+									
+								</td>
+								<td class="entry_img_wrapper">
+									<a class="img_link_wrapper" target="_blank" href="http://www.dougkoellmer.com/cathodic_protection/"><img width="71.5px" height="50px" class="img_link" src="/img/jcs_logo_white.png"/></a>
+								</td>
+							</tr>
+							
+							<tr>
+							<td colspan="2">
+								<div class="job_desc">
+									<ul>
+										<li>Led the programming and design for a <a target="_blank" href="http://www.dougkoellmer.com/cathodic_protection/">$1 million game</a> funded by the Department of Defense to teach metal corrosion principles and prevention. They gave us another $2 million the next year.</li>
+										<li>Led a $200,000 project funded by <a target="_blank" href="http://medrad.com">Medrad</a> using force-feedback devices to simulate a gluing procedure that was too expensive to teach with real parts.</li>
+										<li>Programmed and co-designed a rhythm-based iOS game called <a target="_blank" href="http://www.gametrailers.com/videos/lpbewe/touch-tone-hero">Touch Tone Hero</a>. It currently has a 4/5 rating.</li>
+										<li>Created an in-house logging system to track daily project progress and compile reports for clients. It has been used for 4 years and saved countless manager-hours.</li>
+										<li>Made a proof-of-concept for using a $30 Wiimote as a 6-DoF 3d tracker. Funded by the NSF to replace the multi-thousand dollar trackers normally in use.</li>
+										<li>Made numerous custom hardware components for the center's various VR systems; mounts, electronics, casings, mock-ups, etc.</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						
+						</table>
+            
+            <div class="cell_ordinal">6<span class="ordinal_of">of</span>7</div>
+						
+						<div class="work_tag_container tag_container">
+							<a class="tag tooltip">ios</a>
+							<a class="tag tooltip">as3</a>
+							<a class="tag tooltip">c++</a>
+							<a class="tag tooltip">c#</a>
+							<a class="tag tooltip">php</a>
+							<a class="tag tooltip">aug-reality</a>
+							<a class="tag tooltip">positioning-system</a>
+							<a class="tag tooltip">svn</a>
+						</div>
 					</div>
 				</td>
 				

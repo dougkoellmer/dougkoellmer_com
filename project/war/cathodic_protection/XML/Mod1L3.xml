@@ -1,0 +1,98 @@
+﻿<Mod1L3>
+
+	<name>More Corrosion Cells</name>
+
+	<description>
+		A more in depth look at the various ways corrosion can occur by allowing the player to mess around with different kinds of corrosion cells.
+	</description>
+
+	<intro mp3="01">
+		All right player! Last level we went over the basics of corrosion, most importantly introducing you to the corrosion cell model.  In this level, we're going to delve into some more ways that a corrosion cell can develop between two pieces of metal.
+	</intro>
+
+	<differential>
+		<frigate>
+			<rusted>The classic example of dissimilar metal corrosion is the HMS Alarm. This frigate was sheathed in copper in the mid-1700's to prevent attack by barnacles. It was soon discovered however that the iron nails securing the copper in place had become "much rotted".</rusted>
+			<shiny>By chance, some of the nails still had the brown paper from their packaging lodged underneath their heads, separating them from the copper. Unsurprisingly to us, these nails were largely intact. A 1763 report to the Admiralty on the "rotting" of these nails helped usher in the modern study of metal corrosion.</shiny>
+		</frigate>
+
+		<dialog mp3="02">
+			<text>There are several different types of corrosion cells. Since you are already familiar with the basic one, let's use it to explore the more advanced ones...</text>
+		</dialog>
+		
+		<dialog mp3="03">
+			<!--**UPDATE**--><text>A dissimilar metal cell is a corrosion cell just like we covered in the previous level. However, there are also several more situations where this type of corrosion cell can occur, for example when you have: (1) Metals containing conductive impurities (like the dry-cell battery example); (2) Dissimilar metals touching (e.g. a bronze propeller in contact with a steel hull); (3) Contact of identical metals with different heat treatments.
+			</text>
+		</dialog>
+		
+		<dialog mp3="04">
+			<text>
+			Basically, as you can see, there are a lot of different ways in which metals can seem like they are identical, but, in fact, form a dissimilar metal cell when placed in contact with one another.</text>
+		</dialog>
+		
+		<dialog mp3="05">
+			<!--**UPDATE**--><text>Ok then, as a quick review of the last level, I've provided you with some electrolyte and a return path. Why don't you throw together two of the available metals. I want electron flow to the right. The meaning of the voltages assigned to each of the metals will be explained later.  However, note the magnitude and sign convention of the voltage number, and the relative position of the metal in the list.</text>
+		</dialog>
+		
+		<cancontinue mp3="06">Yes! You may continue to the next section at your leisure to discover more types of corrosion cells.</cancontinue>
+		<currentmovingbut mp3="07">Ok, you got the current moving, but remember that I want it moving left to right.</currentmovingbut>
+		<nodifference mp3="08">Ok, you got electrodes into the slots, but there's no potential difference between them, and thus no current.</nodifference>
+
+	</differential>
+
+	<concentration>
+		<dialog mp3="09">
+			<text>The second type of corrosion cell is called a concentration cell. There are two basic kinds of concentration cells.  In both, the anode and the cathode may be the same, but they come in contact with different electrolyte compositions.</text>
+		</dialog>
+		
+		<dialog mp3="10">
+			<text>The first type of concentration cell is called a metal ion concentration cell. Salts containing the electrode metal, dissolved in the electrolyte, can be of varying concentrations. These differences can result in a concentration corrosion cell. Basically, if the anode is exposed to a different salt concentration than the cathode, a corrosion cell can form.</text>
+		</dialog>
+		
+		<dialog mp3="11">
+			<text>Alright, I have provided you with the four essential parts of a corrosion cell, but you can see that the cell is polarized (no current).  So, I need you to pick up the salt shaker and get a corrosion current going. Click and drag to move it around, and shake it up and down to get salt to come out. Let’s see what happens!</text>
+		</dialog>
+		
+		<dialog mp3="12">
+			<!--**UPDATE**--><text>The second type of concentration cell is called a differential aeration cell. The basic idea is the same as the metal ion cell, but, instead of salt, oxygen is the agent that depolarizes the cell and starts a current. You can see that the iron electrode on the left is corroding because, just like with salt, the electrode exposed to less oxygen will usually be the one that becomes anodic and corrodes. The meaning of the voltages assigned to each of the metals will be explained later.  However, the results of magnitude and sign convention changes illustrate the impact on corrosion by oxygen concentration. I want you to use the bubble gun below to stop the reaction completely.</text>
+		</dialog>
+		
+		<challenge mp3="13">Good, you can see that the electrode exposed to more salt has become cathodic. I will now challenge you to a duel. I will take the salt shaker on the left and attempt to reach maximum salinity first and thus corrode your electrode. You must try and stop me.  Press "Begin" at any time.</challenge>
+		<sorry mp3="14">Sorry, but I have won, and now your electrode will corrode because of the lesser salt concentration surrounding it. Press Begin to try again.</sorry>
+		<youwin mp3="15">Ok, you win this one! Your electrode has a higher salt concentration surrounding it, and so it will cause my electrode to corrode.</youwin>
+		<whew mp3="16">Whew! It's getting tough!!!</whew>
+		
+		<goodjob mp3="17">Good job, thanks for stopping the current for me. You may continue to the next section at any time.</goodjob>
+		
+	</concentration>
+
+	<temperature>
+		<blurb>A gas transmission line emerging from a compressor is a good example of differential temperature corrosion. The just-compressed gas is hot and loses heat to the surrounding water as it travels down the line. The hot part of the pipe nearer the compressor is the anode, the end of the pipe the cathode, the water the electrolyte, and the pipe itself the return path.</blurb>
+		
+		<dialog mp3="18">
+			<!--**UPDATE**--><text>The last kind of cell we will cover in this level is the differential temperature cell. Again, you may have two objects composed of the exact same material, but if there is a temperature difference between them, a corrosion cell can result. Cells like this are commonly found in heat exchangers, boilers, and related equipment. The meaning of the voltages assigned to each of the metals will be explained later.  However, the results of magnitude and sign convention changes illustrate the impact on corrosion by temperature.</text>
+		</dialog>
+		
+		<dialog mp3="19">
+			<text>Let's make one and play around.  I have given you an anode and cathode of the same material, but I have slightly adjusted their temperature to start a current. I have also given you a Bunsen burner and a freeze gun. With them, I want you to stop, slow down, speed up, and reverse the cell, just like in the last level. You'll notice that the higher temperature electrode has become anodic.</text>
+		</dialog>
+		
+		<reversed mp3="20">The cell is reversed! By making the right electrode hotter than the left, it has become anodic, protecting the left electrode from further degredation.</reversed>
+		<stopped mp3="21">You have stopped the cell! By giving both materials the same temperature, there is no potential difference between them and corrosion has stopped completely.</stopped>
+		<spedup mp3="22">That cell is out of control! Things are really cooking now!</spedup>
+		<slowed mp3="23">You have slowed the cell down! You can see that as the temperatures get closer together, the current diminishes.</slowed>
+		<maycontinue mp3="24">You may now continue to the next section.</maycontinue>
+		
+	</temperature>
+	
+	<playground>
+		<dialog mp3="25">
+			<!--**UPDATE**--><text>Alrighty then. You seemed to pick all that material up rather well. To end the level, I'm opening up all the functionality of the corrosion cell for you to play around with. Have fun. You may end this level at your leisure. The animations shown here are not actual methods for corrosion control solutions.  Rather they have served to illustrate the many different things that can impact the occurrence of corrosion.</text>
+		</dialog>
+	</playground>
+	
+	<the_end>
+		You have now finished level 3. This level went into a little more depth about how corrosion cells can develop. In future levels you will use this knowledge to stop corrosion from attacking some virtual structures.
+	</the_end>
+
+</Mod1L3>

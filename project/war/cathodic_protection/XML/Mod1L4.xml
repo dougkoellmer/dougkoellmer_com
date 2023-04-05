@@ -1,0 +1,192 @@
+﻿<Mod1L4>
+
+	<name>Basic Galvanic CP</name>
+
+	<description>
+		Discover how your knowledge of the corrosion cell can be used to trick mother nature into stopping corrosion.
+	</description>
+
+	<dialogs>
+	
+		<dialog mp3="01"><!--Frame 4-->
+			<text>In the last two levels you learned about the four different components of a corrosion cell: the anode, the cathode, the metallic pathway, and the electrolyte.  You also learned how ambient conditions like heat, salt concentration, etc. can accelerate the corrosion cell.  In this level, we're going to take advantage of that knowledge to stop corrosion in its tracks through something called Cathodic Protection.  In simple terms, CP can be taken to mean, "Stopping corrosion of a metal by turning it into a cathode."</text>
+		</dialog>
+
+		<dialog mp3="02"><!--Frame 5-->
+		<text>There are two types of CP, but we'll just concentrate on the more basic one for now, called Galvanic, or Sacrificial CP.  The term 'galvanic' often refers to a dissimilar metal contact, which results in an electrical potential difference. As you've already learned, an anode is the corroding member in a dissimilar metal combination, while the cathode is "protected" from corrosion. Galvanic CP operates on the principle that a more active metal connected to a less-active metal forms a galvanic corrosion cell. This is used to our benefit to protect the less active metal.</text>
+		</dialog>
+
+		<dialog mp3="03"><!--Frame 6-->
+			<text>The more active metal corrodes (is sacrificed) to protect the less active metal; therefore, the anodes used in Galvanic CP are often called sacrificial anodes. When picking a type of metal to put into your galvanic CP system, remember that it needs to be more active (more electrically negative) than the type of metal you are protecting, which you can also say has a higher potential or positive charge. Metals towards the bottom of our chart are more active.</text>
+			
+			<whenyouwin emotion="Excited" mp3="04">Wow nice job!</whenyouwin>
+			<whenhalfway emotion="Anticipation" mp3="05">Yes! You're doing great.</whenhalfway>
+		</dialog>
+		
+		<dialog mp3="06"><!--Frame 7-->
+			<text>Let's try installing a simple Galvanic CP system. All corrosion cells in previous levels were microscopic.  Think of this one as a macroscopic cell, with the left electrode being the structure, corroding due to its own microscopic cells, and the empty slot being a place to install CP.  Choose the sacrificial anode that will best protect this structure by attempting to get the structure-to-electrolyte reading above as close to -.85 volts as possible. Click "Done" when you think you have the right anode in place.</text>
+			
+			<aluminum mp3="07">I'll stop you right there. Aluminum may seem like a good choice, but because it is a passivating metal, that is, forms a passive film on its surface, it actually makes a for a bad anode choice in soil. Some proprietary aluminum anodes are however sometimes used in seawater, which is agressive enough to negate aluminum's passivation.</aluminum>
+			<nometal emotion="Curious" mp3="08">Um...you need to put a metal into the slot first...</nometal>
+			<correctmetal emotion="Approved" mp3="09">Good work. CP engineers often refer to a -.85 volt structure-to-electrolyte potential as a "magic" number indicating a properly running CP installation, so you want to get as close as possible. There are of course many other criteria involved, but this is usually the most important. The number itself is simply a reading of the voltage between the structure and a reference electrode that is carried around by an engineer specifically for this purpose.</correctmetal>
+		
+			<incorrectmetal emotion="Disappointed" mp3="10">It seems you've actually accelerated corrosion of the iron.  Please try again with a lower potential metal. </incorrectmetal>
+			
+						<close emotion="Anticipation" mp3="11">Very close! However there is one metal that is a little better. Try again.</close>
+			
+			<equalmetal emotion="GrudgingApproval" mp3="12">Effective Galvanic CP requires a current flowing from the sacrificial anode to the structure. Why don't you try again.</equalmetal>
+			
+			<pleasecontinue mp3="13">Please continue.</pleasecontinue>
+
+		</dialog>
+		
+		<dialog mp3="14"><!--Frame 8-->
+			<text>Now that you have a basic knowledge of Galvanic CP, let's go a little deeper.  Check out its main benefits above...</text>
+		</dialog>
+		
+		<dialog mp3="15"><!--Frame 9-->
+			<text><!--font size="13"-->Galvanic CP does have some disadvantages however...<!---</font> --></text>
+		</dialog>
+
+		<dialog mp3="16"><!--Frame 10-->
+			<text>
+				Let's get down to business. Here are three structures to consider. For now, each one will either need a system installed, or will not require CP at all. It is your task to decide which structures to install Galvanic CP on! But first, let me walk you through the process.  Please click on the underground tank above.
+			</text>
+		</dialog>
+
+	</dialogs>
+	
+	<endoflevel>This is the end of level 4.  This level covered the basics of Galvanic Cathodic Protection; how it works and when it's used. The next level will introduce you to a more advanced method of CP called Impressed Current.</endoflevel>
+
+	<minigame>
+	
+		<rememberaluminum emotion="Angry" mp3="17">Remember, even though it's offered, aluminum does not make a good anode in soil due to its passivating effects. Use another metal.</rememberaluminum>
+		
+		<clickedonstruct mp3="18" emotion="Pleased" >Good. By selecting a structure you get access to a couple of simple tools that will provide you with all the information you need to make an informed decision, and the means by which to take action. Please click on the magnifying glass above me.</clickedonstruct>
+		
+		<clickedonmag mp3="19" emotion="" >Great! When you click on the magnifying glass, it will provide you with some basic information on the structure you're considering.  You must use the information in the report to decide whether or not Galvanic CP is required. To install a system, click on the hammer and wrench icon.</clickedonmag>
+		
+		<clickedonhammer mp3="20" emotion="Curious" >Based on the information you've just read, and the corrosion cell model now displayed, what do you think? Should this structure have a Galvanic system installed on it? If you think so, please slide a new electrode metal into the right side of the corrosion cell and click 'complete'. Remember about the -.85 potential too. If you think the structure is fine as is, just click 'complete' alone to leave the structure with an empty CP slot.</clickedonhammer>
+		
+		<needsitchoseyesok mp3="21" emotion="Approved">Good choice. That coating could weaken in critical areas, and an efficient CP system provides a good fallback.  Now let's take care of the other two structures.</needsitchoseyesok>
+		
+		<needsitchoseyesbutnotenough mp3="22" emotion="Bored">Well you're right that this structure should have a system installed, but it looks like the electrode you've chosen isn't providing enough to current to push the structure-to-electrolyte reading to -.85V. Try again.</needsitchoseyesbutnotenough>
+		
+		<needsitchoseyesbuttoomuch mp3="23" emotion="Worried">Hmm...yes, this structure does need CP, but the anode you're using has pushed the structure-to-electrolyte reading too far past -.85V, leading to possible "over-protection", where the structure can become very brittle even though it doesn't rust. Try again.</needsitchoseyesbuttoomuch>
+		
+		<needsitchoseyesbut mp3="24" emotion="Bored">Well you're right that this structure should have a system installed, but it looks like the electrode you've chosen is in fact causing the structure to corrode more. Try again.</needsitchoseyesbut>
+		
+		<needsitchoseno mp3="25" emotion="Frown" >Hmm no, wrong answer. This structure could in fact use some CP. Please try again.</needsitchoseno>
+		
+		<minigamecomplete mp3="26">You've already completed the minigame, so you may move on.</minigamecomplete>
+		
+		<congrats mp3="27" emotion="Excited">You've completed the challenge! All your structures are safe...for now. You may now move on.</congrats>
+		
+		<otherstructs>
+			<needsitchoseyesok mp3="28" emotion="Smug">I agree, that is an excellent CP installation.</needsitchoseyesok>
+			<needsitchoseyesbutnotenough mp3="29" emotion="Anticipation">Ok, very close. You've chosen an anode that will protect the structure to a degree, but there's another anode on the list that's more ideal.</needsitchoseyesbutnotenough>
+			<needsitchoseyesbut mp3="30" emotion="Stupid">A Galvanic CP system requires a lower potential metal than the one you're protecting. You just caused the structure to corrode faster! Try again.</needsitchoseyesbut>
+			<needsitchoseyesbutequal mp3="31" emotion="Disappointed">A Galvanic CP system doesn't really work if you use the structure metal as an electrode.  Go back and change it.</needsitchoseyesbutequal>
+			<needsitchoseno mp3="32" emotion="Disappointed">Hrm, not quite.  Why don't you go back and take another look...</needsitchoseno>
+			<doesntneedchoseyes mp3="33" emotion="Disappointed">Really? I would say CP isn't needed in that situation. Take another look.</doesntneedchoseyes>
+			<doesntneedchoseno mp3="34" emotion="Smug">I agree, that structure does not need CP.</doesntneedchoseno>
+		</otherstructs>
+		
+		<bridge background="SoilZoom" >
+			<hmm mp3="35" emotion="Concentrated">Hmmm...I wonder what this bridge has in store for us...</hmm>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>Only a small amount of piles in random locations require repair, indicating that the damage may be due to structural problems, and not necessarily corrosion.</info>
+				<needscp>no</needscp>
+				<salt>.15</salt>
+				<res>0</res>
+			</scenario>
+			<!-- <scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>An inspection of the bridge revealed minor cracking and spalling of the reinforced concrete support piles in the splash zone.</info>
+				<needscp>yes</needscp>
+				<salt>1</salt>
+			</scenario>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>Chloride content exceeds the threshold for corrosion.</info>
+				<needscp>yes</needscp>
+				<salt>1</salt>
+			</scenario>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The bridge's rebar structure is corroding due to salts leaking down through the concrete.  A system requiring a minimal amount of maintenance is desired.</info>
+				<needscp>yes</needscp>
+				<salt>2</salt>
+			</scenario> -->
+		</bridge>
+
+		<tank background="SoilZoom">
+			<!--<scenario>
+				<budget>0</budget>
+				<metal>Old Steel</metal>
+				<info>The tank is very old and rusted through.  There's enough money left in the budget to replace it, and it seems that any kind of CP installed now would be too little too late.</info>
+				<needscp>no</needscp>
+				<salt>7</salt>
+			</scenario> -->
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The tank is fairly new and has a good coating efficiency of 95%.  There's a little money left in the budget though, and you never know what can happen to the coating further down the line.</info>
+				<needscp>yes</needscp>
+				<salt>.25</salt>
+				<res>-250</res>
+			</scenario>
+			<!--<scenario>
+				<budget>0</budget>
+				<metal>New Steel</metal>
+				<info>Soil resistivity is 3,500 ohm-cm.</info>
+				<needscp>yes</needscp>
+			</scenario>
+			<scenario>
+				<budget>0</budget>
+				<metal>New Steel</metal>
+				<info>Electrical isolation of the storage tank system (including the associated pipelines) from other buried metallic structures in the area can be easily accomplished.</info>
+				<needscp>yes</needscp>
+			</scenario>	-->
+		</tank>
+
+		<boat background="WaterZoom">
+			<hmm mp3="36" emotion="Concentrated">This one might be tricky...</hmm>
+		<!--	<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The hull has a good coating and even though it may deteriorate further down the road, it would be nice if the budget could be put towards other things for now.</info>
+				<needscp>no</needscp>
+				<salt>.1</salt>
+			</scenario>
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>The boat is quite small and is starting to develop some rust spots around its hull.  Your budget is looking pretty good but not enough to put the boat into dry dock and give it a coating.</info>
+				<needscp>yes</needscp>
+				<salt>.4</salt>
+			</scenario> -->
+			<!--<scenario>
+				<budget>0</budget>
+				<metal>Aluminum</metal>
+				<info>The hull is made of aluminum. </info>
+				<needscp>yes</needscp>
+			</scenario>-->
+			<scenario>
+				<budget>0</budget>
+				<metal>Iron</metal>
+				<info>Even though your boat looks fine at the moment, your superiors have informed you that they need a cheap and easy way to prevent it from corroding in the future.</info>
+				<needscp>yes</needscp>
+				<salt>.1</salt>
+				<res>-50</res>
+			</scenario>
+		</boat>
+
+	</minigame>
+
+</Mod1L4>
